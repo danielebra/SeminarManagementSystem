@@ -6,8 +6,13 @@ using System.Threading.Tasks;
 
 namespace Seminar_Management_System.Classes.Users
 {
-    class Speaker : User
+    public class Speaker : User
     {
         public string Biography { get; set; }
+
+        public Speaker(string name, string biography) : base(name)
+        {
+            this.Biography = biography;
+        }
     }
 }

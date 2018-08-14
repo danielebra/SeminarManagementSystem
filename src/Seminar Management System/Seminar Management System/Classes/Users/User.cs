@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace Seminar_Management_System.Classes.Users
 { 
-    // TODO
-    // Decide what class type: abstract or virtual
-
-    class User
+    abstract public class User
     {
         public string Name { get; set; }
+        public User (string name)
+        {
+            this.Name = name;
+        }
     }
 }

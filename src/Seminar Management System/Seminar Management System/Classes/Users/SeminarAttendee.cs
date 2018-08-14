@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Seminar_Management_System.Classes.Users
 {
-    class SeminarAttendee : User
+    public class SeminarAttendee : User
     {
+        public SeminarAttendee(string name) : base(name)
+        {
+        }
     }
 }
