@@ -22,5 +22,12 @@ namespace Seminar_Management_System
             AddSeminar addSeminar = new AddSeminar();
             addSeminar.Show();
         }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+            DataInstance.organisers.Add(new Classes.Users.SeminarOrganiser("Bob"));
+            DataInstance.organisers.Add(new Classes.Users.SeminarOrganiser("Tim"));
+
+        }
     }
 }
