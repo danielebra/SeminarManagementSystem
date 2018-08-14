@@ -38,6 +38,8 @@
             this.monthCalander = new System.Windows.Forms.MonthCalendar();
             this.dtpEnd = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
+            this.cbOrganizers = new System.Windows.Forms.ComboBox();
+            this.lblOrganiser = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -90,6 +92,7 @@
             this.btnAdd.TabIndex = 5;
             this.btnAdd.Text = "Add Seminar";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // dtpStart
             // 
@@ -125,11 +128,29 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "End Date";
             // 
+            // cbOrganizers
+            // 
+            this.cbOrganizers.FormattingEnabled = true;
+            this.cbOrganizers.Location = new System.Drawing.Point(480, 6);
+            this.cbOrganizers.Name = "cbOrganizers";
+            this.cbOrganizers.Size = new System.Drawing.Size(121, 21);
+            this.cbOrganizers.TabIndex = 8;
+            // 
+            // lblOrganiser
+            // 
+            this.lblOrganiser.AutoSize = true;
+            this.lblOrganiser.Location = new System.Drawing.Point(414, 9);
+            this.lblOrganiser.Name = "lblOrganiser";
+            this.lblOrganiser.Size = new System.Drawing.Size(52, 13);
+            this.lblOrganiser.TabIndex = 0;
+            this.lblOrganiser.Text = "Organiser";
+            // 
             // AddSeminar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(421, 459);
+            this.ClientSize = new System.Drawing.Size(613, 459);
+            this.Controls.Add(this.cbOrganizers);
             this.Controls.Add(this.monthCalander);
             this.Controls.Add(this.dtpEnd);
             this.Controls.Add(this.dtpStart);
@@ -139,9 +160,11 @@
             this.Controls.Add(this.tbTitle);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblOrganiser);
             this.Controls.Add(this.lblTitle);
             this.Name = "AddSeminar";
             this.Text = "AddSeminar";
+            this.Load += new System.EventHandler(this.AddSeminar_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -159,5 +182,7 @@
         private System.Windows.Forms.MonthCalendar monthCalander;
         private System.Windows.Forms.DateTimePicker dtpEnd;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cbOrganizers;
+        private System.Windows.Forms.Label lblOrganiser;
     }
 }
