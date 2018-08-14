@@ -13,6 +13,10 @@ namespace Seminar_Management_System.Classes.Seminar
         public List<Speaker> Speakers { get; set; }
         public List<SeminarAttendee> Attendees { get; set; }
 
+        public string Title { get; set; }
         public string Description { get; set; }
+
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
     }
 }
