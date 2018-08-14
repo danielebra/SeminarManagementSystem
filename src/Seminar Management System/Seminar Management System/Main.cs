@@ -16,5 +16,11 @@ namespace Seminar_Management_System
         {
             InitializeComponent();
         }
+
+        private void btnAddSeminar_Click(object sender, EventArgs e)
+        {
+            AddSeminar addSeminar = new AddSeminar();
+            addSeminar.Show();
+        }
     }
 }
