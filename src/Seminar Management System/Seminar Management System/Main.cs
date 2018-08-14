@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Seminar_Management_System.Classes.Users;
 
 namespace Seminar_Management_System
 {
@@ -25,8 +26,8 @@ namespace Seminar_Management_System
 
         private void Main_Load(object sender, EventArgs e)
         {
-            DataInstance.organisers.Add(new Classes.Users.SeminarOrganiser("Bob"));
-            DataInstance.organisers.Add(new Classes.Users.SeminarOrganiser("Tim"));
+            DataInstance.organisers.Add(new SeminarOrganiser("Bob"));
+            DataInstance.organisers.Add(new SeminarOrganiser("Tim"));
 
         }
     }

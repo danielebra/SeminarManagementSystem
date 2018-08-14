@@ -9,6 +9,6 @@ namespace Seminar_Management_System
 {
     static class DataInstance
     {
-        public static List<SeminarOrganiser> organisers { get; set; }
+        public static List<SeminarOrganiser> organisers = new List<SeminarOrganiser>();
     }
 }
