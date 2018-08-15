@@ -23,7 +23,6 @@ namespace Seminar_Management_System
         private void dtpStart_ValueChanged(object sender, EventArgs e)
         {
             monthCalander.SelectionStart = this.StartDate;
-
         }
 
         private void dtpEnd_ValueChanged(object sender, EventArgs e)
@@ -41,7 +40,6 @@ namespace Seminar_Management_System
             var selectionRange = monthCalander.SelectionRange;
             dtpStart.Value = selectionRange.Start;
             dtpEnd.Value = selectionRange.End;
-
         }
     }
 }

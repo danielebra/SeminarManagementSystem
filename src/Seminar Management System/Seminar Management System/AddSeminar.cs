@@ -18,23 +18,19 @@ namespace Seminar_Management_System
         {
             InitializeComponent();
         }
-        
-
-        private void AddSeminar_Load(object sender, EventArgs e)
-        {
-            
-        }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             // TODO: populate other seminar data
             Seminar seminar = new Seminar();
             seminar.Organiser = ddOrganisers.SelectedOrganiser;
+            seminar.Venue = ddVenue.SelectedVenue;
         }
 
         private void btnTest_Click(object sender, EventArgs e)
         {
             var foo = ddOrganisers.SelectedOrganiser;
+            var bar = ddVenue.SelectedVenue;
         }
     }
 }

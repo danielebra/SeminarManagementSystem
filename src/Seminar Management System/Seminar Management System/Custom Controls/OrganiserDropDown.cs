@@ -18,13 +18,13 @@ namespace Seminar_Management_System.Custom_Controls
             InitializeComponent();
         }
 
-        public SeminarOrganiser SelectedOrganiser { get { return (SeminarOrganiser)cbOrganizers.SelectedItem; } }
+        public SeminarOrganiser SelectedOrganiser { get { return (SeminarOrganiser)cbOrganisers.SelectedItem; } }
 
         private void OrganiserDropDown_Load(object sender, EventArgs e)
         {
-            cbOrganizers.DataSource = DataInstance.organisers;
-            cbOrganizers.ValueMember = "ID";
-            cbOrganizers.DisplayMember = "Name";
+            cbOrganisers.DataSource = DataInstance.organisers;
+            cbOrganisers.ValueMember = "ID";
+            cbOrganisers.DisplayMember = "Name";
         }
     }
 }
