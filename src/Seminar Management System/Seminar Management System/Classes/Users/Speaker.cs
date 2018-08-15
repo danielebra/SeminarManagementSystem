@@ -10,7 +10,7 @@ namespace Seminar_Management_System.Classes.Users
     {
         public string Biography { get; set; }
 
-        public Speaker(string name, string biography) : base(name)
+        public Speaker(int id, string name, string biography) : base(id, name)
         {
             this.Biography = biography;
         }

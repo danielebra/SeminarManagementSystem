@@ -8,7 +8,7 @@ namespace Seminar_Management_System.Classes.Users
 {
     public class SeminarOrganiser : User
     {
-        public SeminarOrganiser(string name) : base(name)
+        public SeminarOrganiser(int id, string name) : base(id, name)
         {
 
         }

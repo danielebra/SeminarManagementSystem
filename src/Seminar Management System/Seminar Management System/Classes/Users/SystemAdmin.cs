@@ -8,7 +8,7 @@ namespace Seminar_Management_System.Classes.Users
 {
     public class SystemAdmin : User
     {
-        public SystemAdmin(string name) : base(name)
+        public SystemAdmin(int id, string name) : base(id, name)
         {
         }
     }

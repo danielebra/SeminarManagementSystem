@@ -26,8 +26,8 @@ namespace Seminar_Management_System
 
         private void Main_Load(object sender, EventArgs e)
         {
-            DataInstance.organisers.Add(new SeminarOrganiser("Bob"));
-            DataInstance.organisers.Add(new SeminarOrganiser("Tim"));
+            DataInstance.organisers.Add(new SeminarOrganiser(0, "Bob"));
+            DataInstance.organisers.Add(new SeminarOrganiser(1, "Tim"));
 
         }
     }
