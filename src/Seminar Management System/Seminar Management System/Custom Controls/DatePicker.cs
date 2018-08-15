@@ -20,14 +20,20 @@ namespace Seminar_Management_System
         public DateTime StartDate { get { return dtpStart.Value; } }
         public DateTime EndDate { get { return dtpEnd.Value; } }
 
+        public event EventHandler DateUpdated;
+
         private void dtpStart_ValueChanged(object sender, EventArgs e)
         {
             monthCalander.SelectionStart = this.StartDate;
+            if (this.DateUpdated != null)
+                this.DateUpdated(this, new EventArgs());
         }
 
         private void dtpEnd_ValueChanged(object sender, EventArgs e)
         {
             monthCalander.SelectionEnd = this.EndDate;
+            if (this.DateUpdated != null)
+                this.DateUpdated(this, new EventArgs());
         }
 
         private void monthCalendar_UpdateRanges(object sender, DateRangeEventArgs e)
