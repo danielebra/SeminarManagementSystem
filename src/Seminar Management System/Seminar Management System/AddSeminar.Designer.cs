@@ -33,10 +33,11 @@
             this.lblDescription = new System.Windows.Forms.Label();
             this.rtbDescription = new System.Windows.Forms.RichTextBox();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.datePicker = new Seminar_Management_System.DatePicker();
             this.btnTest = new System.Windows.Forms.Button();
             this.ddVenue = new Seminar_Management_System.Custom_Controls.VenueDropDown();
             this.ddOrganisers = new Seminar_Management_System.Custom_Controls.OrganiserDropDown();
+            this.datePicker = new Seminar_Management_System.DatePicker();
+            this.lblDuration = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -82,13 +83,6 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // datePicker
-            // 
-            this.datePicker.Location = new System.Drawing.Point(15, 137);
-            this.datePicker.Name = "datePicker";
-            this.datePicker.Size = new System.Drawing.Size(270, 249);
-            this.datePicker.TabIndex = 9;
-            // 
             // btnTest
             // 
             this.btnTest.Location = new System.Drawing.Point(391, 424);
@@ -113,20 +107,38 @@
             this.ddOrganisers.Size = new System.Drawing.Size(190, 30);
             this.ddOrganisers.TabIndex = 12;
             // 
+            // datePicker
+            // 
+            this.datePicker.Location = new System.Drawing.Point(91, 137);
+            this.datePicker.Name = "datePicker";
+            this.datePicker.Size = new System.Drawing.Size(269, 249);
+            this.datePicker.TabIndex = 13;
+            this.datePicker.DateUpdated += new System.EventHandler(this.datePicker_DateUpdated);
+            // 
+            // lblDuration
+            // 
+            this.lblDuration.AutoSize = true;
+            this.lblDuration.Location = new System.Drawing.Point(88, 389);
+            this.lblDuration.Name = "lblDuration";
+            this.lblDuration.Size = new System.Drawing.Size(53, 13);
+            this.lblDuration.TabIndex = 14;
+            this.lblDuration.Text = "Duration: ";
+            // 
             // AddSeminar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(617, 459);
+            this.Controls.Add(this.lblDuration);
             this.Controls.Add(this.ddOrganisers);
             this.Controls.Add(this.ddVenue);
-            this.Controls.Add(this.datePicker);
             this.Controls.Add(this.btnTest);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.rtbDescription);
             this.Controls.Add(this.lblDescription);
             this.Controls.Add(this.tbTitle);
             this.Controls.Add(this.lblTitle);
+            this.Controls.Add(this.datePicker);
             this.Name = "AddSeminar";
             this.Text = "AddSeminar";
             this.ResumeLayout(false);
@@ -141,9 +153,10 @@
         private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.RichTextBox rtbDescription;
         private System.Windows.Forms.Button btnAdd;
-        private DatePicker datePicker;
         private System.Windows.Forms.Button btnTest;
         private Custom_Controls.VenueDropDown ddVenue;
         private Custom_Controls.OrganiserDropDown ddOrganisers;
+        private DatePicker datePicker;
+        private System.Windows.Forms.Label lblDuration;
     }
 }

@@ -36,5 +36,16 @@ namespace Seminar_Management_System
             var start = datePicker.StartDate;
             var end = datePicker.EndDate;
         }
+
+        private void datePicker_DateUpdated(object sender, EventArgs e)
+        {
+            // TODO
+            // Cleanup code and make the display optional for hours and minutes
+            // Confirm with customer that seminars can run for multiple days
+            TimeSpan durr = datePicker.EndDate.Subtract(datePicker.StartDate);
+            lblDuration.Text = string.Format("Duration: {0} {1} Hours {2} Minutes", 
+                durr.ToString("dd") == "00" ? "" : durr.ToString("dd") + " Days",
+                durr.Hours, durr.Minutes);
+        }
     }
 }
