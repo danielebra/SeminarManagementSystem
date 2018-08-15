@@ -33,6 +33,8 @@ namespace Seminar_Management_System
         {
             var foo = ddOrganisers.SelectedOrganiser;
             var bar = ddVenue.SelectedVenue;
+            var start = datePicker.StartDate;
+            var end = datePicker.EndDate;
         }
     }
 }

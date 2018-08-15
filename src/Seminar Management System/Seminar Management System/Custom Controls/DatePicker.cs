@@ -38,8 +38,14 @@ namespace Seminar_Management_System
             // the dates will automatically adjust
 
             var selectionRange = monthCalander.SelectionRange;
-            dtpStart.Value = selectionRange.Start;
-            dtpEnd.Value = selectionRange.End;
+
+            DateTime start = new DateTime(selectionRange.Start.Year, selectionRange.Start.Month, selectionRange.Start.Day,
+                dtpStart.Value.Hour, dtpStart.Value.Minute, dtpStart.Value.Second);
+            DateTime end = new DateTime(selectionRange.End.Year, selectionRange.End.Month, selectionRange.End.Day,
+                dtpEnd.Value.Hour, dtpEnd.Value.Minute, dtpEnd.Value.Second);
+
+            dtpStart.Value = start;
+            dtpEnd.Value = end;
         }
     }
 }
