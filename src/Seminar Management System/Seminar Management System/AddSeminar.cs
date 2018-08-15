@@ -18,31 +18,7 @@ namespace Seminar_Management_System
         {
             InitializeComponent();
         }
-        private DateTime startDate { get { return dtpStart.Value; } }
-        private DateTime endDate { get { return dtpEnd.Value; } }
-
-        private void dtpStart_ValueChanged(object sender, EventArgs e)
-        {
-            monthCalander.SelectionStart = this.startDate;
-        }
-
-        private void dtpEnd_ValueChanged(object sender, EventArgs e)
-        {
-            monthCalander.SelectionEnd = this.endDate;
-        }
-
-        private void monthCalendar_UpdateRanges(object sender, DateRangeEventArgs e)
-        {
-            // Handles updating the explicit start and end date controls
-            // to reflect the current range limit.
-            // Eg: Manually selecting a range greater than the allowed limit (14 days)
-            // the dates will automatically adjust
-
-            var selectionRange = monthCalander.SelectionRange;
-            dtpStart.Value = selectionRange.Start;
-            dtpEnd.Value = selectionRange.End;
-
-        }
+        
 
         private void AddSeminar_Load(object sender, EventArgs e)
         {

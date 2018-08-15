@@ -62,6 +62,12 @@
     <Compile Include="Classes\Users\SystemAdmin.cs" />
     <Compile Include="Classes\Users\User.cs" />
     <Compile Include="DataInstance.cs" />
+    <Compile Include="DatePicker.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DatePicker.Designer.cs">
+      <DependentUpon>DatePicker.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +78,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AddSeminar.resx">
       <DependentUpon>AddSeminar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DatePicker.resx">
+      <DependentUpon>DatePicker.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
