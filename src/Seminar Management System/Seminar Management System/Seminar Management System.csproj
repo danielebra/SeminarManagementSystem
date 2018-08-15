@@ -61,6 +61,12 @@
     <Compile Include="Classes\Users\Speaker.cs" />
     <Compile Include="Classes\Users\SystemAdmin.cs" />
     <Compile Include="Classes\Users\User.cs" />
+    <Compile Include="Custom Controls\OrganiserDropDown.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Custom Controls\OrganiserDropDown.Designer.cs">
+      <DependentUpon>OrganiserDropDown.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataInstance.cs" />
     <Compile Include="Custom Controls\DatePicker.cs">
       <SubType>UserControl</SubType>
@@ -81,6 +87,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Custom Controls\DatePicker.resx">
       <DependentUpon>DatePicker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Custom Controls\OrganiserDropDown.resx">
+      <DependentUpon>OrganiserDropDown.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>

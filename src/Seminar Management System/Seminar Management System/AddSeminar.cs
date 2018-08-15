@@ -22,18 +22,19 @@ namespace Seminar_Management_System
 
         private void AddSeminar_Load(object sender, EventArgs e)
         {
-            foreach (SeminarOrganiser organiser in DataInstance.organisers)
-                cbOrganizers.Items.Add(organiser.Name);
-            cbOrganizers.SelectedIndex = 0;
+            
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             // TODO: populate other seminar data
             Seminar seminar = new Seminar();
-            // Grab organiser object based on selected item in combo box
-            SeminarOrganiser organiser = DataInstance.organisers.Where(o => o.Name.Equals(cbOrganizers.SelectedValue)).FirstOrDefault();
-            seminar.Organiser = organiser;
+            seminar.Organiser = ddOrganisers.SelectedOrganiser;
+        }
+
+        private void btnTest_Click(object sender, EventArgs e)
+        {
+            var foo = ddOrganisers.SelectedOrganiser;
         }
     }
 }
