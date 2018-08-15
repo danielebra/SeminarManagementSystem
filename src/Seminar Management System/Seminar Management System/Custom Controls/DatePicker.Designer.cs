@@ -94,7 +94,7 @@
             this.groupBox1.Size = new System.Drawing.Size(259, 243);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Time && Date";
+            this.groupBox1.Text = "Date && Time";
             // 
             // DatePicker
             // 
