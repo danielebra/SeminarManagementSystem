@@ -25,6 +25,8 @@ namespace Seminar_Management_System
             Seminar seminar = new Seminar();
             seminar.Organiser = ddOrganisers.SelectedOrganiser;
             seminar.Venue = ddVenue.SelectedVenue;
+            seminar.StartDate = datePicker.StartDate;
+            seminar.EndDate = datePicker.EndDate;
         }
 
         private void btnTest_Click(object sender, EventArgs e)

@@ -33,7 +33,7 @@
             this.lblDescription = new System.Windows.Forms.Label();
             this.rtbDescription = new System.Windows.Forms.RichTextBox();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.datePicker1 = new Seminar_Management_System.DatePicker();
+            this.datePicker = new Seminar_Management_System.DatePicker();
             this.btnTest = new System.Windows.Forms.Button();
             this.ddVenue = new Seminar_Management_System.Custom_Controls.VenueDropDown();
             this.ddOrganisers = new Seminar_Management_System.Custom_Controls.OrganiserDropDown();
@@ -82,12 +82,12 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // datePicker1
+            // datePicker
             // 
-            this.datePicker1.Location = new System.Drawing.Point(15, 137);
-            this.datePicker1.Name = "datePicker1";
-            this.datePicker1.Size = new System.Drawing.Size(270, 249);
-            this.datePicker1.TabIndex = 9;
+            this.datePicker.Location = new System.Drawing.Point(15, 137);
+            this.datePicker.Name = "datePicker";
+            this.datePicker.Size = new System.Drawing.Size(270, 249);
+            this.datePicker.TabIndex = 9;
             // 
             // btnTest
             // 
@@ -120,7 +120,7 @@
             this.ClientSize = new System.Drawing.Size(617, 459);
             this.Controls.Add(this.ddOrganisers);
             this.Controls.Add(this.ddVenue);
-            this.Controls.Add(this.datePicker1);
+            this.Controls.Add(this.datePicker);
             this.Controls.Add(this.btnTest);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.rtbDescription);
@@ -141,7 +141,7 @@
         private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.RichTextBox rtbDescription;
         private System.Windows.Forms.Button btnAdd;
-        private DatePicker datePicker1;
+        private DatePicker datePicker;
         private System.Windows.Forms.Button btnTest;
         private Custom_Controls.VenueDropDown ddVenue;
         private Custom_Controls.OrganiserDropDown ddOrganisers;
