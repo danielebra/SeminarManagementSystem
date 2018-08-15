@@ -86,7 +86,7 @@
             // 
             this.datePicker1.Location = new System.Drawing.Point(15, 137);
             this.datePicker1.Name = "datePicker1";
-            this.datePicker1.Size = new System.Drawing.Size(306, 229);
+            this.datePicker1.Size = new System.Drawing.Size(270, 249);
             this.datePicker1.TabIndex = 9;
             // 
             // btnTest

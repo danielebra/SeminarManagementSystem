@@ -27,7 +27,6 @@ namespace Seminar_Management_System
         private void Main_Load(object sender, EventArgs e)
         {
             DataInstance.populateWithMockData();
-
         }
     }
 }
