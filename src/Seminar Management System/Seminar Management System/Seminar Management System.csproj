@@ -68,6 +68,12 @@
     <Compile Include="Custom Controls\OrganiserDropDown.Designer.cs">
       <DependentUpon>OrganiserDropDown.cs</DependentUpon>
     </Compile>
+    <Compile Include="Custom Controls\SelectSpeakers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Custom Controls\SelectSpeakers.Designer.cs">
+      <DependentUpon>SelectSpeakers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Custom Controls\VenueDropDown.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -97,6 +103,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Custom Controls\OrganiserDropDown.resx">
       <DependentUpon>OrganiserDropDown.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Custom Controls\SelectSpeakers.resx">
+      <DependentUpon>SelectSpeakers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Custom Controls\VenueDropDown.resx">
       <DependentUpon>VenueDropDown.cs</DependentUpon>

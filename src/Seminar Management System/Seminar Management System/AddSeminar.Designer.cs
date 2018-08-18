@@ -38,6 +38,7 @@
             this.ddOrganisers = new Seminar_Management_System.Custom_Controls.OrganiserDropDown();
             this.datePicker = new Seminar_Management_System.DatePicker();
             this.lblDuration = new System.Windows.Forms.Label();
+            this.selectSpeakers1 = new Seminar_Management_System.Custom_Controls.SelectSpeakers();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -124,11 +125,19 @@
             this.lblDuration.TabIndex = 14;
             this.lblDuration.Text = "Duration: ";
             // 
+            // selectSpeakers1
+            // 
+            this.selectSpeakers1.Location = new System.Drawing.Point(391, 151);
+            this.selectSpeakers1.Name = "selectSpeakers1";
+            this.selectSpeakers1.Size = new System.Drawing.Size(214, 147);
+            this.selectSpeakers1.TabIndex = 15;
+            // 
             // AddSeminar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(617, 459);
+            this.ClientSize = new System.Drawing.Size(612, 459);
+            this.Controls.Add(this.selectSpeakers1);
             this.Controls.Add(this.lblDuration);
             this.Controls.Add(this.ddOrganisers);
             this.Controls.Add(this.ddVenue);
@@ -158,5 +167,6 @@
         private Custom_Controls.OrganiserDropDown ddOrganisers;
         private DatePicker datePicker;
         private System.Windows.Forms.Label lblDuration;
+        private Custom_Controls.SelectSpeakers selectSpeakers1;
     }
 }

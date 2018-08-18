@@ -12,6 +12,7 @@ namespace Seminar_Management_System
     {
         public static List<SeminarOrganiser> organisers = new List<SeminarOrganiser>();
         public static List<Venue> venues = new List<Venue>();
+        public static List<Speaker> speakers = new List<Speaker>();
 
         public static void populateWithMockData()
         {
@@ -20,6 +21,10 @@ namespace Seminar_Management_System
 
             DataInstance.venues.Add(new Venue(0, "Building 11", "Ultimo", 100));
             DataInstance.venues.Add(new Venue(1, "Building 10", "Ultimo", 200));
+
+            DataInstance.speakers.Add(new Speaker(0, "Dr James", "james@speakers.com", String.Empty, "This is a biography..."));
+            DataInstance.speakers.Add(new Speaker(1, "Dr Paul", "paul@speakers.com", String.Empty, "This is a biography..."));
+
 
         }
     }

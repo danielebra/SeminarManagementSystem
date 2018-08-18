@@ -35,6 +35,8 @@ namespace Seminar_Management_System
             var bar = ddVenue.SelectedVenue;
             var start = datePicker.StartDate;
             var end = datePicker.EndDate;
+
+            var selectedSpeakers = selectSpeakers1.SelectedSpeakers;
         }
 
         private void datePicker_DateUpdated(object sender, EventArgs e)
