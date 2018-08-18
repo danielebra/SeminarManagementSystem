@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Seminar_Management_System.Classes;
+using Seminar_Management_System.Forms;
 namespace Seminar_Management_System.Custom_Controls
 {
     public partial class SeminarItem : UserControl
@@ -27,7 +28,8 @@ namespace Seminar_Management_System.Custom_Controls
 
         private void btnView_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            SeminarReference.Title = "Changed";
+            ViewSeminar viewSeminar = new ViewSeminar(ref SeminarReference);
+            viewSeminar.Show();
         }
     }
 }
