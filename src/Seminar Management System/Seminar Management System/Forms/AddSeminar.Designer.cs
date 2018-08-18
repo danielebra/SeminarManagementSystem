@@ -149,6 +149,7 @@
             this.Controls.Add(this.tbTitle);
             this.Controls.Add(this.lblTitle);
             this.Name = "AddSeminar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddSeminar";
             this.ResumeLayout(false);
             this.PerformLayout();

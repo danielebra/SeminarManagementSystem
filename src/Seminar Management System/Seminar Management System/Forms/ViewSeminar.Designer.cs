@@ -61,6 +61,7 @@
             this.Controls.Add(this.lblDescription);
             this.Controls.Add(this.lblTitle);
             this.Name = "ViewSeminar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ViewSeminar";
             this.Load += new System.EventHandler(this.ViewSeminar_Load);
             this.ResumeLayout(false);
