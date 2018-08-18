@@ -62,6 +62,12 @@
     <Compile Include="Classes\Users\SystemAdmin.cs" />
     <Compile Include="Classes\Users\User.cs" />
     <Compile Include="Classes\Venue.cs" />
+    <Compile Include="Custom Controls\DatePickerSingle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Custom Controls\DatePickerSingle.Designer.cs">
+      <DependentUpon>DatePickerSingle.cs</DependentUpon>
+    </Compile>
     <Compile Include="Custom Controls\OrganiserDropDown.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -97,6 +103,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AddSeminar.resx">
       <DependentUpon>AddSeminar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Custom Controls\DatePickerSingle.resx">
+      <DependentUpon>DatePickerSingle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Custom Controls\DatePicker.resx">
       <DependentUpon>DatePicker.cs</DependentUpon>

@@ -36,9 +36,9 @@
             this.btnTest = new System.Windows.Forms.Button();
             this.ddVenue = new Seminar_Management_System.Custom_Controls.VenueDropDown();
             this.ddOrganisers = new Seminar_Management_System.Custom_Controls.OrganiserDropDown();
-            this.datePicker = new Seminar_Management_System.DatePicker();
             this.lblDuration = new System.Windows.Forms.Label();
             this.selectSpeakers1 = new Seminar_Management_System.Custom_Controls.SelectSpeakers();
+            this.datePickerSingle = new Seminar_Management_System.DatePickerSingle();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -108,14 +108,6 @@
             this.ddOrganisers.Size = new System.Drawing.Size(190, 30);
             this.ddOrganisers.TabIndex = 12;
             // 
-            // datePicker
-            // 
-            this.datePicker.Location = new System.Drawing.Point(91, 137);
-            this.datePicker.Name = "datePicker";
-            this.datePicker.Size = new System.Drawing.Size(269, 249);
-            this.datePicker.TabIndex = 13;
-            this.datePicker.DateUpdated += new System.EventHandler(this.datePicker_DateUpdated);
-            // 
             // lblDuration
             // 
             this.lblDuration.AutoSize = true;
@@ -132,11 +124,20 @@
             this.selectSpeakers1.Size = new System.Drawing.Size(214, 147);
             this.selectSpeakers1.TabIndex = 15;
             // 
+            // datePickerSingle
+            // 
+            this.datePickerSingle.Location = new System.Drawing.Point(91, 137);
+            this.datePickerSingle.Name = "datePickerSingle";
+            this.datePickerSingle.Size = new System.Drawing.Size(269, 249);
+            this.datePickerSingle.TabIndex = 16;
+            this.datePickerSingle.DateUpdated += new System.EventHandler(this.datePicker_DateUpdated);
+            // 
             // AddSeminar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(612, 459);
+            this.ClientSize = new System.Drawing.Size(612, 501);
+            this.Controls.Add(this.datePickerSingle);
             this.Controls.Add(this.selectSpeakers1);
             this.Controls.Add(this.lblDuration);
             this.Controls.Add(this.ddOrganisers);
@@ -147,7 +148,6 @@
             this.Controls.Add(this.lblDescription);
             this.Controls.Add(this.tbTitle);
             this.Controls.Add(this.lblTitle);
-            this.Controls.Add(this.datePicker);
             this.Name = "AddSeminar";
             this.Text = "AddSeminar";
             this.ResumeLayout(false);
@@ -165,8 +165,8 @@
         private System.Windows.Forms.Button btnTest;
         private Custom_Controls.VenueDropDown ddVenue;
         private Custom_Controls.OrganiserDropDown ddOrganisers;
-        private DatePicker datePicker;
         private System.Windows.Forms.Label lblDuration;
         private Custom_Controls.SelectSpeakers selectSpeakers1;
+        private DatePickerSingle datePickerSingle;
     }
 }

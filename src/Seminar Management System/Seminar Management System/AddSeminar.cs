@@ -24,17 +24,18 @@ namespace Seminar_Management_System
             // TODO: populate other seminar data
             Seminar seminar = new Seminar();
             seminar.Organiser = ddOrganisers.SelectedOrganiser;
+            seminar.Speakers = selectSpeakers1.SelectedSpeakers;
             seminar.Venue = ddVenue.SelectedVenue;
-            seminar.StartDate = datePicker.StartDate;
-            seminar.EndDate = datePicker.EndDate;
+            seminar.StartDate = datePickerSingle.StartDate;
+            seminar.EndDate = datePickerSingle.EndDate;
         }
 
         private void btnTest_Click(object sender, EventArgs e)
         {
             var foo = ddOrganisers.SelectedOrganiser;
             var bar = ddVenue.SelectedVenue;
-            var start = datePicker.StartDate;
-            var end = datePicker.EndDate;
+            var start = datePickerSingle.StartDate;
+            var end = datePickerSingle.EndDate;
 
             var selectedSpeakers = selectSpeakers1.SelectedSpeakers;
         }
@@ -44,7 +45,7 @@ namespace Seminar_Management_System
             // TODO
             // Cleanup code and make the display optional for hours and minutes
             // Confirm with customer that seminars can run for multiple days
-            TimeSpan durr = datePicker.EndDate.Subtract(datePicker.StartDate);
+            TimeSpan durr = datePickerSingle.EndDate.Subtract(datePickerSingle.StartDate);
             lblDuration.Text = string.Format("Duration: {0} {1} Hours {2} Minutes", 
                 durr.ToString("dd") == "00" ? "" : durr.ToString("dd") + " Days",
                 durr.Hours, durr.Minutes);
