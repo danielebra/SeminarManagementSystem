@@ -26,6 +26,8 @@ namespace Seminar_Management_System
             DataInstance.speakers.Add(new Speaker(0, "Dr James", "james@speakers.com", String.Empty, "This is a biography..."));
             DataInstance.speakers.Add(new Speaker(1, "Dr Paul", "paul@speakers.com", String.Empty, "This is a biography..."));
 
+            DataInstance.seminars.Add(new Seminar(DataInstance.organisers[0], DataInstance.venues[0], DataInstance.speakers,
+                new List<SeminarAttendee>(), "Learning Python", "The Zen of Python", DateTime.Now, DateTime.Today));
 
         }
     }

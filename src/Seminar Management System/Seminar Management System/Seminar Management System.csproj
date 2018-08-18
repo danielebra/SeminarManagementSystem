@@ -48,6 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Custom Controls\SeminarItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Custom Controls\SeminarItem.Designer.cs">
+      <DependentUpon>SeminarItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AddSeminar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Custom Controls\SeminarItem.resx">
+      <DependentUpon>SeminarItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddSeminar.resx">
       <DependentUpon>AddSeminar.cs</DependentUpon>
     </EmbeddedResource>

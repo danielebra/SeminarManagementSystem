@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Seminar_Management_System.Classes
 {
-    class Seminar
+    public class Seminar
     {
         public SeminarOrganiser Organiser { get; set; }
         public Venue Venue { get; set; }
@@ -19,5 +19,25 @@ namespace Seminar_Management_System.Classes
 
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
+
+
+        public Seminar()
+        {
+
+        }
+
+        public Seminar(SeminarOrganiser organiser, Venue venue, List<Speaker> speakers, List<SeminarAttendee> attendees,
+            string title, string description, DateTime startDate, DateTime endDate)
+        {
+            this.Organiser = organiser;
+            this.Venue = venue;
+            this.Speakers = speakers;
+            this.Attendees = attendees;
+            this.Title = title;
+            this.Description = description;
+            this.StartDate = startDate;
+            this.EndDate = endDate;
+        }
+
     }
 }
