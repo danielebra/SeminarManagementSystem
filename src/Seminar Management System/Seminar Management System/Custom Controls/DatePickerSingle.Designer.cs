@@ -66,7 +66,7 @@
             // 
             // dtpStart
             // 
-            this.dtpStart.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpStart.Location = new System.Drawing.Point(17, 211);
             this.dtpStart.Name = "dtpStart";
             this.dtpStart.ShowUpDown = true;
@@ -76,7 +76,7 @@
             // 
             // dtpEnd
             // 
-            this.dtpEnd.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpEnd.Location = new System.Drawing.Point(137, 211);
             this.dtpEnd.Name = "dtpEnd";
             this.dtpEnd.ShowUpDown = true;
@@ -105,6 +105,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "DatePickerSingle";
             this.Size = new System.Drawing.Size(269, 249);
+            this.Load += new System.EventHandler(this.DatePickerSingle_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

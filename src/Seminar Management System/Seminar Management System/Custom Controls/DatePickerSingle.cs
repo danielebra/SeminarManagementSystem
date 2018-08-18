@@ -53,5 +53,11 @@ namespace Seminar_Management_System
             dtpStart.Value = start;
             dtpEnd.Value = end;
         }
+
+        private void DatePickerSingle_Load(object sender, EventArgs e)
+        {
+            dtpStart.CustomFormat = "h:mm tt";
+            dtpEnd.CustomFormat = "h:mm tt";
+        }
     }
 }
