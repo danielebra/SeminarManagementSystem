@@ -10,10 +10,14 @@ namespace Seminar_Management_System.Classes.Users
     {
         public int ID { get; set; }
         public string Name { get; set; }
-        public User (int id, string name)
+        public string Email { get; set; }
+        public string PhoneNumber { get; set; }
+        public User (int id, string name, string email, string phoneNumber)
         {
             this.ID = id;
             this.Name = name;
+            this.Email = email;
+            this.PhoneNumber = phoneNumber;
         }
         
     }

@@ -15,8 +15,8 @@ namespace Seminar_Management_System
 
         public static void populateWithMockData()
         {
-            DataInstance.organisers.Add(new SeminarOrganiser(0, "Bob"));
-            DataInstance.organisers.Add(new SeminarOrganiser(1, "Tim"));
+            DataInstance.organisers.Add(new SeminarOrganiser(0, "Bob", "bob@staff.com", "111"));
+            DataInstance.organisers.Add(new SeminarOrganiser(1, "Tim", "tim@staff.com", "222"));
 
             DataInstance.venues.Add(new Venue(0, "Building 11", "Ultimo", 100));
             DataInstance.venues.Add(new Venue(1, "Building 10", "Ultimo", 200));

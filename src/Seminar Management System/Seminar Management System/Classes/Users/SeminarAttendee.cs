@@ -8,11 +8,10 @@ namespace Seminar_Management_System.Classes.Users
 {
     public class SeminarAttendee : User
     {
-        public string Email { get; set; }
 
-        public SeminarAttendee(int id, string name, string email) : base(id, name)
+        public SeminarAttendee(int id, string name, string email, string phoneNumber) : base(id, name, email, phoneNumber)
         {         
-            this.Email = email;
+            
         }
     }
 }
