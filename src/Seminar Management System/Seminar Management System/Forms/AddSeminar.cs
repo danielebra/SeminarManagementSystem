@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Seminar_Management_System.Classes.Users;
-using Seminar_Management_System.Classes.Seminar;
+using Seminar_Management_System.Classes;
 
 namespace Seminar_Management_System
 {
@@ -21,7 +21,6 @@ namespace Seminar_Management_System
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            // TODO: populate other seminar data
             Seminar seminar = new Seminar();
             seminar.Organiser = ddOrganisers.SelectedOrganiser;
             seminar.Speakers = selectSpeakers1.SelectedSpeakers;
@@ -45,13 +44,11 @@ namespace Seminar_Management_System
 
         private void datePicker_DateUpdated(object sender, EventArgs e)
         {
-            // TODO
-            // Cleanup code and make the display optional for hours and minutes
-            // Confirm with customer that seminars can run for multiple days
-            TimeSpan durr = datePickerSingle.EndDate.Subtract(datePickerSingle.StartDate);
-            lblDuration.Text = string.Format("Duration: {0} {1} Hours {2} Minutes", 
-                durr.ToString("dd") == "00" ? "" : durr.ToString("dd") + " Days",
-                durr.Hours, durr.Minutes);
+            // In the future, detection for adding (s) after hour or minutes can be added
+            TimeSpan duration = datePickerSingle.EndDate.Subtract(datePickerSingle.StartDate);
+            lblDuration.Text = string.Format("Duration: {0}{1}",
+                duration.Hours == 00 ? "" : duration.Hours.ToString() + " Hours ",
+                duration.Minutes == 00 ? "" : duration.Minutes.ToString() + " Minutes");
         }
     }
 }

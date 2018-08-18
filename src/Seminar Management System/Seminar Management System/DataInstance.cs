@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Seminar_Management_System.Classes.Users;
 using Seminar_Management_System.Classes;
-using Seminar_Management_System.Classes.Seminar;
 
 namespace Seminar_Management_System
 {

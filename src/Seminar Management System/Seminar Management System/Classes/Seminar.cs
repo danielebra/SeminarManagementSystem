@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Seminar_Management_System.Classes.Seminar
+namespace Seminar_Management_System.Classes
 {
     class Seminar
     {
