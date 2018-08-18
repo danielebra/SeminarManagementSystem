@@ -43,9 +43,15 @@ namespace Seminar_Management_System
             if (pragmaOnce)
             {
                 pragmaOnce = false;
-                foo.Populate(DataInstance.seminars.FirstOrDefault());
+                var bar = DataInstance.seminars.FirstOrDefault();
+                foo.Populate(ref bar);
             }
             pnlSeminarView.Controls.Add(foo);
+        }
+
+        private void btnDebug_Click(object sender, EventArgs e)
+        {
+            var foo = DataInstance.seminars.FirstOrDefault();
         }
     }
 }

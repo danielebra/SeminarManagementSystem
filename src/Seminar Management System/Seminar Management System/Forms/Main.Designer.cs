@@ -34,6 +34,7 @@
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.pnlSeminarView = new System.Windows.Forms.Panel();
             this.btnTest = new System.Windows.Forms.ToolStripButton();
+            this.btnDebug = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.pnlSeminarView.SuspendLayout();
             this.SuspendLayout();
@@ -51,7 +52,8 @@
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnTest});
+            this.btnTest,
+            this.btnDebug});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(931, 25);
@@ -87,6 +89,16 @@
             this.btnTest.Text = "Add Seminar";
             this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
             // 
+            // btnDebug
+            // 
+            this.btnDebug.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnDebug.Image = ((System.Drawing.Image)(resources.GetObject("btnDebug.Image")));
+            this.btnDebug.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnDebug.Name = "btnDebug";
+            this.btnDebug.Size = new System.Drawing.Size(46, 22);
+            this.btnDebug.Text = "Debug";
+            this.btnDebug.Click += new System.EventHandler(this.btnDebug_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -115,6 +127,7 @@
         private System.Windows.Forms.ToolStrip toolStrip2;
         private System.Windows.Forms.Panel pnlSeminarView;
         private System.Windows.Forms.ToolStripButton btnTest;
+        private System.Windows.Forms.ToolStripButton btnDebug;
     }
 }
 

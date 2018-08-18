@@ -17,11 +17,17 @@ namespace Seminar_Management_System.Custom_Controls
             InitializeComponent();
         }
         public Seminar SeminarReference;
-        public void Populate(Seminar seminar)
+        // the seminar param might become a ref in the future
+        public void Populate(ref Seminar seminar)
         {
             SeminarReference = seminar;
             lblTitle.Text = seminar.Title;
             lblDescription.Text = seminar.Description;
+        }
+
+        private void btnView_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            SeminarReference.Title = "Changed";
         }
     }
 }
