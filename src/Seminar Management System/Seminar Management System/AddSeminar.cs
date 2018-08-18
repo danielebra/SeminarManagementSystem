@@ -28,6 +28,9 @@ namespace Seminar_Management_System
             seminar.Venue = ddVenue.SelectedVenue;
             seminar.StartDate = datePickerSingle.StartDate;
             seminar.EndDate = datePickerSingle.EndDate;
+            seminar.Title = tbTitle.Text;
+            seminar.Description = rtbDescription.Text;
+            DataInstance.seminars.Add(seminar);
         }
 
         private void btnTest_Click(object sender, EventArgs e)

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Seminar_Management_System.Classes.Users;
 using Seminar_Management_System.Classes;
+using Seminar_Management_System.Classes.Seminar;
 
 namespace Seminar_Management_System
 {
@@ -13,6 +14,7 @@ namespace Seminar_Management_System
         public static List<SeminarOrganiser> organisers = new List<SeminarOrganiser>();
         public static List<Venue> venues = new List<Venue>();
         public static List<Speaker> speakers = new List<Speaker>();
+        public static List<Seminar> seminars = new List<Seminar>();
 
         public static void populateWithMockData()
         {
