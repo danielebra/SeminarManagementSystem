@@ -48,12 +48,14 @@ namespace Seminar_Management_System.Forms
                 enableEditing();
                 btnEdit.Text = SAVE;
                 btnCancel.Visible = true;
+                btnDelete.Visible = true;
             }
             else if (btnEdit.Text == SAVE)
             {
                 disableEditing();
                 btnEdit.Text = EDIT;
                 btnCancel.Visible = false;
+                btnDelete.Visible = false;
                 saveSeminarState();
             }
         }
@@ -63,6 +65,7 @@ namespace Seminar_Management_System.Forms
             populateDataFields();
             disableEditing();
             btnCancel.Visible = false;
+            btnDelete.Visible = false;
             btnEdit.Text = EDIT;
         }
 
@@ -70,7 +73,6 @@ namespace Seminar_Management_System.Forms
         {
             // TODO
             // Take value from interface and update the seminarReference to reflect them.
-
         }
 
         private void _enableEditing(bool canEdit)
@@ -117,6 +119,18 @@ namespace Seminar_Management_System.Forms
             else if (btnEdit.Text == SAVE)
             {
                 btnEdit.BackColor = Color.LimeGreen;
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to delete this seminar?\nThis action can't be reversed.",
+                "Delete Seminar", 
+                MessageBoxButtons.YesNo, 
+                MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                DataInstance.seminars.Remove(seminarReference);
+                this.Close();
             }
         }
     }

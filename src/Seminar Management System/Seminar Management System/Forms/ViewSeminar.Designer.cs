@@ -36,6 +36,8 @@
             this.ddVenue = new Seminar_Management_System.Custom_Controls.VenueDropDown();
             this.datePickerSingle = new Seminar_Management_System.DatePickerSingle();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.btnOk = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnEdit
@@ -116,17 +118,41 @@
             this.btnCancel.Visible = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // btnOk
+            // 
+            this.btnOk.Location = new System.Drawing.Point(431, 598);
+            this.btnOk.Name = "btnOk";
+            this.btnOk.Size = new System.Drawing.Size(75, 23);
+            this.btnOk.TabIndex = 20;
+            this.btnOk.Text = "Ok";
+            this.btnOk.UseVisualStyleBackColor = true;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.ForeColor = System.Drawing.Color.Red;
+            this.btnDelete.Location = new System.Drawing.Point(823, 67);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.TabIndex = 1;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Visible = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // ViewSeminar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(910, 633);
+            this.Controls.Add(this.btnOk);
             this.Controls.Add(this.datePickerSingle);
             this.Controls.Add(this.ddVenue);
             this.Controls.Add(this.ddOrganisers);
             this.Controls.Add(this.selectSpeakers1);
             this.Controls.Add(this.rtbDescription);
             this.Controls.Add(this.tbTitle);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnEdit);
             this.Name = "ViewSeminar";
@@ -147,5 +173,7 @@
         private Custom_Controls.VenueDropDown ddVenue;
         private DatePickerSingle datePickerSingle;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnOk;
+        private System.Windows.Forms.Button btnDelete;
     }
 }
