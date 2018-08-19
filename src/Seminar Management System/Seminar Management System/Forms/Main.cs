@@ -28,7 +28,7 @@ namespace Seminar_Management_System
 
         private void Main_Load(object sender, EventArgs e)
         {
-            DataInstance.obSeminars.CollectionChanged += ObSeminars_CollectionChanged;
+            DataInstance.seminars.CollectionChanged += ObSeminars_CollectionChanged;
 
             DataInstance.populateWithMockData();
             /*
@@ -42,7 +42,7 @@ namespace Seminar_Management_System
         {
             pnlSeminarView.Controls.Clear();
             seminarItems.Clear();
-            foreach (var seminar in DataInstance.obSeminars)
+            foreach (var seminar in DataInstance.seminars)
             {
                 SeminarItem seminarItem = new SeminarItem();
                 seminarItem.Location = new Point(0, seminarItem.Size.Height * seminarItems.Count);
