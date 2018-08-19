@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Seminar_Management_System.Classes.Users;
 using Seminar_Management_System.Custom_Controls;
+using System.Collections.ObjectModel;
 
 namespace Seminar_Management_System
 {
@@ -27,12 +28,32 @@ namespace Seminar_Management_System
 
         private void Main_Load(object sender, EventArgs e)
         {
+            DataInstance.obSeminars.CollectionChanged += ObSeminars_CollectionChanged;
+
             DataInstance.populateWithMockData();
+            /*
             for (int i = 0; i != 10; i++)
             {
                 btnTest_Click(null, null);
+            }*/
+        }
+
+        private void ObSeminars_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            pnlSeminarView.Controls.Clear();
+            seminarItems.Clear();
+            foreach (var seminar in DataInstance.obSeminars)
+            {
+                SeminarItem seminarItem = new SeminarItem();
+                seminarItem.Location = new Point(0, seminarItem.Size.Height * seminarItems.Count);
+                var seminarInstance = seminar;
+                seminarItem.Populate(ref seminarInstance);
+                seminarItems.Add(seminarItem);
+
+                pnlSeminarView.Controls.Add(seminarItem);
             }
         }
+
         private List<SeminarItem> seminarItems = new List<SeminarItem>();
         private bool pragmaOnce = true;
         private void btnTest_Click(object sender, EventArgs e)
