@@ -31,13 +31,20 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.btnAddSeminar = new System.Windows.Forms.Button();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-            this.pnlSeminarView = new System.Windows.Forms.Panel();
             this.btnTest = new System.Windows.Forms.ToolStripButton();
             this.btnDebug = new System.Windows.Forms.ToolStripButton();
             this.btnLogin = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.pnlSeminarView = new System.Windows.Forms.Panel();
+            this.tabControl = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.toolStrip1.SuspendLayout();
             this.pnlSeminarView.SuspendLayout();
+            this.tabControl.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnAddSeminar
@@ -61,25 +68,6 @@
             this.toolStrip1.Size = new System.Drawing.Size(931, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStrip2
-            // 
-            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.toolStrip2.Location = new System.Drawing.Point(0, 521);
-            this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(931, 25);
-            this.toolStrip2.TabIndex = 2;
-            this.toolStrip2.Text = "toolStrip2";
-            // 
-            // pnlSeminarView
-            // 
-            this.pnlSeminarView.AutoScroll = true;
-            this.pnlSeminarView.Controls.Add(this.btnAddSeminar);
-            this.pnlSeminarView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlSeminarView.Location = new System.Drawing.Point(0, 25);
-            this.pnlSeminarView.Name = "pnlSeminarView";
-            this.pnlSeminarView.Size = new System.Drawing.Size(931, 496);
-            this.pnlSeminarView.TabIndex = 3;
             // 
             // btnTest
             // 
@@ -110,12 +98,73 @@
             this.btnLogin.Size = new System.Drawing.Size(57, 22);
             this.btnLogin.Text = "Login";
             // 
+            // toolStrip2
+            // 
+            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.toolStrip2.Location = new System.Drawing.Point(0, 521);
+            this.toolStrip2.Name = "toolStrip2";
+            this.toolStrip2.Size = new System.Drawing.Size(931, 25);
+            this.toolStrip2.TabIndex = 2;
+            this.toolStrip2.Text = "toolStrip2";
+            // 
+            // pnlSeminarView
+            // 
+            this.pnlSeminarView.AutoScroll = true;
+            this.pnlSeminarView.Controls.Add(this.btnAddSeminar);
+            this.pnlSeminarView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlSeminarView.Location = new System.Drawing.Point(3, 3);
+            this.pnlSeminarView.Name = "pnlSeminarView";
+            this.pnlSeminarView.Size = new System.Drawing.Size(917, 464);
+            this.pnlSeminarView.TabIndex = 3;
+            // 
+            // tabControl
+            // 
+            this.tabControl.Controls.Add(this.tabPage1);
+            this.tabControl.Controls.Add(this.tabPage2);
+            this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl.Location = new System.Drawing.Point(0, 25);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            this.tabControl.Size = new System.Drawing.Size(931, 496);
+            this.tabControl.TabIndex = 1;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.pnlSeminarView);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(923, 470);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Seminars";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.textBox1);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(923, 470);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Users";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(77, 56);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 0;
+            this.textBox1.Text = "Title";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(931, 546);
-            this.Controls.Add(this.pnlSeminarView);
+            this.Controls.Add(this.tabControl);
             this.Controls.Add(this.toolStrip2);
             this.Controls.Add(this.toolStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -126,6 +175,10 @@
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.pnlSeminarView.ResumeLayout(false);
+            this.tabControl.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -140,6 +193,10 @@
         private System.Windows.Forms.ToolStripButton btnTest;
         private System.Windows.Forms.ToolStripButton btnDebug;
         private System.Windows.Forms.ToolStripButton btnLogin;
+        private System.Windows.Forms.TabControl tabControl;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 
