@@ -73,8 +73,8 @@
             this.btnTest.Image = ((System.Drawing.Image)(resources.GetObject("btnTest.Image")));
             this.btnTest.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnTest.Name = "btnTest";
-            this.btnTest.Size = new System.Drawing.Size(150, 22);
-            this.btnTest.Text = "Add Seminar (to interface)";
+            this.btnTest.Size = new System.Drawing.Size(79, 22);
+            this.btnTest.Text = "Add Seminar";
             this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
             // 
             // btnDebug

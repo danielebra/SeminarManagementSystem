@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Seminar_Management_System.Classes.Users;
 using Seminar_Management_System.Custom_Controls;
 using System.Collections.ObjectModel;
+using Seminar_Management_System.Classes;
 
 namespace Seminar_Management_System
 {
@@ -19,6 +20,8 @@ namespace Seminar_Management_System
         {
             InitializeComponent();
         }
+
+        private List<SeminarItem> seminarItems = new List<SeminarItem>();
 
         private void btnAddSeminar_Click(object sender, EventArgs e)
         {
@@ -31,11 +34,6 @@ namespace Seminar_Management_System
             DataInstance.seminars.CollectionChanged += ObSeminars_CollectionChanged;
 
             DataInstance.populateWithMockData();
-            /*
-            for (int i = 0; i != 10; i++)
-            {
-                btnTest_Click(null, null);
-            }*/
         }
 
         private void ObSeminars_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
@@ -54,20 +52,13 @@ namespace Seminar_Management_System
             }
         }
 
-        private List<SeminarItem> seminarItems = new List<SeminarItem>();
-        private bool pragmaOnce = true;
+        Random rnum = new Random();
         private void btnTest_Click(object sender, EventArgs e)
         {
-            SeminarItem foo = new SeminarItem();
-            foo.Location = new Point(0, foo.Size.Height * seminarItems.Count);
-            seminarItems.Add(foo);
-            if (pragmaOnce)
-            {
-                pragmaOnce = false;
-                var bar = DataInstance.seminars.FirstOrDefault();
-                foo.Populate(ref bar);
-            }
-            pnlSeminarView.Controls.Add(foo);
+            Seminar seminar = new Seminar();
+            seminar.Title = "Created by test button";
+            seminar.Description = rnum.Next(1111111, 1111111111).ToString();
+            DataInstance.seminars.Add(seminar);
         }
 
         private void btnDebug_Click(object sender, EventArgs e)
