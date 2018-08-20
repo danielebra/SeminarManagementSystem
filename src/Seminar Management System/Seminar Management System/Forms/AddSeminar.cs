@@ -30,6 +30,7 @@ namespace Seminar_Management_System
             seminar.Title = tbTitle.Text;
             seminar.Description = rtbDescription.Text;
             DataInstance.seminars.Add(seminar);
+            this.Close();
         }
 
         private void btnTest_Click(object sender, EventArgs e)
