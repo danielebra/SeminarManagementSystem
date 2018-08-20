@@ -75,8 +75,17 @@ namespace Seminar_Management_System.Forms
 
         private void saveSeminarState()
         {
-            // TODO
-            // Take value from interface and update the seminarReference to reflect them.
+            seminarReference.Organiser = ddOrganisers.SelectedOrganiser;
+            seminarReference.Speakers = selectSpeakers1.SelectedSpeakers;
+            seminarReference.Venue = ddVenue.SelectedVenue;
+            seminarReference.StartDate = datePickerSingle.StartDate;
+            seminarReference.EndDate = datePickerSingle.EndDate;
+            seminarReference.Title = tbTitle.Text;
+            seminarReference.Description = rtbDescription.Text;
+
+            // Used to fire observer event, as it is not triggered by ref updates
+                // This will update the seminar list interface
+            DataInstance.seminars[DataInstance.seminars.IndexOf(seminarReference)] = seminarReference;
         }
 
         private void _enableEditing(bool canEdit)
