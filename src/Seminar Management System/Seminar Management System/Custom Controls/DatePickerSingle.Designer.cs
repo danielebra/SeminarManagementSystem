@@ -42,6 +42,7 @@
             this.monthCalander.Location = new System.Drawing.Point(17, 25);
             this.monthCalander.MaxSelectionCount = 1;
             this.monthCalander.Name = "monthCalander";
+            this.monthCalander.ShowTodayCircle = false;
             this.monthCalander.TabIndex = 12;
             this.monthCalander.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar_UpdateRanges);
             this.monthCalander.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar_UpdateRanges);

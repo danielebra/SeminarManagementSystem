@@ -28,6 +28,31 @@ namespace Seminar_Management_System.Custom_Controls
                 return selectedSpeakers;
             }
         }
+
+        public void setSpeakers(List<Speaker> speakers)
+        {
+            int index = 0;
+            foreach (Speaker speaker in buildSpeakerListFromCheckedListBox(clbSpeakers.Items))
+            {
+                clbSpeakers.SetItemChecked(index, false);
+                if (speakers.Contains(speaker))
+                {
+                    clbSpeakers.SetItemChecked(index, true);
+                }
+                index++;
+            }
+        }
+        private List<Speaker> buildSpeakerListFromCheckedListBox(CheckedListBox.ObjectCollection collection)
+        {
+            // Creates a safe list of existing speakers
+            // Assumes the speakers in the list box actually exist in the data base
+            List<Speaker> speakerList = new List<Speaker>();
+            foreach (string name in collection)
+            {
+                speakerList.Add(DataInstance.speakers.Find(speaker => speaker.Name == name));
+            }
+            return speakerList;
+        }
         private void SelectSpeakers_Load(object sender, EventArgs e)
         {
             foreach (Speaker speaker in DataInstance.speakers)

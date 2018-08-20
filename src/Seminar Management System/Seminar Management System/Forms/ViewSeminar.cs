@@ -38,6 +38,10 @@ namespace Seminar_Management_System.Forms
             {
                 tbTitle.Text = seminarReference.Title;
                 rtbDescription.Text = seminarReference.Description;
+                ddOrganisers.setOrganiser(seminarReference.Organiser);
+                ddVenue.setVenue(seminarReference.Venue);
+                selectSpeakers1.setSpeakers(seminarReference.Speakers);
+                datePickerSingle.setDateTime(seminarReference.StartDate, seminarReference.EndDate);
             }
         }
 

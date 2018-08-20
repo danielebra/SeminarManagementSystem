@@ -20,6 +20,11 @@ namespace Seminar_Management_System.Custom_Controls
 
         public Venue SelectedVenue { get { return (Venue)cbVenues.SelectedItem; } }
 
+        public void setVenue(Venue venue)
+        {
+            cbVenues.SelectedIndex = DataInstance.venues.IndexOf(venue);
+        }
+
         private void VenueDropDown_Load(object sender, EventArgs e)
         {
             cbVenues.DataSource = DataInstance.venues;

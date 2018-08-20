@@ -20,6 +20,11 @@ namespace Seminar_Management_System.Custom_Controls
 
         public SeminarOrganiser SelectedOrganiser { get { return (SeminarOrganiser)cbOrganisers.SelectedItem; } }
 
+        public void setOrganiser(SeminarOrganiser organiser)
+        {
+            cbOrganisers.SelectedIndex = DataInstance.organisers.IndexOf(organiser);
+        }
+
         private void OrganiserDropDown_Load(object sender, EventArgs e)
         {
             cbOrganisers.DataSource = DataInstance.organisers;

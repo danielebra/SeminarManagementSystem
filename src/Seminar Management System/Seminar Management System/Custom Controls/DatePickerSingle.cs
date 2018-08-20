@@ -22,6 +22,13 @@ namespace Seminar_Management_System
 
         public event EventHandler DateUpdated;
 
+        public void setDateTime(DateTime start, DateTime end)
+        {
+            monthCalander.SetDate(start);
+            dtpStart.Value = start;
+            dtpEnd.Value = end;
+        }
+
         private void dtpStart_ValueChanged(object sender, EventArgs e)
         {
             monthCalander.SelectionStart = this.StartDate;
