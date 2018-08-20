@@ -38,10 +38,11 @@ namespace Seminar_Management_System
 
         private void ObSeminars_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         {
-            
+
             //pnlSeminarView.Controls.Clear();
-            foreach (Control control in pnlSeminarView.Controls)
+            for (int i = pnlSeminarView.Controls.Count - 1; i >= 0; i--)
             {
+                Control control = pnlSeminarView.Controls[i];
                 if (control.GetType() == typeof(SeminarItem))
                     pnlSeminarView.Controls.Remove(control);
             }
@@ -65,6 +66,12 @@ namespace Seminar_Management_System
             seminar.Title = "Created by test button";
             seminar.Description = rnum.Next(1111111, 1111111111).ToString();
             seminar.Speakers = DataInstance.speakers;
+            seminar.StartDate = DateTime.Now;
+            seminar.EndDate = DateTime.Now.AddHours(1);
+            seminar.Venue = DataInstance.venues[rnum.Next(0, DataInstance.venues.Count)];
+            seminar.Organiser = DataInstance.organisers[rnum.Next(0, DataInstance.organisers.Count)];
+
+
             DataInstance.seminars.Add(seminar);
         }
 
