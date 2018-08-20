@@ -54,10 +54,12 @@ namespace Seminar_Management_System
             {
                 SeminarItem seminarItem = new SeminarItem();
                 seminarItem.Location = new Point(0, seminarItem.Size.Height * seminarItems.Count);
+                if (seminarItems.Count % 2 == 1)
+                    seminarItem.BackgroundColor = SystemColors.ActiveCaption;
+
                 var seminarInstance = seminar;
                 seminarItem.Populate(ref seminarInstance);
                 seminarItems.Add(seminarItem);
-                
                 pnlSeminarView.Controls.Add(seminarItem);
             }
         }

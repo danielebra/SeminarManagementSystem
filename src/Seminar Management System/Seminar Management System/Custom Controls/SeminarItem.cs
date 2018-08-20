@@ -18,6 +18,8 @@ namespace Seminar_Management_System.Custom_Controls
             InitializeComponent();
         }
         public Seminar SeminarReference;
+        
+        public Color BackgroundColor { get { return this.BackColor; } set { this.BackColor = value; } }
         // the seminar param might become a ref in the future
         public void Populate(ref Seminar seminar)
         {
@@ -34,12 +36,18 @@ namespace Seminar_Management_System.Custom_Controls
 
         public void Resize()
         {
-            this.Width = this.Parent.Size.Width;
+            int scrollbarCompensation = 20;
+            this.Width = this.Parent.Size.Width - scrollbarCompensation;
         }
         private void btnTest_Click(object sender, EventArgs e)
         {
             var foo = this.Parent.Size;
             this.Width = foo.Width;
+        }
+
+        private void SeminarItem_Load(object sender, EventArgs e)
+        {
+            this.Resize();
         }
     }
 }
