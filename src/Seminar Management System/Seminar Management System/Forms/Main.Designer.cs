@@ -36,15 +36,15 @@
             this.btnLogin = new System.Windows.Forms.ToolStripButton();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.pnlSeminarView = new System.Windows.Forms.Panel();
+            this.pnlPersistantControls = new System.Windows.Forms.Panel();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.pnlPersistantControls = new System.Windows.Forms.Panel();
             this.toolStrip1.SuspendLayout();
             this.pnlSeminarView.SuspendLayout();
+            this.pnlPersistantControls.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.pnlPersistantControls.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnAddSeminar
@@ -117,6 +117,15 @@
             this.pnlSeminarView.Size = new System.Drawing.Size(917, 464);
             this.pnlSeminarView.TabIndex = 3;
             // 
+            // pnlPersistantControls
+            // 
+            this.pnlPersistantControls.BackColor = System.Drawing.Color.Gray;
+            this.pnlPersistantControls.Controls.Add(this.btnAddSeminar);
+            this.pnlPersistantControls.Location = new System.Drawing.Point(712, 3);
+            this.pnlPersistantControls.Name = "pnlPersistantControls";
+            this.pnlPersistantControls.Size = new System.Drawing.Size(200, 100);
+            this.pnlPersistantControls.TabIndex = 1;
+            // 
             // tabControl
             // 
             this.tabControl.Controls.Add(this.tabPage1);
@@ -149,15 +158,6 @@
             this.tabPage2.Text = "Users";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // pnlPersistantControls
-            // 
-            this.pnlPersistantControls.BackColor = System.Drawing.Color.Gray;
-            this.pnlPersistantControls.Controls.Add(this.btnAddSeminar);
-            this.pnlPersistantControls.Location = new System.Drawing.Point(712, 3);
-            this.pnlPersistantControls.Name = "pnlPersistantControls";
-            this.pnlPersistantControls.Size = new System.Drawing.Size(200, 100);
-            this.pnlPersistantControls.TabIndex = 1;
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -172,12 +172,13 @@
             this.Text = "Main";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Main_Load);
+            this.Resize += new System.EventHandler(this.Main_Resize);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.pnlSeminarView.ResumeLayout(false);
+            this.pnlPersistantControls.ResumeLayout(false);
             this.tabControl.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.pnlPersistantControls.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

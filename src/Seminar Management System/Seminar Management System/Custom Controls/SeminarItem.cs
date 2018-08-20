@@ -31,5 +31,15 @@ namespace Seminar_Management_System.Custom_Controls
             ViewSeminar viewSeminar = new ViewSeminar(ref SeminarReference);
             viewSeminar.Show();
         }
+
+        public void Resize()
+        {
+            this.Width = this.Parent.Size.Width;
+        }
+        private void btnTest_Click(object sender, EventArgs e)
+        {
+            var foo = this.Parent.Size;
+            this.Width = foo.Width;
+        }
     }
 }

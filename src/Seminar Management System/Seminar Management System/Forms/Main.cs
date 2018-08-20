@@ -34,6 +34,9 @@ namespace Seminar_Management_System
             DataInstance.seminars.CollectionChanged += ObSeminars_CollectionChanged;
 
             DataInstance.populateWithMockData();
+
+            // Fire resize
+            Main_Resize(null, null);
         }
 
         private void ObSeminars_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
@@ -78,6 +81,12 @@ namespace Seminar_Management_System
         private void btnDebug_Click(object sender, EventArgs e)
         {
             var foo = DataInstance.seminars.FirstOrDefault();
+        }
+        
+        private void Main_Resize(object sender, EventArgs e)
+        {
+            foreach (SeminarItem seminar in seminarItems)
+                seminar.Resize();
         }
     }
 }

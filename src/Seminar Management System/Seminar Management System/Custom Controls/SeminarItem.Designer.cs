@@ -31,6 +31,7 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblDescription = new System.Windows.Forms.Label();
             this.btnView = new System.Windows.Forms.LinkLabel();
+            this.btnTest = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -62,11 +63,22 @@
             this.btnView.Text = "View";
             this.btnView.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.btnView_LinkClicked);
             // 
+            // btnTest
+            // 
+            this.btnTest.Location = new System.Drawing.Point(314, 74);
+            this.btnTest.Name = "btnTest";
+            this.btnTest.Size = new System.Drawing.Size(75, 23);
+            this.btnTest.TabIndex = 2;
+            this.btnTest.Text = "Test";
+            this.btnTest.UseVisualStyleBackColor = true;
+            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
+            // 
             // SeminarItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.Controls.Add(this.btnTest);
             this.Controls.Add(this.btnView);
             this.Controls.Add(this.lblDescription);
             this.Controls.Add(this.lblTitle);
@@ -82,5 +94,6 @@
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.LinkLabel btnView;
+        private System.Windows.Forms.Button btnTest;
     }
 }
