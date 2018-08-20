@@ -38,7 +38,13 @@ namespace Seminar_Management_System
 
         private void ObSeminars_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         {
-            pnlSeminarView.Controls.Clear();
+            
+            //pnlSeminarView.Controls.Clear();
+            foreach (Control control in pnlSeminarView.Controls)
+            {
+                if (Controls.GetType() == typeof(SeminarItem))
+                    pnlSeminarView.Controls.Remove(control);
+            }
             seminarItems.Clear();
             foreach (var seminar in DataInstance.seminars)
             {
@@ -47,7 +53,7 @@ namespace Seminar_Management_System
                 var seminarInstance = seminar;
                 seminarItem.Populate(ref seminarInstance);
                 seminarItems.Add(seminarItem);
-
+                
                 pnlSeminarView.Controls.Add(seminarItem);
             }
         }
@@ -58,6 +64,7 @@ namespace Seminar_Management_System
             Seminar seminar = new Seminar();
             seminar.Title = "Created by test button";
             seminar.Description = rnum.Next(1111111, 1111111111).ToString();
+            seminar.Speakers = DataInstance.speakers;
             DataInstance.seminars.Add(seminar);
         }
 
