@@ -42,7 +42,7 @@ namespace Seminar_Management_System
             //pnlSeminarView.Controls.Clear();
             foreach (Control control in pnlSeminarView.Controls)
             {
-                if (Controls.GetType() == typeof(SeminarItem))
+                if (control.GetType() == typeof(SeminarItem))
                     pnlSeminarView.Controls.Remove(control);
             }
             seminarItems.Clear();
