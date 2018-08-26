@@ -30,11 +30,6 @@ namespace Seminar_Management_System.Custom_Controls
             this.BindingContext[dgvAttendees.DataSource].EndCurrentEdit();
             dgvAttendees.Refresh();
             dgvAttendees.Parent.Refresh();
-
-        }
-        private void AttendeeTable_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -62,7 +62,6 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "AttendeeTable";
             this.Size = new System.Drawing.Size(590, 272);
-            this.Load += new System.EventHandler(this.AttendeeTable_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttendees)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
