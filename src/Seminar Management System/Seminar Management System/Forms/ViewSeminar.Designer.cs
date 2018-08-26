@@ -39,6 +39,8 @@
             this.btnOk = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.attendeeTable1 = new Seminar_Management_System.Custom_Controls.AttendeeTable();
+            this.btnRegister = new System.Windows.Forms.Button();
+            this.btnTest = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnEdit
@@ -143,17 +145,38 @@
             // 
             // attendeeTable1
             // 
-            this.attendeeTable1.Enabled = false;
             this.attendeeTable1.Location = new System.Drawing.Point(507, 242);
             this.attendeeTable1.Name = "attendeeTable1";
             this.attendeeTable1.Size = new System.Drawing.Size(391, 272);
             this.attendeeTable1.TabIndex = 21;
+            // 
+            // btnRegister
+            // 
+            this.btnRegister.Location = new System.Drawing.Point(607, 521);
+            this.btnRegister.Name = "btnRegister";
+            this.btnRegister.Size = new System.Drawing.Size(75, 23);
+            this.btnRegister.TabIndex = 22;
+            this.btnRegister.Text = "Register";
+            this.btnRegister.UseVisualStyleBackColor = true;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
+            // 
+            // btnTest
+            // 
+            this.btnTest.Location = new System.Drawing.Point(689, 520);
+            this.btnTest.Name = "btnTest";
+            this.btnTest.Size = new System.Drawing.Size(75, 23);
+            this.btnTest.TabIndex = 23;
+            this.btnTest.Text = "Test";
+            this.btnTest.UseVisualStyleBackColor = true;
+            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
             // 
             // ViewSeminar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(910, 633);
+            this.Controls.Add(this.btnTest);
+            this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.attendeeTable1);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.datePickerSingle);
@@ -186,5 +209,7 @@
         private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.Button btnDelete;
         private Custom_Controls.AttendeeTable attendeeTable1;
+        private System.Windows.Forms.Button btnRegister;
+        private System.Windows.Forms.Button btnTest;
     }
 }

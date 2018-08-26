@@ -18,13 +18,23 @@ namespace Seminar_Management_System.Custom_Controls
         {
             InitializeComponent();
         }
+        private Seminar seminar;
         public void Setup(ref Seminar seminar)
         {
-            dgvAttendees.DataSource = seminar.Attendees;
+            this.seminar = seminar;
+            dgvAttendees.DataSource = this.seminar.Attendees;
+        }
+        public void refresh()
+        {
+            // dgvAttendees.DataSource = seminar.Attendees;
+            this.BindingContext[dgvAttendees.DataSource].EndCurrentEdit();
+            dgvAttendees.Refresh();
+            dgvAttendees.Parent.Refresh();
+
         }
         private void AttendeeTable_Load(object sender, EventArgs e)
         {
-            //dgvAttendees.DataSource = DataInstance.seminars;
+
         }
     }
 }

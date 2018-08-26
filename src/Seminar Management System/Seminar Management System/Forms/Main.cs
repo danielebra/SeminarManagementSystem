@@ -11,6 +11,7 @@ using Seminar_Management_System.Classes.Users;
 using Seminar_Management_System.Custom_Controls;
 using System.Collections.ObjectModel;
 using Seminar_Management_System.Classes;
+using Seminar_Management_System.Forms;
 
 namespace Seminar_Management_System
 {
@@ -83,6 +84,8 @@ namespace Seminar_Management_System
         private void btnDebug_Click(object sender, EventArgs e)
         {
             var foo = DataInstance.seminars.FirstOrDefault();
+            RegisterAttendee reg = new RegisterAttendee();
+            reg.Show();
         }
         
         private void Main_Resize(object sender, EventArgs e)

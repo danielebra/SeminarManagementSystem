@@ -1,6 +1,7 @@
 ﻿using Seminar_Management_System.Classes.Users;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,7 +13,7 @@ namespace Seminar_Management_System.Classes
         public SeminarOrganiser Organiser { get; set; }
         public Venue Venue { get; set; }
         public List<Speaker> Speakers { get; set; }
-        public List<SeminarAttendee> Attendees { get; set; }
+        public BindingList<SeminarAttendee> Attendees { get; set; }
 
         public string Title { get; set; }
         public string Description { get; set; }
@@ -26,7 +27,7 @@ namespace Seminar_Management_System.Classes
 
         }
 
-        public Seminar(SeminarOrganiser organiser, Venue venue, List<Speaker> speakers, List<SeminarAttendee> attendees,
+        public Seminar(SeminarOrganiser organiser, Venue venue, List<Speaker> speakers, BindingList<SeminarAttendee> attendees,
             string title, string description, DateTime startDate, DateTime endDate)
         {
             this.Organiser = organiser;

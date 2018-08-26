@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Seminar_Management_System.Classes.Users;
 using Seminar_Management_System.Classes;
 using System.Collections.ObjectModel;
-
+using System.ComponentModel;
 
 namespace Seminar_Management_System
 {
@@ -28,7 +28,7 @@ namespace Seminar_Management_System
             DataInstance.speakers.Add(new Speaker(0, "Dr James", "james@speakers.com", String.Empty, "This is a biography..."));
             DataInstance.speakers.Add(new Speaker(1, "Dr Paul", "paul@speakers.com", String.Empty, "This is a biography..."));
 
-            List<SeminarAttendee> attendeeList = new List<SeminarAttendee>();
+            BindingList<SeminarAttendee> attendeeList = new BindingList<SeminarAttendee>();
             attendeeList.Add(new SeminarAttendee(0, "Jason", "jason@attendee.com", "911"));
             attendeeList.Add(new SeminarAttendee(1, "Tyrone", "tyrone@attendee.com", "912"));
 
