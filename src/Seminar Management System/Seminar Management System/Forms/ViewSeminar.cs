@@ -22,18 +22,9 @@ namespace Seminar_Management_System.Forms
             InitializeComponent();
             seminarReference = seminar;
             attendeeTable1.Setup(ref seminar);
-            registerAttendeeView = new RegisterAttendee(ref seminar);
-            registerAttendeeView.AttendeeRegistered += RegisterAttendeeView_AttendeeRegistered;
-        }
-
-        private void RegisterAttendeeView_AttendeeRegistered(object sender, EventArgs e)
-        {
-            // Refresh the table when there is something new to display
-            attendeeTable1.refresh();
         }
 
         private Seminar seminarReference { get; set; }
-        private RegisterAttendee registerAttendeeView;
         private const string EDIT = "Edit";
         private const string SAVE = "Save";
         
@@ -160,7 +151,9 @@ namespace Seminar_Management_System.Forms
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            registerAttendeeView.Show();
+            var intermediary = this.seminarReference;
+            RegisterAttendee ra = new RegisterAttendee(ref intermediary);
+            ra.Show();
         }
 
         private void btnTest_Click(object sender, EventArgs e)
