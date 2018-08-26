@@ -24,7 +24,8 @@ namespace Seminar_Management_System.Classes
 
         public Seminar()
         {
-
+            Speakers = new List<Speaker>();
+            Attendees = new BindingList<SeminarAttendee>();
         }
 
         public Seminar(SeminarOrganiser organiser, Venue venue, List<Speaker> speakers, BindingList<SeminarAttendee> attendees,

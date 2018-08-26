@@ -39,6 +39,8 @@
             this.lblDuration = new System.Windows.Forms.Label();
             this.selectSpeakers1 = new Seminar_Management_System.Custom_Controls.SelectSpeakers();
             this.datePickerSingle = new Seminar_Management_System.DatePickerSingle();
+            this.attendeeTable1 = new Seminar_Management_System.Custom_Controls.AttendeeTable();
+            this.btnAddAttendee = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -76,7 +78,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(305, 424);
+            this.btnAdd.Location = new System.Drawing.Point(91, 448);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 5;
@@ -86,7 +88,7 @@
             // 
             // btnTest
             // 
-            this.btnTest.Location = new System.Drawing.Point(391, 424);
+            this.btnTest.Location = new System.Drawing.Point(177, 448);
             this.btnTest.Name = "btnTest";
             this.btnTest.Size = new System.Drawing.Size(75, 23);
             this.btnTest.TabIndex = 5;
@@ -96,14 +98,14 @@
             // 
             // ddVenue
             // 
-            this.ddVenue.Location = new System.Drawing.Point(415, 48);
+            this.ddVenue.Location = new System.Drawing.Point(386, 46);
             this.ddVenue.Name = "ddVenue";
             this.ddVenue.Size = new System.Drawing.Size(190, 30);
             this.ddVenue.TabIndex = 11;
             // 
             // ddOrganisers
             // 
-            this.ddOrganisers.Location = new System.Drawing.Point(415, 12);
+            this.ddOrganisers.Location = new System.Drawing.Point(386, 10);
             this.ddOrganisers.Name = "ddOrganisers";
             this.ddOrganisers.Size = new System.Drawing.Size(190, 30);
             this.ddOrganisers.TabIndex = 12;
@@ -119,7 +121,7 @@
             // 
             // selectSpeakers1
             // 
-            this.selectSpeakers1.Location = new System.Drawing.Point(391, 151);
+            this.selectSpeakers1.Location = new System.Drawing.Point(386, 91);
             this.selectSpeakers1.Name = "selectSpeakers1";
             this.selectSpeakers1.Size = new System.Drawing.Size(214, 147);
             this.selectSpeakers1.TabIndex = 15;
@@ -132,11 +134,30 @@
             this.datePickerSingle.TabIndex = 16;
             this.datePickerSingle.DateUpdated += new System.EventHandler(this.datePicker_DateUpdated);
             // 
+            // attendeeTable1
+            // 
+            this.attendeeTable1.Location = new System.Drawing.Point(386, 244);
+            this.attendeeTable1.Name = "attendeeTable1";
+            this.attendeeTable1.Size = new System.Drawing.Size(345, 202);
+            this.attendeeTable1.TabIndex = 17;
+            // 
+            // btnAddAttendee
+            // 
+            this.btnAddAttendee.Location = new System.Drawing.Point(639, 448);
+            this.btnAddAttendee.Name = "btnAddAttendee";
+            this.btnAddAttendee.Size = new System.Drawing.Size(90, 23);
+            this.btnAddAttendee.TabIndex = 18;
+            this.btnAddAttendee.Text = "Add Attendee";
+            this.btnAddAttendee.UseVisualStyleBackColor = true;
+            this.btnAddAttendee.Click += new System.EventHandler(this.btnAddAttendee_Click);
+            // 
             // AddSeminar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(612, 501);
+            this.ClientSize = new System.Drawing.Size(741, 501);
+            this.Controls.Add(this.btnAddAttendee);
+            this.Controls.Add(this.attendeeTable1);
             this.Controls.Add(this.datePickerSingle);
             this.Controls.Add(this.selectSpeakers1);
             this.Controls.Add(this.lblDuration);
@@ -151,6 +172,7 @@
             this.Name = "AddSeminar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddSeminar";
+            this.Load += new System.EventHandler(this.AddSeminar_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -169,5 +191,7 @@
         private System.Windows.Forms.Label lblDuration;
         private Custom_Controls.SelectSpeakers selectSpeakers1;
         private DatePickerSingle datePickerSingle;
+        private Custom_Controls.AttendeeTable attendeeTable1;
+        private System.Windows.Forms.Button btnAddAttendee;
     }
 }
