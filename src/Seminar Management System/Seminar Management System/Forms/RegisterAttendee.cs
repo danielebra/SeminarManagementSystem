@@ -38,6 +38,8 @@ namespace Seminar_Management_System.Forms
             int x = 5;
             foreach (PropertyInfo p in typeof(SeminarAttendee).GetProperties())
             {
+                if (p.Name == "ID")
+                    continue;
                 Label label = new Label();
                 TextBox tb = new TextBox();
                 label.AutoSize = true;
@@ -67,7 +69,7 @@ namespace Seminar_Management_System.Forms
             List<string> vals = new List<string>();
             foreach (var cont in tbs)
                 vals.Add(((TextBox)cont).Text);
-            seminarReference.Attendees.Add(new SeminarAttendee(int.Parse(vals[0]), vals[1], vals[2], vals[3]));
+            seminarReference.Attendees.Add(new SeminarAttendee(seminarReference.Attendees.Count,vals[0], vals[1], vals[2]));
             if (this.AttendeeRegistered != null)
             {
                 this.AttendeeRegistered(this, new EventArgs());
