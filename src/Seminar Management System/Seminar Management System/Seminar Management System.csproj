@@ -48,6 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Custom Controls\AttendeeTable.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Custom Controls\AttendeeTable.Designer.cs">
+      <DependentUpon>AttendeeTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Custom Controls\SeminarItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -113,6 +119,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Custom Controls\AttendeeTable.resx">
+      <DependentUpon>AttendeeTable.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Custom Controls\SeminarItem.resx">
       <DependentUpon>SeminarItem.cs</DependentUpon>
     </EmbeddedResource>

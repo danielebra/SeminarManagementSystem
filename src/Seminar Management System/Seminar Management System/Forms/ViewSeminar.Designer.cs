@@ -38,6 +38,7 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.attendeeTable1 = new Seminar_Management_System.Custom_Controls.AttendeeTable();
             this.SuspendLayout();
             // 
             // btnEdit
@@ -140,11 +141,20 @@
             this.btnDelete.Visible = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // attendeeTable1
+            // 
+            this.attendeeTable1.Enabled = false;
+            this.attendeeTable1.Location = new System.Drawing.Point(507, 242);
+            this.attendeeTable1.Name = "attendeeTable1";
+            this.attendeeTable1.Size = new System.Drawing.Size(391, 272);
+            this.attendeeTable1.TabIndex = 21;
+            // 
             // ViewSeminar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(910, 633);
+            this.Controls.Add(this.attendeeTable1);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.datePickerSingle);
             this.Controls.Add(this.ddVenue);
@@ -175,5 +185,6 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.Button btnDelete;
+        private Custom_Controls.AttendeeTable attendeeTable1;
     }
 }

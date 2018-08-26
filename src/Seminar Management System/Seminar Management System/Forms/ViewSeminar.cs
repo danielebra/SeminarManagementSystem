@@ -21,6 +21,7 @@ namespace Seminar_Management_System.Forms
         {
             InitializeComponent();
             seminarReference = seminar;
+            attendeeTable1.Setup(ref seminar);
         }
         private Seminar seminarReference { get; set; }
 
@@ -111,6 +112,7 @@ namespace Seminar_Management_System.Forms
             ddVenue.Enabled = canEdit;
             datePickerSingle.Enabled = canEdit;
             selectSpeakers1.Enabled = canEdit;
+            attendeeTable1.Enabled = canEdit;
         }
 
         private void enableEditing()
