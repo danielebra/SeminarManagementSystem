@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Seminar_Management_System.Classes.Users
 { 
+    [Serializable()]
     abstract public class User
     {
         public int ID { get; set; }

@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Seminar_Management_System.Classes;
+using Seminar_Management_System.Classes.Users;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Seminar_Management_System.Forms
 {
@@ -46,9 +49,12 @@ namespace Seminar_Management_System.Forms
                 datePickerSingle.setDateTime(seminarReference.StartDate, seminarReference.EndDate);
             }
         }
-
+        private BindingList<SeminarAttendee> attendeesBackup;
         private void btnEdit_Click(object sender, EventArgs e)
         {
+            // Create a deep copy of the the attendee list to remove its reference
+            var cloned = ObjectCloner.Clone(seminarReference.Attendees);
+            attendeesBackup = (BindingList<SeminarAttendee>)cloned;
             if (btnEdit.Text == EDIT)
             {
                 enableEditing();
@@ -65,7 +71,6 @@ namespace Seminar_Management_System.Forms
                 saveSeminarState();
             }
         }
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
             populateDataFields();
@@ -73,6 +78,11 @@ namespace Seminar_Management_System.Forms
             btnCancel.Visible = false;
             btnDelete.Visible = false;
             btnEdit.Text = EDIT;
+            seminarReference.Attendees = attendeesBackup;
+
+            // Re connect the table to the new object reference
+            var intermediary = this.seminarReference;
+            attendeeTable1.Setup(ref intermediary);
         }
 
         private void saveSeminarState()
@@ -160,6 +170,22 @@ namespace Seminar_Management_System.Forms
         private void btnTest_Click(object sender, EventArgs e)
         {
             this.seminarReference.Attendees.Add(new Classes.Users.SeminarAttendee(3, "oooo", "otho", "oeo"));
+        }
+
+        internal static class ObjectCloner // Move this class if it ends up being used by other modules
+        {
+            // Serialize and deserialize objects
+            public static object Clone(object obj)
+            {
+                using (MemoryStream buffer = new MemoryStream())
+                {
+                    BinaryFormatter formatter = new BinaryFormatter();
+                    formatter.Serialize(buffer, obj);
+                    buffer.Position = 0;
+                    object temp = formatter.Deserialize(buffer);
+                    return temp;
+                }
+            }
         }
     }
 }

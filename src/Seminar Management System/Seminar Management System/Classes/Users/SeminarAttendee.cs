@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Seminar_Management_System.Classes.Users
 {
+    [Serializable()]
     public class SeminarAttendee : User
     {
 
