@@ -31,5 +31,15 @@ namespace Seminar_Management_System.Custom_Controls
             dgvAttendees.Refresh();
             dgvAttendees.Parent.Refresh();
         }
+
+        private void dgvAttendees_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+        {
+            
+            if (MessageBox.Show(string.Format("Should {0} be removed from the Attendee List?", e.Row.Cells["Name"].Value), 
+                "Delete Attendee", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+        }
     }
 }

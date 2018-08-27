@@ -43,6 +43,7 @@
             this.dgvAttendees.Name = "dgvAttendees";
             this.dgvAttendees.Size = new System.Drawing.Size(584, 253);
             this.dgvAttendees.TabIndex = 0;
+            this.dgvAttendees.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgvAttendees_UserDeletingRow);
             // 
             // groupBox1
             // 
