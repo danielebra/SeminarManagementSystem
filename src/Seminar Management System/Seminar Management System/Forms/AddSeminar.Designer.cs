@@ -34,7 +34,7 @@
             this.rtbDescription = new System.Windows.Forms.RichTextBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnTest = new System.Windows.Forms.Button();
-            this.ddVenue = new Seminar_Management_System.Custom_Controls.VenueDropDown();
+            this.ddRoom = new Seminar_Management_System.Custom_Controls.RoomDropDown();
             this.ddOrganisers = new Seminar_Management_System.Custom_Controls.OrganiserDropDown();
             this.lblDuration = new System.Windows.Forms.Label();
             this.selectSpeakers1 = new Seminar_Management_System.Custom_Controls.SelectSpeakers();
@@ -96,12 +96,12 @@
             this.btnTest.UseVisualStyleBackColor = true;
             this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
             // 
-            // ddVenue
+            // ddRoom
             // 
-            this.ddVenue.Location = new System.Drawing.Point(386, 46);
-            this.ddVenue.Name = "ddVenue";
-            this.ddVenue.Size = new System.Drawing.Size(190, 30);
-            this.ddVenue.TabIndex = 11;
+            this.ddRoom.Location = new System.Drawing.Point(386, 46);
+            this.ddRoom.Name = "ddRoom";
+            this.ddRoom.Size = new System.Drawing.Size(190, 30);
+            this.ddRoom.TabIndex = 11;
             // 
             // ddOrganisers
             // 
@@ -162,7 +162,7 @@
             this.Controls.Add(this.selectSpeakers1);
             this.Controls.Add(this.lblDuration);
             this.Controls.Add(this.ddOrganisers);
-            this.Controls.Add(this.ddVenue);
+            this.Controls.Add(this.ddRoom);
             this.Controls.Add(this.btnTest);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.rtbDescription);
@@ -186,7 +186,7 @@
         private System.Windows.Forms.RichTextBox rtbDescription;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnTest;
-        private Custom_Controls.VenueDropDown ddVenue;
+        private Custom_Controls.RoomDropDown ddRoom;
         private Custom_Controls.OrganiserDropDown ddOrganisers;
         private System.Windows.Forms.Label lblDuration;
         private Custom_Controls.SelectSpeakers selectSpeakers1;

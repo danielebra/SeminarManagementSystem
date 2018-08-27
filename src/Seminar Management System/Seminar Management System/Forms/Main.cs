@@ -74,7 +74,7 @@ namespace Seminar_Management_System
             seminar.Speakers = DataInstance.speakers;
             seminar.StartDate = DateTime.Now;
             seminar.EndDate = DateTime.Now.AddHours(1);
-            seminar.Venue = DataInstance.venues[rnum.Next(0, DataInstance.venues.Count)];
+            seminar.Room = DataInstance.rooms[rnum.Next(0, DataInstance.rooms.Count)];
             seminar.Organiser = DataInstance.organisers[rnum.Next(0, DataInstance.organisers.Count)];
 
 

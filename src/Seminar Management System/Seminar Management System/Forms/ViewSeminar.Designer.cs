@@ -33,7 +33,7 @@
             this.rtbDescription = new System.Windows.Forms.RichTextBox();
             this.selectSpeakers1 = new Seminar_Management_System.Custom_Controls.SelectSpeakers();
             this.ddOrganisers = new Seminar_Management_System.Custom_Controls.OrganiserDropDown();
-            this.ddVenue = new Seminar_Management_System.Custom_Controls.VenueDropDown();
+            this.ddRoom = new Seminar_Management_System.Custom_Controls.RoomDropDown();
             this.datePickerSingle = new Seminar_Management_System.DatePickerSingle();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
@@ -92,13 +92,13 @@
             this.ddOrganisers.Size = new System.Drawing.Size(190, 30);
             this.ddOrganisers.TabIndex = 17;
             // 
-            // ddVenue
+            // ddRoom
             // 
-            this.ddVenue.Enabled = false;
-            this.ddVenue.Location = new System.Drawing.Point(287, 413);
-            this.ddVenue.Name = "ddVenue";
-            this.ddVenue.Size = new System.Drawing.Size(190, 30);
-            this.ddVenue.TabIndex = 18;
+            this.ddRoom.Enabled = false;
+            this.ddRoom.Location = new System.Drawing.Point(287, 413);
+            this.ddRoom.Name = "ddRoom";
+            this.ddRoom.Size = new System.Drawing.Size(190, 30);
+            this.ddRoom.TabIndex = 18;
             // 
             // datePickerSingle
             // 
@@ -181,7 +181,7 @@
             this.Controls.Add(this.attendeeTable1);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.datePickerSingle);
-            this.Controls.Add(this.ddVenue);
+            this.Controls.Add(this.ddRoom);
             this.Controls.Add(this.ddOrganisers);
             this.Controls.Add(this.selectSpeakers1);
             this.Controls.Add(this.rtbDescription);
@@ -204,7 +204,7 @@
         private System.Windows.Forms.RichTextBox rtbDescription;
         private Custom_Controls.SelectSpeakers selectSpeakers1;
         private Custom_Controls.OrganiserDropDown ddOrganisers;
-        private Custom_Controls.VenueDropDown ddVenue;
+        private Custom_Controls.RoomDropDown ddRoom;
         private DatePickerSingle datePickerSingle;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnOk;

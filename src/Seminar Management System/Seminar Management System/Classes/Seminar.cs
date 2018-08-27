@@ -11,7 +11,7 @@ namespace Seminar_Management_System.Classes
     public class Seminar
     {
         public SeminarOrganiser Organiser { get; set; }
-        public Venue Venue { get; set; }
+        public Room Room { get; set; }
         public List<Speaker> Speakers { get; set; }
         public BindingList<SeminarAttendee> Attendees { get; set; }
 
@@ -28,11 +28,11 @@ namespace Seminar_Management_System.Classes
             Attendees = new BindingList<SeminarAttendee>();
         }
 
-        public Seminar(SeminarOrganiser organiser, Venue venue, List<Speaker> speakers, BindingList<SeminarAttendee> attendees,
+        public Seminar(SeminarOrganiser organiser, Room room, List<Speaker> speakers, BindingList<SeminarAttendee> attendees,
             string title, string description, DateTime startDate, DateTime endDate)
         {
             this.Organiser = organiser;
-            this.Venue = venue;
+            this.Room = room;
             this.Speakers = speakers;
             this.Attendees = attendees;
             this.Title = title;

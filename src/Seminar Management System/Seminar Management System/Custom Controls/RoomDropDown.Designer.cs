@@ -1,6 +1,6 @@
 ﻿namespace Seminar_Management_System.Custom_Controls
 {
-    partial class VenueDropDown
+    partial class RoomDropDown
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,36 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.cbVenues = new System.Windows.Forms.ComboBox();
-            this.lblVenue = new System.Windows.Forms.Label();
+            this.cbRooms = new System.Windows.Forms.ComboBox();
+            this.lblRoom = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // cbVenues
+            // cbRooms
             // 
-            this.cbVenues.FormattingEnabled = true;
-            this.cbVenues.Location = new System.Drawing.Point(66, 3);
-            this.cbVenues.Name = "cbVenues";
-            this.cbVenues.Size = new System.Drawing.Size(121, 21);
-            this.cbVenues.TabIndex = 12;
+            this.cbRooms.FormattingEnabled = true;
+            this.cbRooms.Location = new System.Drawing.Point(66, 3);
+            this.cbRooms.Name = "cbRooms";
+            this.cbRooms.Size = new System.Drawing.Size(121, 21);
+            this.cbRooms.TabIndex = 12;
             // 
-            // lblVenue
+            // lblRoom
             // 
-            this.lblVenue.AutoSize = true;
-            this.lblVenue.Location = new System.Drawing.Point(22, 6);
-            this.lblVenue.Name = "lblVenue";
-            this.lblVenue.Size = new System.Drawing.Size(38, 13);
-            this.lblVenue.TabIndex = 11;
-            this.lblVenue.Text = "Venue";
+            this.lblRoom.AutoSize = true;
+            this.lblRoom.Location = new System.Drawing.Point(22, 6);
+            this.lblRoom.Name = "lblRoom";
+            this.lblRoom.Size = new System.Drawing.Size(35, 13);
+            this.lblRoom.TabIndex = 11;
+            this.lblRoom.Text = "Room";
             // 
-            // VenueDropDown
+            // RoomDropDown
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.cbVenues);
-            this.Controls.Add(this.lblVenue);
-            this.Name = "VenueDropDown";
+            this.Controls.Add(this.cbRooms);
+            this.Controls.Add(this.lblRoom);
+            this.Name = "RoomDropDown";
             this.Size = new System.Drawing.Size(190, 30);
-            this.Load += new System.EventHandler(this.VenueDropDown_Load);
+            this.Load += new System.EventHandler(this.RoomDropDown_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -65,7 +65,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox cbVenues;
-        private System.Windows.Forms.Label lblVenue;
+        private System.Windows.Forms.ComboBox cbRooms;
+        private System.Windows.Forms.Label lblRoom;
     }
 }

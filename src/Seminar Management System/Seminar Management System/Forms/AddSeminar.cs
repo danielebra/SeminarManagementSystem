@@ -24,7 +24,7 @@ namespace Seminar_Management_System
         {
             seminar.Organiser = ddOrganisers.SelectedOrganiser;
             seminar.Speakers = selectSpeakers1.SelectedSpeakers;
-            seminar.Venue = ddVenue.SelectedVenue;
+            seminar.Room = ddRoom.SelectedRoom;
             seminar.StartDate = datePickerSingle.StartDate;
             seminar.EndDate = datePickerSingle.EndDate;
             seminar.Title = tbTitle.Text;
@@ -36,7 +36,7 @@ namespace Seminar_Management_System
         private void btnTest_Click(object sender, EventArgs e)
         {
             var foo = ddOrganisers.SelectedOrganiser;
-            var bar = ddVenue.SelectedVenue;
+            var bar = ddRoom.SelectedRoom;
             var start = datePickerSingle.StartDate;
             var end = datePickerSingle.EndDate;
 

@@ -40,7 +40,7 @@ namespace Seminar_Management_System.Forms
                 tbTitle.Text = seminarReference.Title;
                 rtbDescription.Text = seminarReference.Description;
                 ddOrganisers.setOrganiser(seminarReference.Organiser);
-                ddVenue.setVenue(seminarReference.Venue);
+                ddRoom.setRoom(seminarReference.Room);
                 selectSpeakers1.setSpeakers(seminarReference.Speakers);
                 datePickerSingle.setDateTime(seminarReference.StartDate, seminarReference.EndDate);
             }
@@ -78,7 +78,7 @@ namespace Seminar_Management_System.Forms
         {
             seminarReference.Organiser = ddOrganisers.SelectedOrganiser;
             seminarReference.Speakers = selectSpeakers1.SelectedSpeakers;
-            seminarReference.Venue = ddVenue.SelectedVenue;
+            seminarReference.Room = ddRoom.SelectedRoom;
             seminarReference.StartDate = datePickerSingle.StartDate;
             seminarReference.EndDate = datePickerSingle.EndDate;
             seminarReference.Title = tbTitle.Text;
@@ -109,7 +109,7 @@ namespace Seminar_Management_System.Forms
                 }
             }
             ddOrganisers.Enabled = canEdit;
-            ddVenue.Enabled = canEdit;
+            ddRoom.Enabled = canEdit;
             datePickerSingle.Enabled = canEdit;
             selectSpeakers1.Enabled = canEdit;
             attendeeTable1.Enabled = canEdit;
