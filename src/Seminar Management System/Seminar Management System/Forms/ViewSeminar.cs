@@ -31,6 +31,7 @@ namespace Seminar_Management_System.Forms
         private void ViewSeminar_Load(object sender, EventArgs e)
         {
             populateDataFields();
+            attendeeTable1.Editable(false);
         }
 
         private void populateDataFields()
@@ -112,7 +113,7 @@ namespace Seminar_Management_System.Forms
             ddRoom.Enabled = canEdit;
             datePickerSingle.Enabled = canEdit;
             selectSpeakers1.Enabled = canEdit;
-            attendeeTable1.Enabled = canEdit;
+            attendeeTable1.Editable(canEdit);
         }
 
         private void enableEditing()

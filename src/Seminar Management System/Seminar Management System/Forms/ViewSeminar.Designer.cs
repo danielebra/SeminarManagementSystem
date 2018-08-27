@@ -145,7 +145,6 @@
             // 
             // attendeeTable1
             // 
-            this.attendeeTable1.Enabled = false;
             this.attendeeTable1.Location = new System.Drawing.Point(507, 242);
             this.attendeeTable1.Name = "attendeeTable1";
             this.attendeeTable1.Size = new System.Drawing.Size(391, 272);

@@ -64,6 +64,7 @@ namespace Seminar_Management_System
             Seminar intermediary = new Seminar();
             this.seminar = intermediary;
             attendeeTable1.Setup(ref intermediary);
+            attendeeTable1.Editable(false);
         }
     }
 }

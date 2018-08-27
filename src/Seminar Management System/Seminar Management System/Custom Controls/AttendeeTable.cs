@@ -18,6 +18,15 @@ namespace Seminar_Management_System.Custom_Controls
         {
             InitializeComponent();
         }
+        public void Editable(bool canEdit)
+        {
+            // Disable editing
+            dgvAttendees.ReadOnly = !canEdit;
+            // Disable deleting
+            dgvAttendees.AllowUserToDeleteRows = canEdit;
+            // Dim out the text to be consistent with other control that are disabled
+            gbAttendeeList.ForeColor = !canEdit ? SystemColors.ControlDark : SystemColors.ControlText;
+        }
         private Seminar seminar;
         public void Setup(ref Seminar seminar)
         {
