@@ -32,6 +32,7 @@ namespace Seminar_Management_System
 
         private void Main_Load(object sender, EventArgs e)
         {
+            DataInstance.seminars.CollectionChanged += ObSeminars_CollectionChanged;
             try
             {
                 DataInstance.populateWithData();
@@ -40,7 +41,7 @@ namespace Seminar_Management_System
             {
                 MessageBox.Show(err.Message);
             }
-            DataInstance.seminars.CollectionChanged += ObSeminars_CollectionChanged;
+            
 
             //DataInstance.populateWithMockData();
 
