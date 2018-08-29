@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using Seminar_Management_System;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,15 +9,88 @@ using Seminar_Management_System.Classes.Users;
 using Seminar_Management_System.Classes;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace Seminar_Management_System
 {
     static class DataInstance
     {
+
+
         public static List<SeminarOrganiser> organisers = new List<SeminarOrganiser>();
         public static List<Room> rooms = new List<Room>();
         public static List<Speaker> speakers = new List<Speaker>();
         public static ObservableCollection<Seminar> seminars = new ObservableCollection<Seminar>();
+
+        public static void populateWithData()
+        {
+            using (SqlConnection conn = new SqlConnection())
+            {
+                //instantiate and open new connection using DB Connection string
+                conn.ConnectionString = Properties.Settings.Default.SeminarManagementSystemDBConnectionString;
+                conn.Open();
+
+                //Create commands
+                SqlCommand cmdGetOrganisers = new SqlCommand("SELECT * FROM Person p WHERE p.IsOrganiser = 1", conn);
+                SqlCommand cmdGetRooms = new SqlCommand("SELECT * FROM Venue", conn);
+                SqlCommand cmdGetSpeakers = new SqlCommand("SELECT * FROM Person p WHERE p.IsSpeaker = 1", conn);
+                SqlCommand cmdGetAttendees = new SqlCommand("SELECT * FROM Person p WHERE p.IsAttendee = 1", conn);
+                SqlCommand cmdGetSeminars = new SqlCommand("SELECT * FROM Seminar", conn);
+
+
+                //Populate Organiser List
+                using (SqlDataReader reader = cmdGetOrganisers.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        organisers.Add(new SeminarOrganiser((int)reader["ID"], reader["Name"].ToString(), reader["Email"].ToString(), reader["PhoneNumber"].ToString()));
+                    }
+                }
+
+                //Populate Rooms List
+                using (SqlDataReader reader = cmdGetRooms.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        rooms.Add(new Room((int)reader["ID"], reader["Name"].ToString(), reader["Location"].ToString(), (int)reader["Capacity"]));
+                    }
+                }
+
+                //Populate Speakers List
+                using (SqlDataReader reader = cmdGetSpeakers.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        speakers.Add(new Speaker((int)reader["ID"], reader["Name"].ToString(), reader["Email"].ToString(), reader["PhoneNumber"].ToString(), reader["Biography"].ToString()));
+                    }
+                }
+
+                //Populate Attendees List
+                BindingList<SeminarAttendee> attendeeList = new BindingList<SeminarAttendee>();
+                using (SqlDataReader reader = cmdGetAttendees.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        attendeeList.Add(new SeminarAttendee((int)reader["ID"], reader["Name"].ToString(), reader["Email"].ToString(), reader["PhoneNumber"].ToString()));
+                    }
+                }
+
+                //Populate Seminars List
+                using (SqlDataReader reader = cmdGetSeminars.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        var organiser = organisers.Where(o => o.ID == (int)reader["OrganiserPersonID"]).ToList();
+                        var room = rooms.Where(r => r.ID == (int)reader["VenueID"]).ToList();
+
+                        seminars.Add(new Seminar(organiser[0], room[0], speakers, attendeeList, reader["Label"].ToString(), reader["Description"].ToString(), DateTime.Now, DateTime.Today));
+                    }
+                }
+
+
+            }
+        }
 
         public static void populateWithMockData()
         {

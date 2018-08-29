@@ -32,9 +32,17 @@ namespace Seminar_Management_System
 
         private void Main_Load(object sender, EventArgs e)
         {
+            try
+            {
+                DataInstance.populateWithData();
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
             DataInstance.seminars.CollectionChanged += ObSeminars_CollectionChanged;
 
-            DataInstance.populateWithMockData();
+            //DataInstance.populateWithMockData();
 
             // Fire resize
             Main_Resize(null, null);
