@@ -12,6 +12,7 @@ using Seminar_Management_System.Custom_Controls;
 using System.Collections.ObjectModel;
 using Seminar_Management_System.Classes;
 using Seminar_Management_System.Forms;
+using System.IO;
 
 namespace Seminar_Management_System
 {
@@ -32,6 +33,10 @@ namespace Seminar_Management_System
 
         private void Main_Load(object sender, EventArgs e)
         {
+            using (StreamReader stream = new StreamReader("secrets.txt"))
+            {
+                DataInstance._connectionString = stream.ReadLine();
+            }
             DataInstance.seminars.CollectionChanged += ObSeminars_CollectionChanged;
             try
             {

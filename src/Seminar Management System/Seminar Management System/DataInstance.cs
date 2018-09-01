@@ -22,13 +22,14 @@ namespace Seminar_Management_System
         public static List<Room> rooms = new List<Room>();
         public static List<Speaker> speakers = new List<Speaker>();
         public static ObservableCollection<Seminar> seminars = new ObservableCollection<Seminar>();
+        public static string _connectionString; 
 
         public static void populateWithData()
         {
             using (SqlConnection conn = new SqlConnection())
             {
                 //instantiate and open new connection using DB Connection string
-                conn.ConnectionString = Properties.Settings.Default.SeminarManagementSystemDBConnectionString;
+                conn.ConnectionString = _connectionString;
                 conn.Open();
 
                 //Create commands

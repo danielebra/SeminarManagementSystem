@@ -3207,7 +3207,7 @@ SELECT ID, Name, Username, Password, Email, Biography, Host, IsAdmin, IsHost, Is
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Seminar_Management_System.Properties.Settings.Default.SeminarManagementSystemDBConnectionString;
+            this._connection.ConnectionString = DataInstance._connectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3933,7 +3933,7 @@ SELECT ID, Label, Description, Date, Time, HostPersonID, OrganiserPersonID, Venu
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Seminar_Management_System.Properties.Settings.Default.SeminarManagementSystemDBConnectionString;
+            this._connection.ConnectionString = DataInstance._connectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4443,7 +4443,7 @@ SELECT SeminarID, AttendeePersonID FROM SeminarAttendees WHERE (AttendeePersonID
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Seminar_Management_System.Properties.Settings.Default.SeminarManagementSystemDBConnectionString;
+            this._connection.ConnectionString = DataInstance._connectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4743,7 +4743,7 @@ SELECT SeminarID, SpeakerPersonID FROM SeminarSpeakers WHERE (SeminarID = @Semin
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Seminar_Management_System.Properties.Settings.Default.SeminarManagementSystemDBConnectionString;
+            this._connection.ConnectionString = DataInstance._connectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5028,7 +5028,7 @@ SELECT SeminarID, SpeakerPersonID FROM SeminarSpeakers WHERE (SeminarID = @Semin
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Seminar_Management_System.Properties.Settings.Default.SeminarManagementSystemDBConnectionString;
+            this._connection.ConnectionString = DataInstance._connectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
