@@ -10,7 +10,6 @@ using System.Windows.Forms;
 using Seminar_Management_System.Classes.Users;
 using Seminar_Management_System.Classes;
 using System.Reflection;
-
 namespace Seminar_Management_System.Forms
 {
     public partial class RegisterAttendee : Form
@@ -55,17 +54,10 @@ namespace Seminar_Management_System.Forms
 
             }
         }
-        public IEnumerable<Control> GetAll(Control control, Type type)
-        {
-            var controls = control.Controls.Cast<Control>();
-
-            return controls.SelectMany(ctrl => GetAll(ctrl, type))
-                                      .Concat(controls)
-                                      .Where(c => c.GetType() == type);
-        }
+        
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            IEnumerable<Control> tbs = GetAll(this, typeof(TextBox));
+            IEnumerable<Control> tbs = Utils.GetControlsFromControl(this, typeof(TextBox));
             List<string> vals = new List<string>();
             foreach (var cont in tbs)
                 vals.Add(((TextBox)cont).Text);

@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Privilege.cs" />
+    <Compile Include="Classes\Utils.cs" />
     <Compile Include="Custom Controls\AttendeeTable.cs">
       <SubType>UserControl</SubType>
     </Compile>
