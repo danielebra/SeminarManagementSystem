@@ -125,6 +125,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SeminarManagementSystemDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SeminarManagementSystemDBDataSet.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Custom Controls\AttendeeTable.resx">
       <DependentUpon>AttendeeTable.cs</DependentUpon>
     </EmbeddedResource>
@@ -176,6 +181,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="SeminarManagementSystemDBDataSet.xsc">
+      <DependentUpon>SeminarManagementSystemDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SeminarManagementSystemDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SeminarManagementSystemDBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SeminarManagementSystemDBDataSet.xss">
+      <DependentUpon>SeminarManagementSystemDBDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

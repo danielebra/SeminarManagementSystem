@@ -12,6 +12,7 @@ using Seminar_Management_System.Custom_Controls;
 using System.Collections.ObjectModel;
 using Seminar_Management_System.Classes;
 using Seminar_Management_System.Forms;
+using System.IO;
 
 namespace Seminar_Management_System
 {
@@ -32,9 +33,31 @@ namespace Seminar_Management_System
 
         private void Main_Load(object sender, EventArgs e)
         {
+            if (File.Exists("secrets.txt"))
+            {
+                using (StreamReader stream = new StreamReader("secrets.txt"))
+                {
+                    DataInstance._connectionString = stream.ReadLine();
+                }
+            }
+            else
+            {
+                if (MessageBox.Show("The \"secrets.txt\" file is missing. Make sure this file is placed along side the executable.\n\nContact the software developer to retrieve the missing file if you do not have it.",
+                    "Unable to configure database connection", MessageBoxButtons.OK, MessageBoxIcon.Error) == DialogResult.OK)
+                    Environment.Exit(1);
+            }
             DataInstance.seminars.CollectionChanged += ObSeminars_CollectionChanged;
+            try
+            {
+                DataInstance.populateWithData();
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
+            
 
-            DataInstance.populateWithMockData();
+            //DataInstance.populateWithMockData();
 
             // Fire resize
             Main_Resize(null, null);
