@@ -19,7 +19,7 @@ namespace Seminar_Management_System.Forms
         {
             InitializeComponent();
         }
-
+        private User interfaceMadeFor;
         private void CreateAccount_Load(object sender, EventArgs e)
         {
             FieldInfo[] fields = typeof(Privilege).GetFields(BindingFlags.Static | BindingFlags.Public);
@@ -58,6 +58,7 @@ namespace Seminar_Management_System.Forms
         }
         private void buildBaseInterface(User user)
         {
+            this.interfaceMadeFor = user;
             int counter = 0;
             int x = 5;
             foreach (PropertyInfo p in user.GetType().GetProperties())
@@ -69,7 +70,7 @@ namespace Seminar_Management_System.Forms
                 label.Location = new Point(x, counter * (tb.Height + label.Height + 4));
 
                 tb.Location = new Point(2, label.Location.Y + (label.Height));
-
+                tb.Width = pnlSafeArea.Width - 20;
                 this.pnlSafeArea.Controls.Add(label);
                 this.pnlSafeArea.Controls.Add(tb);
 
@@ -80,6 +81,30 @@ namespace Seminar_Management_System.Forms
         private void btnTest_Click(object sender, EventArgs e)
         {
             pnlSafeArea.Controls.Clear();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            // Collect data from all input fields
+            IEnumerable<Control> tbs = Utils.GetControlsFromControl(pnlSafeArea, typeof(TextBox));
+            List<string> vals = new List<string>();
+            foreach (var control in tbs)
+                vals.Add(((TextBox)control).Text);
+
+            var newUser = interfaceMadeFor;
+            PropertyInfo[] props = newUser.GetType().GetProperties();
+
+            // Populate the property values to what was collected
+            for (int i = 0; i != props.Length; i++)
+            {
+                // This will require error validation
+                if (props[i].PropertyType == typeof(Int32))
+                    props[i].SetValue(newUser, int.Parse(vals[i]), null);
+                else
+                    props[i].SetValue(newUser, vals[i], null);
+            }
+            DataInstance.users.Add(newUser);
+
         }
     }
 }

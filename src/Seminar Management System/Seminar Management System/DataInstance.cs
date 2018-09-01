@@ -21,6 +21,7 @@ namespace Seminar_Management_System
         public static List<SeminarOrganiser> organisers = new List<SeminarOrganiser>();
         public static List<Room> rooms = new List<Room>();
         public static List<Speaker> speakers = new List<Speaker>();
+        public static List<User> users = new List<User>();
         public static ObservableCollection<Seminar> seminars = new ObservableCollection<Seminar>();
         public static string _connectionString; 
 
