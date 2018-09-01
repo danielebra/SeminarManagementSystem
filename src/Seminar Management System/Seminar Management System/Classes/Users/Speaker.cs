@@ -13,6 +13,7 @@ namespace Seminar_Management_System.Classes.Users
         public Speaker(int id, string name, string email, string phoneNumber, string biography) : base(id, name, email, phoneNumber)
         {
             this.Biography = biography;
+            this.PrivilegeLevel = Privilege.Speaker;
         }
     }
 }
