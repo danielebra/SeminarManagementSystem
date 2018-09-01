@@ -8,6 +8,10 @@ namespace Seminar_Management_System.Classes.Users
 {
     public class SeminarHost : User
     {
+        public SeminarHost()
+        {
+
+        }
         public SeminarHost(int id, string name, string email, string phoneNumber) : base(id, name, email, phoneNumber)
         {
             this.PrivilegeLevel = Privilege.Host;

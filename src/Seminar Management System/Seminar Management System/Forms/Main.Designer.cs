@@ -40,11 +40,13 @@
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnAddUser = new System.Windows.Forms.Button();
             this.toolStrip1.SuspendLayout();
             this.pnlSeminarView.SuspendLayout();
             this.pnlPersistantControls.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnAddSeminar
@@ -97,6 +99,7 @@
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(57, 22);
             this.btnLogin.Text = "Login";
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // toolStrip2
             // 
@@ -150,6 +153,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.btnAddUser);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -157,6 +161,16 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Users";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btnAddUser
+            // 
+            this.btnAddUser.Location = new System.Drawing.Point(34, 31);
+            this.btnAddUser.Name = "btnAddUser";
+            this.btnAddUser.Size = new System.Drawing.Size(75, 23);
+            this.btnAddUser.TabIndex = 0;
+            this.btnAddUser.Text = "Add user";
+            this.btnAddUser.UseVisualStyleBackColor = true;
+            this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
             // 
             // Main
             // 
@@ -179,6 +193,7 @@
             this.pnlPersistantControls.ResumeLayout(false);
             this.tabControl.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -197,6 +212,7 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Panel pnlPersistantControls;
+        private System.Windows.Forms.Button btnAddUser;
     }
 }
 

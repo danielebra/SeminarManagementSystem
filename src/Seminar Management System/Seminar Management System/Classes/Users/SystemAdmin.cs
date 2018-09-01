@@ -8,6 +8,10 @@ namespace Seminar_Management_System.Classes.Users
 {
     public class SystemAdmin : User
     {
+        public SystemAdmin()
+        {
+
+        }
         public SystemAdmin(int id, string name, string email, string phoneNumber) : base(id, name, email, phoneNumber)
         {
             PrivilegeLevel = Privilege.Admin;

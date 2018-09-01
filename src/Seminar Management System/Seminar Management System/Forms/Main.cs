@@ -116,5 +116,16 @@ namespace Seminar_Management_System
             foreach (SeminarItem seminar in seminarItems)
                 seminar.Resize();
         }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAddUser_Click(object sender, EventArgs e)
+        {
+            CreateAccount ca = new CreateAccount();
+            ca.Show();
+        }
     }
 }

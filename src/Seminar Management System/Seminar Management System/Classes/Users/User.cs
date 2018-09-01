@@ -14,6 +14,10 @@ namespace Seminar_Management_System.Classes.Users
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
         public int PrivilegeLevel { get; set; }
+        public User()
+        {
+
+        }
         public User (int id, string name, string email, string phoneNumber)
         {
             this.ID = id;
