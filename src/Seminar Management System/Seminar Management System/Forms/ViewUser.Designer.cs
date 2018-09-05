@@ -32,6 +32,12 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
+            this.tbEmail = new System.Windows.Forms.TextBox();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.lblPhone = new System.Windows.Forms.Label();
+            this.tbPhone = new System.Windows.Forms.TextBox();
+            this.roleDropDown1 = new Seminar_Management_System.Custom_Controls.RoleDropDown();
+            this.btnTest = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tbName
@@ -68,6 +74,7 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Visible = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnEdit
             // 
@@ -81,11 +88,68 @@
             this.btnEdit.UseVisualStyleBackColor = false;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
+            // tbEmail
+            // 
+            this.tbEmail.Location = new System.Drawing.Point(97, 70);
+            this.tbEmail.Name = "tbEmail";
+            this.tbEmail.Size = new System.Drawing.Size(200, 20);
+            this.tbEmail.TabIndex = 7;
+            this.tbEmail.Text = "Email";
+            // 
+            // lblEmail
+            // 
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Location = new System.Drawing.Point(13, 70);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(32, 13);
+            this.lblEmail.TabIndex = 8;
+            this.lblEmail.Text = "Email";
+            // 
+            // lblPhone
+            // 
+            this.lblPhone.AutoSize = true;
+            this.lblPhone.Location = new System.Drawing.Point(13, 102);
+            this.lblPhone.Name = "lblPhone";
+            this.lblPhone.Size = new System.Drawing.Size(78, 13);
+            this.lblPhone.TabIndex = 10;
+            this.lblPhone.Text = "Phone Number";
+            // 
+            // tbPhone
+            // 
+            this.tbPhone.Location = new System.Drawing.Point(97, 99);
+            this.tbPhone.Name = "tbPhone";
+            this.tbPhone.Size = new System.Drawing.Size(200, 20);
+            this.tbPhone.TabIndex = 9;
+            this.tbPhone.Text = "Phone Number";
+            // 
+            // roleDropDown1
+            // 
+            this.roleDropDown1.Location = new System.Drawing.Point(312, 70);
+            this.roleDropDown1.Name = "roleDropDown1";
+            this.roleDropDown1.Size = new System.Drawing.Size(190, 30);
+            this.roleDropDown1.TabIndex = 11;
+            // 
+            // btnTest
+            // 
+            this.btnTest.Location = new System.Drawing.Point(431, 492);
+            this.btnTest.Name = "btnTest";
+            this.btnTest.Size = new System.Drawing.Size(75, 23);
+            this.btnTest.TabIndex = 12;
+            this.btnTest.Text = "Test";
+            this.btnTest.UseVisualStyleBackColor = true;
+            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
+            // 
             // ViewUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(779, 535);
+            this.Controls.Add(this.btnTest);
+            this.Controls.Add(this.roleDropDown1);
+            this.Controls.Add(this.lblPhone);
+            this.Controls.Add(this.tbPhone);
+            this.Controls.Add(this.lblEmail);
+            this.Controls.Add(this.tbEmail);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnEdit);
@@ -105,5 +169,11 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.TextBox tbEmail;
+        private System.Windows.Forms.Label lblEmail;
+        private System.Windows.Forms.Label lblPhone;
+        private System.Windows.Forms.TextBox tbPhone;
+        private Custom_Controls.RoleDropDown roleDropDown1;
+        private System.Windows.Forms.Button btnTest;
     }
 }

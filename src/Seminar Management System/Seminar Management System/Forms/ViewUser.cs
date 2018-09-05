@@ -35,6 +35,7 @@ namespace Seminar_Management_System.Forms
             if (userReference != null)
             {
                 tbName.Text = userReference.Name;
+                roleDropDown1.LoadFromUser(userReference);
             }
         }
 
@@ -53,7 +54,17 @@ namespace Seminar_Management_System.Forms
                 btnEdit.Text = EDIT;
                 btnCancel.Visible = false;
                 btnDelete.Visible = false;
+                saveUserState();
             }
+        }
+
+        private void saveUserState()
+        {
+            userReference.Name = tbName.Text;
+            userReference.PrivilegeLevel = roleDropDown1.SelectedRole.Privilege;
+            // Used to fire observer event, as it is not triggered by ref updates
+            // This will update the user list interface
+            DataInstance.users[DataInstance.users.IndexOf(userReference)] = userReference;
         }
 
         private void _enableEditing(bool canEdit)
@@ -71,6 +82,7 @@ namespace Seminar_Management_System.Forms
                     ((RichTextBox)cont).ReadOnly = !canEdit;
                 }
             }
+            roleDropDown1.Enabled = canEdit;
         }
 
         private void enableEditing()
@@ -93,6 +105,20 @@ namespace Seminar_Management_System.Forms
                 DataInstance.users.Remove(userReference);
                 this.Close();
             }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            populateDataFields();
+            disableEditing();
+            btnCancel.Visible = false;
+            btnDelete.Visible = false;
+            btnEdit.Text = EDIT;
+        }
+
+        private void btnTest_Click(object sender, EventArgs e)
+        {
+            var foo = roleDropDown1.SelectedRole;
         }
     }
 }
