@@ -71,6 +71,14 @@ namespace Seminar_Management_System.Forms
 
                 tb.Location = new Point(2, label.Location.Y + (label.Height));
                 tb.Width = pnlSafeArea.Width - 20;
+
+                if (p.Name == "ID" || p.Name == "PrivilegeLevel")
+                {
+                    tb.Enabled = false;
+                    tb.Text = p.Name == "ID" ? DataInstance.users.Count.ToString() : user.PrivilegeLevel.ToString();
+                }
+
+
                 this.pnlSafeArea.Controls.Add(label);
                 this.pnlSafeArea.Controls.Add(tb);
 
@@ -104,7 +112,6 @@ namespace Seminar_Management_System.Forms
                     props[i].SetValue(newUser, vals[i], null);
             }
             DataInstance.users.Add(newUser);
-
         }
     }
 }
