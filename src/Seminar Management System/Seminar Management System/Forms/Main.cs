@@ -48,6 +48,7 @@ namespace Seminar_Management_System
                     Environment.Exit(1);
             }
             DataInstance.seminars.CollectionChanged += ObSeminars_CollectionChanged;
+            DataInstance.users.CollectionChanged += Users_CollectionChanged;
             try
             {
                 DataInstance.populateWithMockData();
@@ -61,6 +62,11 @@ namespace Seminar_Management_System
 
             // Fire resize
             Main_Resize(null, null);
+        }
+
+        private void Users_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            DrawUserInterface();
         }
 
         private void ObSeminars_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
