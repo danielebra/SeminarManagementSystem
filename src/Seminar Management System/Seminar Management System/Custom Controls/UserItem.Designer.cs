@@ -30,6 +30,7 @@
         {
             this.lblRole = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
+            this.btnView = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // lblRole
@@ -51,10 +52,22 @@
             this.lblName.TabIndex = 2;
             this.lblName.Text = "First Name Last Name";
             // 
+            // btnView
+            // 
+            this.btnView.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnView.Location = new System.Drawing.Point(397, 79);
+            this.btnView.Name = "btnView";
+            this.btnView.Size = new System.Drawing.Size(30, 13);
+            this.btnView.TabIndex = 3;
+            this.btnView.TabStop = true;
+            this.btnView.Text = "View";
+            this.btnView.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.btnView_LinkClicked);
+            // 
             // UserItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnView);
             this.Controls.Add(this.lblRole);
             this.Controls.Add(this.lblName);
             this.Name = "UserItem";
@@ -69,5 +82,6 @@
 
         private System.Windows.Forms.Label lblRole;
         private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.LinkLabel btnView;
     }
 }

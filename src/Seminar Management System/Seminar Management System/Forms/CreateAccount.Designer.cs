@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.gbDetails = new System.Windows.Forms.GroupBox();
+            this.pnlSafeArea = new System.Windows.Forms.Panel();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.btnTest = new System.Windows.Forms.Button();
-            this.pnlSafeArea = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.gbDetails.SuspendLayout();
@@ -46,6 +46,14 @@
             this.gbDetails.TabIndex = 0;
             this.gbDetails.TabStop = false;
             this.gbDetails.Text = "Account Details";
+            // 
+            // pnlSafeArea
+            // 
+            this.pnlSafeArea.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlSafeArea.Location = new System.Drawing.Point(3, 16);
+            this.pnlSafeArea.Name = "pnlSafeArea";
+            this.pnlSafeArea.Size = new System.Drawing.Size(441, 332);
+            this.pnlSafeArea.TabIndex = 0;
             // 
             // comboBox1
             // 
@@ -65,14 +73,6 @@
             this.btnTest.Text = "Clear";
             this.btnTest.UseVisualStyleBackColor = true;
             this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
-            // 
-            // pnlSafeArea
-            // 
-            this.pnlSafeArea.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlSafeArea.Location = new System.Drawing.Point(3, 16);
-            this.pnlSafeArea.Name = "pnlSafeArea";
-            this.pnlSafeArea.Size = new System.Drawing.Size(441, 332);
-            this.pnlSafeArea.TabIndex = 0;
             // 
             // label1
             // 
@@ -104,6 +104,7 @@
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.gbDetails);
             this.Name = "CreateAccount";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CreateAccount";
             this.Load += new System.EventHandler(this.CreateAccount_Load);
             this.gbDetails.ResumeLayout(false);

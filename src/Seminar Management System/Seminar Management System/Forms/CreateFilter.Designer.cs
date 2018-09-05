@@ -69,6 +69,7 @@
             this.Controls.Add(this.btnDone);
             this.Controls.Add(this.roomDropDown1);
             this.Name = "CreateFilter";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CreateFilter";
             this.ResumeLayout(false);
             this.PerformLayout();
