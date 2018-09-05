@@ -152,6 +152,8 @@ namespace Seminar_Management_System
         {
             foreach (SeminarItem seminar in seminarItems)
                 seminar.Resize();
+            foreach (UserItem user in userItems)
+                user.Resize();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
