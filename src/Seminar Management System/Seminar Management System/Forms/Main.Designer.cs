@@ -42,12 +42,14 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnAddUser = new System.Windows.Forms.Button();
             this.btnLaunchFilter = new System.Windows.Forms.Button();
+            this.pnlUserView = new System.Windows.Forms.Panel();
             this.toolStrip1.SuspendLayout();
             this.pnlSeminarView.SuspendLayout();
             this.pnlPersistantControls.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.pnlUserView.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnAddSeminar
@@ -155,7 +157,7 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.btnAddUser);
+            this.tabPage2.Controls.Add(this.pnlUserView);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -166,7 +168,7 @@
             // 
             // btnAddUser
             // 
-            this.btnAddUser.Location = new System.Drawing.Point(34, 31);
+            this.btnAddUser.Location = new System.Drawing.Point(828, 17);
             this.btnAddUser.Name = "btnAddUser";
             this.btnAddUser.Size = new System.Drawing.Size(75, 23);
             this.btnAddUser.TabIndex = 0;
@@ -183,6 +185,15 @@
             this.btnLaunchFilter.Text = "Launch Filter";
             this.btnLaunchFilter.UseVisualStyleBackColor = true;
             this.btnLaunchFilter.Click += new System.EventHandler(this.btnLaunchFilter_Click);
+            // 
+            // pnlUserView
+            // 
+            this.pnlUserView.Controls.Add(this.btnAddUser);
+            this.pnlUserView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlUserView.Location = new System.Drawing.Point(3, 3);
+            this.pnlUserView.Name = "pnlUserView";
+            this.pnlUserView.Size = new System.Drawing.Size(917, 464);
+            this.pnlUserView.TabIndex = 1;
             // 
             // Main
             // 
@@ -206,6 +217,7 @@
             this.tabControl.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
+            this.pnlUserView.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -226,6 +238,7 @@
         private System.Windows.Forms.Panel pnlPersistantControls;
         private System.Windows.Forms.Button btnAddUser;
         private System.Windows.Forms.Button btnLaunchFilter;
+        private System.Windows.Forms.Panel pnlUserView;
     }
 }
 

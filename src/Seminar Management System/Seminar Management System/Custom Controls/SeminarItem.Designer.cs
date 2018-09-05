@@ -55,7 +55,7 @@
             // btnView
             // 
             this.btnView.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnView.Location = new System.Drawing.Point(394, 79);
+            this.btnView.Location = new System.Drawing.Point(397, 79);
             this.btnView.Name = "btnView";
             this.btnView.Size = new System.Drawing.Size(30, 13);
             this.btnView.TabIndex = 1;
@@ -73,7 +73,7 @@
             this.Controls.Add(this.lblTitle);
             this.Name = "SeminarItem";
             this.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.Size = new System.Drawing.Size(447, 110);
+            this.Size = new System.Drawing.Size(450, 110);
             this.Load += new System.EventHandler(this.SeminarItem_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

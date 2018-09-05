@@ -17,7 +17,6 @@ namespace Seminar_Management_System
     static class DataInstance
     {
 
-
         public static List<SeminarOrganiser> organisers = new List<SeminarOrganiser>();
         public static List<Room> rooms = new List<Room>();
         public static List<Speaker> speakers = new List<Speaker>();
@@ -115,6 +114,7 @@ namespace Seminar_Management_System
             DataInstance.seminars.Add(new Seminar(DataInstance.organisers[0], DataInstance.rooms[0], DataInstance.speakers,
                 attendeeList, "Learning C#", "Java developers wear glasses because they can't see sharp", DateTime.Now, DateTime.Today));
 
+            DataInstance.users.Add(new SystemAdmin(0, "Derrick", "derrick@dev.org", "111"));
         }
     }
 }

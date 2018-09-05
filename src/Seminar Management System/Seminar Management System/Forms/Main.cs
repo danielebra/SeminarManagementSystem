@@ -24,6 +24,7 @@ namespace Seminar_Management_System
         }
 
         private List<SeminarItem> seminarItems = new List<SeminarItem>();
+        private List<UserItem> userItems = new List<UserItem>();
 
         private void btnAddSeminar_Click(object sender, EventArgs e)
         {
@@ -49,15 +50,14 @@ namespace Seminar_Management_System
             DataInstance.seminars.CollectionChanged += ObSeminars_CollectionChanged;
             try
             {
-                DataInstance.populateWithData();
+                DataInstance.populateWithMockData();
+                DrawUserInterface();
+                //DataInstance.populateWithData();
             }
             catch (Exception err)
             {
                 MessageBox.Show(err.Message);
             }
-            
-
-            //DataInstance.populateWithMockData();
 
             // Fire resize
             Main_Resize(null, null);
@@ -65,10 +65,10 @@ namespace Seminar_Management_System
 
         private void ObSeminars_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         {
-            DrawInterface();
+            DrawSeminarInterface();
         }
 
-        private void DrawInterface()
+        private void DrawSeminarInterface()
         {
             for (int i = pnlSeminarView.Controls.Count - 1; i >= 0; i--)
             {
@@ -90,6 +90,32 @@ namespace Seminar_Management_System
                 seminarItem.Populate(ref seminarInstance);
                 seminarItems.Add(seminarItem);
                 pnlSeminarView.Controls.Add(seminarItem);
+            }
+        }
+
+        private void DrawUserInterface()
+        {
+            for (int i = pnlUserView.Controls.Count - 1; i >= 0; i--)
+            {
+                Control control = pnlUserView.Controls[i];
+                if (control.GetType() == typeof(UserItem))
+                    pnlUserView.Controls.Remove(control);
+            }
+            userItems.Clear();
+            foreach (var user in DataInstance.users)
+            {
+                UserItem userItem = new UserItem();
+                userItem.Location = new Point(0, userItem.Size.Height * userItems.Count);
+                if (userItems.Count % 2 == 1)
+                {
+                    // raise a flag to taint the color
+                }
+
+                var userInstance = user;
+                userItem.Populate(ref userInstance);
+                userItems.Add(userItem);
+                pnlUserView.Controls.Add(userItem);
+
             }
         }
 
@@ -142,7 +168,7 @@ namespace Seminar_Management_System
 
         private void Filt_FilterUpdated(object sender, EventArgs e)
         {
-            DrawInterface();
+            DrawSeminarInterface();
         }
     }
 }
