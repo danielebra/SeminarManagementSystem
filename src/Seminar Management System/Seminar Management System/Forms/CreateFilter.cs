@@ -19,14 +19,12 @@ namespace Seminar_Management_System.Forms
             InitializeComponent();
         }
         public event EventHandler FilterUpdated;
-        //public System.Linq.Queryable Query { get; set; }
-        public List<Seminar> GeneratedSeminarList { get; set; }
+
         private void btnDone_Click(object sender, EventArgs e)
         {
             // Uses the filter when a user checks the checkbox
             PortableFilter.ByRoom = cbRoom.Checked;
-            if (cbRoom.Checked)
-                PortableFilter.Room = roomDropDown1.SelectedRoom;
+            PortableFilter.Room = cbRoom.Checked ? roomDropDown1.SelectedRoom : null;
 
             var seminars = PortableFilter.Execute();
 
