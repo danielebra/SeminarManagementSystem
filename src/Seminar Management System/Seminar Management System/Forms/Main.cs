@@ -65,8 +65,11 @@ namespace Seminar_Management_System
 
         private void ObSeminars_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         {
+            DrawInterface();
+        }
 
-            //pnlSeminarView.Controls.Clear();
+        private void DrawInterface()
+        {
             for (int i = pnlSeminarView.Controls.Count - 1; i >= 0; i--)
             {
                 Control control = pnlSeminarView.Controls[i];
@@ -74,13 +77,9 @@ namespace Seminar_Management_System
                     pnlSeminarView.Controls.Remove(control);
             }
             seminarItems.Clear();
-            var q = from s in DataInstance.seminars
-                    where s.Room.Name == DataInstance.seminars[0].Room.Name
-                    select s;
-            var seminars = q.ToList<Seminar>();
-            //var seminars = DataInstance.seminars.Where(x => x.Room.Name == DataInstance.seminars[0].Room.Name);
-            
-            foreach (var seminar in seminars)//DataInstance.seminars)
+            var seminars = PortableFilter.Execute();
+
+            foreach (var seminar in seminars)
             {
                 SeminarItem seminarItem = new SeminarItem();
                 seminarItem.Location = new Point(0, seminarItem.Size.Height * seminarItems.Count);
@@ -137,7 +136,13 @@ namespace Seminar_Management_System
         private void btnLaunchFilter_Click(object sender, EventArgs e)
         {
             CreateFilter filt = new CreateFilter();
+            filt.FilterUpdated += Filt_FilterUpdated;
             filt.Show();
+        }
+
+        private void Filt_FilterUpdated(object sender, EventArgs e)
+        {
+            DrawInterface();
         }
     }
 }

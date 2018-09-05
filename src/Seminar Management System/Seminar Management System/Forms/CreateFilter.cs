@@ -26,13 +26,13 @@ namespace Seminar_Management_System.Forms
             PortableFilter.ByRoom = cbRoom.Checked;
             PortableFilter.Room = cbRoom.Checked ? roomDropDown1.SelectedRoom : null;
 
-            var seminars = PortableFilter.Execute();
-
             if (FilterUpdated != null)
                 FilterUpdated(this, new EventArgs());
+            this.Close();
         }
     }
 
+    // This will be moved to its own file in the future
     public static class PortableFilter
     {
         public static bool ByRoom { get; set; }
