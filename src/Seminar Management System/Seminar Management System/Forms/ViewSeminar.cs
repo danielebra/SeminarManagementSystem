@@ -53,7 +53,7 @@ namespace Seminar_Management_System.Forms
         private void btnEdit_Click(object sender, EventArgs e)
         {
             // Create a deep copy of the the attendee list to remove its reference
-            var cloned = ObjectCloner.Clone(seminarReference.Attendees);
+            var cloned = Utils.ObjectCloner.Clone(seminarReference.Attendees);
             attendeesBackup = (BindingList<SeminarAttendee>)cloned;
             if (btnEdit.Text == EDIT)
             {
