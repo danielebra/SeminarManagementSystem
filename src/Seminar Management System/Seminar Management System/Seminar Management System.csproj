@@ -48,13 +48,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Authentication.cs" />
     <Compile Include="Classes\Privilege.cs" />
+    <Compile Include="Classes\Role.cs" />
     <Compile Include="Classes\Utils.cs" />
     <Compile Include="Custom Controls\AttendeeTable.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Custom Controls\AttendeeTable.Designer.cs">
       <DependentUpon>AttendeeTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Custom Controls\RoleDropDown.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Custom Controls\RoleDropDown.Designer.cs">
+      <DependentUpon>RoleDropDown.cs</DependentUpon>
     </Compile>
     <Compile Include="Custom Controls\SeminarItem.cs">
       <SubType>UserControl</SubType>
@@ -158,6 +166,9 @@
     </Compile>
     <EmbeddedResource Include="Custom Controls\AttendeeTable.resx">
       <DependentUpon>AttendeeTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Custom Controls\RoleDropDown.resx">
+      <DependentUpon>RoleDropDown.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Custom Controls\SeminarItem.resx">
       <DependentUpon>SeminarItem.cs</DependentUpon>

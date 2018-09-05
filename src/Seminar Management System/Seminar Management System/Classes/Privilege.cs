@@ -8,6 +8,11 @@ namespace Seminar_Management_System.Classes
 {
     struct Privilege
     {
+        /*public static List<Role> roles = new List<Role>()
+        {
+            { new Role("Attendee", 0) }
+        };*/
+        //public static Role Attendee = new Role("Attendee", 0);
         // These values need to be further investigated
         public const int Attendee = 0;
         public const int Speaker = 1;
