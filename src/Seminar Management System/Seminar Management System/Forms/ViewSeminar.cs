@@ -171,21 +171,6 @@ namespace Seminar_Management_System.Forms
         {
             this.seminarReference.Attendees.Add(new Classes.Users.SeminarAttendee(3, "oooo", "otho", "oeo"));
         }
-
-        internal static class ObjectCloner // Move this class if it ends up being used by other modules
-        {
-            // Serialize and deserialize objects
-            public static object Clone(object obj)
-            {
-                using (MemoryStream buffer = new MemoryStream())
-                {
-                    BinaryFormatter formatter = new BinaryFormatter();
-                    formatter.Serialize(buffer, obj);
-                    buffer.Position = 0;
-                    object temp = formatter.Deserialize(buffer);
-                    return temp;
-                }
-            }
-        }
+        
     }
 }

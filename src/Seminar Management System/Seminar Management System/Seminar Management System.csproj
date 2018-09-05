@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\ObjectCloner.cs" />
     <Compile Include="Classes\Privilege.cs" />
     <Compile Include="Classes\Utils.cs" />
     <Compile Include="Custom Controls\AttendeeTable.cs">
