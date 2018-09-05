@@ -24,17 +24,28 @@ namespace Seminar_Management_System.Forms
         private void btnDone_Click(object sender, EventArgs e)
         {
             // Uses the filter when a user checks the checkbox
-            var baseQuery = from s in DataInstance.seminars
-                            where (cbRoom.Checked == false || s.Room == roomDropDown1.SelectedRoom)
-                            select s;
+            PortableFilter.ByRoom = cbRoom.Checked;
+            if (cbRoom.Checked)
+                PortableFilter.Room = roomDropDown1.SelectedRoom;
 
-            var seminars = baseQuery.ToList<Seminar>();
-            var f = baseQuery.GetType();
-            //Query = baseQuery.AsQueryable();
-            this.GeneratedSeminarList = seminars;
+            var seminars = PortableFilter.Execute();
 
             if (FilterUpdated != null)
                 FilterUpdated(this, new EventArgs());
+        }
+    }
+
+    public static class PortableFilter
+    {
+        public static bool ByRoom { get; set; }
+        public static Room Room { get; set; }
+
+        public static List<Seminar> Execute()
+        {
+            var query = from s in DataInstance.seminars
+                        where (ByRoom == false || s.Room == Room)
+                        select s;
+            return query.ToList<Seminar>();
         }
     }
 }
