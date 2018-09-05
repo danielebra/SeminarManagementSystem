@@ -74,7 +74,13 @@ namespace Seminar_Management_System
                     pnlSeminarView.Controls.Remove(control);
             }
             seminarItems.Clear();
-            foreach (var seminar in DataInstance.seminars)
+            var q = from s in DataInstance.seminars
+                    where s.Room.Name == DataInstance.seminars[0].Room.Name
+                    select s;
+            var seminars = q.ToList<Seminar>();
+            //var seminars = DataInstance.seminars.Where(x => x.Room.Name == DataInstance.seminars[0].Room.Name);
+            
+            foreach (var seminar in seminars)//DataInstance.seminars)
             {
                 SeminarItem seminarItem = new SeminarItem();
                 seminarItem.Location = new Point(0, seminarItem.Size.Height * seminarItems.Count);
@@ -126,6 +132,12 @@ namespace Seminar_Management_System
         {
             CreateAccount ca = new CreateAccount();
             ca.Show();
+        }
+
+        private void btnLaunchFilter_Click(object sender, EventArgs e)
+        {
+            CreateFilter filt = new CreateFilter();
+            filt.Show();
         }
     }
 }

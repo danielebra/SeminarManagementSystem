@@ -41,6 +41,7 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnAddUser = new System.Windows.Forms.Button();
+            this.btnLaunchFilter = new System.Windows.Forms.Button();
             this.toolStrip1.SuspendLayout();
             this.pnlSeminarView.SuspendLayout();
             this.pnlPersistantControls.SuspendLayout();
@@ -123,6 +124,7 @@
             // pnlPersistantControls
             // 
             this.pnlPersistantControls.BackColor = System.Drawing.Color.Gray;
+            this.pnlPersistantControls.Controls.Add(this.btnLaunchFilter);
             this.pnlPersistantControls.Controls.Add(this.btnAddSeminar);
             this.pnlPersistantControls.Location = new System.Drawing.Point(712, 3);
             this.pnlPersistantControls.Name = "pnlPersistantControls";
@@ -172,6 +174,16 @@
             this.btnAddUser.UseVisualStyleBackColor = true;
             this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
             // 
+            // btnLaunchFilter
+            // 
+            this.btnLaunchFilter.Location = new System.Drawing.Point(24, 50);
+            this.btnLaunchFilter.Name = "btnLaunchFilter";
+            this.btnLaunchFilter.Size = new System.Drawing.Size(122, 23);
+            this.btnLaunchFilter.TabIndex = 1;
+            this.btnLaunchFilter.Text = "Launch Filter";
+            this.btnLaunchFilter.UseVisualStyleBackColor = true;
+            this.btnLaunchFilter.Click += new System.EventHandler(this.btnLaunchFilter_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -213,6 +225,7 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Panel pnlPersistantControls;
         private System.Windows.Forms.Button btnAddUser;
+        private System.Windows.Forms.Button btnLaunchFilter;
     }
 }
 
