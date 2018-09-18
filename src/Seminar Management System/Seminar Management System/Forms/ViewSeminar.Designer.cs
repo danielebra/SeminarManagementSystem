@@ -191,6 +191,7 @@
             this.Name = "ViewSeminar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ViewSeminar";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ViewSeminar_FormClosing);
             this.Load += new System.EventHandler(this.ViewSeminar_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -198,7 +199,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button btnEdit;
+        public System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.TextBox tbTitle;
         private System.Windows.Forms.RichTextBox rtbDescription;
         private Custom_Controls.SelectSpeakers selectSpeakers1;

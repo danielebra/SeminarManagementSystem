@@ -35,6 +35,7 @@ namespace Seminar_Management_System.Forms
         {
             populateDataFields();
             attendeeTable1.Editable(false);
+            DataInstance.seminarInterfaceWindows.Add(this);
         }
 
         private void populateDataFields()
@@ -126,12 +127,12 @@ namespace Seminar_Management_System.Forms
             attendeeTable1.Editable(canEdit);
         }
 
-        private void enableEditing()
+        public void enableEditing()
         {
             _enableEditing(true);
         }
 
-        private void disableEditing()
+        public void disableEditing()
         {
             _enableEditing(false);
         }
@@ -171,6 +172,10 @@ namespace Seminar_Management_System.Forms
         {
             this.seminarReference.Attendees.Add(new Classes.Users.SeminarAttendee(3, "oooo", "otho", "oeo"));
         }
-        
+
+        private void ViewSeminar_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DataInstance.seminarInterfaceWindows.Remove(this);
+        }
     }
 }

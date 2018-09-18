@@ -11,11 +11,15 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using Seminar_Management_System.Forms;
 
 namespace Seminar_Management_System
 {
     static class DataInstance
     {
+
+        public static List<ViewSeminar> seminarInterfaceWindows = new List<ViewSeminar>();
+
 
         public static List<SeminarOrganiser> organisers = new List<SeminarOrganiser>();
         public static List<Room> rooms = new List<Room>();
