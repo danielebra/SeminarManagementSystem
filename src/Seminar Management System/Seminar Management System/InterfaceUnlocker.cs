@@ -28,27 +28,13 @@ namespace Seminar_Management_System
         }
         private void editSeminar(int priv)
         {
-            // Hosts and above can edit seminars (not 100% sure about this)
+            // We force every ViewSeminar to restore its state
+            // The user then must re-enable Edit mode
+            // This will cause a new validation check to execute that is located in:
+                // ViewSeminar.cs private void btnEdit_Click(object sender, EventArgs e)
+            // Based on this validation, the user will be able to edit all fields or only the attendee field
             foreach (ViewSeminar sem in DataInstance.seminarInterfaceWindows)
-            {
-                sem.disableEditing();
-
-                if (priv >= Authentication.GetPrivilegeFromRoleName(Role.Names.Host))
-                {
-                    // Might have to add more things here in the future
-                    // Such as, should we return state? EG:
-                        // Put the form back to defaults (call btnCancel)
-                    // What if the user has clicked Edit mode, now there are multiple buttons on the screen related to editing
-                        // Maybe these buttons should go into a panel and we toggle the pannel instead
-
-                    // Another issue is how do we deal with Attendees editing their info
-                    // IF we hide the Edit button, then they cant toggle the attendee field
-                    // Maybe edit mode should respect the logged in priviledge and it decides what section to hide or show
-                    sem.btnEdit.Visible = true;
-                }
-                else
-                    sem.btnEdit.Visible = false;
-            }
+                sem.RestoreState();
         }
 
         private void addSeminar(int priv) 

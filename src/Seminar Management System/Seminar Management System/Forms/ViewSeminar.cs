@@ -58,10 +58,16 @@ namespace Seminar_Management_System.Forms
             attendeesBackup = (BindingList<SeminarAttendee>)cloned;
             if (btnEdit.Text == EDIT)
             {
-                enableEditing();
                 btnEdit.Text = SAVE;
                 btnCancel.Visible = true;
-                btnDelete.Visible = true;
+                
+                if (DataInstance.LoggedInUser.Privilege >= Authentication.GetPrivilegeFromRoleName(Role.Names.Organiser))
+                {
+                    FullEdit(); // Allow whole interface to be changed
+                    btnDelete.Visible = true; // If the user is an organizer and above, show delete
+                }
+                else
+                    AttendeeEdit(); // Allow only the attendee list to be changed
             }
             else if (btnEdit.Text == SAVE)
             {
@@ -74,16 +80,7 @@ namespace Seminar_Management_System.Forms
         }
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            populateDataFields();
-            disableEditing();
-            btnCancel.Visible = false;
-            btnDelete.Visible = false;
-            btnEdit.Text = EDIT;
-            seminarReference.Attendees = attendeesBackup;
-
-            // Re connect the table to the new object reference
-            var intermediary = this.seminarReference;
-            attendeeTable1.Setup(ref intermediary);
+            this.RestoreState();
         }
 
         private void saveSeminarState()
@@ -136,7 +133,28 @@ namespace Seminar_Management_System.Forms
         {
             _enableEditing(false);
         }
+        public void FullEdit()
+        {
+            _enableEditing(true);
+        }
+        public void AttendeeEdit()
+        {
+            disableEditing();
+            attendeeTable1.Editable(true);
+        }
+        public void RestoreState()
+        {
+            populateDataFields();
+            disableEditing();
+            btnCancel.Visible = false;
+            btnDelete.Visible = false;
+            btnEdit.Text = EDIT;
+            seminarReference.Attendees = attendeesBackup;
 
+            // Re connect the table to the new object reference
+            var intermediary = this.seminarReference;
+            attendeeTable1.Setup(ref intermediary);
+        }
         private void btnEdit_TextChanged(object sender, EventArgs e)
         {
             if (btnEdit.Text == EDIT)
