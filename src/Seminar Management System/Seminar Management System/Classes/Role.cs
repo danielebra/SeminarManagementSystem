@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Seminar_Management_System.Classes
 {
+    [Serializable()]
     public struct Role
     {
         public string Name { get; set; }
