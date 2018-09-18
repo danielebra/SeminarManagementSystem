@@ -20,6 +20,21 @@ namespace Seminar_Management_System
         private void DataInstance_LoggedInUserChanged(object sender, EventArgs e)
         {
             int priv = DataInstance.LoggedInUser.Privilege;
+            this.userList(priv);
+            this.addSeminar(priv);
+            
+        }
+        private void addSeminar(int priv) 
+        {
+            // Organisers and above can create seminars (not 100% sure about this)
+
+            DataInstance.mainInstance.btnAddSeminar.Visible = priv >= Authentication.GetPrivilegeFromRoleName(Role.Names.Organiser) ? true : false;
+        }
+
+        private void userList(int priv)
+        {
+            // Only Admins can see the UserList interface
+
 
             if (priv >= Authentication.GetPrivilegeFromRoleName(Role.Names.Admin))
             {
@@ -35,7 +50,6 @@ namespace Seminar_Management_System
 
             }
         }
-
         public void test()
         {
             DataInstance.mainInstance.tabControl.TabPages.Remove(DataInstance.mainInstance.tabPage2);
