@@ -25,7 +25,7 @@ namespace Seminar_Management_System
 
         private List<SeminarItem> seminarItems = new List<SeminarItem>();
         private List<UserItem> userItems = new List<UserItem>();
-
+        private InterfaceUnlocker interfaceUnlocker = new InterfaceUnlocker();
         private void btnAddSeminar_Click(object sender, EventArgs e)
         {
             AddSeminar addSeminar = new AddSeminar();
@@ -34,6 +34,7 @@ namespace Seminar_Management_System
 
         private void Main_Load(object sender, EventArgs e)
         {
+            DataInstance.mainInstance = this;
             if (File.Exists("secrets.txt"))
             {
                 using (StreamReader stream = new StreamReader("secrets.txt"))
@@ -62,6 +63,8 @@ namespace Seminar_Management_System
 
             // Fire resize
             Main_Resize(null, null);
+            interfaceUnlocker.Watch();
+
         }
 
         private void Users_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
@@ -140,12 +143,25 @@ namespace Seminar_Management_System
 
             DataInstance.seminars.Add(seminar);
         }
-
+        bool test1 = true;
+        TabPage backup;
         private void btnDebug_Click(object sender, EventArgs e)
         {
-            var foo = DataInstance.seminars.FirstOrDefault();
-            RegisterAttendee reg = new RegisterAttendee();
-            reg.Show();
+            InterfaceUnlocker iu = new InterfaceUnlocker();
+            if (test1)
+            {
+                test1 = false;
+                backup = this.tabPage2;
+                iu.test();
+            }
+            else
+            {
+                tabControl.TabPages.Add(DataInstance.mainInstance.tabPage2);
+                test1 = true;
+            }
+            //var foo = DataInstance.seminars.FirstOrDefault();
+            //RegisterAttendee reg = new RegisterAttendee();
+            //reg.Show();
         }
         
         private void Main_Resize(object sender, EventArgs e)
@@ -158,7 +174,8 @@ namespace Seminar_Management_System
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-
+            LoginScreen loginScreen = new LoginScreen();
+            loginScreen.Show();
         }
 
         private void btnAddUser_Click(object sender, EventArgs e)

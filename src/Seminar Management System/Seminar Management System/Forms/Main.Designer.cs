@@ -43,6 +43,7 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.pnlUserView = new System.Windows.Forms.Panel();
             this.btnAddUser = new System.Windows.Forms.Button();
+            this.lblNotice = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             this.pnlSeminarView.SuspendLayout();
             this.pnlPersistantControls.SuspendLayout();
@@ -179,6 +180,7 @@
             // pnlUserView
             // 
             this.pnlUserView.AutoScroll = true;
+            this.pnlUserView.Controls.Add(this.lblNotice);
             this.pnlUserView.Controls.Add(this.btnAddUser);
             this.pnlUserView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlUserView.Location = new System.Drawing.Point(3, 3);
@@ -195,6 +197,17 @@
             this.btnAddUser.Text = "Add user";
             this.btnAddUser.UseVisualStyleBackColor = true;
             this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
+            // 
+            // lblNotice
+            // 
+            this.lblNotice.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblNotice.Location = new System.Drawing.Point(436, 231);
+            this.lblNotice.Name = "lblNotice";
+            this.lblNotice.Size = new System.Drawing.Size(45, 13);
+            this.lblNotice.TabIndex = 2;
+            this.lblNotice.Text = "BEeeep";
             // 
             // Main
             // 
@@ -233,13 +246,14 @@
         private System.Windows.Forms.ToolStripButton btnTest;
         private System.Windows.Forms.ToolStripButton btnDebug;
         private System.Windows.Forms.ToolStripButton btnLogin;
-        private System.Windows.Forms.TabControl tabControl;
+        public System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
+        public System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Panel pnlPersistantControls;
         private System.Windows.Forms.Button btnAddUser;
         private System.Windows.Forms.Button btnLaunchFilter;
         private System.Windows.Forms.Panel pnlUserView;
+        private System.Windows.Forms.Label lblNotice;
     }
 }
 

@@ -22,7 +22,22 @@ namespace Seminar_Management_System
         public static List<Speaker> speakers = new List<Speaker>();
         public static ObservableCollection<User> users = new ObservableCollection<User>();
         public static ObservableCollection<Seminar> seminars = new ObservableCollection<Seminar>();
-        public static string _connectionString; 
+        public static string _connectionString;
+
+        public static event EventHandler LoggedInUserChanged;
+        private static Role _loggedInUser;
+        public static Role LoggedInUser
+        {
+            get { return _loggedInUser; }
+            set
+            {
+                _loggedInUser = value;
+                if (LoggedInUserChanged != null)
+                    LoggedInUserChanged(null, EventArgs.Empty);
+            }
+        }
+
+        public static Main mainInstance;
 
         public static void populateWithData()
         {
@@ -88,8 +103,6 @@ namespace Seminar_Management_System
                         seminars.Add(new Seminar(organiser[0], room[0], speakers, attendeeList, reader["Label"].ToString(), reader["Description"].ToString(), DateTime.Now, DateTime.Today));
                     }
                 }
-
-
             }
         }
 
@@ -107,7 +120,6 @@ namespace Seminar_Management_System
             BindingList<SeminarAttendee> attendeeList = new BindingList<SeminarAttendee>();
             attendeeList.Add(new SeminarAttendee(0, "Jason", "jason@attendee.com", "911"));
             attendeeList.Add(new SeminarAttendee(1, "Tyrone", "tyrone@attendee.com", "912"));
-
 
             DataInstance.seminars.Add(new Seminar(DataInstance.organisers[0], DataInstance.rooms[0], DataInstance.speakers,
                 attendeeList, "Learning Python", "The Zen of Python", DateTime.Now, DateTime.Today));
