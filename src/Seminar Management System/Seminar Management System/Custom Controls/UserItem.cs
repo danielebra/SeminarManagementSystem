@@ -21,26 +21,36 @@ namespace Seminar_Management_System.Custom_Controls
         }
 
         public User UserReference;
-
+        public bool isUsingAlternativeColor = false;
         public Color BackgroundColor { get { return this.BackColor; } set { this.BackColor = value; } }
         public void Populate(ref User user)
         {
             UserReference = user;
             lblName.Text = user.Name;
             lblRole.Text = user.Role.Name;
-            switch (user.Role.Name)
+            CustomBackgroundColor(true);
+            
+        }
+        public void AlternativeColor()
+        {
+            CustomBackgroundColor(false);
+            this.isUsingAlternativeColor = true;
+        }
+        private void CustomBackgroundColor(bool defaultShade = true)
+        {
+            switch (UserReference.Role.Name)
             {
                 case Role.Names.Admin:
-                    this.BackColor = Color.Orange;
+                    this.BackColor = defaultShade ? Color.Orange : Color.DarkOrange;
                     break;
                 case Role.Names.Host:
-                    this.BackColor = Color.PaleGreen;
+                    this.BackColor = defaultShade ? Color.PaleGreen : Color.LightGreen;
                     break;
                 case Role.Names.Organiser:
-                    this.BackColor = Color.MediumPurple;
+                    this.BackColor = defaultShade ? Color.MediumPurple : Color.BlueViolet;
                     break;
                 default:
-                    this.BackColor = Color.LightCoral;
+                    this.BackColor = defaultShade ? Color.LightCoral : Color.Salmon;
                     break;
             }
         }

@@ -37,12 +37,12 @@
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.pnlSeminarView = new System.Windows.Forms.Panel();
             this.pnlPersistantControls = new System.Windows.Forms.Panel();
+            this.btnLaunchFilter = new System.Windows.Forms.Button();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.btnAddUser = new System.Windows.Forms.Button();
-            this.btnLaunchFilter = new System.Windows.Forms.Button();
             this.pnlUserView = new System.Windows.Forms.Panel();
+            this.btnAddUser = new System.Windows.Forms.Button();
             this.toolStrip1.SuspendLayout();
             this.pnlSeminarView.SuspendLayout();
             this.pnlPersistantControls.SuspendLayout();
@@ -125,13 +125,23 @@
             // 
             // pnlPersistantControls
             // 
-            this.pnlPersistantControls.BackColor = System.Drawing.Color.Gray;
+            this.pnlPersistantControls.BackColor = System.Drawing.Color.Salmon;
             this.pnlPersistantControls.Controls.Add(this.btnLaunchFilter);
             this.pnlPersistantControls.Controls.Add(this.btnAddSeminar);
             this.pnlPersistantControls.Location = new System.Drawing.Point(712, 3);
             this.pnlPersistantControls.Name = "pnlPersistantControls";
             this.pnlPersistantControls.Size = new System.Drawing.Size(200, 100);
             this.pnlPersistantControls.TabIndex = 1;
+            // 
+            // btnLaunchFilter
+            // 
+            this.btnLaunchFilter.Location = new System.Drawing.Point(24, 50);
+            this.btnLaunchFilter.Name = "btnLaunchFilter";
+            this.btnLaunchFilter.Size = new System.Drawing.Size(122, 23);
+            this.btnLaunchFilter.TabIndex = 1;
+            this.btnLaunchFilter.Text = "Launch Filter";
+            this.btnLaunchFilter.UseVisualStyleBackColor = true;
+            this.btnLaunchFilter.Click += new System.EventHandler(this.btnLaunchFilter_Click);
             // 
             // tabControl
             // 
@@ -166,6 +176,16 @@
             this.tabPage2.Text = "Users";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // pnlUserView
+            // 
+            this.pnlUserView.AutoScroll = true;
+            this.pnlUserView.Controls.Add(this.btnAddUser);
+            this.pnlUserView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlUserView.Location = new System.Drawing.Point(3, 3);
+            this.pnlUserView.Name = "pnlUserView";
+            this.pnlUserView.Size = new System.Drawing.Size(917, 464);
+            this.pnlUserView.TabIndex = 1;
+            // 
             // btnAddUser
             // 
             this.btnAddUser.Location = new System.Drawing.Point(828, 17);
@@ -175,25 +195,6 @@
             this.btnAddUser.Text = "Add user";
             this.btnAddUser.UseVisualStyleBackColor = true;
             this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
-            // 
-            // btnLaunchFilter
-            // 
-            this.btnLaunchFilter.Location = new System.Drawing.Point(24, 50);
-            this.btnLaunchFilter.Name = "btnLaunchFilter";
-            this.btnLaunchFilter.Size = new System.Drawing.Size(122, 23);
-            this.btnLaunchFilter.TabIndex = 1;
-            this.btnLaunchFilter.Text = "Launch Filter";
-            this.btnLaunchFilter.UseVisualStyleBackColor = true;
-            this.btnLaunchFilter.Click += new System.EventHandler(this.btnLaunchFilter_Click);
-            // 
-            // pnlUserView
-            // 
-            this.pnlUserView.Controls.Add(this.btnAddUser);
-            this.pnlUserView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlUserView.Location = new System.Drawing.Point(3, 3);
-            this.pnlUserView.Name = "pnlUserView";
-            this.pnlUserView.Size = new System.Drawing.Size(917, 464);
-            this.pnlUserView.TabIndex = 1;
             // 
             // Main
             // 

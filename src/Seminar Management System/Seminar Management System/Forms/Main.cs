@@ -112,13 +112,13 @@ namespace Seminar_Management_System
             {
                 UserItem userItem = new UserItem();
                 userItem.Location = new Point(0, userItem.Size.Height * userItems.Count);
-                if (userItems.Count % 2 == 1)
-                {
-                    // raise a flag to taint the color
-                }
-
                 var userInstance = user;
                 userItem.Populate(ref userInstance);
+                if (userItems.Count > 0 && String.Equals(userItems.Last().UserReference.Role.Name, user.Role.Name))
+                {
+                    if (!userItems.Last().isUsingAlternativeColor)
+                        userItem.AlternativeColor();
+                }
                 userItems.Add(userItem);
                 pnlUserView.Controls.Add(userItem);
 
