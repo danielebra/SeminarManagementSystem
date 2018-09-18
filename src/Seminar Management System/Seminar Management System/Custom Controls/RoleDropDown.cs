@@ -25,7 +25,7 @@ namespace Seminar_Management_System.Custom_Controls
         {
             // TODO
             // Should user no longer have a privilege level and have a role instead?
-            cbRole.SelectedItem = Authentication.GetRoleFromPrivilegeLevel(user.PrivilegeLevel);
+            cbRole.SelectedItem = user.Role;
         }
         private void RoleDropDown_Load(object sender, EventArgs e)
         {

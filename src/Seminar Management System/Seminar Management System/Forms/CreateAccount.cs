@@ -22,8 +22,7 @@ namespace Seminar_Management_System.Forms
         private User interfaceMadeFor;
         private void CreateAccount_Load(object sender, EventArgs e)
         {
-            FieldInfo[] fields = typeof(Privilege).GetFields(BindingFlags.Static | BindingFlags.Public);
-            comboBox1.DataSource = fields;
+            comboBox1.DataSource = Authentication.Roles;
             comboBox1.DisplayMember = "Name";
         }
 
@@ -31,26 +30,25 @@ namespace Seminar_Management_System.Forms
         {
             pnlSafeArea.Controls.Clear();
 
-            switch ((int)((FieldInfo)comboBox1.SelectedValue).GetValue(null))
+            switch  (((Role)(comboBox1.SelectedValue)).Name)
             {
-                case Privilege.Attendee:
+                case Role.Names.Attendee:
                     buildBaseInterface(new SeminarAttendee());
                     break;
-                case Privilege.Speaker:
+                case Role.Names.Speaker:
                     buildBaseInterface(new Speaker());
 
                     break;
-                case Privilege.Host:
+                case Role.Names.Host:
                     buildBaseInterface(new SeminarHost());
 
                     break;
-                case Privilege.Organiser:
+                case Role.Names.Organiser:
                     buildBaseInterface(new SeminarOrganiser());
 
                     break;
-                case Privilege.Admin:
+                case Role.Names.Admin:
                     buildBaseInterface(new SystemAdmin());
-
                     break;
                 default:
                     break;
@@ -72,10 +70,10 @@ namespace Seminar_Management_System.Forms
                 tb.Location = new Point(2, label.Location.Y + (label.Height));
                 tb.Width = pnlSafeArea.Width - 20;
 
-                if (p.Name == "ID" || p.Name == "PrivilegeLevel")
+                if (p.Name == "ID" || p.Name == "Role")
                 {
                     tb.Enabled = false;
-                    tb.Text = p.Name == "ID" ? DataInstance.users.Count.ToString() : user.PrivilegeLevel.ToString();
+                    tb.Text = p.Name == "ID" ? DataInstance.users.Count.ToString() : user.Role.Privilege.ToString();
                 }
 
 
@@ -106,7 +104,12 @@ namespace Seminar_Management_System.Forms
             for (int i = 0; i != props.Length; i++)
             {
                 // This will require error validation
-                if (props[i].PropertyType == typeof(Int32))
+                if (props[i].PropertyType == typeof(Role))
+                {
+                    props[i].SetValue(newUser, Authentication.GetRoleFromPrivilegeLevel(int.Parse(vals[i])));
+                }
+
+                else if (props[i].PropertyType == typeof(Int32))
                     props[i].SetValue(newUser, int.Parse(vals[i]), null);
                 else
                     props[i].SetValue(newUser, vals[i], null);

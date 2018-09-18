@@ -61,7 +61,7 @@ namespace Seminar_Management_System.Forms
         private void saveUserState()
         {
             userReference.Name = tbName.Text;
-            userReference.PrivilegeLevel = roleDropDown1.SelectedRole.Privilege;
+            userReference.Role = roleDropDown1.SelectedRole;
             // Used to fire observer event, as it is not triggered by ref updates
             // This will update the user list interface
             DataInstance.users[DataInstance.users.IndexOf(userReference)] = userReference;

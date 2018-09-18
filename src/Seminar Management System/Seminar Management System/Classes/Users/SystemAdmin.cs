@@ -10,11 +10,12 @@ namespace Seminar_Management_System.Classes.Users
     {
         public SystemAdmin()
         {
-            PrivilegeLevel = Privilege.Admin;
+            this.Role = Authentication.GetRoleFromName(Role.Names.Admin);
         }
         public SystemAdmin(int id, string name, string email, string phoneNumber) : base(id, name, email, phoneNumber)
         {
-            PrivilegeLevel = Privilege.Admin;
+            this.Role = Authentication.GetRoleFromName(Role.Names.Admin);
+
         }
     }
 }

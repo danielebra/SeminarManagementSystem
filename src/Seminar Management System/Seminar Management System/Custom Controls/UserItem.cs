@@ -27,16 +27,16 @@ namespace Seminar_Management_System.Custom_Controls
         {
             UserReference = user;
             lblName.Text = user.Name;
-            lblRole.Text = user.PrivilegeLevel.ToString();
-            switch (user.PrivilegeLevel)
+            lblRole.Text = user.Role.Name;
+            switch (user.Role.Name)
             {
-                case Privilege.Admin:
+                case Role.Names.Admin:
                     this.BackColor = Color.Orange;
                     break;
-                case Privilege.Host:
+                case Role.Names.Host:
                     this.BackColor = Color.PaleGreen;
                     break;
-                case Privilege.Organiser:
+                case Role.Names.Organiser:
                     this.BackColor = Color.MediumPurple;
                     break;
                 default:

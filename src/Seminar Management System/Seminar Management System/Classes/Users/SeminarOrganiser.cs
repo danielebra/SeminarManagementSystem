@@ -10,11 +10,11 @@ namespace Seminar_Management_System.Classes.Users
     {
         public SeminarOrganiser()
         {
-            this.PrivilegeLevel = Privilege.Organiser;
+            this.Role = Authentication.GetRoleFromName(Role.Names.Organiser);
         }
         public SeminarOrganiser(int id, string name, string email, string phoneNumber) : base(id, name, email, phoneNumber)
         {
-            this.PrivilegeLevel = Privilege.Organiser;
+            this.Role = Authentication.GetRoleFromName(Role.Names.Organiser);
         }
     }
 }
