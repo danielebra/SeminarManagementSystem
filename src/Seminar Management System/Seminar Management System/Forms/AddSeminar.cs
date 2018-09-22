@@ -22,6 +22,7 @@ namespace Seminar_Management_System
         private Seminar seminar { get; set; }
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            // Grab all the current information populate it into the Seminar object
             seminar.Organiser = ddOrganisers.SelectedOrganiser;
             seminar.Speakers = selectSpeakers1.SelectedSpeakers;
             seminar.Room = ddRoom.SelectedRoom;
@@ -29,7 +30,9 @@ namespace Seminar_Management_System
             seminar.EndDate = datePickerSingle.EndDate;
             seminar.Title = tbTitle.Text;
             seminar.Description = rtbDescription.Text;
+            // Add the seminar into list of Seminars
             DataInstance.seminars.Add(seminar);
+            // Close this screen
             this.Close();
         }
 
@@ -54,6 +57,8 @@ namespace Seminar_Management_System
 
         private void btnAddAttendee_Click(object sender, EventArgs e)
         {
+            // Pass the current seminar as reference to RegisterAttendee screen
+            // This is so that the changes can automatically be reflected back
             var intermediary = this.seminar;
             RegisterAttendee ra = new RegisterAttendee(ref intermediary);
             ra.Show();
@@ -61,8 +66,10 @@ namespace Seminar_Management_System
 
         private void AddSeminar_Load(object sender, EventArgs e)
         {
+            // Create a new Seminar on load
             Seminar intermediary = new Seminar();
             this.seminar = intermediary;
+            // Connect the AttendeeTable to the Seminar object
             attendeeTable1.Setup(ref intermediary);
             attendeeTable1.Editable(false);
         }
