@@ -11,6 +11,7 @@ using Seminar_Management_System.Classes;
 using Seminar_Management_System.Forms;
 namespace Seminar_Management_System.Custom_Controls
 {
+    // This is used to graphically represent a seminar
     public partial class SeminarItem : UserControl
     {
         public SeminarItem()
@@ -23,6 +24,7 @@ namespace Seminar_Management_System.Custom_Controls
         // the seminar param might become a ref in the future
         public void Populate(ref Seminar seminar)
         {
+            // Connect to a seminar reference
             SeminarReference = seminar;
             lblTitle.Text = seminar.Title;
             lblDescription.Text = seminar.Description;
@@ -30,12 +32,14 @@ namespace Seminar_Management_System.Custom_Controls
 
         private void btnView_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            // Pass the Seminar reference to a new window to display accurate information
             ViewSeminar viewSeminar = new ViewSeminar(ref SeminarReference);
             viewSeminar.Show();
         }
 
         public void Resize()
         {
+            // Occupy most of the width within the parent
             int scrollbarCompensation = 20;
             this.Width = this.Parent.Size.Width - scrollbarCompensation;
         }
@@ -47,6 +51,7 @@ namespace Seminar_Management_System.Custom_Controls
 
         private void SeminarItem_Load(object sender, EventArgs e)
         {
+            // Change the size of the window to fit in the parent
             this.Resize();
         }
     }
