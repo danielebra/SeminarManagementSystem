@@ -14,6 +14,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Seminar_Management_System.Forms
 {
+    // This is user to view a Seminar in more detail, edit it, register attendee, delete it
     public partial class ViewSeminar : Form
     {
         public ViewSeminar()
@@ -23,6 +24,7 @@ namespace Seminar_Management_System.Forms
         public ViewSeminar(ref Seminar seminar)
         {
             InitializeComponent();
+            // Connect to a Seminar reference
             seminarReference = seminar;
             attendeeTable1.Setup(ref seminar);
         }
@@ -33,8 +35,11 @@ namespace Seminar_Management_System.Forms
         
         private void ViewSeminar_Load(object sender, EventArgs e)
         {
+            // Load information
             populateDataFields();
+            // Disable editing
             attendeeTable1.Editable(false);
+            // Add this instance to the list of open ViewSeminar interfaces
             DataInstance.seminarInterfaceWindows.Add(this);
         }
 
@@ -42,6 +47,7 @@ namespace Seminar_Management_System.Forms
         {
             if (seminarReference != null)
             {
+                // Load the Seminar information onto the screen
                 tbTitle.Text = seminarReference.Title;
                 rtbDescription.Text = seminarReference.Description;
                 ddOrganisers.setOrganiser(seminarReference.Organiser);
@@ -51,12 +57,15 @@ namespace Seminar_Management_System.Forms
             }
         }
         private BindingList<SeminarAttendee> attendeesBackup;
+
+        // The Edit button can either be 'Save' or 'Edit'
+        // It will have different functionality based on which one it is currently set to
         private void btnEdit_Click(object sender, EventArgs e)
         {
             // Create a deep copy of the the attendee list to remove its reference
             var cloned = Utils.ObjectCloner.Clone(seminarReference.Attendees);
             attendeesBackup = (BindingList<SeminarAttendee>)cloned;
-            if (btnEdit.Text == EDIT)
+            if (btnEdit.Text == EDIT) // Handle editing functionality
             {
                 btnEdit.Text = SAVE;
                 btnCancel.Visible = true;
@@ -69,7 +78,7 @@ namespace Seminar_Management_System.Forms
                 else
                     AttendeeEdit(); // Allow only the attendee list to be changed
             }
-            else if (btnEdit.Text == SAVE)
+            else if (btnEdit.Text == SAVE) // Handle saving functionality
             {
                 disableEditing();
                 btnEdit.Text = EDIT;
@@ -85,6 +94,7 @@ namespace Seminar_Management_System.Forms
 
         private void saveSeminarState()
         {
+            // Gather the information from interface and save it in the Seminar object
             seminarReference.Organiser = ddOrganisers.SelectedOrganiser;
             seminarReference.Speakers = selectSpeakers1.SelectedSpeakers;
             seminarReference.Room = ddRoom.SelectedRoom;
@@ -133,10 +143,12 @@ namespace Seminar_Management_System.Forms
         {
             _enableEditing(false);
         }
+        // Full user editing (eg: an Admin)
         public void FullEdit()
         {
             _enableEditing(true);
         }
+        // Attendee only editing
         public void AttendeeEdit()
         {
             disableEditing();
@@ -144,6 +156,7 @@ namespace Seminar_Management_System.Forms
         }
         public void RestoreState()
         {
+            // Reload the information that was available when this interface first opened
             populateDataFields();
             disableEditing();
             btnCancel.Visible = false;
@@ -151,12 +164,13 @@ namespace Seminar_Management_System.Forms
             btnEdit.Text = EDIT;
             seminarReference.Attendees = attendeesBackup;
 
-            // Re connect the table to the new object reference
+            // Re-connect the table to the new object reference
             var intermediary = this.seminarReference;
             attendeeTable1.Setup(ref intermediary);
         }
         private void btnEdit_TextChanged(object sender, EventArgs e)
         {
+            // Change the color of Edit button
             if (btnEdit.Text == EDIT)
             {
                 btnEdit.BackColor = SystemColors.ActiveCaption;
@@ -169,6 +183,7 @@ namespace Seminar_Management_System.Forms
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            // Get confirmation before deleting this Seminar
             if (MessageBox.Show("Are you sure you want to delete this seminar?\nThis action can't be reversed.",
                 "Delete Seminar", 
                 MessageBoxButtons.YesNo, 
@@ -181,6 +196,7 @@ namespace Seminar_Management_System.Forms
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
+            // Create RegisterAttendee interface with reference to this Seminar interface
             var intermediary = this.seminarReference;
             RegisterAttendee ra = new RegisterAttendee(ref intermediary);
             ra.Show();
@@ -193,6 +209,7 @@ namespace Seminar_Management_System.Forms
 
         private void ViewSeminar_FormClosing(object sender, FormClosingEventArgs e)
         {
+            // Remove this instance from the list of open ViewSeminar interfaces
             DataInstance.seminarInterfaceWindows.Remove(this);
         }
     }
