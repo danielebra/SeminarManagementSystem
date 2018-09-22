@@ -8,6 +8,7 @@ namespace Seminar_Management_System.Classes.Users
 {
     public class Speaker : User
     {
+        // A Speaker has an additional property, Biograhy
         public string Biography { get; set; }
 
         public Speaker()
