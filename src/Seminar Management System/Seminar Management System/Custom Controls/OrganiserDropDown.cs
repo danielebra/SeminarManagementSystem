@@ -11,6 +11,7 @@ using Seminar_Management_System.Classes.Users;
 
 namespace Seminar_Management_System.Custom_Controls
 {
+    // This is used to display all the Organisers
     public partial class OrganiserDropDown : UserControl
     {
         public OrganiserDropDown()
@@ -18,6 +19,7 @@ namespace Seminar_Management_System.Custom_Controls
             InitializeComponent();
         }
 
+        // Expose the currently selected Organiser
         public SeminarOrganiser SelectedOrganiser { get { return (SeminarOrganiser)cbOrganisers.SelectedItem; } }
 
         public void setOrganiser(SeminarOrganiser organiser)
@@ -27,6 +29,7 @@ namespace Seminar_Management_System.Custom_Controls
 
         private void OrganiserDropDown_Load(object sender, EventArgs e)
         {
+            // Connect to the list of organisers and set it as the DataSource
             cbOrganisers.DataSource = DataInstance.organisers;
             cbOrganisers.ValueMember = "ID";
             cbOrganisers.DisplayMember = "Name";
