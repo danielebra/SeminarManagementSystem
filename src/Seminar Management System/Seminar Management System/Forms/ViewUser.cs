@@ -11,6 +11,7 @@ using System.Windows.Forms;
 
 namespace Seminar_Management_System.Forms
 {
+    // This is used to do the following to a User: view, edit, delete
     public partial class ViewUser : Form
     {
         public ViewUser()
@@ -39,16 +40,18 @@ namespace Seminar_Management_System.Forms
             }
         }
 
+        // The Edit button can either be 'Save' or 'Edit'
+        // It will have different functionality based on which one it is currently set to
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if (btnEdit.Text == EDIT)
+            if (btnEdit.Text == EDIT) // Handle editing functionality
             {
                 enableEditing();
                 btnEdit.Text = SAVE;
                 btnCancel.Visible = true;
                 btnDelete.Visible = true;
             }
-            else if (btnEdit.Text == SAVE)
+            else if (btnEdit.Text == SAVE) // Handle saving functionality
             {
                 disableEditing();
                 btnEdit.Text = EDIT;
@@ -60,8 +63,10 @@ namespace Seminar_Management_System.Forms
 
         private void saveUserState()
         {
+            // Gather the information from the interface and save it in the User object
             userReference.Name = tbName.Text;
             userReference.Role = roleDropDown1.SelectedRole;
+
             // Used to fire observer event, as it is not triggered by ref updates
             // This will update the user list interface
             DataInstance.users[DataInstance.users.IndexOf(userReference)] = userReference;
@@ -97,6 +102,7 @@ namespace Seminar_Management_System.Forms
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            // Get confirmation from the user before deleting this User
             if (MessageBox.Show("Are you sure you want to delete this user?\nThis action can't be reversed.",
                 "Delete User",
                 MessageBoxButtons.YesNo,
@@ -109,6 +115,7 @@ namespace Seminar_Management_System.Forms
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            // Cancel all changes and load the defaults for this User into the interface
             populateDataFields();
             disableEditing();
             btnCancel.Visible = false;
