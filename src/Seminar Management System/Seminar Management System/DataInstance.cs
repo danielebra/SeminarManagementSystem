@@ -15,19 +15,25 @@ using Seminar_Management_System.Forms;
 
 namespace Seminar_Management_System
 {
+    // This is used to manage the state of the program
     static class DataInstance
     {
-
+        // All the currently open ViewSeminar windows
         public static List<ViewSeminar> seminarInterfaceWindows = new List<ViewSeminar>();
 
-
+        // All the organisers
         public static List<SeminarOrganiser> organisers = new List<SeminarOrganiser>();
+        // All the rooms
         public static List<Room> rooms = new List<Room>();
+        // All the speakers
         public static List<Speaker> speakers = new List<Speaker>();
+        // All the users
         public static ObservableCollection<User> users = new ObservableCollection<User>();
+        // All the seminars
         public static ObservableCollection<Seminar> seminars = new ObservableCollection<Seminar>();
+        // Connection string for connecting to AWS database
         public static string _connectionString;
-
+        // Event that fires when the logged in user changes
         public static event EventHandler LoggedInUserChanged;
         private static Role _loggedInUser;
         public static Role LoggedInUser
@@ -41,8 +47,10 @@ namespace Seminar_Management_System
             }
         }
 
+        // Instance of the Main interface
         public static Main mainInstance;
 
+        // Load data from AWS database
         public static void populateWithData()
         {
             using (SqlConnection conn = new SqlConnection())
@@ -110,6 +118,7 @@ namespace Seminar_Management_System
             }
         }
 
+        // Load mock data into memory
         public static void populateWithMockData()
         {
             DataInstance.organisers.Add(new SeminarOrganiser(0, "Bob", "bob@staff.com", "111"));
