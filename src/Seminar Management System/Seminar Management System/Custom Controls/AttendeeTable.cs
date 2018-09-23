@@ -12,6 +12,10 @@ using Seminar_Management_System.Classes;
 
 namespace Seminar_Management_System.Custom_Controls
 {
+    // This UserControl is used to display a real-time updating attendee list
+    // that is connected to a Seminar
+
+    // It supports editing, deleting and viewing
     public partial class AttendeeTable : UserControl
     {
         public AttendeeTable()
@@ -27,12 +31,15 @@ namespace Seminar_Management_System.Custom_Controls
             // Dim out the text to be consistent with other control that are disabled
             gbAttendeeList.ForeColor = !canEdit ? SystemColors.ControlDark : SystemColors.ControlText;
         }
-        private Seminar seminar;
+        private Seminar seminar; // This is a reference object to an existing seminar
         public void Setup(ref Seminar seminar)
         {
+            // Connect the appropriate objects
             this.seminar = seminar;
             dgvAttendees.DataSource = this.seminar.Attendees;
         }
+
+        // Force a visual refresh request
         public void refresh()
         {
             // dgvAttendees.DataSource = seminar.Attendees;
@@ -43,7 +50,7 @@ namespace Seminar_Management_System.Custom_Controls
 
         private void dgvAttendees_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
         {
-            
+            // Ask the user for confirmation before deleting a row
             if (MessageBox.Show(string.Format("Should {0} be removed from the Attendee List?", e.Row.Cells["Name"].Value), 
                 "Delete Attendee", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
             {

@@ -10,6 +10,8 @@ using System.Windows.Forms;
 
 namespace Seminar_Management_System
 {
+    // This UserControl is used to select a Date and Time for a particular day
+
     public partial class DatePickerSingle : UserControl
     {
         public DatePickerSingle()
@@ -20,6 +22,7 @@ namespace Seminar_Management_System
         public DateTime StartDate { get { return dtpStart.Value; } }
         public DateTime EndDate { get { return dtpEnd.Value; } }
 
+        // Fire an event when the date has changed
         public event EventHandler DateUpdated;
 
         public void setDateTime(DateTime start, DateTime end)
@@ -51,7 +54,7 @@ namespace Seminar_Management_System
             // the dates will automatically adjust
 
             var selectionRange = monthCalander.SelectionRange;
-
+            // Update the start and end dates with Dates from the calender and Time from the time picker
             DateTime start = new DateTime(selectionRange.Start.Year, selectionRange.Start.Month, selectionRange.Start.Day,
                 dtpStart.Value.Hour, dtpStart.Value.Minute, dtpStart.Value.Second);
             DateTime end = new DateTime(selectionRange.End.Year, selectionRange.End.Month, selectionRange.End.Day,
@@ -63,6 +66,7 @@ namespace Seminar_Management_System
 
         private void DatePickerSingle_Load(object sender, EventArgs e)
         {
+            // Put the time pickers in a desirable readable format
             dtpStart.CustomFormat = "h:mm tt";
             dtpEnd.CustomFormat = "h:mm tt";
         }

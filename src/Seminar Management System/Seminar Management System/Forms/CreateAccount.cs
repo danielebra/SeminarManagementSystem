@@ -13,6 +13,7 @@ using Seminar_Management_System.Classes.Users;
 
 namespace Seminar_Management_System.Forms
 {
+    // This form is used to create a new User Account
     public partial class CreateAccount : Form
     {
         public CreateAccount()
@@ -22,14 +23,17 @@ namespace Seminar_Management_System.Forms
         private User interfaceMadeFor;
         private void CreateAccount_Load(object sender, EventArgs e)
         {
+            // Connect to the Roles
             comboBox1.DataSource = Authentication.Roles;
             comboBox1.DisplayMember = "Name";
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Clear the screen
             pnlSafeArea.Controls.Clear();
 
+            // Determine which interface to build based on the chosen Role
             switch  (((Role)(comboBox1.SelectedValue)).Name)
             {
                 case Role.Names.Attendee:
@@ -56,27 +60,31 @@ namespace Seminar_Management_System.Forms
         }
         private void buildBaseInterface(User user)
         {
+            // Build an interface from the properties found in the polymorphic object of User
             this.interfaceMadeFor = user;
             int counter = 0;
-            int x = 5;
+            int x = 5; // x pixel location
             foreach (PropertyInfo p in user.GetType().GetProperties())
             {
                 Label label = new Label();
                 TextBox tb = new TextBox();
                 label.AutoSize = true;
                 label.Text = p.Name;
+                // Determine the location based on how many properties we have gone through
                 label.Location = new Point(x, counter * (tb.Height + label.Height + 4));
-
+                // Place the textbox after the label
                 tb.Location = new Point(2, label.Location.Y + (label.Height));
                 tb.Width = pnlSafeArea.Width - 20;
 
+                // Check for ID and Role because we don't want the user to be able to change these values
+                // but we do want them to see what they are set to
                 if (p.Name == "ID" || p.Name == "Role")
                 {
                     tb.Enabled = false;
                     tb.Text = p.Name == "ID" ? DataInstance.users.Count.ToString() : user.Role.Privilege.ToString();
                 }
 
-
+                // Add the control to the interface
                 this.pnlSafeArea.Controls.Add(label);
                 this.pnlSafeArea.Controls.Add(tb);
 
@@ -114,6 +122,7 @@ namespace Seminar_Management_System.Forms
                 else
                     props[i].SetValue(newUser, vals[i], null);
             }
+            // Add the new User to the list of Users
             DataInstance.users.Add(newUser);
         }
     }

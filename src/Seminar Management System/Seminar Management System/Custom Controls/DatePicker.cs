@@ -10,6 +10,11 @@ using System.Windows.Forms;
 
 namespace Seminar_Management_System
 {
+    // This UserControl is used to select a Date Range
+
+    // This is no longer used in the project due to customer feedback of only wanting 
+    // a Seminar to run for less than a day. A new UserControl was made that handles that use case,
+    // it is named 'DatePickerSingle'
     public partial class DatePicker : UserControl
     {
         public DatePicker()
@@ -20,6 +25,7 @@ namespace Seminar_Management_System
         public DateTime StartDate { get { return dtpStart.Value; } }
         public DateTime EndDate { get { return dtpEnd.Value; } }
 
+        // Fire an event when the dates have changed
         public event EventHandler DateUpdated;
 
         private void dtpStart_ValueChanged(object sender, EventArgs e)

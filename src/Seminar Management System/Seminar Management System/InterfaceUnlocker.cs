@@ -10,16 +10,20 @@ using Seminar_Management_System.Forms;
 
 namespace Seminar_Management_System
 {
+    // This is used to decide what interface components should be exposed
+    // to the current logged in user
     class InterfaceUnlocker
     {
         public void Watch()
         {
+            // Subscribe to changes to the logged in user
             DataInstance.LoggedInUserChanged += DataInstance_LoggedInUserChanged;
         }
 
         private TabPage Backup_UserList;
         private void DataInstance_LoggedInUserChanged(object sender, EventArgs e)
         {
+            // Update the interface based on the new privilege of the logged in user
             int priv = DataInstance.LoggedInUser.Privilege;
             this.userList(priv);
             this.addSeminar(priv);

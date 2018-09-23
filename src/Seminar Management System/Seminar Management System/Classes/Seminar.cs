@@ -12,12 +12,14 @@ namespace Seminar_Management_System.Classes
     {
         public SeminarOrganiser Organiser { get; set; }
         public Room Room { get; set; }
-        public List<Speaker> Speakers { get; set; }
+        public List<Speaker> Speakers { get; set; } // There can be multiple Speakers
         public BindingList<SeminarAttendee> Attendees { get; set; }
 
+        // Basic information
         public string Title { get; set; }
         public string Description { get; set; }
 
+        // Start and End time
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
 
