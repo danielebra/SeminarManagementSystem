@@ -37,8 +37,18 @@ namespace Seminar_Management_System.Custom_Controls
             // Connect the appropriate objects
             this.seminar = seminar;
             dgvAttendees.DataSource = this.seminar.Attendees;
+            dgvAttendees.RowsAdded += DgvAttendees_RowsAdded;
         }
 
+        private void DgvAttendees_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            updateStatusLabels();
+        }
+
+        private void updateStatusLabels()
+        {
+            lblTotal.Text = "Total: " + dgvAttendees.Rows.Count;
+        }
         // Force a visual refresh request
         public void refresh()
         {
