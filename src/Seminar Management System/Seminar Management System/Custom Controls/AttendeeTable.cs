@@ -38,6 +38,7 @@ namespace Seminar_Management_System.Custom_Controls
             this.seminar = seminar;
             dgvAttendees.DataSource = this.seminar.Attendees;
             dgvAttendees.RowsAdded += DgvAttendees_RowsAdded;
+            updateStatusLabels();
         }
 
         private void DgvAttendees_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
