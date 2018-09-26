@@ -28,6 +28,11 @@ namespace Seminar_Management_System.Classes
             public const string Organiser = "Organiser";
             public const string Admin = "Admin";
         }
+
+        public override string ToString()
+        {
+            return this.Name;
+        }
     }
 
     
