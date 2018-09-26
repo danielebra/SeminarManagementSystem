@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tbUsername = new System.Windows.Forms.TextBox();
+            this.tbEmail = new System.Windows.Forms.TextBox();
             this.tbPassword = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnAttendee = new System.Windows.Forms.Button();
@@ -36,12 +36,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // tbUsername
+            // tbEmail
             // 
-            this.tbUsername.Location = new System.Drawing.Point(167, 46);
-            this.tbUsername.Name = "tbUsername";
-            this.tbUsername.Size = new System.Drawing.Size(120, 20);
-            this.tbUsername.TabIndex = 0;
+            this.tbEmail.Location = new System.Drawing.Point(167, 46);
+            this.tbEmail.Name = "tbEmail";
+            this.tbEmail.Size = new System.Drawing.Size(120, 20);
+            this.tbEmail.TabIndex = 0;
             // 
             // tbPassword
             // 
@@ -76,9 +76,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(106, 53);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 13);
+            this.label1.Size = new System.Drawing.Size(32, 13);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Username";
+            this.label1.Text = "Email";
             // 
             // label2
             // 
@@ -99,10 +99,11 @@
             this.Controls.Add(this.btnAttendee);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.tbPassword);
-            this.Controls.Add(this.tbUsername);
+            this.Controls.Add(this.tbEmail);
             this.Name = "LoginScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginScreen";
+            this.Load += new System.EventHandler(this.LoginScreen_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -110,7 +111,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox tbUsername;
+        private System.Windows.Forms.TextBox tbEmail;
         private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnAttendee;

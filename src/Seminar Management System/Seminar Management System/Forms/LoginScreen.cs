@@ -21,14 +21,29 @@ namespace Seminar_Management_System.Forms
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            // Set the current logged in user to an Admin
-            DataInstance.LoggedInUser = Authentication.GetRoleFromName(Role.Names.Admin);
+            // Find a matching user with the email
+            var user = DataInstance.users.Where(u => u.Email == tbEmail.Text).FirstOrDefault();
+            if (user != null)
+            {
+                DataInstance.LoggedInUser = user.Role;
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Please check to see your email is correct", "Account not found", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private void btnAttendee_Click(object sender, EventArgs e)
         {
             // Set the current logged in user to an Attendee
             DataInstance.LoggedInUser = Authentication.GetRoleFromName(Role.Names.Attendee);
+            this.Close();
+        }
+
+        private void LoginScreen_Load(object sender, EventArgs e)
+        {
+            this.AcceptButton = btnLogin;
         }
     }
 }
