@@ -136,6 +136,9 @@
             // 
             // attendeeTable1
             // 
+            this.attendeeTable1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.attendeeTable1.AutoSize = true;
             this.attendeeTable1.Location = new System.Drawing.Point(386, 244);
             this.attendeeTable1.Name = "attendeeTable1";
             this.attendeeTable1.Size = new System.Drawing.Size(345, 202);
@@ -143,6 +146,7 @@
             // 
             // btnAddAttendee
             // 
+            this.btnAddAttendee.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddAttendee.Location = new System.Drawing.Point(639, 448);
             this.btnAddAttendee.Name = "btnAddAttendee";
             this.btnAddAttendee.Size = new System.Drawing.Size(90, 23);
