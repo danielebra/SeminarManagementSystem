@@ -135,6 +135,7 @@
             this.btnOk.TabIndex = 20;
             this.btnOk.Text = "Ok";
             this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // btnDelete
             // 
@@ -200,6 +201,7 @@
             this.Name = "ViewSeminar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ViewSeminar";
+            this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ViewSeminar_FormClosing);
             this.Load += new System.EventHandler(this.ViewSeminar_Load);
             this.ResumeLayout(false);

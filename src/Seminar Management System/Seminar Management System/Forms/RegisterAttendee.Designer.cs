@@ -51,6 +51,7 @@
             this.Name = "RegisterAttendee";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RegisterAttendee";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.RegisterAttendee_Load);
             this.ResumeLayout(false);
 
