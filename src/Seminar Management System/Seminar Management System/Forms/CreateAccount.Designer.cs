@@ -106,6 +106,7 @@
             this.Name = "CreateAccount";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CreateAccount";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.CreateAccount_Load);
             this.gbDetails.ResumeLayout(false);
             this.ResumeLayout(false);

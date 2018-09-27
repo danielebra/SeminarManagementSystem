@@ -34,13 +34,13 @@
             this.rtbDescription = new System.Windows.Forms.RichTextBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnTest = new System.Windows.Forms.Button();
-            this.ddRoom = new Seminar_Management_System.Custom_Controls.RoomDropDown();
-            this.ddOrganisers = new Seminar_Management_System.Custom_Controls.OrganiserDropDown();
             this.lblDuration = new System.Windows.Forms.Label();
-            this.selectSpeakers1 = new Seminar_Management_System.Custom_Controls.SelectSpeakers();
-            this.datePickerSingle = new Seminar_Management_System.DatePickerSingle();
-            this.attendeeTable1 = new Seminar_Management_System.Custom_Controls.AttendeeTable();
             this.btnAddAttendee = new System.Windows.Forms.Button();
+            this.attendeeTable1 = new Seminar_Management_System.Custom_Controls.AttendeeTable();
+            this.datePickerSingle = new Seminar_Management_System.DatePickerSingle();
+            this.selectSpeakers1 = new Seminar_Management_System.Custom_Controls.SelectSpeakers();
+            this.ddOrganisers = new Seminar_Management_System.Custom_Controls.OrganiserDropDown();
+            this.ddRoom = new Seminar_Management_System.Custom_Controls.RoomDropDown();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -96,20 +96,6 @@
             this.btnTest.UseVisualStyleBackColor = true;
             this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
             // 
-            // ddRoom
-            // 
-            this.ddRoom.Location = new System.Drawing.Point(386, 46);
-            this.ddRoom.Name = "ddRoom";
-            this.ddRoom.Size = new System.Drawing.Size(190, 30);
-            this.ddRoom.TabIndex = 11;
-            // 
-            // ddOrganisers
-            // 
-            this.ddOrganisers.Location = new System.Drawing.Point(386, 10);
-            this.ddOrganisers.Name = "ddOrganisers";
-            this.ddOrganisers.Size = new System.Drawing.Size(190, 30);
-            this.ddOrganisers.TabIndex = 12;
-            // 
             // lblDuration
             // 
             this.lblDuration.AutoSize = true;
@@ -118,31 +104,6 @@
             this.lblDuration.Size = new System.Drawing.Size(53, 13);
             this.lblDuration.TabIndex = 14;
             this.lblDuration.Text = "Duration: ";
-            // 
-            // selectSpeakers1
-            // 
-            this.selectSpeakers1.Location = new System.Drawing.Point(386, 91);
-            this.selectSpeakers1.Name = "selectSpeakers1";
-            this.selectSpeakers1.Size = new System.Drawing.Size(214, 147);
-            this.selectSpeakers1.TabIndex = 15;
-            // 
-            // datePickerSingle
-            // 
-            this.datePickerSingle.Location = new System.Drawing.Point(91, 137);
-            this.datePickerSingle.Name = "datePickerSingle";
-            this.datePickerSingle.Size = new System.Drawing.Size(269, 249);
-            this.datePickerSingle.TabIndex = 16;
-            this.datePickerSingle.DateUpdated += new System.EventHandler(this.datePicker_DateUpdated);
-            // 
-            // attendeeTable1
-            // 
-            this.attendeeTable1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.attendeeTable1.AutoSize = true;
-            this.attendeeTable1.Location = new System.Drawing.Point(386, 244);
-            this.attendeeTable1.Name = "attendeeTable1";
-            this.attendeeTable1.Size = new System.Drawing.Size(345, 202);
-            this.attendeeTable1.TabIndex = 17;
             // 
             // btnAddAttendee
             // 
@@ -154,6 +115,45 @@
             this.btnAddAttendee.Text = "Add Attendee";
             this.btnAddAttendee.UseVisualStyleBackColor = true;
             this.btnAddAttendee.Click += new System.EventHandler(this.btnAddAttendee_Click);
+            // 
+            // attendeeTable1
+            // 
+            this.attendeeTable1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.attendeeTable1.AutoSize = true;
+            this.attendeeTable1.Location = new System.Drawing.Point(386, 244);
+            this.attendeeTable1.Name = "attendeeTable1";
+            this.attendeeTable1.Size = new System.Drawing.Size(345, 202);
+            this.attendeeTable1.TabIndex = 17;
+            // 
+            // datePickerSingle
+            // 
+            this.datePickerSingle.Location = new System.Drawing.Point(91, 137);
+            this.datePickerSingle.Name = "datePickerSingle";
+            this.datePickerSingle.Size = new System.Drawing.Size(269, 249);
+            this.datePickerSingle.TabIndex = 16;
+            this.datePickerSingle.DateUpdated += new System.EventHandler(this.datePicker_DateUpdated);
+            // 
+            // selectSpeakers1
+            // 
+            this.selectSpeakers1.Location = new System.Drawing.Point(386, 91);
+            this.selectSpeakers1.Name = "selectSpeakers1";
+            this.selectSpeakers1.Size = new System.Drawing.Size(214, 147);
+            this.selectSpeakers1.TabIndex = 15;
+            // 
+            // ddOrganisers
+            // 
+            this.ddOrganisers.Location = new System.Drawing.Point(386, 10);
+            this.ddOrganisers.Name = "ddOrganisers";
+            this.ddOrganisers.Size = new System.Drawing.Size(190, 30);
+            this.ddOrganisers.TabIndex = 12;
+            // 
+            // ddRoom
+            // 
+            this.ddRoom.Location = new System.Drawing.Point(386, 46);
+            this.ddRoom.Name = "ddRoom";
+            this.ddRoom.Size = new System.Drawing.Size(190, 30);
+            this.ddRoom.TabIndex = 11;
             // 
             // AddSeminar
             // 
@@ -176,6 +176,7 @@
             this.Name = "AddSeminar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddSeminar";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.AddSeminar_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

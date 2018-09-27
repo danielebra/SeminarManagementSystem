@@ -157,6 +157,7 @@
             this.Name = "ViewUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ViewUser";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.ViewUser_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

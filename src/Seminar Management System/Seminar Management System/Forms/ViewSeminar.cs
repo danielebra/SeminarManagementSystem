@@ -212,5 +212,10 @@ namespace Seminar_Management_System.Forms
             // Remove this instance from the list of open ViewSeminar interfaces
             DataInstance.seminarInterfaceWindows.Remove(this);
         }
+
+        private void btnOk_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

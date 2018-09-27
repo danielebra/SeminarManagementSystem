@@ -71,6 +71,7 @@
             this.Name = "CreateFilter";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CreateFilter";
+            this.TopMost = true;
             this.ResumeLayout(false);
             this.PerformLayout();
 
