@@ -23,8 +23,7 @@ namespace Seminar_Management_System.Forms
         private User interfaceMadeFor;
         private void CreateAccount_Load(object sender, EventArgs e)
         {
-            // Connect to the Roles
-            comboBox1.DataSource = Authentication.Roles;
+            comboBox1.DataSource = Utils.AllRolesWithoutAttendee();
             comboBox1.DisplayMember = "Name";
         }
 

@@ -32,7 +32,7 @@ namespace Seminar_Management_System.Custom_Controls
         private void RoleDropDown_Load(object sender, EventArgs e)
         {
             // Load all the Roles that exist
-            cbRole.DataSource = Authentication.Roles;
+            cbRole.DataSource = Utils.AllRolesWithoutAttendee();//Authentication.Roles;
             cbRole.DisplayMember = "Name";
             cbRole.ValueMember = "Privilege";
         }

@@ -40,5 +40,17 @@ namespace Seminar_Management_System.Classes
                 }
             }
         }
+        public static List<Role> AllRolesWithoutAttendee()
+        {
+            var stripAttendee = Authentication.Roles;
+            foreach (var x in stripAttendee)
+            {
+                if (x.Name == Role.Names.Attendee)
+                    stripAttendee.Remove(x);
+                break;
+            }
+            return stripAttendee;
+        }
+            
     }
 }
