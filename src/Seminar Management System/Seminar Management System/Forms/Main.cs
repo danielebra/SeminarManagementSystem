@@ -53,7 +53,7 @@ namespace Seminar_Management_System
             {
                 if (MessageBox.Show("The \"secrets.txt\" file is missing. Make sure this file is placed along side the executable.\n\nContact the software developer to retrieve the missing file if you do not have it.",
                     "Unable to configure database connection", MessageBoxButtons.OK, MessageBoxIcon.Error) == DialogResult.OK)
-                    Environment.Exit(1);
+                { }//Environment.Exit(1);
             }
             // Subscribe to seminar changes
             DataInstance.seminars.CollectionChanged += ObSeminars_CollectionChanged;
