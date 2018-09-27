@@ -22,11 +22,11 @@ namespace Seminar_Management_System
         public static List<ViewSeminar> seminarInterfaceWindows = new List<ViewSeminar>();
 
         // All the organisers
-        public static List<SeminarOrganiser> organisers = new List<SeminarOrganiser>();
+        public static List<SeminarOrganiser> organisers = new List<SeminarOrganiser>(); // This needs to be removed
         // All the rooms
         public static List<Room> rooms = new List<Room>();
         // All the speakers
-        public static List<Speaker> speakers = new List<Speaker>();
+        public static List<Speaker> speakers = new List<Speaker>(); // This needs to be removed
         // All the users
         public static ObservableCollection<User> users = new ObservableCollection<User>();
         // All the seminars

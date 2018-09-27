@@ -123,7 +123,13 @@ namespace Seminar_Management_System.Forms
                     props[i].SetValue(newUser, vals[i], null);
             }
             // Add the new User to the list of Users
+            // These checks need to be removed
+            if (newUser.GetType() == typeof(Speaker))
+                DataInstance.speakers.Add((Speaker)newUser);
+            else if (newUser.GetType() == typeof(SeminarOrganiser))
+                DataInstance.organisers.Add((SeminarOrganiser)newUser);
             DataInstance.users.Add(newUser);
+            this.Close();
         }
     }
 }
