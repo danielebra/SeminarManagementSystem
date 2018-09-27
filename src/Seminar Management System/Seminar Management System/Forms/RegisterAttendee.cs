@@ -44,7 +44,7 @@ namespace Seminar_Management_System.Forms
             int x = 5;
             foreach (PropertyInfo p in typeof(SeminarAttendee).GetProperties())
             {
-                if (p.Name == "ID")
+                if (p.Name == "ID" || p.Name == "Role")
                     continue;
                 Label label = new Label();
                 TextBox tb = new TextBox();
