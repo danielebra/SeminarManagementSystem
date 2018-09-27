@@ -30,6 +30,7 @@ namespace Seminar_Management_System.Forms
         private void ViewUser_Load(object sender, EventArgs e)
         {
             populateDataFields();
+            disableEditing();
         }
         private void populateDataFields()
         {
