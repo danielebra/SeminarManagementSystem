@@ -32,7 +32,7 @@ namespace Seminar_Management_System.Forms
             }
             else
             {
-                MessageBox.Show("Please check to see your email is correct", "Account not found", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Please check to see that your email is correct", "Account not found", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
