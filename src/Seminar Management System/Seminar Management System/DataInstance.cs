@@ -18,6 +18,7 @@ namespace Seminar_Management_System
     // This is used to manage the state of the program
     static class DataInstance
     {
+        public static CreateFilter createFilterInterface = new CreateFilter();
         // All the currently open ViewSeminar windows
         public static List<ViewSeminar> seminarInterfaceWindows = new List<ViewSeminar>();
         // All the rooms

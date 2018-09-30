@@ -79,7 +79,9 @@ namespace Seminar_Management_System
             interfaceUnlocker.Watch();
             DataInstance.LoggedInUserChanged += DataInstance_LoggedInUserChanged;
             // Default the LoggedInUser to an Attendee
-            DataInstance.LoggedInUser = new SeminarAttendee();
+            DataInstance.LoggedInUser = new SystemAdmin();
+            // Subscribe to filter changes
+            DataInstance.createFilterInterface.FilterUpdated += Filt_FilterUpdated;
 
         }
 
@@ -236,12 +238,8 @@ namespace Seminar_Management_System
         }
 
         private void btnLaunchFilter_Click(object sender, EventArgs e)
-        {
-            // Show the CreateFilter screen
-            CreateFilter filt = new CreateFilter();
-            // Subscribe to the filter changes
-            filt.FilterUpdated += Filt_FilterUpdated;
-            filt.Show();
+        {            
+            DataInstance.createFilterInterface.Show();
         }
 
         private void Filt_FilterUpdated(object sender, EventArgs e)
