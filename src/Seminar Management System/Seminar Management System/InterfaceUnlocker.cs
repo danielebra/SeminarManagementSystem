@@ -24,7 +24,7 @@ namespace Seminar_Management_System
         private void DataInstance_LoggedInUserChanged(object sender, EventArgs e)
         {
             // Update the interface based on the new privilege of the logged in user
-            int priv = DataInstance.LoggedInUser.Privilege;
+            int priv = DataInstance.LoggedInUser.Role.Privilege;
             this.userList(priv);
             this.addSeminar(priv);
             this.editSeminar(priv);

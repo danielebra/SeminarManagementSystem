@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Seminar_Management_System.Classes;
+using Seminar_Management_System.Classes.Users;
+
 namespace Seminar_Management_System.Forms
 {
     // This is used to login as different users
@@ -25,7 +27,7 @@ namespace Seminar_Management_System.Forms
             var user = DataInstance.users.Where(u => u.Email == tbEmail.Text).FirstOrDefault();
             if (user != null)
             {
-                DataInstance.LoggedInUser = user.Role;
+                DataInstance.LoggedInUser = user;
                 this.Close();
             }
             else
@@ -37,7 +39,7 @@ namespace Seminar_Management_System.Forms
         private void btnAttendee_Click(object sender, EventArgs e)
         {
             // Set the current logged in user to an Attendee
-            DataInstance.LoggedInUser = Authentication.GetRoleFromName(Role.Names.Attendee);
+            DataInstance.LoggedInUser = new SeminarAttendee();//Authentication.GetRoleFromName(Role.Names.Attendee);
             this.Close();
         }
 

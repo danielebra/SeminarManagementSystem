@@ -30,8 +30,8 @@ namespace Seminar_Management_System
         public static string _connectionString;
         // Event that fires when the logged in user changes
         public static event EventHandler LoggedInUserChanged;
-        private static Role _loggedInUser;
-        public static Role LoggedInUser
+        private static User _loggedInUser;
+        public static User LoggedInUser
         {
             get { return _loggedInUser; }
             set

@@ -70,7 +70,7 @@ namespace Seminar_Management_System.Forms
                 btnEdit.Text = SAVE;
                 btnCancel.Visible = true;
                 
-                if (DataInstance.LoggedInUser.Privilege >= Authentication.GetPrivilegeFromRoleName(Role.Names.Organiser))
+                if (DataInstance.LoggedInUser.Role.Privilege >= Authentication.GetPrivilegeFromRoleName(Role.Names.Organiser))
                 {
                     FullEdit(); // Allow whole interface to be changed
                     btnDelete.Visible = true; // If the user is an organizer and above, show delete
