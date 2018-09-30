@@ -3,9 +3,11 @@ Seminar management system for UTS
 
 # Icons
 
-## Pack
+## Packs
 
 [Marketing and seo](https://www.flaticon.com/packs/marketing-and-seo)
+
+[small-n-flat](https://www.iconfinder.com/iconsets/small-n-flat)
 
 ### License
 
