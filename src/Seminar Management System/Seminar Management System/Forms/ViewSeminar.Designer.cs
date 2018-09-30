@@ -110,7 +110,7 @@
             this.datePickerSingle.Enabled = false;
             this.datePickerSingle.Location = new System.Drawing.Point(12, 224);
             this.datePickerSingle.Name = "datePickerSingle";
-            this.datePickerSingle.Size = new System.Drawing.Size(269, 249);
+            this.datePickerSingle.Size = new System.Drawing.Size(269, 277);
             this.datePickerSingle.TabIndex = 19;
             // 
             // btnCancel

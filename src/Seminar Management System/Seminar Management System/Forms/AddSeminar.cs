@@ -30,6 +30,7 @@ namespace Seminar_Management_System
             seminar.EndDate = datePickerSingle.EndDate;
             seminar.Title = tbTitle.Text;
             seminar.Description = rtbDescription.Text;
+            seminar.DurationString = datePickerSingle.DurationString;
             // Add the seminar into list of Seminars
             DataInstance.seminars.Add(seminar);
             // Close this screen
@@ -49,10 +50,7 @@ namespace Seminar_Management_System
         private void datePicker_DateUpdated(object sender, EventArgs e)
         {
             // In the future, detection for adding (s) after hour or minutes can be added
-            TimeSpan duration = datePickerSingle.EndDate.Subtract(datePickerSingle.StartDate);
-            lblDuration.Text = string.Format("Duration: {0}{1}",
-                duration.Hours == 00 ? "" : duration.Hours.ToString() + " Hours ",
-                duration.Minutes == 00 ? "" : duration.Minutes.ToString() + " Minutes");
+            
         }
 
         private void btnAddAttendee_Click(object sender, EventArgs e)

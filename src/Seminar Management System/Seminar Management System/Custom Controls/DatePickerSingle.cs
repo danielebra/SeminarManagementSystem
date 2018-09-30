@@ -21,7 +21,7 @@ namespace Seminar_Management_System
 
         public DateTime StartDate { get { return dtpStart.Value; } }
         public DateTime EndDate { get { return dtpEnd.Value; } }
-
+        public string DurationString { get { return lblDuration.Text; } }
         // Fire an event when the date has changed
         public event EventHandler DateUpdated;
 
@@ -69,6 +69,20 @@ namespace Seminar_Management_System
             // Put the time pickers in a desirable readable format
             dtpStart.CustomFormat = "h:mm tt";
             dtpEnd.CustomFormat = "h:mm tt";
+            DateUpdated += DatePickerSingle_DateUpdated;
+        }
+
+        private void DatePickerSingle_DateUpdated(object sender, EventArgs e)
+        {
+            TimeSpan duration = this.EndDate.Subtract(this.StartDate);
+            string hours = (duration.Hours == 00 ? "" : duration.Hours.ToString());
+            if (duration.Hours != 00)
+                hours += (duration.Hours > 1 || duration.Hours < -1 ? " Hours " : " Hour ");
+            string minutes = (duration.Minutes == 00 ? "" : duration.Minutes.ToString());
+            if (duration.Minutes != 0)
+                minutes += (duration.Minutes > 1 || duration.Minutes < -1 ? " Minutes" :  " Minute");
+            string status = duration.Hours < 0 || duration.Minutes < 0 ? " (Invalid)" : "";
+            lblDuration.Text = string.Format("Duration: {0}{1}{2}", hours, minutes, status);
         }
     }
 }

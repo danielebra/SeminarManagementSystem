@@ -22,7 +22,7 @@ namespace Seminar_Management_System.Classes
         // Start and End time
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
-
+        public string DurationString { get; set; }
 
         public Seminar()
         {

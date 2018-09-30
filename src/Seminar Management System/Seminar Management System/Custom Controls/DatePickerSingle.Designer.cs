@@ -34,6 +34,7 @@
             this.dtpStart = new System.Windows.Forms.DateTimePicker();
             this.dtpEnd = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblDuration = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -87,6 +88,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblDuration);
             this.groupBox1.Controls.Add(this.dtpStart);
             this.groupBox1.Controls.Add(this.dtpEnd);
             this.groupBox1.Controls.Add(this.lblStart);
@@ -94,10 +96,19 @@
             this.groupBox1.Controls.Add(this.monthCalander);
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(259, 243);
+            this.groupBox1.Size = new System.Drawing.Size(259, 267);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Date && Time";
+            // 
+            // lblDuration
+            // 
+            this.lblDuration.AutoSize = true;
+            this.lblDuration.Location = new System.Drawing.Point(14, 241);
+            this.lblDuration.Name = "lblDuration";
+            this.lblDuration.Size = new System.Drawing.Size(53, 13);
+            this.lblDuration.TabIndex = 15;
+            this.lblDuration.Text = "Duration: ";
             // 
             // DatePickerSingle
             // 
@@ -105,7 +116,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox1);
             this.Name = "DatePickerSingle";
-            this.Size = new System.Drawing.Size(269, 249);
+            this.Size = new System.Drawing.Size(269, 274);
             this.Load += new System.EventHandler(this.DatePickerSingle_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -121,5 +132,6 @@
         private System.Windows.Forms.DateTimePicker dtpStart;
         private System.Windows.Forms.DateTimePicker dtpEnd;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label lblDuration;
     }
 }

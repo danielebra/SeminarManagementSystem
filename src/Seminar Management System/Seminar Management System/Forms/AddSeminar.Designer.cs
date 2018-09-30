@@ -34,7 +34,6 @@
             this.rtbDescription = new System.Windows.Forms.RichTextBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnTest = new System.Windows.Forms.Button();
-            this.lblDuration = new System.Windows.Forms.Label();
             this.btnAddAttendee = new System.Windows.Forms.Button();
             this.attendeeTable1 = new Seminar_Management_System.Custom_Controls.AttendeeTable();
             this.datePickerSingle = new Seminar_Management_System.DatePickerSingle();
@@ -96,15 +95,6 @@
             this.btnTest.UseVisualStyleBackColor = true;
             this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
             // 
-            // lblDuration
-            // 
-            this.lblDuration.AutoSize = true;
-            this.lblDuration.Location = new System.Drawing.Point(88, 389);
-            this.lblDuration.Name = "lblDuration";
-            this.lblDuration.Size = new System.Drawing.Size(53, 13);
-            this.lblDuration.TabIndex = 14;
-            this.lblDuration.Text = "Duration: ";
-            // 
             // btnAddAttendee
             // 
             this.btnAddAttendee.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -130,7 +120,7 @@
             // 
             this.datePickerSingle.Location = new System.Drawing.Point(91, 137);
             this.datePickerSingle.Name = "datePickerSingle";
-            this.datePickerSingle.Size = new System.Drawing.Size(269, 249);
+            this.datePickerSingle.Size = new System.Drawing.Size(269, 270);
             this.datePickerSingle.TabIndex = 16;
             this.datePickerSingle.DateUpdated += new System.EventHandler(this.datePicker_DateUpdated);
             // 
@@ -164,7 +154,6 @@
             this.Controls.Add(this.attendeeTable1);
             this.Controls.Add(this.datePickerSingle);
             this.Controls.Add(this.selectSpeakers1);
-            this.Controls.Add(this.lblDuration);
             this.Controls.Add(this.ddOrganisers);
             this.Controls.Add(this.ddRoom);
             this.Controls.Add(this.btnTest);
@@ -193,7 +182,6 @@
         private System.Windows.Forms.Button btnTest;
         private Custom_Controls.RoomDropDown ddRoom;
         private Custom_Controls.OrganiserDropDown ddOrganisers;
-        private System.Windows.Forms.Label lblDuration;
         private Custom_Controls.SelectSpeakers selectSpeakers1;
         private DatePickerSingle datePickerSingle;
         private Custom_Controls.AttendeeTable attendeeTable1;
