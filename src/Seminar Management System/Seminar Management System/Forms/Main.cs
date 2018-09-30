@@ -23,6 +23,8 @@ namespace Seminar_Management_System
         {
             InitializeComponent();
         }
+        private const string _LOGIN = "Login";
+        private const string _LOGOUT = "Logout";
         // The current Seminar items displayed in the interface
         private List<SeminarItem> seminarItems = new List<SeminarItem>();
         // The current User items displayed in the interface
@@ -75,7 +77,29 @@ namespace Seminar_Management_System
             Main_Resize(null, null);
             // Begin reacting to logged in user changes
             interfaceUnlocker.Watch();
+            DataInstance.LoggedInUserChanged += DataInstance_LoggedInUserChanged;
+            // Default the LoggedInUser to an Attendee
+            DataInstance.LoggedInUser = new SeminarAttendee();
 
+        }
+
+        private void DataInstance_LoggedInUserChanged(object sender, EventArgs e)
+        {
+            string loggedInRoleTemplate = "Viewing Seminar Management System as an ";
+            // Display Logout when someone is not an Attendee
+            if (DataInstance.LoggedInUser.GetType() != typeof(SeminarAttendee))
+            {
+                btnLogin.Text = _LOGOUT;
+                lblGreeting.Text = "Welcome, " + DataInstance.LoggedInUser.Name;
+                lblLoggedInRole.Text = loggedInRoleTemplate + DataInstance.LoggedInUser.Role;
+            }
+            // Display Login when someone is an Attendee
+            else
+            {
+                btnLogin.Text = _LOGIN;
+                lblGreeting.Text = "Howdy Stranger!";
+                lblLoggedInRole.Text = loggedInRoleTemplate + DataInstance.LoggedInUser.Role;
+            }
         }
 
         private void Users_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
@@ -192,9 +216,16 @@ namespace Seminar_Management_System
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            // Show the LoginScreen
-            LoginScreen loginScreen = new LoginScreen();
-            loginScreen.Show();
+            // Show Login screen if the program is accepting Login requests
+            if (btnLogin.Text == _LOGIN)
+            {
+                // Show the LoginScreen
+                LoginScreen loginScreen = new LoginScreen();
+                loginScreen.Show();
+            }
+            // Logout by logging in as an Attendee
+            else
+                DataInstance.LoggedInUser = new SeminarAttendee();
         }
 
         private void btnAddUser_Click(object sender, EventArgs e)

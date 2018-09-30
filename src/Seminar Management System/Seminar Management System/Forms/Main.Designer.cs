@@ -43,7 +43,10 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.pnlUserView = new System.Windows.Forms.Panel();
             this.btnAddUser = new System.Windows.Forms.Button();
+            this.lblLoggedInRole = new System.Windows.Forms.ToolStripLabel();
+            this.lblGreeting = new System.Windows.Forms.ToolStripLabel();
             this.toolStrip1.SuspendLayout();
+            this.toolStrip2.SuspendLayout();
             this.pnlSeminarView.SuspendLayout();
             this.pnlPersistantControls.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -67,7 +70,8 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnTest,
             this.btnDebug,
-            this.btnLogin});
+            this.btnLogin,
+            this.lblGreeting});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(931, 25);
@@ -107,6 +111,8 @@
             // toolStrip2
             // 
             this.toolStrip2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lblLoggedInRole});
             this.toolStrip2.Location = new System.Drawing.Point(0, 521);
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.Size = new System.Drawing.Size(931, 25);
@@ -196,6 +202,20 @@
             this.btnAddUser.UseVisualStyleBackColor = true;
             this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
             // 
+            // lblLoggedInRole
+            // 
+            this.lblLoggedInRole.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.lblLoggedInRole.Name = "lblLoggedInRole";
+            this.lblLoggedInRole.Size = new System.Drawing.Size(291, 22);
+            this.lblLoggedInRole.Text = "Viewing Seminar Management System as an Attendee";
+            // 
+            // lblGreeting
+            // 
+            this.lblGreeting.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.lblGreeting.Name = "lblGreeting";
+            this.lblGreeting.Size = new System.Drawing.Size(95, 22);
+            this.lblGreeting.Text = "Howdy Stranger!";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -213,6 +233,8 @@
             this.Resize += new System.EventHandler(this.Main_Resize);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.toolStrip2.ResumeLayout(false);
+            this.toolStrip2.PerformLayout();
             this.pnlSeminarView.ResumeLayout(false);
             this.pnlPersistantControls.ResumeLayout(false);
             this.tabControl.ResumeLayout(false);
@@ -240,6 +262,8 @@
         private System.Windows.Forms.Button btnAddUser;
         private System.Windows.Forms.Button btnLaunchFilter;
         private System.Windows.Forms.Panel pnlUserView;
+        private System.Windows.Forms.ToolStripLabel lblGreeting;
+        private System.Windows.Forms.ToolStripLabel lblLoggedInRole;
     }
 }
 
