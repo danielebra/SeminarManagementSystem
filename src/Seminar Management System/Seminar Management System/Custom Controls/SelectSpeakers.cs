@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Seminar_Management_System.Classes.Users;
+using Seminar_Management_System.Classes;
+
 namespace Seminar_Management_System.Custom_Controls
 {
     // This is used to display all the speakers
@@ -26,7 +28,7 @@ namespace Seminar_Management_System.Custom_Controls
                 List<Speaker> selectedSpeakers = new List<Speaker>();
                 foreach (int i in clbSpeakers.CheckedIndices)
                 {
-                    selectedSpeakers.Add(DataInstance.speakers[i]);
+                    selectedSpeakers.Add(Utils.GetAllSpeakers()[i]);
                 }
                 return selectedSpeakers;
             }
@@ -55,14 +57,14 @@ namespace Seminar_Management_System.Custom_Controls
             List<Speaker> speakerList = new List<Speaker>();
             foreach (string name in collection)
             {
-                speakerList.Add(DataInstance.speakers.Find(speaker => speaker.Name == name));
+                speakerList.Add(Utils.GetAllSpeakers().Find(speaker => speaker.Name == name));
             }
             return speakerList;
         }
         private void SelectSpeakers_Load(object sender, EventArgs e)
         {
             // Load all the Speakers and set them to unchecked
-            foreach (Speaker speaker in DataInstance.speakers)
+            foreach (Speaker speaker in Utils.GetAllSpeakers())
             {
                 clbSpeakers.Items.Add(speaker.Name, false);
             }

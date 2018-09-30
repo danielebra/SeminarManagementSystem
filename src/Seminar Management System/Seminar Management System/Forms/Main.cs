@@ -150,11 +150,11 @@ namespace Seminar_Management_System
             Seminar seminar = new Seminar();
             seminar.Title = "Created by test button";
             seminar.Description = rnum.Next(1111111, 1111111111).ToString();
-            seminar.Speakers = DataInstance.speakers;
+            seminar.Speakers = Utils.GetAllSpeakers();
             seminar.StartDate = DateTime.Now;
             seminar.EndDate = DateTime.Now.AddHours(1);
             seminar.Room = DataInstance.rooms[rnum.Next(0, DataInstance.rooms.Count)];
-            seminar.Organiser = DataInstance.organisers[rnum.Next(0, DataInstance.organisers.Count)];
+            seminar.Organiser = Utils.GetAllOrganisers()[rnum.Next(0, Utils.GetAllOrganisers().Count)];
 
 
             DataInstance.seminars.Add(seminar);
@@ -163,7 +163,8 @@ namespace Seminar_Management_System
         TabPage backup;
         private void btnDebug_Click(object sender, EventArgs e)
         {
-            InterfaceUnlocker iu = new InterfaceUnlocker();
+            Utils.GetAllSpeakers();
+            /*InterfaceUnlocker iu = new InterfaceUnlocker();
             if (test1)
             {
                 test1 = false;
@@ -174,7 +175,7 @@ namespace Seminar_Management_System
             {
                 tabControl.TabPages.Add(DataInstance.mainInstance.tabPage2);
                 test1 = true;
-            }
+            }*/
             //var foo = DataInstance.seminars.FirstOrDefault();
             //RegisterAttendee reg = new RegisterAttendee();
             //reg.Show();

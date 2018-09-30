@@ -20,13 +20,8 @@ namespace Seminar_Management_System
     {
         // All the currently open ViewSeminar windows
         public static List<ViewSeminar> seminarInterfaceWindows = new List<ViewSeminar>();
-
-        // All the organisers
-        public static List<SeminarOrganiser> organisers = new List<SeminarOrganiser>(); // This needs to be removed
         // All the rooms
         public static List<Room> rooms = new List<Room>();
-        // All the speakers
-        public static List<Speaker> speakers = new List<Speaker>(); // This needs to be removed
         // All the users
         public static ObservableCollection<User> users = new ObservableCollection<User>();
         // All the seminars
@@ -72,7 +67,7 @@ namespace Seminar_Management_System
                 {
                     while (reader.Read())
                     {
-                        organisers.Add(new SeminarOrganiser((int)reader["ID"], reader["Name"].ToString(), reader["Email"].ToString(), reader["PhoneNumber"].ToString()));
+                        users.Add(new SeminarOrganiser((int)reader["ID"], reader["Name"].ToString(), reader["Email"].ToString(), reader["PhoneNumber"].ToString()));
                     }
                 }
 
@@ -90,7 +85,7 @@ namespace Seminar_Management_System
                 {
                     while (reader.Read())
                     {
-                        speakers.Add(new Speaker((int)reader["ID"], reader["Name"].ToString(), reader["Email"].ToString(), reader["PhoneNumber"].ToString(), reader["Biography"].ToString()));
+                        users.Add(new Speaker((int)reader["ID"], reader["Name"].ToString(), reader["Email"].ToString(), reader["PhoneNumber"].ToString(), reader["Biography"].ToString()));
                     }
                 }
 
@@ -109,10 +104,10 @@ namespace Seminar_Management_System
                 {
                     while (reader.Read())
                     {
-                        var organiser = organisers.Where(o => o.ID == (int)reader["OrganiserPersonID"]).ToList();
+                        var organiser = Utils.GetAllOrganisers().Where(o => o.ID == (int)reader["OrganiserPersonID"]).ToList();
                         var room = rooms.Where(r => r.ID == (int)reader["VenueID"]).ToList();
 
-                        seminars.Add(new Seminar(organiser[0], room[0], speakers, attendeeList, reader["Label"].ToString(), reader["Description"].ToString(), DateTime.Now, DateTime.Today));
+                        seminars.Add(new Seminar(organiser[0], room[0], Utils.GetAllSpeakers(), attendeeList, reader["Label"].ToString(), reader["Description"].ToString(), DateTime.Now, DateTime.Today));
                     }
                 }
             }
@@ -121,25 +116,28 @@ namespace Seminar_Management_System
         // Load mock data into memory
         public static void populateWithMockData()
         {
-            DataInstance.organisers.Add(new SeminarOrganiser(0, "Bob", "bob@staff.com", "111"));
-            DataInstance.organisers.Add(new SeminarOrganiser(1, "Tim", "tim@staff.com", "222"));
+            DataInstance.users.Add(new SeminarOrganiser(0, "Bob", "bob@staff.com", "111"));
+            DataInstance.users.Add(new SeminarOrganiser(1, "Tim", "tim@staff.com", "222"));
+
 
             DataInstance.rooms.Add(new Room(0, "Building 11", "Ultimo", 100));
             DataInstance.rooms.Add(new Room(1, "Building 10", "Ultimo", 200));
+            
+            DataInstance.users.Add(new Speaker(0, "Dr James", "james@speakers.com", String.Empty, "This is a biography..."));
+            DataInstance.users.Add(new Speaker(1, "Dr Paul", "paul@speakers.com", String.Empty, "This is a biography..."));
 
-            DataInstance.speakers.Add(new Speaker(0, "Dr James", "james@speakers.com", String.Empty, "This is a biography..."));
-            DataInstance.speakers.Add(new Speaker(1, "Dr Paul", "paul@speakers.com", String.Empty, "This is a biography..."));
 
             BindingList<SeminarAttendee> attendeeList = new BindingList<SeminarAttendee>();
             attendeeList.Add(new SeminarAttendee(0, "Jason", "jason@attendee.com", "911"));
             attendeeList.Add(new SeminarAttendee(1, "Tyrone", "tyrone@attendee.com", "912"));
 
-            DataInstance.seminars.Add(new Seminar(DataInstance.organisers[0], DataInstance.rooms[0], DataInstance.speakers,
+            DataInstance.seminars.Add(new Seminar(Utils.GetAllOrganisers()[0], DataInstance.rooms[0], Utils.GetAllSpeakers(),
                 attendeeList, "Learning Python", "The Zen of Python", DateTime.Now, DateTime.Today));
-            DataInstance.seminars.Add(new Seminar(DataInstance.organisers[0], DataInstance.rooms[0], DataInstance.speakers,
+            DataInstance.seminars.Add(new Seminar(Utils.GetAllOrganisers()[0], DataInstance.rooms[0], Utils.GetAllSpeakers(),
                 attendeeList, "Learning C#", "Java developers wear glasses because they can't see sharp", DateTime.Now, DateTime.Today));
 
             DataInstance.users.Add(new SystemAdmin(0, "Derrick", "derrick@dev.org", "111"));
+            DataInstance.users.Add(new Speaker(2, "Mr Paul", "paul@speakers.com", String.Empty, "Biography"));
         }
     }
 }

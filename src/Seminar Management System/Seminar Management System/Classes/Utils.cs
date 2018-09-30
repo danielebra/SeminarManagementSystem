@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Seminar_Management_System.Classes.Users;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -51,6 +52,16 @@ namespace Seminar_Management_System.Classes
             }
             return stripAttendee;
         }
-            
+
+        public static List<Speaker> GetAllSpeakers()
+        {
+            return DataInstance.users.Where(u => u.GetType() == typeof(Speaker)).Cast<Speaker>().ToList();
+        }
+
+        public static List<SeminarOrganiser> GetAllOrganisers()
+        {
+            return DataInstance.users.Where(u => u.GetType() == typeof(SeminarOrganiser)).Cast<SeminarOrganiser>().ToList();
+        }
+
     }
 }
