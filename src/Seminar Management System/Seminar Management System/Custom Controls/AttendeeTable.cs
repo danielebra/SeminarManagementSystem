@@ -54,7 +54,7 @@ namespace Seminar_Management_System.Custom_Controls
 
         private void updateStatusLabels()
         {
-            lblTotal.Text = "Total: " + dgvAttendees.Rows.Count;
+            lblTotal.Text = "Total: " + this.seminar.Attendees.Count;
         }
         // Force a visual refresh request
         public void refresh()
