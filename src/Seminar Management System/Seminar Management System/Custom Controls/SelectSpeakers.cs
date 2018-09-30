@@ -50,6 +50,11 @@ namespace Seminar_Management_System.Custom_Controls
                 index++;
             }
         }
+
+        public void setText(string text)
+        {
+            this.lblInfo.Text = text;
+        }
         private List<Speaker> buildSpeakerListFromCheckedListBox(CheckedListBox.ObjectCollection collection)
         {
             // Creates a safe list of existing speakers

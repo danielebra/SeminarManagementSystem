@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Seminar_Management_System.Classes;
 using System.Linq.Expressions;
+using Seminar_Management_System.Classes.Users;
 
 namespace Seminar_Management_System.Forms
 {
@@ -28,9 +29,25 @@ namespace Seminar_Management_System.Forms
             PortableFilter.ByRoom = cbRoom.Checked;
             PortableFilter.Room = cbRoom.Checked ? roomDropDown1.SelectedRoom : null;
 
+            PortableFilter.ByOrganiser = cbOrganiser.Checked;
+            PortableFilter.Organiser = cbOrganiser.Checked ? organiserDropDown1.SelectedOrganiser : null;
+
+            PortableFilter.BySpeaker = cbSpeaker.Checked;
+            PortableFilter.Speakers = cbSpeaker.Checked ? selectSpeakers1.SelectedSpeakers : null;
             if (FilterUpdated != null)
                 FilterUpdated(this, new EventArgs());
-            this.Close();
+            this.Hide();
+        }
+
+        private void CreateFilter_Load(object sender, EventArgs e)
+        {
+            selectSpeakers1.setText("Select Speakers to search by");
+        }
+
+        private void CreateFilter_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+            this.Hide();
         }
     }
 
@@ -43,11 +60,18 @@ namespace Seminar_Management_System.Forms
         public static bool ByRoom { get; set; } // Enable or Disable searching by Room
         public static Room Room { get; set; } // Which Room to search for
 
+        public static bool ByOrganiser { get; set; }
+        public static SeminarOrganiser Organiser { get; set; }
+
+        public static bool BySpeaker { get; set; }
+        public static List<Speaker> Speakers { get; set; }
         // Returns a list of Seminars that matches the search conditions defined by the properties above
         public static List<Seminar> Execute()
         {
             var query = from s in DataInstance.seminars
                         where (ByRoom == false || s.Room == Room)
+                        where (ByOrganiser == false || s.Organiser == Organiser)
+                        where (BySpeaker == false || s.Speakers.Any(iter => Speakers.Any(speaker => speaker.Name == iter.Name)))//.Contains(Speakers))
                         select s;
             return query.ToList<Seminar>();
         }

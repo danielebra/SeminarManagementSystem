@@ -31,6 +31,10 @@
             this.roomDropDown1 = new Seminar_Management_System.Custom_Controls.RoomDropDown();
             this.btnDone = new System.Windows.Forms.Button();
             this.cbRoom = new System.Windows.Forms.CheckBox();
+            this.selectSpeakers1 = new Seminar_Management_System.Custom_Controls.SelectSpeakers();
+            this.organiserDropDown1 = new Seminar_Management_System.Custom_Controls.OrganiserDropDown();
+            this.cbOrganiser = new System.Windows.Forms.CheckBox();
+            this.cbSpeaker = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // roomDropDown1
@@ -53,18 +57,56 @@
             // cbRoom
             // 
             this.cbRoom.AutoSize = true;
-            this.cbRoom.Location = new System.Drawing.Point(208, 12);
+            this.cbRoom.Location = new System.Drawing.Point(211, 17);
             this.cbRoom.Name = "cbRoom";
             this.cbRoom.Size = new System.Drawing.Size(93, 17);
             this.cbRoom.TabIndex = 2;
             this.cbRoom.Text = "Filter by Room";
             this.cbRoom.UseVisualStyleBackColor = true;
             // 
+            // selectSpeakers1
+            // 
+            this.selectSpeakers1.Location = new System.Drawing.Point(12, 84);
+            this.selectSpeakers1.Name = "selectSpeakers1";
+            this.selectSpeakers1.Size = new System.Drawing.Size(214, 147);
+            this.selectSpeakers1.TabIndex = 3;
+            // 
+            // organiserDropDown1
+            // 
+            this.organiserDropDown1.Location = new System.Drawing.Point(12, 48);
+            this.organiserDropDown1.Name = "organiserDropDown1";
+            this.organiserDropDown1.Size = new System.Drawing.Size(190, 30);
+            this.organiserDropDown1.TabIndex = 4;
+            // 
+            // cbOrganiser
+            // 
+            this.cbOrganiser.AutoSize = true;
+            this.cbOrganiser.Location = new System.Drawing.Point(211, 57);
+            this.cbOrganiser.Name = "cbOrganiser";
+            this.cbOrganiser.Size = new System.Drawing.Size(110, 17);
+            this.cbOrganiser.TabIndex = 5;
+            this.cbOrganiser.Text = "Filter by Organiser";
+            this.cbOrganiser.UseVisualStyleBackColor = true;
+            // 
+            // cbSpeaker
+            // 
+            this.cbSpeaker.AutoSize = true;
+            this.cbSpeaker.Location = new System.Drawing.Point(241, 148);
+            this.cbSpeaker.Name = "cbSpeaker";
+            this.cbSpeaker.Size = new System.Drawing.Size(105, 17);
+            this.cbSpeaker.TabIndex = 6;
+            this.cbSpeaker.Text = "Filter by Speaker";
+            this.cbSpeaker.UseVisualStyleBackColor = true;
+            // 
             // CreateFilter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(540, 349);
+            this.Controls.Add(this.cbSpeaker);
+            this.Controls.Add(this.cbOrganiser);
+            this.Controls.Add(this.organiserDropDown1);
+            this.Controls.Add(this.selectSpeakers1);
             this.Controls.Add(this.cbRoom);
             this.Controls.Add(this.btnDone);
             this.Controls.Add(this.roomDropDown1);
@@ -72,6 +114,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CreateFilter";
             this.TopMost = true;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CreateFilter_FormClosing);
+            this.Load += new System.EventHandler(this.CreateFilter_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -82,5 +126,9 @@
         private Custom_Controls.RoomDropDown roomDropDown1;
         private System.Windows.Forms.Button btnDone;
         private System.Windows.Forms.CheckBox cbRoom;
+        private Custom_Controls.SelectSpeakers selectSpeakers1;
+        private Custom_Controls.OrganiserDropDown organiserDropDown1;
+        private System.Windows.Forms.CheckBox cbOrganiser;
+        private System.Windows.Forms.CheckBox cbSpeaker;
     }
 }
