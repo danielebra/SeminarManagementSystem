@@ -230,6 +230,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -257,6 +258,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="calendar-event.ico" />
+    <None Include="Resources\if_filter_299094.png" />
+    <None Include="Resources\if_sign-add_299068.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

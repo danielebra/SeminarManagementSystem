@@ -29,41 +29,30 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            this.btnAddSeminar = new System.Windows.Forms.Button();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.btnTest = new System.Windows.Forms.ToolStripButton();
-            this.btnDebug = new System.Windows.Forms.ToolStripButton();
-            this.btnLogin = new System.Windows.Forms.ToolStripButton();
+            this.lblGreeting = new System.Windows.Forms.ToolStripLabel();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.lblLoggedInRole = new System.Windows.Forms.ToolStripLabel();
             this.pnlSeminarView = new System.Windows.Forms.Panel();
-            this.pnlPersistantControls = new System.Windows.Forms.Panel();
-            this.btnLaunchFilter = new System.Windows.Forms.Button();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.toolStrip3 = new System.Windows.Forms.ToolStrip();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.pnlUserView = new System.Windows.Forms.Panel();
             this.btnAddUser = new System.Windows.Forms.Button();
-            this.lblLoggedInRole = new System.Windows.Forms.ToolStripLabel();
-            this.lblGreeting = new System.Windows.Forms.ToolStripLabel();
+            this.btnAddSeminar = new System.Windows.Forms.ToolStripButton();
+            this.btnLaunchFilter = new System.Windows.Forms.ToolStripButton();
+            this.btnTest = new System.Windows.Forms.ToolStripButton();
+            this.btnDebug = new System.Windows.Forms.ToolStripButton();
+            this.btnLogin = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
-            this.pnlSeminarView.SuspendLayout();
-            this.pnlPersistantControls.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.toolStrip3.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.pnlUserView.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnAddSeminar
-            // 
-            this.btnAddSeminar.Location = new System.Drawing.Point(24, 20);
-            this.btnAddSeminar.Name = "btnAddSeminar";
-            this.btnAddSeminar.Size = new System.Drawing.Size(122, 23);
-            this.btnAddSeminar.TabIndex = 0;
-            this.btnAddSeminar.Text = "Launch Add Seminar";
-            this.btnAddSeminar.UseVisualStyleBackColor = true;
-            this.btnAddSeminar.Click += new System.EventHandler(this.btnAddSeminar_Click);
             // 
             // toolStrip1
             // 
@@ -78,35 +67,12 @@
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // btnTest
+            // lblGreeting
             // 
-            this.btnTest.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnTest.Image = ((System.Drawing.Image)(resources.GetObject("btnTest.Image")));
-            this.btnTest.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnTest.Name = "btnTest";
-            this.btnTest.Size = new System.Drawing.Size(79, 22);
-            this.btnTest.Text = "Add Seminar";
-            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
-            // 
-            // btnDebug
-            // 
-            this.btnDebug.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnDebug.Image = ((System.Drawing.Image)(resources.GetObject("btnDebug.Image")));
-            this.btnDebug.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnDebug.Name = "btnDebug";
-            this.btnDebug.Size = new System.Drawing.Size(46, 22);
-            this.btnDebug.Text = "Debug";
-            this.btnDebug.Click += new System.EventHandler(this.btnDebug_Click);
-            // 
-            // btnLogin
-            // 
-            this.btnLogin.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.btnLogin.Image = ((System.Drawing.Image)(resources.GetObject("btnLogin.Image")));
-            this.btnLogin.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(57, 22);
-            this.btnLogin.Text = "Login";
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            this.lblGreeting.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.lblGreeting.Name = "lblGreeting";
+            this.lblGreeting.Size = new System.Drawing.Size(95, 22);
+            this.lblGreeting.Text = "Howdy Stranger!";
             // 
             // toolStrip2
             // 
@@ -119,35 +85,21 @@
             this.toolStrip2.TabIndex = 2;
             this.toolStrip2.Text = "toolStrip2";
             // 
+            // lblLoggedInRole
+            // 
+            this.lblLoggedInRole.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.lblLoggedInRole.Name = "lblLoggedInRole";
+            this.lblLoggedInRole.Size = new System.Drawing.Size(291, 22);
+            this.lblLoggedInRole.Text = "Viewing Seminar Management System as an Attendee";
+            // 
             // pnlSeminarView
             // 
             this.pnlSeminarView.AutoScroll = true;
-            this.pnlSeminarView.Controls.Add(this.pnlPersistantControls);
             this.pnlSeminarView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlSeminarView.Location = new System.Drawing.Point(3, 3);
+            this.pnlSeminarView.Location = new System.Drawing.Point(3, 28);
             this.pnlSeminarView.Name = "pnlSeminarView";
-            this.pnlSeminarView.Size = new System.Drawing.Size(917, 464);
+            this.pnlSeminarView.Size = new System.Drawing.Size(917, 439);
             this.pnlSeminarView.TabIndex = 3;
-            // 
-            // pnlPersistantControls
-            // 
-            this.pnlPersistantControls.BackColor = System.Drawing.Color.Salmon;
-            this.pnlPersistantControls.Controls.Add(this.btnLaunchFilter);
-            this.pnlPersistantControls.Controls.Add(this.btnAddSeminar);
-            this.pnlPersistantControls.Location = new System.Drawing.Point(712, 3);
-            this.pnlPersistantControls.Name = "pnlPersistantControls";
-            this.pnlPersistantControls.Size = new System.Drawing.Size(200, 100);
-            this.pnlPersistantControls.TabIndex = 1;
-            // 
-            // btnLaunchFilter
-            // 
-            this.btnLaunchFilter.Location = new System.Drawing.Point(24, 50);
-            this.btnLaunchFilter.Name = "btnLaunchFilter";
-            this.btnLaunchFilter.Size = new System.Drawing.Size(122, 23);
-            this.btnLaunchFilter.TabIndex = 1;
-            this.btnLaunchFilter.Text = "Launch Filter";
-            this.btnLaunchFilter.UseVisualStyleBackColor = true;
-            this.btnLaunchFilter.Click += new System.EventHandler(this.btnLaunchFilter_Click);
             // 
             // tabControl
             // 
@@ -163,6 +115,7 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.pnlSeminarView);
+            this.tabPage1.Controls.Add(this.toolStrip3);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -170,6 +123,18 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Seminars";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // toolStrip3
+            // 
+            this.toolStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnAddSeminar,
+            this.btnLaunchFilter});
+            this.toolStrip3.Location = new System.Drawing.Point(3, 3);
+            this.toolStrip3.Name = "toolStrip3";
+            this.toolStrip3.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.toolStrip3.Size = new System.Drawing.Size(917, 25);
+            this.toolStrip3.TabIndex = 4;
+            this.toolStrip3.Text = "toolStrip3";
             // 
             // tabPage2
             // 
@@ -202,19 +167,53 @@
             this.btnAddUser.UseVisualStyleBackColor = true;
             this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
             // 
-            // lblLoggedInRole
+            // btnAddSeminar
             // 
-            this.lblLoggedInRole.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.lblLoggedInRole.Name = "lblLoggedInRole";
-            this.lblLoggedInRole.Size = new System.Drawing.Size(291, 22);
-            this.lblLoggedInRole.Text = "Viewing Seminar Management System as an Attendee";
+            this.btnAddSeminar.Image = global::Seminar_Management_System.Properties.Resources.if_sign_add_299068;
+            this.btnAddSeminar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnAddSeminar.Name = "btnAddSeminar";
+            this.btnAddSeminar.Size = new System.Drawing.Size(95, 22);
+            this.btnAddSeminar.Text = "Add Seminar";
+            this.btnAddSeminar.Click += new System.EventHandler(this.btnAddSeminar_Click);
             // 
-            // lblGreeting
+            // btnLaunchFilter
             // 
-            this.lblGreeting.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.lblGreeting.Name = "lblGreeting";
-            this.lblGreeting.Size = new System.Drawing.Size(95, 22);
-            this.lblGreeting.Text = "Howdy Stranger!";
+            this.btnLaunchFilter.Image = global::Seminar_Management_System.Properties.Resources.if_filter_299094;
+            this.btnLaunchFilter.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnLaunchFilter.Name = "btnLaunchFilter";
+            this.btnLaunchFilter.Size = new System.Drawing.Size(53, 22);
+            this.btnLaunchFilter.Text = "Filter";
+            this.btnLaunchFilter.Click += new System.EventHandler(this.btnLaunchFilter_Click);
+            // 
+            // btnTest
+            // 
+            this.btnTest.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnTest.Image = ((System.Drawing.Image)(resources.GetObject("btnTest.Image")));
+            this.btnTest.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnTest.Name = "btnTest";
+            this.btnTest.Size = new System.Drawing.Size(79, 22);
+            this.btnTest.Text = "Add Seminar";
+            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
+            // 
+            // btnDebug
+            // 
+            this.btnDebug.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnDebug.Image = ((System.Drawing.Image)(resources.GetObject("btnDebug.Image")));
+            this.btnDebug.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnDebug.Name = "btnDebug";
+            this.btnDebug.Size = new System.Drawing.Size(46, 22);
+            this.btnDebug.Text = "Debug";
+            this.btnDebug.Click += new System.EventHandler(this.btnDebug_Click);
+            // 
+            // btnLogin
+            // 
+            this.btnLogin.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.btnLogin.Image = ((System.Drawing.Image)(resources.GetObject("btnLogin.Image")));
+            this.btnLogin.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(57, 22);
+            this.btnLogin.Text = "Login";
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // Main
             // 
@@ -235,10 +234,11 @@
             this.toolStrip1.PerformLayout();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
-            this.pnlSeminarView.ResumeLayout(false);
-            this.pnlPersistantControls.ResumeLayout(false);
             this.tabControl.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            this.toolStrip3.ResumeLayout(false);
+            this.toolStrip3.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.pnlUserView.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -247,8 +247,6 @@
         }
 
         #endregion
-
-        public System.Windows.Forms.Button btnAddSeminar;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStrip toolStrip2;
         private System.Windows.Forms.Panel pnlSeminarView;
@@ -258,12 +256,13 @@
         public System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabPage1;
         public System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Panel pnlPersistantControls;
         private System.Windows.Forms.Button btnAddUser;
-        private System.Windows.Forms.Button btnLaunchFilter;
         private System.Windows.Forms.Panel pnlUserView;
         private System.Windows.Forms.ToolStripLabel lblGreeting;
         private System.Windows.Forms.ToolStripLabel lblLoggedInRole;
+        private System.Windows.Forms.ToolStrip toolStrip3;
+        public System.Windows.Forms.ToolStripButton btnAddSeminar;
+        private System.Windows.Forms.ToolStripButton btnLaunchFilter;
     }
 }
 
