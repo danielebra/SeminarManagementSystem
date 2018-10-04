@@ -32,7 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>calendar-event.ico</ApplicationIcon>
+    <ApplicationIcon>presentation.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -258,6 +258,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="calendar-event.ico" />
+    <Content Include="presentation.ico" />
     <None Include="Resources\if_sign-error_299045.png" />
     <None Include="Resources\if_Login_73221.png" />
     <None Include="Resources\if_filter_299094.png" />
