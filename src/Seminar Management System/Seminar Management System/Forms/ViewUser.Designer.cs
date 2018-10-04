@@ -37,9 +37,9 @@
             this.lblPhone = new System.Windows.Forms.Label();
             this.tbPhone = new System.Windows.Forms.TextBox();
             this.btnTest = new System.Windows.Forms.Button();
-            this.roleDropDown1 = new Seminar_Management_System.Custom_Controls.RoleDropDown();
             this.rtbBiography = new System.Windows.Forms.RichTextBox();
             this.lblBiography = new System.Windows.Forms.Label();
+            this.roleDropDown1 = new Seminar_Management_System.Custom_Controls.RoleDropDown();
             this.SuspendLayout();
             // 
             // tbName
@@ -134,13 +134,6 @@
             this.btnTest.UseVisualStyleBackColor = true;
             this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
             // 
-            // roleDropDown1
-            // 
-            this.roleDropDown1.Location = new System.Drawing.Point(290, 66);
-            this.roleDropDown1.Name = "roleDropDown1";
-            this.roleDropDown1.Size = new System.Drawing.Size(190, 30);
-            this.roleDropDown1.TabIndex = 11;
-            // 
             // rtbBiography
             // 
             this.rtbBiography.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -148,7 +141,7 @@
             this.rtbBiography.Name = "rtbBiography";
             this.rtbBiography.Size = new System.Drawing.Size(468, 204);
             this.rtbBiography.TabIndex = 13;
-            this.rtbBiography.Text = "Biograhy";
+            this.rtbBiography.Text = "Biography";
             this.rtbBiography.Visible = false;
             // 
             // lblBiography
@@ -160,6 +153,13 @@
             this.lblBiography.TabIndex = 14;
             this.lblBiography.Text = "Biography";
             this.lblBiography.Visible = false;
+            // 
+            // roleDropDown1
+            // 
+            this.roleDropDown1.Location = new System.Drawing.Point(290, 66);
+            this.roleDropDown1.Name = "roleDropDown1";
+            this.roleDropDown1.Size = new System.Drawing.Size(190, 30);
+            this.roleDropDown1.TabIndex = 11;
             // 
             // ViewUser
             // 

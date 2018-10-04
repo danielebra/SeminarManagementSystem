@@ -17,6 +17,7 @@ namespace Seminar_Management_System.Classes
             { new Role(Role.Names.Organiser, 3) },
             { new Role(Role.Names.Admin, 5) }
         };
+        
 
         // Some helper functions for looking up Role data
 
