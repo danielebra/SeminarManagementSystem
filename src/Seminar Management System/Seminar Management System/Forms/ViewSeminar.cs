@@ -35,6 +35,7 @@ namespace Seminar_Management_System.Forms
         
         private void ViewSeminar_Load(object sender, EventArgs e)
         {
+            this.Text = "Viewing Seminar Information for " + seminarReference.Title;
             // Load information
             populateDataFields();
             // Disable editing

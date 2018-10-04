@@ -28,19 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewSeminar));
             this.btnEdit = new System.Windows.Forms.Button();
             this.tbTitle = new System.Windows.Forms.TextBox();
             this.rtbDescription = new System.Windows.Forms.RichTextBox();
-            this.selectSpeakers1 = new Seminar_Management_System.Custom_Controls.SelectSpeakers();
-            this.ddOrganisers = new Seminar_Management_System.Custom_Controls.OrganiserDropDown();
-            this.ddRoom = new Seminar_Management_System.Custom_Controls.RoomDropDown();
-            this.datePickerSingle = new Seminar_Management_System.DatePickerSingle();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.attendeeTable1 = new Seminar_Management_System.Custom_Controls.AttendeeTable();
             this.btnRegister = new System.Windows.Forms.Button();
             this.btnTest = new System.Windows.Forms.Button();
+            this.attendeeTable1 = new Seminar_Management_System.Custom_Controls.AttendeeTable();
+            this.datePickerSingle = new Seminar_Management_System.DatePickerSingle();
+            this.ddRoom = new Seminar_Management_System.Custom_Controls.RoomDropDown();
+            this.ddOrganisers = new Seminar_Management_System.Custom_Controls.OrganiserDropDown();
+            this.selectSpeakers1 = new Seminar_Management_System.Custom_Controls.SelectSpeakers();
             this.SuspendLayout();
             // 
             // btnEdit
@@ -81,38 +82,6 @@
             this.rtbDescription.TabIndex = 3;
             this.rtbDescription.Text = "Description";
             // 
-            // selectSpeakers1
-            // 
-            this.selectSpeakers1.Enabled = false;
-            this.selectSpeakers1.Location = new System.Drawing.Point(287, 224);
-            this.selectSpeakers1.Name = "selectSpeakers1";
-            this.selectSpeakers1.Size = new System.Drawing.Size(214, 147);
-            this.selectSpeakers1.TabIndex = 16;
-            // 
-            // ddOrganisers
-            // 
-            this.ddOrganisers.Enabled = false;
-            this.ddOrganisers.Location = new System.Drawing.Point(287, 377);
-            this.ddOrganisers.Name = "ddOrganisers";
-            this.ddOrganisers.Size = new System.Drawing.Size(190, 30);
-            this.ddOrganisers.TabIndex = 17;
-            // 
-            // ddRoom
-            // 
-            this.ddRoom.Enabled = false;
-            this.ddRoom.Location = new System.Drawing.Point(287, 413);
-            this.ddRoom.Name = "ddRoom";
-            this.ddRoom.Size = new System.Drawing.Size(190, 30);
-            this.ddRoom.TabIndex = 18;
-            // 
-            // datePickerSingle
-            // 
-            this.datePickerSingle.Enabled = false;
-            this.datePickerSingle.Location = new System.Drawing.Point(12, 224);
-            this.datePickerSingle.Name = "datePickerSingle";
-            this.datePickerSingle.Size = new System.Drawing.Size(269, 277);
-            this.datePickerSingle.TabIndex = 19;
-            // 
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -133,7 +102,7 @@
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
             this.btnOk.TabIndex = 20;
-            this.btnOk.Text = "Ok";
+            this.btnOk.Text = "Close";
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
@@ -151,15 +120,6 @@
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Visible = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // attendeeTable1
-            // 
-            this.attendeeTable1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.attendeeTable1.AutoSize = true;
-            this.attendeeTable1.Location = new System.Drawing.Point(507, 242);
-            this.attendeeTable1.Name = "attendeeTable1";
-            this.attendeeTable1.Size = new System.Drawing.Size(391, 272);
-            this.attendeeTable1.TabIndex = 21;
             // 
             // btnRegister
             // 
@@ -181,6 +141,47 @@
             this.btnTest.UseVisualStyleBackColor = true;
             this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
             // 
+            // attendeeTable1
+            // 
+            this.attendeeTable1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.attendeeTable1.AutoSize = true;
+            this.attendeeTable1.Location = new System.Drawing.Point(507, 242);
+            this.attendeeTable1.Name = "attendeeTable1";
+            this.attendeeTable1.Size = new System.Drawing.Size(391, 272);
+            this.attendeeTable1.TabIndex = 21;
+            // 
+            // datePickerSingle
+            // 
+            this.datePickerSingle.Enabled = false;
+            this.datePickerSingle.Location = new System.Drawing.Point(12, 224);
+            this.datePickerSingle.Name = "datePickerSingle";
+            this.datePickerSingle.Size = new System.Drawing.Size(269, 277);
+            this.datePickerSingle.TabIndex = 19;
+            // 
+            // ddRoom
+            // 
+            this.ddRoom.Enabled = false;
+            this.ddRoom.Location = new System.Drawing.Point(287, 413);
+            this.ddRoom.Name = "ddRoom";
+            this.ddRoom.Size = new System.Drawing.Size(190, 30);
+            this.ddRoom.TabIndex = 18;
+            // 
+            // ddOrganisers
+            // 
+            this.ddOrganisers.Enabled = false;
+            this.ddOrganisers.Location = new System.Drawing.Point(287, 377);
+            this.ddOrganisers.Name = "ddOrganisers";
+            this.ddOrganisers.Size = new System.Drawing.Size(190, 30);
+            this.ddOrganisers.TabIndex = 17;
+            // 
+            // selectSpeakers1
+            // 
+            this.selectSpeakers1.Enabled = false;
+            this.selectSpeakers1.Location = new System.Drawing.Point(287, 224);
+            this.selectSpeakers1.Name = "selectSpeakers1";
+            this.selectSpeakers1.Size = new System.Drawing.Size(214, 147);
+            this.selectSpeakers1.TabIndex = 16;
+            // 
             // ViewSeminar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -199,9 +200,10 @@
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnEdit);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ViewSeminar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ViewSeminar";
+            this.Text = "Viewing Seminar Information for Seminar Name";
             this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ViewSeminar_FormClosing);
             this.Load += new System.EventHandler(this.ViewSeminar_Load);
