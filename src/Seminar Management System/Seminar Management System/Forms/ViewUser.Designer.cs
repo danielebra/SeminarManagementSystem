@@ -36,8 +36,10 @@
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblPhone = new System.Windows.Forms.Label();
             this.tbPhone = new System.Windows.Forms.TextBox();
-            this.roleDropDown1 = new Seminar_Management_System.Custom_Controls.RoleDropDown();
             this.btnTest = new System.Windows.Forms.Button();
+            this.roleDropDown1 = new Seminar_Management_System.Custom_Controls.RoleDropDown();
+            this.rtbBiography = new System.Windows.Forms.RichTextBox();
+            this.lblBiography = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tbName
@@ -54,7 +56,7 @@
             // 
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.ForeColor = System.Drawing.Color.Red;
-            this.btnDelete.Location = new System.Drawing.Point(692, 70);
+            this.btnDelete.Location = new System.Drawing.Point(486, 70);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 4;
@@ -67,7 +69,7 @@
             // 
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.ForeColor = System.Drawing.Color.Red;
-            this.btnCancel.Location = new System.Drawing.Point(692, 41);
+            this.btnCancel.Location = new System.Drawing.Point(486, 41);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 5;
@@ -80,7 +82,7 @@
             // 
             this.btnEdit.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnEdit.Location = new System.Drawing.Point(692, 12);
+            this.btnEdit.Location = new System.Drawing.Point(486, 12);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(75, 23);
             this.btnEdit.TabIndex = 6;
@@ -122,16 +124,9 @@
             this.tbPhone.TabIndex = 9;
             this.tbPhone.Text = "Phone Number";
             // 
-            // roleDropDown1
-            // 
-            this.roleDropDown1.Location = new System.Drawing.Point(312, 70);
-            this.roleDropDown1.Name = "roleDropDown1";
-            this.roleDropDown1.Size = new System.Drawing.Size(190, 30);
-            this.roleDropDown1.TabIndex = 11;
-            // 
             // btnTest
             // 
-            this.btnTest.Location = new System.Drawing.Point(431, 492);
+            this.btnTest.Location = new System.Drawing.Point(252, 366);
             this.btnTest.Name = "btnTest";
             this.btnTest.Size = new System.Drawing.Size(75, 23);
             this.btnTest.TabIndex = 12;
@@ -139,13 +134,41 @@
             this.btnTest.UseVisualStyleBackColor = true;
             this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
             // 
+            // roleDropDown1
+            // 
+            this.roleDropDown1.Location = new System.Drawing.Point(290, 66);
+            this.roleDropDown1.Name = "roleDropDown1";
+            this.roleDropDown1.Size = new System.Drawing.Size(190, 30);
+            this.roleDropDown1.TabIndex = 11;
+            // 
+            // rtbBiography
+            // 
+            this.rtbBiography.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbBiography.Location = new System.Drawing.Point(12, 153);
+            this.rtbBiography.Name = "rtbBiography";
+            this.rtbBiography.Size = new System.Drawing.Size(468, 204);
+            this.rtbBiography.TabIndex = 13;
+            this.rtbBiography.Text = "Biograhy";
+            this.rtbBiography.Visible = false;
+            // 
+            // lblBiography
+            // 
+            this.lblBiography.AutoSize = true;
+            this.lblBiography.Location = new System.Drawing.Point(16, 134);
+            this.lblBiography.Name = "lblBiography";
+            this.lblBiography.Size = new System.Drawing.Size(54, 13);
+            this.lblBiography.TabIndex = 14;
+            this.lblBiography.Text = "Biography";
+            this.lblBiography.Visible = false;
+            // 
             // ViewUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(779, 535);
+            this.ClientSize = new System.Drawing.Size(573, 401);
+            this.Controls.Add(this.lblBiography);
+            this.Controls.Add(this.rtbBiography);
             this.Controls.Add(this.btnTest);
-            this.Controls.Add(this.roleDropDown1);
             this.Controls.Add(this.lblPhone);
             this.Controls.Add(this.tbPhone);
             this.Controls.Add(this.lblEmail);
@@ -154,6 +177,7 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.tbName);
+            this.Controls.Add(this.roleDropDown1);
             this.Name = "ViewUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ViewUser";
@@ -176,5 +200,7 @@
         private System.Windows.Forms.TextBox tbPhone;
         private Custom_Controls.RoleDropDown roleDropDown1;
         private System.Windows.Forms.Button btnTest;
+        private System.Windows.Forms.RichTextBox rtbBiography;
+        private System.Windows.Forms.Label lblBiography;
     }
 }

@@ -22,12 +22,13 @@ namespace Seminar_Management_System.Custom_Controls
         }
         // Expose the currently selected Role
         public Role SelectedRole { get { return (Role)cbRole.SelectedItem; } }
-
+        public event EventHandler SelectedRoleChanged;
         public void LoadFromUser(User user)
         {
             // TODO
             // Should user no longer have a privilege level and have a role instead?
             cbRole.SelectedItem = user.Role;
+            cbRole_SelectedValueChanged(null, null);
         }
         private void RoleDropDown_Load(object sender, EventArgs e)
         {
@@ -35,6 +36,12 @@ namespace Seminar_Management_System.Custom_Controls
             cbRole.DataSource = Utils.AllRolesWithoutAttendee();//Authentication.Roles;
             cbRole.DisplayMember = "Name";
             cbRole.ValueMember = "Privilege";
+        }
+
+        private void cbRole_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (SelectedRoleChanged != null)
+                SelectedRoleChanged(this, null);
         }
     }
 }

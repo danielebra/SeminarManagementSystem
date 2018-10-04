@@ -39,6 +39,7 @@
             this.cbRole.Name = "cbRole";
             this.cbRole.Size = new System.Drawing.Size(121, 21);
             this.cbRole.TabIndex = 14;
+            this.cbRole.SelectedValueChanged += new System.EventHandler(this.cbRole_SelectedValueChanged);
             // 
             // lblRole
             // 

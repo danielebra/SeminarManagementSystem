@@ -1,4 +1,5 @@
-﻿using Seminar_Management_System.Classes.Users;
+﻿using Seminar_Management_System.Classes;
+using Seminar_Management_System.Classes.Users;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,15 +30,37 @@ namespace Seminar_Management_System.Forms
 
         private void ViewUser_Load(object sender, EventArgs e)
         {
+            //roleDropDown1.Select
+            roleDropDown1.SelectedRoleChanged += RoleDropDown1_SelectedRoleChanged;
             populateDataFields();
             disableEditing();
         }
+
+        private void RoleDropDown1_SelectedRoleChanged(object sender, EventArgs e)
+        {
+            if (roleDropDown1.SelectedRole.Name == Role.Names.Speaker)
+            {
+                this.lblBiography.Visible = true;
+                this.rtbBiography.Visible = true;
+            }
+            else
+            {
+                this.lblBiography.Visible = false;
+                this.rtbBiography.Visible = false;
+            }
+
+        }
+
         private void populateDataFields()
         {
             if (userReference != null)
             {
                 tbName.Text = userReference.Name;
                 roleDropDown1.LoadFromUser(userReference);
+                if (userReference.Role.Name == Role.Names.Speaker)
+                {
+                    rtbBiography.Text = ((Speaker)userReference).Biography;
+                }
             }
         }
 
@@ -51,6 +74,8 @@ namespace Seminar_Management_System.Forms
                 btnEdit.Text = SAVE;
                 btnCancel.Visible = true;
                 btnDelete.Visible = true;
+                
+
             }
             else if (btnEdit.Text == SAVE) // Handle saving functionality
             {
@@ -58,6 +83,8 @@ namespace Seminar_Management_System.Forms
                 btnEdit.Text = EDIT;
                 btnCancel.Visible = false;
                 btnDelete.Visible = false;
+                rtbBiography.Enabled = roleDropDown1.SelectedRole.Name != Role.Names.Speaker;
+                lblBiography.Enabled = roleDropDown1.SelectedRole.Name != Role.Names.Speaker;
                 saveUserState();
             }
         }
@@ -67,10 +94,18 @@ namespace Seminar_Management_System.Forms
             // Gather the information from the interface and save it in the User object
             userReference.Name = tbName.Text;
             userReference.Role = roleDropDown1.SelectedRole;
-
-            // Used to fire observer event, as it is not triggered by ref updates
-            // This will update the user list interface
-            DataInstance.users[DataInstance.users.IndexOf(userReference)] = userReference;
+            if (roleDropDown1.SelectedRole.Name == Role.Names.Speaker)
+            {
+                // Create a new user object that is a user, based on previous values
+                Speaker userAsSpeaker = new Speaker(userReference.ID, userReference.Name, userReference.Email, userReference.PhoneNumber, rtbBiography.Text);
+                DataInstance.users[DataInstance.users.IndexOf(userReference)] = userAsSpeaker;
+            }
+            else
+            {
+                // Used to fire observer event, as it is not triggered by ref updates
+                // This will update the user list interface
+                DataInstance.users[DataInstance.users.IndexOf(userReference)] = userReference;
+            }
         }
 
         private void _enableEditing(bool canEdit)
@@ -89,6 +124,8 @@ namespace Seminar_Management_System.Forms
                 }
             }
             roleDropDown1.Enabled = canEdit;
+            lblBiography.Enabled = canEdit;
+            rtbBiography.Enabled = canEdit;
         }
 
         private void enableEditing()
