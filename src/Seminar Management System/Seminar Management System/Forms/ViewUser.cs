@@ -34,6 +34,7 @@ namespace Seminar_Management_System.Forms
             roleDropDown1.SelectedRoleChanged += RoleDropDown1_SelectedRoleChanged;
             populateDataFields();
             disableEditing();
+            this.Text = "Viewing User Information for " + userReference.Name;
         }
 
         private void RoleDropDown1_SelectedRoleChanged(object sender, EventArgs e)
@@ -163,7 +164,7 @@ namespace Seminar_Management_System.Forms
 
         private void btnTest_Click(object sender, EventArgs e)
         {
-            var foo = roleDropDown1.SelectedRole;
+            this.Close();
         }
     }
 }

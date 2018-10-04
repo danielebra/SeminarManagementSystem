@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewUser));
             this.tbName = new System.Windows.Forms.TextBox();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -49,7 +50,7 @@
             this.tbName.Name = "tbName";
             this.tbName.ReadOnly = true;
             this.tbName.Size = new System.Drawing.Size(468, 40);
-            this.tbName.TabIndex = 3;
+            this.tbName.TabIndex = 1;
             this.tbName.Text = "First Name Last Name";
             // 
             // btnDelete
@@ -59,7 +60,7 @@
             this.btnDelete.Location = new System.Drawing.Point(486, 70);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
-            this.btnDelete.TabIndex = 4;
+            this.btnDelete.TabIndex = 7;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Visible = false;
@@ -72,7 +73,7 @@
             this.btnCancel.Location = new System.Drawing.Point(486, 41);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 5;
+            this.btnCancel.TabIndex = 6;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Visible = false;
@@ -85,7 +86,7 @@
             this.btnEdit.Location = new System.Drawing.Point(486, 12);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(75, 23);
-            this.btnEdit.TabIndex = 6;
+            this.btnEdit.TabIndex = 0;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = false;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
@@ -95,7 +96,7 @@
             this.tbEmail.Location = new System.Drawing.Point(97, 70);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(200, 20);
-            this.tbEmail.TabIndex = 7;
+            this.tbEmail.TabIndex = 2;
             this.tbEmail.Text = "Email";
             // 
             // lblEmail
@@ -121,7 +122,7 @@
             this.tbPhone.Location = new System.Drawing.Point(97, 99);
             this.tbPhone.Name = "tbPhone";
             this.tbPhone.Size = new System.Drawing.Size(200, 20);
-            this.tbPhone.TabIndex = 9;
+            this.tbPhone.TabIndex = 3;
             this.tbPhone.Text = "Phone Number";
             // 
             // btnTest
@@ -130,7 +131,7 @@
             this.btnTest.Name = "btnTest";
             this.btnTest.Size = new System.Drawing.Size(75, 23);
             this.btnTest.TabIndex = 12;
-            this.btnTest.Text = "Test";
+            this.btnTest.Text = "Close";
             this.btnTest.UseVisualStyleBackColor = true;
             this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
             // 
@@ -140,7 +141,7 @@
             this.rtbBiography.Location = new System.Drawing.Point(12, 153);
             this.rtbBiography.Name = "rtbBiography";
             this.rtbBiography.Size = new System.Drawing.Size(468, 204);
-            this.rtbBiography.TabIndex = 13;
+            this.rtbBiography.TabIndex = 5;
             this.rtbBiography.Text = "Biography";
             this.rtbBiography.Visible = false;
             // 
@@ -159,7 +160,7 @@
             this.roleDropDown1.Location = new System.Drawing.Point(290, 66);
             this.roleDropDown1.Name = "roleDropDown1";
             this.roleDropDown1.Size = new System.Drawing.Size(190, 30);
-            this.roleDropDown1.TabIndex = 11;
+            this.roleDropDown1.TabIndex = 4;
             // 
             // ViewUser
             // 
@@ -178,9 +179,10 @@
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.tbName);
             this.Controls.Add(this.roleDropDown1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ViewUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ViewUser";
+            this.Text = "Viewing User Information for First Name Last Name";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.ViewUser_Load);
             this.ResumeLayout(false);
