@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.btnTest = new System.Windows.Forms.ToolStripButton();
+            this.btnDebug = new System.Windows.Forms.ToolStripButton();
+            this.btnLogin = new System.Windows.Forms.ToolStripButton();
             this.lblGreeting = new System.Windows.Forms.ToolStripLabel();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.lblLoggedInRole = new System.Windows.Forms.ToolStripLabel();
@@ -37,21 +40,19 @@
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.toolStrip3 = new System.Windows.Forms.ToolStrip();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.pnlUserView = new System.Windows.Forms.Panel();
-            this.btnAddUser = new System.Windows.Forms.Button();
             this.btnAddSeminar = new System.Windows.Forms.ToolStripButton();
             this.btnLaunchFilter = new System.Windows.Forms.ToolStripButton();
-            this.btnTest = new System.Windows.Forms.ToolStripButton();
-            this.btnDebug = new System.Windows.Forms.ToolStripButton();
-            this.btnLogin = new System.Windows.Forms.ToolStripButton();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.pnlUserView = new System.Windows.Forms.Panel();
+            this.toolStrip4 = new System.Windows.Forms.ToolStrip();
+            this.btnAddUser = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.toolStrip3.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.pnlUserView.SuspendLayout();
+            this.toolStrip4.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -66,6 +67,36 @@
             this.toolStrip1.Size = new System.Drawing.Size(931, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // btnTest
+            // 
+            this.btnTest.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnTest.Image = ((System.Drawing.Image)(resources.GetObject("btnTest.Image")));
+            this.btnTest.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnTest.Name = "btnTest";
+            this.btnTest.Size = new System.Drawing.Size(79, 22);
+            this.btnTest.Text = "Add Seminar";
+            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
+            // 
+            // btnDebug
+            // 
+            this.btnDebug.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnDebug.Image = ((System.Drawing.Image)(resources.GetObject("btnDebug.Image")));
+            this.btnDebug.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnDebug.Name = "btnDebug";
+            this.btnDebug.Size = new System.Drawing.Size(46, 22);
+            this.btnDebug.Text = "Debug";
+            this.btnDebug.Click += new System.EventHandler(this.btnDebug_Click);
+            // 
+            // btnLogin
+            // 
+            this.btnLogin.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.btnLogin.Image = global::Seminar_Management_System.Properties.Resources.if_Login_73221;
+            this.btnLogin.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(57, 22);
+            this.btnLogin.Text = "Login";
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // lblGreeting
             // 
@@ -136,37 +167,6 @@
             this.toolStrip3.TabIndex = 4;
             this.toolStrip3.Text = "toolStrip3";
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.pnlUserView);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(923, 470);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Users";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // pnlUserView
-            // 
-            this.pnlUserView.AutoScroll = true;
-            this.pnlUserView.Controls.Add(this.btnAddUser);
-            this.pnlUserView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlUserView.Location = new System.Drawing.Point(3, 3);
-            this.pnlUserView.Name = "pnlUserView";
-            this.pnlUserView.Size = new System.Drawing.Size(917, 464);
-            this.pnlUserView.TabIndex = 1;
-            // 
-            // btnAddUser
-            // 
-            this.btnAddUser.Location = new System.Drawing.Point(828, 17);
-            this.btnAddUser.Name = "btnAddUser";
-            this.btnAddUser.Size = new System.Drawing.Size(75, 23);
-            this.btnAddUser.TabIndex = 0;
-            this.btnAddUser.Text = "Add user";
-            this.btnAddUser.UseVisualStyleBackColor = true;
-            this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
-            // 
             // btnAddSeminar
             // 
             this.btnAddSeminar.Image = global::Seminar_Management_System.Properties.Resources.if_sign_add_299068;
@@ -185,35 +185,45 @@
             this.btnLaunchFilter.Text = "Filter";
             this.btnLaunchFilter.Click += new System.EventHandler(this.btnLaunchFilter_Click);
             // 
-            // btnTest
+            // tabPage2
             // 
-            this.btnTest.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnTest.Image = ((System.Drawing.Image)(resources.GetObject("btnTest.Image")));
-            this.btnTest.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnTest.Name = "btnTest";
-            this.btnTest.Size = new System.Drawing.Size(79, 22);
-            this.btnTest.Text = "Add Seminar";
-            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
+            this.tabPage2.Controls.Add(this.pnlUserView);
+            this.tabPage2.Controls.Add(this.toolStrip4);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(923, 470);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Users";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // btnDebug
+            // pnlUserView
             // 
-            this.btnDebug.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnDebug.Image = ((System.Drawing.Image)(resources.GetObject("btnDebug.Image")));
-            this.btnDebug.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnDebug.Name = "btnDebug";
-            this.btnDebug.Size = new System.Drawing.Size(46, 22);
-            this.btnDebug.Text = "Debug";
-            this.btnDebug.Click += new System.EventHandler(this.btnDebug_Click);
+            this.pnlUserView.AutoScroll = true;
+            this.pnlUserView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlUserView.Location = new System.Drawing.Point(3, 28);
+            this.pnlUserView.Name = "pnlUserView";
+            this.pnlUserView.Size = new System.Drawing.Size(917, 439);
+            this.pnlUserView.TabIndex = 1;
             // 
-            // btnLogin
+            // toolStrip4
             // 
-            this.btnLogin.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.btnLogin.Image = ((System.Drawing.Image)(resources.GetObject("btnLogin.Image")));
-            this.btnLogin.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(57, 22);
-            this.btnLogin.Text = "Login";
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            this.toolStrip4.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnAddUser});
+            this.toolStrip4.Location = new System.Drawing.Point(3, 3);
+            this.toolStrip4.Name = "toolStrip4";
+            this.toolStrip4.Size = new System.Drawing.Size(917, 25);
+            this.toolStrip4.TabIndex = 2;
+            this.toolStrip4.Text = "toolStrip4";
+            // 
+            // btnAddUser
+            // 
+            this.btnAddUser.Image = global::Seminar_Management_System.Properties.Resources.if_sign_add_299068;
+            this.btnAddUser.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnAddUser.Name = "btnAddUser";
+            this.btnAddUser.Size = new System.Drawing.Size(75, 22);
+            this.btnAddUser.Text = "Add User";
+            this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
             // 
             // Main
             // 
@@ -240,7 +250,9 @@
             this.toolStrip3.ResumeLayout(false);
             this.toolStrip3.PerformLayout();
             this.tabPage2.ResumeLayout(false);
-            this.pnlUserView.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            this.toolStrip4.ResumeLayout(false);
+            this.toolStrip4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -256,13 +268,14 @@
         public System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabPage1;
         public System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Button btnAddUser;
         private System.Windows.Forms.Panel pnlUserView;
         private System.Windows.Forms.ToolStripLabel lblGreeting;
         private System.Windows.Forms.ToolStripLabel lblLoggedInRole;
         private System.Windows.Forms.ToolStrip toolStrip3;
         public System.Windows.Forms.ToolStripButton btnAddSeminar;
         private System.Windows.Forms.ToolStripButton btnLaunchFilter;
+        private System.Windows.Forms.ToolStrip toolStrip4;
+        private System.Windows.Forms.ToolStripButton btnAddUser;
     }
 }
 

@@ -151,19 +151,11 @@
         TgDQASA1MVpwzwAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="btnLogin.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEsSURBVDhPfZNbK4RRFIZXkjBy6UIJDXIIJVc0OaZpnE9F
-        klw5JIn/X553r1n6Zn97PPXMvN95r7X3toxRnPdYZAUHPZZ5wBds91HXbrAvZzjk0RbxCR9xTSdgGO88
-        1lnGWY92iPrSDu7hBR6j2MCmx15Ouv/j+IOXOIYjeI/POImiVoaaM+Mx3fyJrxi1qzcf+I5iHXtGEV/f
-        xGmPRSZQJQmNMKF6Ox7tHFXrVjoy+8Jvj4ldvPVo13igoB89KDQLUx5tAE9xH9X9QCUJvUDXEuqyiItB
-        9KBKHMcziQVcwvxmlaNRVNE9mspar/TGFmraAuWGx7TE9UIN/UoncuZwFdWTGHruEW5j9KmGpiaWcgk1
-        89+9oEVUXUC5b/g3/yW0nYvrvIs2WGU7m/0ChwQhFg8OY84AAAAASUVORK5CYII=
-</value>
-  </data>
   <metadata name="toolStrip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>122, 17</value>
+  </metadata>
+  <metadata name="toolStrip3.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>227, 17</value>
   </metadata>
   <metadata name="toolStrip3.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>227, 17</value>
@@ -171,8 +163,8 @@
   <metadata name="toolStrip4.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>332, 17</value>
   </metadata>
-  <metadata name="toolStrip3.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>227, 17</value>
+  <metadata name="toolStrip4.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>332, 17</value>
   </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
