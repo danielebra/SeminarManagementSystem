@@ -39,12 +39,7 @@ namespace Seminar_Management_System
 
         private void btnTest_Click(object sender, EventArgs e)
         {
-            var foo = ddOrganisers.SelectedOrganiser;
-            var bar = ddRoom.SelectedRoom;
-            var start = datePickerSingle.StartDate;
-            var end = datePickerSingle.EndDate;
-
-            var selectedSpeakers = selectSpeakers1.SelectedSpeakers;
+            
         }
 
         private void datePicker_DateUpdated(object sender, EventArgs e)
@@ -70,6 +65,11 @@ namespace Seminar_Management_System
             // Connect the AttendeeTable to the Seminar object
             attendeeTable1.Setup(ref intermediary);
             attendeeTable1.Editable(false);
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
