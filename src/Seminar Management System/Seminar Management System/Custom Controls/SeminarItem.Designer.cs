@@ -31,6 +31,7 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblDescription = new System.Windows.Forms.Label();
             this.btnView = new System.Windows.Forms.LinkLabel();
+            this.lblDuration = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -63,18 +64,31 @@
             this.btnView.Text = "View";
             this.btnView.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.btnView_LinkClicked);
             // 
+            // lblDuration
+            // 
+            this.lblDuration.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblDuration.AutoSize = true;
+            this.lblDuration.Location = new System.Drawing.Point(390, 45);
+            this.lblDuration.Name = "lblDuration";
+            this.lblDuration.Size = new System.Drawing.Size(47, 13);
+            this.lblDuration.TabIndex = 2;
+            this.lblDuration.Text = "Duration";
+            // 
             // SeminarItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.Controls.Add(this.lblDuration);
             this.Controls.Add(this.btnView);
             this.Controls.Add(this.lblDescription);
             this.Controls.Add(this.lblTitle);
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Name = "SeminarItem";
             this.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
             this.Size = new System.Drawing.Size(450, 110);
             this.Load += new System.EventHandler(this.SeminarItem_Load);
+            this.Click += new System.EventHandler(this.form_Click);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -85,5 +99,6 @@
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.LinkLabel btnView;
+        private System.Windows.Forms.Label lblDuration;
     }
 }

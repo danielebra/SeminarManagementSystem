@@ -49,6 +49,10 @@ namespace Seminar_Management_System.Custom_Controls
             this.Width = foo.Width;
         }
 
+        private void form_Click(object sender, EventArgs e)
+        {
+            btnView_LinkClicked(sender, null);
+        }
         private void SeminarItem_Load(object sender, EventArgs e)
         {
             // Change the size of the window to fit in the parent
