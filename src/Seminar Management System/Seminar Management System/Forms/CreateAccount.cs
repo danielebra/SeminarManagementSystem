@@ -65,30 +65,56 @@ namespace Seminar_Management_System.Forms
             int x = 5; // x pixel location
             foreach (PropertyInfo p in user.GetType().GetProperties())
             {
-                Label label = new Label();
-                TextBox tb = new TextBox();
-                label.AutoSize = true;
-                label.Text = p.Name;
-                // Determine the location based on how many properties we have gone through
-                label.Location = new Point(x, counter * (tb.Height + label.Height + 4));
-                // Place the textbox after the label
-                tb.Location = new Point(2, label.Location.Y + (label.Height));
-                tb.Width = pnlSafeArea.Width - 20;
-
-                // Check for ID and Role because we don't want the user to be able to change these values
-                // but we do want them to see what they are set to
-                if (p.Name == "ID" || p.Name == "Role")
-                {
-                    tb.Enabled = false;
-                    tb.Text = p.Name == "ID" ? DataInstance.users.Count.ToString() : user.Role.Privilege.ToString();
-                }
-
-                // Add the control to the interface
-                this.pnlSafeArea.Controls.Add(label);
-                this.pnlSafeArea.Controls.Add(tb);
-
-                counter++;
+                pnlSafeArea.Controls.Add(createLabel(p));
+                pnlSafeArea.Controls.Add(createTextBox(p, user));
             }
+        }
+
+        private Label createLabel(PropertyInfo p)
+        {
+            Label label = new Label();
+            label.AutoSize = true;
+            label.Text = p.Name;
+            if (pnlSafeArea.Controls.Count > 0)
+            {
+                var lastControl = pnlSafeArea.Controls[pnlSafeArea.Controls.Count - 1];
+                var loc = lastControl.Location;
+                loc.Y += lastControl.Height + 4;//label.Height + 4;
+                label.Location = loc;
+            }
+            else
+            {
+                label.Location = new Point(5, 4);
+            }
+            return label;
+        }
+
+        private TextBox createTextBox(PropertyInfo p, User u)
+        {
+            TextBox tb = new TextBox();
+
+            if (pnlSafeArea.Controls.Count > 0)
+            {
+                var lastControl = pnlSafeArea.Controls[pnlSafeArea.Controls.Count - 1];
+                var loc = lastControl.Location;
+
+                loc.Y += lastControl.Height + 4;
+                tb.Location = loc;
+            }
+            else
+                tb.Location = new Point(2, 15);
+            tb.Width = pnlSafeArea.Width - 20;
+            if (p.Name == "Biography")
+            {
+                tb.Multiline = true;
+                tb.Height = 200;
+            }
+            if (p.Name == "ID" || p.Name == "Role")
+            {
+                tb.Enabled = false;
+                tb.Text = p.Name == "ID" ? DataInstance.users.Count.ToString() : u.Role.Privilege.ToString();
+            }
+            return tb;
         }
 
         private void btnTest_Click(object sender, EventArgs e)
@@ -123,6 +149,14 @@ namespace Seminar_Management_System.Forms
             }
             // Add the new User to the list of Users
             DataInstance.users.Add(newUser);
+            MessageBox.Show("An account for " + newUser.Name + " has been created. ",
+                "New Account Successfully Created", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            this.Close();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
             this.Close();
         }
     }
