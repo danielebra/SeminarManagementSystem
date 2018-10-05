@@ -31,12 +31,15 @@ namespace Seminar_Management_System.Forms
 
         private void RegisterAttendee_Load(object sender, EventArgs e)
         {
-            // Create the interface on load
-            CreateInterface();
+            // Default to Interested as the Status
+            cbStatus.SelectedIndex = 0;
+            this.AcceptButton = btnAdd;
         }
 
         public void CreateInterface()
         {
+            // Deprecated
+
             // Create interface based on the properties of a SeminarAttendee
             // This is dynamically done inorder to make it easier to change what defines an attendee
             // from a data structure perspective
@@ -61,25 +64,45 @@ namespace Seminar_Management_System.Forms
 
             }
         }
-        
-        private void btnAdd_Click(object sender, EventArgs e)
+
+        public void CreateAttendeeFromInterface()
         {
+            // Deprecated
+
             // Get all the TextBoxes from the screen
             IEnumerable<Control> tbs = Utils.GetControlsFromControl(this, typeof(TextBox));
             List<string> vals = new List<string>();
             foreach (var cont in tbs)
                 vals.Add(((TextBox)cont).Text);
             // Add the new Attendee to the Seminar's list of Attendees
-            seminarReference.Attendees.Add(new SeminarAttendee(seminarReference.Attendees.Count,vals[0], vals[1], vals[2]));
+            seminarReference.Attendees.Add(new SeminarAttendee(seminarReference.Attendees.Count, vals[0], vals[1], vals[2]));
 
             if (this.AttendeeRegistered != null)
             {
                 // Fire an event to alert subscribers that a change has occured in the AttendeeList
                 this.AttendeeRegistered(this, new EventArgs());
             }
+        }
+        
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            var newAttendee = new SeminarAttendee(seminarReference.Attendees.Count,
+                                                    tbName.Text,
+                                                    tbEmail.Text,
+                                                    tbPhoneNumber.Text,
+                                                    cbStatus.Text);
+            seminarReference.Attendees.Add(newAttendee);
+            MessageBox.Show(newAttendee.Name + " has been registered to " + seminarReference.Title, "Successfully Registered", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (this.AttendeeRegistered != null)
+                this.AttendeeRegistered(this, new EventArgs());
             // Close this interface
             this.Close();
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
