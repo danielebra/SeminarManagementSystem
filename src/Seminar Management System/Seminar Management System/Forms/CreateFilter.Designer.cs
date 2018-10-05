@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateFilter));
             this.roomDropDown1 = new Seminar_Management_System.Custom_Controls.RoomDropDown();
             this.btnDone = new System.Windows.Forms.Button();
             this.cbRoom = new System.Windows.Forms.CheckBox();
@@ -35,6 +36,7 @@
             this.organiserDropDown1 = new Seminar_Management_System.Custom_Controls.OrganiserDropDown();
             this.cbOrganiser = new System.Windows.Forms.CheckBox();
             this.cbSpeaker = new System.Windows.Forms.CheckBox();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // roomDropDown1
@@ -46,12 +48,14 @@
             // 
             // btnDone
             // 
-            this.btnDone.Location = new System.Drawing.Point(229, 312);
+            this.btnDone.BackColor = System.Drawing.Color.LimeGreen;
+            this.btnDone.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDone.Location = new System.Drawing.Point(211, 314);
             this.btnDone.Name = "btnDone";
             this.btnDone.Size = new System.Drawing.Size(75, 23);
             this.btnDone.TabIndex = 1;
             this.btnDone.Text = "Filter";
-            this.btnDone.UseVisualStyleBackColor = true;
+            this.btnDone.UseVisualStyleBackColor = false;
             this.btnDone.Click += new System.EventHandler(this.btnDone_Click);
             // 
             // cbRoom
@@ -98,11 +102,24 @@
             this.cbSpeaker.Text = "Filter by Speaker";
             this.cbSpeaker.UseVisualStyleBackColor = true;
             // 
+            // btnCancel
+            // 
+            this.btnCancel.BackColor = System.Drawing.Color.Gray;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Location = new System.Drawing.Point(292, 314);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 7;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
             // CreateFilter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(540, 349);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.cbSpeaker);
             this.Controls.Add(this.cbOrganiser);
             this.Controls.Add(this.organiserDropDown1);
@@ -110,9 +127,10 @@
             this.Controls.Add(this.cbRoom);
             this.Controls.Add(this.btnDone);
             this.Controls.Add(this.roomDropDown1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CreateFilter";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CreateFilter";
+            this.Text = "Filter Seminars";
             this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CreateFilter_FormClosing);
             this.Load += new System.EventHandler(this.CreateFilter_Load);
@@ -130,5 +148,6 @@
         private Custom_Controls.OrganiserDropDown organiserDropDown1;
         private System.Windows.Forms.CheckBox cbOrganiser;
         private System.Windows.Forms.CheckBox cbSpeaker;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

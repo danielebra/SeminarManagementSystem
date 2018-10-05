@@ -49,6 +49,11 @@ namespace Seminar_Management_System.Forms
             e.Cancel = true;
             this.Hide();
         }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 
     // This will be moved to its own file in the future
