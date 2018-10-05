@@ -16,6 +16,14 @@ namespace Seminar_Management_System.Classes.Users
         public SeminarAttendee(int id, string name, string email, string phoneNumber) : base(id, name, email, phoneNumber)
         {
             this.Role = Authentication.GetRoleFromName(Role.Names.Attendee);
+            this.Status = "Interested";
         }
+        public SeminarAttendee(int id, string name, string email, string phoneNumber, string status) : base(id, name, email, phoneNumber)
+        {
+            this.Role = Authentication.GetRoleFromName(Role.Names.Attendee);
+            this.Status = status;
+        }
+        public string Status { get; set; }
+
     }
 }
