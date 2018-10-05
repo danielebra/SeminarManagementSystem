@@ -247,5 +247,10 @@ namespace Seminar_Management_System
             // Re-draw the SeminarList interface when the filter has changed
             DrawSeminarInterface();
         }
+
+        private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Main_Resize(this, null);
+        }
     }
 }
