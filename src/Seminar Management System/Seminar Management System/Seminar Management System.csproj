@@ -259,6 +259,9 @@
   <ItemGroup>
     <Content Include="calendar-event.ico" />
     <Content Include="presentation.ico" />
+    <None Include="Resources\divider1.png" />
+    <None Include="Resources\divider.png" />
+    <None Include="Resources\png-divider-lines--1400.png" />
     <None Include="Resources\if_add_user_309049.png" />
     <None Include="Resources\if_sign-error_299045.png" />
     <None Include="Resources\if_Login_73221.png" />

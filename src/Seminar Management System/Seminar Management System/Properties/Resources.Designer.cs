@@ -63,6 +63,26 @@ namespace Seminar_Management_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap divider {
+            get {
+                object obj = ResourceManager.GetObject("divider", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap divider1 {
+            get {
+                object obj = ResourceManager.GetObject("divider1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap if_add_user_309049 {
             get {
                 object obj = ResourceManager.GetObject("if_add_user_309049", resourceCulture);
@@ -106,6 +126,16 @@ namespace Seminar_Management_System.Properties {
         internal static System.Drawing.Bitmap if_sign_error_299045 {
             get {
                 object obj = ResourceManager.GetObject("if_sign-error_299045", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap png_divider_lines__1400 {
+            get {
+                object obj = ResourceManager.GetObject("png-divider-lines--1400", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
