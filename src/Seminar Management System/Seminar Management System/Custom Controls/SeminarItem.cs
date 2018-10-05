@@ -28,6 +28,7 @@ namespace Seminar_Management_System.Custom_Controls
             SeminarReference = seminar;
             lblTitle.Text = seminar.Title;
             lblDescription.Text = seminar.Description;
+            lblDuration.Text = seminar.DurationString;
         }
 
         private void btnView_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

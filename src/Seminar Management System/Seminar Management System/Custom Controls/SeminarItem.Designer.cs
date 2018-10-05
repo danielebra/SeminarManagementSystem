@@ -46,12 +46,13 @@
             // 
             // lblDescription
             // 
-            this.lblDescription.AutoSize = true;
+            this.lblDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDescription.Location = new System.Drawing.Point(14, 45);
             this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(60, 13);
+            this.lblDescription.Size = new System.Drawing.Size(370, 47);
             this.lblDescription.TabIndex = 0;
             this.lblDescription.Text = "Description";
+            this.lblDescription.Click += new System.EventHandler(this.form_Click);
             // 
             // btnView
             // 
