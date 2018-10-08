@@ -37,6 +37,12 @@
             this.cbOrganiser = new System.Windows.Forms.CheckBox();
             this.cbSpeaker = new System.Windows.Forms.CheckBox();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.dtpStart = new System.Windows.Forms.DateTimePicker();
+            this.dtpEnd = new System.Windows.Forms.DateTimePicker();
+            this.cbDate = new System.Windows.Forms.CheckBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // roomDropDown1
@@ -50,7 +56,7 @@
             // 
             this.btnDone.BackColor = System.Drawing.Color.LimeGreen;
             this.btnDone.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDone.Location = new System.Drawing.Point(211, 314);
+            this.btnDone.Location = new System.Drawing.Point(113, 348);
             this.btnDone.Name = "btnDone";
             this.btnDone.Size = new System.Drawing.Size(75, 23);
             this.btnDone.TabIndex = 1;
@@ -61,7 +67,7 @@
             // cbRoom
             // 
             this.cbRoom.AutoSize = true;
-            this.cbRoom.Location = new System.Drawing.Point(211, 17);
+            this.cbRoom.Location = new System.Drawing.Point(241, 17);
             this.cbRoom.Name = "cbRoom";
             this.cbRoom.Size = new System.Drawing.Size(93, 17);
             this.cbRoom.TabIndex = 2;
@@ -85,7 +91,7 @@
             // cbOrganiser
             // 
             this.cbOrganiser.AutoSize = true;
-            this.cbOrganiser.Location = new System.Drawing.Point(211, 57);
+            this.cbOrganiser.Location = new System.Drawing.Point(241, 56);
             this.cbOrganiser.Name = "cbOrganiser";
             this.cbOrganiser.Size = new System.Drawing.Size(110, 17);
             this.cbOrganiser.TabIndex = 5;
@@ -95,7 +101,7 @@
             // cbSpeaker
             // 
             this.cbSpeaker.AutoSize = true;
-            this.cbSpeaker.Location = new System.Drawing.Point(241, 148);
+            this.cbSpeaker.Location = new System.Drawing.Point(241, 150);
             this.cbSpeaker.Name = "cbSpeaker";
             this.cbSpeaker.Size = new System.Drawing.Size(105, 17);
             this.cbSpeaker.TabIndex = 6;
@@ -106,7 +112,7 @@
             // 
             this.btnCancel.BackColor = System.Drawing.Color.Gray;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Location = new System.Drawing.Point(292, 314);
+            this.btnCancel.Location = new System.Drawing.Point(194, 348);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 7;
@@ -114,11 +120,59 @@
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // dtpStart
+            // 
+            this.dtpStart.Location = new System.Drawing.Point(6, 42);
+            this.dtpStart.Name = "dtpStart";
+            this.dtpStart.Size = new System.Drawing.Size(200, 20);
+            this.dtpStart.TabIndex = 8;
+            // 
+            // dtpEnd
+            // 
+            this.dtpEnd.Location = new System.Drawing.Point(6, 68);
+            this.dtpEnd.Name = "dtpEnd";
+            this.dtpEnd.Size = new System.Drawing.Size(200, 20);
+            this.dtpEnd.TabIndex = 9;
+            // 
+            // cbDate
+            // 
+            this.cbDate.AutoSize = true;
+            this.cbDate.Location = new System.Drawing.Point(229, 57);
+            this.cbDate.Name = "cbDate";
+            this.cbDate.Size = new System.Drawing.Size(88, 17);
+            this.cbDate.TabIndex = 10;
+            this.cbDate.Text = "Filter by Date";
+            this.cbDate.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.dtpStart);
+            this.groupBox1.Controls.Add(this.cbDate);
+            this.groupBox1.Controls.Add(this.dtpEnd);
+            this.groupBox1.Location = new System.Drawing.Point(12, 237);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(334, 105);
+            this.groupBox1.TabIndex = 11;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Dates";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Gray;
+            this.label1.Location = new System.Drawing.Point(6, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(151, 13);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Filter by dates within this range";
+            // 
             // CreateFilter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(540, 349);
+            this.ClientSize = new System.Drawing.Size(370, 382);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.cbSpeaker);
             this.Controls.Add(this.cbOrganiser);
@@ -134,6 +188,8 @@
             this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CreateFilter_FormClosing);
             this.Load += new System.EventHandler(this.CreateFilter_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -149,5 +205,10 @@
         private System.Windows.Forms.CheckBox cbOrganiser;
         private System.Windows.Forms.CheckBox cbSpeaker;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.DateTimePicker dtpStart;
+        private System.Windows.Forms.DateTimePicker dtpEnd;
+        private System.Windows.Forms.CheckBox cbDate;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label1;
     }
 }

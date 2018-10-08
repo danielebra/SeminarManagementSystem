@@ -34,6 +34,12 @@ namespace Seminar_Management_System.Forms
 
             PortableFilter.BySpeaker = cbSpeaker.Checked;
             PortableFilter.Speakers = cbSpeaker.Checked ? selectSpeakers1.SelectedSpeakers : null;
+
+            PortableFilter.ByDate = cbDate.Checked;
+            PortableFilter.StartDate = cbDate.Checked ? dtpStart.Value : DateTime.Now;
+            PortableFilter.EndDate = cbDate.Checked ? dtpEnd.Value : DateTime.Now;
+
+
             if (FilterUpdated != null)
                 FilterUpdated(this, new EventArgs());
             this.Hide();
@@ -70,6 +76,12 @@ namespace Seminar_Management_System.Forms
 
         public static bool BySpeaker { get; set; }
         public static List<Speaker> Speakers { get; set; }
+
+        public static bool ByDate { get; set; }
+        public static DateTime StartDate { get; set; }
+        public static DateTime EndDate { get; set; }
+        
+
         // Returns a list of Seminars that matches the search conditions defined by the properties above
         public static List<Seminar> Execute()
         {
@@ -77,6 +89,7 @@ namespace Seminar_Management_System.Forms
                         where (ByRoom == false || s.Room == Room)
                         where (ByOrganiser == false || s.Organiser == Organiser)
                         where (BySpeaker == false || s.Speakers.Any(iter => Speakers.Any(speaker => speaker.Name == iter.Name)))//.Contains(Speakers))
+                        where (ByDate == false || (s.StartDate >= StartDate && s.StartDate <= EndDate))
                         select s;
             return query.ToList<Seminar>();
         }
