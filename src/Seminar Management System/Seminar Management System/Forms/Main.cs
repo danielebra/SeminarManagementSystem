@@ -124,7 +124,7 @@ namespace Seminar_Management_System
                     pnlSeminarView.Controls.Remove(control);
             }
             seminarItems.Clear();
-            var seminars = PortableFilter.Execute();
+            var seminars = PortableFilter.Execute().OrderBy(s => s.StartDate);
 
             foreach (var seminar in seminars)
             {
@@ -151,7 +151,7 @@ namespace Seminar_Management_System
                     pnlUserView.Controls.Remove(control);
             }
             userItems.Clear();
-            foreach (var user in DataInstance.users)
+            foreach (var user in DataInstance.users.OrderBy(u => u.Role.Name))
             {
                 UserItem userItem = new UserItem();
                 userItem.Location = new Point(0, userItem.Size.Height * userItems.Count);
