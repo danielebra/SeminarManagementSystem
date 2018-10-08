@@ -48,6 +48,7 @@
             this.lblTitle.Size = new System.Drawing.Size(40, 18);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Title";
+            this.lblTitle.Click += new System.EventHandler(this.form_Click);
             // 
             // lblDescription
             // 
@@ -80,6 +81,7 @@
             this.lblDuration.TabIndex = 2;
             this.lblDuration.Text = "Duration";
             this.lblDuration.Visible = false;
+            this.lblDuration.Click += new System.EventHandler(this.form_Click);
             // 
             // lblAttendeeInterested
             // 
@@ -90,6 +92,7 @@
             this.lblAttendeeInterested.Size = new System.Drawing.Size(57, 13);
             this.lblAttendeeInterested.TabIndex = 3;
             this.lblAttendeeInterested.Text = "Interested:";
+            this.lblAttendeeInterested.Click += new System.EventHandler(this.form_Click);
             // 
             // lblGoing
             // 
@@ -100,6 +103,7 @@
             this.lblGoing.Size = new System.Drawing.Size(38, 13);
             this.lblGoing.TabIndex = 4;
             this.lblGoing.Text = "Going:";
+            this.lblGoing.Click += new System.EventHandler(this.form_Click);
             // 
             // pictureBox1
             // 
@@ -121,6 +125,7 @@
             this.lblDate.Size = new System.Drawing.Size(36, 13);
             this.lblDate.TabIndex = 6;
             this.lblDate.Text = "Date: ";
+            this.lblDate.Click += new System.EventHandler(this.form_Click);
             // 
             // SeminarItem
             // 
