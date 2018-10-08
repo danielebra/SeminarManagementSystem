@@ -170,6 +170,8 @@ namespace Seminar_Management_System.Forms
                     this.Close();
                 }
             }
+            else
+                this.Close();
         }
     }
 }
