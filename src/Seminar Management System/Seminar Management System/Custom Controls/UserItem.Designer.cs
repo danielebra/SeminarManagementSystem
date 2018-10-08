@@ -41,6 +41,7 @@
             this.lblRole.Size = new System.Drawing.Size(29, 13);
             this.lblRole.TabIndex = 1;
             this.lblRole.Text = "Role";
+            this.lblRole.Click += new System.EventHandler(this.UserItem_Click);
             // 
             // lblName
             // 
@@ -51,6 +52,7 @@
             this.lblName.Size = new System.Drawing.Size(177, 18);
             this.lblName.TabIndex = 2;
             this.lblName.Text = "First Name Last Name";
+            this.lblName.Click += new System.EventHandler(this.UserItem_Click);
             // 
             // btnView
             // 
@@ -70,9 +72,11 @@
             this.Controls.Add(this.btnView);
             this.Controls.Add(this.lblRole);
             this.Controls.Add(this.lblName);
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Name = "UserItem";
             this.Size = new System.Drawing.Size(450, 110);
             this.Load += new System.EventHandler(this.UserItem_Load);
+            this.Click += new System.EventHandler(this.UserItem_Click);
             this.ResumeLayout(false);
             this.PerformLayout();
 

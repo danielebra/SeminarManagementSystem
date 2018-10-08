@@ -76,5 +76,10 @@ namespace Seminar_Management_System.Custom_Controls
             ViewUser viewUser = new ViewUser(ref UserReference);
             viewUser.Show();
         }
+
+        private void UserItem_Click(object sender, EventArgs e)
+        {
+            btnView_LinkClicked(this, null);
+        }
     }
 }
