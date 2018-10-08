@@ -23,11 +23,8 @@ namespace Seminar_Management_System.Forms
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            // Find a matching user with the email
-            var user = DataInstance.users.Where(u => u.Email == tbEmail.Text).FirstOrDefault();
-            if (user != null)
+            if (Authentication.Login(tbEmail.Text, tbPassword.Text))
             {
-                DataInstance.LoggedInUser = user;
                 this.Close();
             }
             else

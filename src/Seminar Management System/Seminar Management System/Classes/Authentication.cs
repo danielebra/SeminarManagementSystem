@@ -17,8 +17,32 @@ namespace Seminar_Management_System.Classes
             { new Role(Role.Names.Organiser, 3) },
             { new Role(Role.Names.Admin, 5) }
         };
-        
-
+        #region Logging In
+        public static bool Login(string email, string password)
+        {
+            var user = DataInstance.users.Where(u => u.Email == email).FirstOrDefault();
+            if (user != null)
+            {
+                if (checkPassword(email, password))
+                {
+                    DataInstance.LoggedInUser = user;
+                    return true; // Password is correct
+                }
+                else
+                    return false; // Password is incorrect
+            }
+            else
+            {
+                return false; // Username not found
+                //MessageBox.Show("Please check to see that your email is correct", "Account not found", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+        private static bool checkPassword(string email, string password)
+        {
+            // Placeholder method for implementing password validaiton
+            return true;
+        }
+#endregion
         // Some helper functions for looking up Role data
 
         // Search for a Role by its Name
