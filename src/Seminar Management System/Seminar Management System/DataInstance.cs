@@ -131,12 +131,13 @@ namespace Seminar_Management_System
             BindingList<SeminarAttendee> attendeeList = new BindingList<SeminarAttendee>();
             attendeeList.Add(new SeminarAttendee(0, "Jason", "jason@attendee.com", "911"));
             attendeeList.Add(new SeminarAttendee(1, "Tyrone", "tyrone@attendee.com", "912"));
-
+            var today = DateTime.Now;
+            var tomorrow = today.AddDays(1);
+            var nextWeek = today.AddDays(7);
             DataInstance.seminars.Add(new Seminar(Utils.GetAllOrganisers()[0], DataInstance.rooms[0], Utils.GetAllSpeakers(),
-                attendeeList, "Learning Python", "The Zen of Python", DateTime.Now, DateTime.Today));
+                attendeeList, "Learning Python", "The Zen of Python", nextWeek, nextWeek.AddHours(3)));
             DataInstance.seminars.Add(new Seminar(Utils.GetAllOrganisers()[0], DataInstance.rooms[0], Utils.GetAllSpeakers(),
-                attendeeList, "Learning C#", "Java developers wear glasses because they can't see sharp", DateTime.Now, DateTime.Today));
-
+                attendeeList, "Learning C#", "Java developers wear glasses because they can't see sharp", tomorrow, tomorrow.AddHours(1)));
             DataInstance.users.Add(new SystemAdmin(0, "Derrick", "derrick@dev.org", "111"));
             DataInstance.users.Add(new Speaker(2, "Mr Paul", "paul@speakers.com", String.Empty, "Biography"));
         }

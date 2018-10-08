@@ -76,6 +76,7 @@
             this.btnTest.Name = "btnTest";
             this.btnTest.Size = new System.Drawing.Size(79, 22);
             this.btnTest.Text = "Add Seminar";
+            this.btnTest.Visible = false;
             this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
             // 
             // btnDebug
@@ -86,6 +87,7 @@
             this.btnDebug.Name = "btnDebug";
             this.btnDebug.Size = new System.Drawing.Size(46, 22);
             this.btnDebug.Text = "Debug";
+            this.btnDebug.Visible = false;
             this.btnDebug.Click += new System.EventHandler(this.btnDebug_Click);
             // 
             // btnLogin
