@@ -37,7 +37,7 @@
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblPhone = new System.Windows.Forms.Label();
             this.tbPhone = new System.Windows.Forms.TextBox();
-            this.btnTest = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
             this.rtbBiography = new System.Windows.Forms.RichTextBox();
             this.lblBiography = new System.Windows.Forms.Label();
             this.roleDropDown1 = new Seminar_Management_System.Custom_Controls.RoleDropDown();
@@ -125,15 +125,15 @@
             this.tbPhone.TabIndex = 3;
             this.tbPhone.Text = "Phone Number";
             // 
-            // btnTest
+            // btnClose
             // 
-            this.btnTest.Location = new System.Drawing.Point(252, 366);
-            this.btnTest.Name = "btnTest";
-            this.btnTest.Size = new System.Drawing.Size(75, 23);
-            this.btnTest.TabIndex = 12;
-            this.btnTest.Text = "Close";
-            this.btnTest.UseVisualStyleBackColor = true;
-            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
+            this.btnClose.Location = new System.Drawing.Point(252, 366);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(75, 23);
+            this.btnClose.TabIndex = 12;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnTest_Click);
             // 
             // rtbBiography
             // 
@@ -169,7 +169,7 @@
             this.ClientSize = new System.Drawing.Size(573, 401);
             this.Controls.Add(this.lblBiography);
             this.Controls.Add(this.rtbBiography);
-            this.Controls.Add(this.btnTest);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lblPhone);
             this.Controls.Add(this.tbPhone);
             this.Controls.Add(this.lblEmail);
@@ -201,7 +201,7 @@
         private System.Windows.Forms.Label lblPhone;
         private System.Windows.Forms.TextBox tbPhone;
         private Custom_Controls.RoleDropDown roleDropDown1;
-        private System.Windows.Forms.Button btnTest;
+        private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.RichTextBox rtbBiography;
         private System.Windows.Forms.Label lblBiography;
     }

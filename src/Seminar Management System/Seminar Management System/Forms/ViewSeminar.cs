@@ -216,7 +216,13 @@ namespace Seminar_Management_System.Forms
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (btnEdit.Text == SAVE)
+            {
+                if (MessageBox.Show("You have some unsaved changes.\nAre you sure you want to close this seminar?", "Potential loss of data", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+                {
+                    this.Close();
+                }
+            }
         }
     }
 }

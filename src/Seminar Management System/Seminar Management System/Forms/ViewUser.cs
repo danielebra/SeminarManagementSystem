@@ -75,7 +75,6 @@ namespace Seminar_Management_System.Forms
                 btnEdit.Text = SAVE;
                 btnCancel.Visible = true;
                 btnDelete.Visible = true;
-                
 
             }
             else if (btnEdit.Text == SAVE) // Handle saving functionality
@@ -164,7 +163,13 @@ namespace Seminar_Management_System.Forms
 
         private void btnTest_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (btnEdit.Text == SAVE)
+            {
+                if (MessageBox.Show("You have some unsaved changes.\nAre you sure you want to close this?", "Potential loss of data", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+                {
+                    this.Close();
+                }
+            }
         }
     }
 }
