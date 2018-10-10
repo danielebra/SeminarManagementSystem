@@ -98,6 +98,7 @@
             // 
             // btnOk
             // 
+            this.btnOk.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnOk.Location = new System.Drawing.Point(431, 598);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
@@ -123,7 +124,8 @@
             // 
             // btnRegister
             // 
-            this.btnRegister.Location = new System.Drawing.Point(607, 521);
+            this.btnRegister.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnRegister.Location = new System.Drawing.Point(608, 571);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(75, 23);
             this.btnRegister.TabIndex = 22;
@@ -133,7 +135,8 @@
             // 
             // btnTest
             // 
-            this.btnTest.Location = new System.Drawing.Point(689, 520);
+            this.btnTest.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnTest.Location = new System.Drawing.Point(689, 571);
             this.btnTest.Name = "btnTest";
             this.btnTest.Size = new System.Drawing.Size(75, 23);
             this.btnTest.TabIndex = 23;
@@ -143,11 +146,13 @@
             // 
             // attendeeTable1
             // 
-            this.attendeeTable1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.attendeeTable1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.attendeeTable1.AutoSize = true;
             this.attendeeTable1.Location = new System.Drawing.Point(507, 242);
             this.attendeeTable1.Name = "attendeeTable1";
-            this.attendeeTable1.Size = new System.Drawing.Size(391, 272);
+            this.attendeeTable1.Size = new System.Drawing.Size(391, 323);
             this.attendeeTable1.TabIndex = 21;
             // 
             // datePickerSingle
