@@ -47,8 +47,10 @@ namespace Seminar_Management_System.Classes
             foreach (var x in stripAttendee)
             {
                 if (x.Name == Role.Names.Attendee)
+                {
                     stripAttendee.Remove(x);
-                break;
+                    break;
+                }
             }
             return stripAttendee;
         }
