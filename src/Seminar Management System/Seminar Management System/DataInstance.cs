@@ -108,12 +108,61 @@ namespace Seminar_Management_System
                         var organiser = Utils.GetAllOrganisers().Where(o => o.ID == (int)reader["OrganiserPersonID"]).ToList();
                         var room = rooms.Where(r => r.ID == (int)reader["VenueID"]).ToList();
 
-                        seminars.Add(new Seminar(organiser[0], room[0], Utils.GetAllSpeakers(), attendeeList, reader["Label"].ToString(), reader["Description"].ToString(), DateTime.Now, DateTime.Today));
+                        seminars.Add(new Seminar(organiser[0], room[0], Utils.GetAllSpeakers(), attendeeList, reader["Title"].ToString(), reader["Description"].ToString(), DateTime.Now, DateTime.Today));
                     }
                 }
             }
         }
 
+        public static void addSeminar(Seminar seminar)
+        {
+            using (SqlConnection conn = new SqlConnection())
+            {
+                //instantiate and open new connection using DB Connection string
+                conn.ConnectionString = _connectionString;
+                conn.Open();
+
+                //SqlCommand cmdAddSeminar = 
+                //    new SqlCommand(
+                //        "INSERT INTO Seminar(Title, Description, StartDate, EndDate, HostPersonID, OrganiserPersonID, VenueID)" +
+                //        " VALUES('" + seminar.Title + "' , '" + seminar.Description + "', '" + seminar.StartDate + "', '" + seminar.EndDate + "', null, " + seminar.Organiser.ID + ", " + seminar.Room.ID + "); ");
+
+                SqlCommand cmdAddSeminar = new SqlCommand("INSERT INTO Seminar(Title, Description, StartDate, EndDate, HostPersonID, OrganiserPersonID, VenueID) VALUES(@title, @description, @startDate, @endDate, null, @organiserPersonId, @venueId);");
+                
+                using (cmdAddSeminar)
+                {
+                    cmdAddSeminar.Parameters.AddWithValue("@title", seminar.Title);
+                    cmdAddSeminar.Parameters.AddWithValue("@description", seminar.Description);
+                    cmdAddSeminar.Parameters.AddWithValue("@startDate", seminar.StartDate);
+                    cmdAddSeminar.Parameters.AddWithValue("@endDate", seminar.EndDate);
+                    cmdAddSeminar.Parameters.AddWithValue("@organiserPersonId", seminar.Organiser.ID);
+                    cmdAddSeminar.Parameters.AddWithValue("@venueId", seminar.Room.ID);
+                    cmdAddSeminar.Connection = conn;
+                    cmdAddSeminar.ExecuteNonQuery();
+                }
+            }
+                seminars.Add(seminar);
+        }
+
+        public static void addAttendee()
+        {
+
+        }
+
+        public static void addOrganiser()
+        {
+
+        }
+
+        public static void addSpeaker()
+        {
+
+        }
+
+        public static void addAdmin()
+        {
+
+        }
         // Load mock data into memory
         public static void populateWithMockData()
         {

@@ -91,6 +91,8 @@ namespace Seminar_Management_System.Forms
                                                     tbEmail.Text,
                                                     tbPhoneNumber.Text,
                                                     cbStatus.Text);
+
+
             seminarReference.Attendees.Add(newAttendee);
             MessageBox.Show(newAttendee.Name + " has been registered to " + seminarReference.Title, "Successfully Registered", MessageBoxButtons.OK, MessageBoxIcon.Information);
             if (this.AttendeeRegistered != null)
