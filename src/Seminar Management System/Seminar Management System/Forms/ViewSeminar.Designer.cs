@@ -43,6 +43,7 @@
             this.ddRoom = new Seminar_Management_System.Custom_Controls.RoomDropDown();
             this.ddOrganisers = new Seminar_Management_System.Custom_Controls.OrganiserDropDown();
             this.selectSpeakers1 = new Seminar_Management_System.Custom_Controls.SelectSpeakers();
+            this.btnViewSpeakers = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnEdit
@@ -149,7 +150,7 @@
             // 
             this.lblCapacity.AutoSize = true;
             this.lblCapacity.Enabled = false;
-            this.lblCapacity.Location = new System.Drawing.Point(301, 446);
+            this.lblCapacity.Location = new System.Drawing.Point(301, 466);
             this.lblCapacity.Name = "lblCapacity";
             this.lblCapacity.Size = new System.Drawing.Size(54, 13);
             this.lblCapacity.TabIndex = 24;
@@ -177,7 +178,7 @@
             // ddRoom
             // 
             this.ddRoom.Enabled = false;
-            this.ddRoom.Location = new System.Drawing.Point(287, 413);
+            this.ddRoom.Location = new System.Drawing.Point(287, 433);
             this.ddRoom.Name = "ddRoom";
             this.ddRoom.Size = new System.Drawing.Size(190, 30);
             this.ddRoom.TabIndex = 18;
@@ -185,7 +186,7 @@
             // ddOrganisers
             // 
             this.ddOrganisers.Enabled = false;
-            this.ddOrganisers.Location = new System.Drawing.Point(287, 377);
+            this.ddOrganisers.Location = new System.Drawing.Point(287, 397);
             this.ddOrganisers.Name = "ddOrganisers";
             this.ddOrganisers.Size = new System.Drawing.Size(190, 30);
             this.ddOrganisers.TabIndex = 17;
@@ -198,11 +199,22 @@
             this.selectSpeakers1.Size = new System.Drawing.Size(214, 147);
             this.selectSpeakers1.TabIndex = 16;
             // 
+            // btnViewSpeakers
+            // 
+            this.btnViewSpeakers.Location = new System.Drawing.Point(304, 366);
+            this.btnViewSpeakers.Name = "btnViewSpeakers";
+            this.btnViewSpeakers.Size = new System.Drawing.Size(173, 23);
+            this.btnViewSpeakers.TabIndex = 25;
+            this.btnViewSpeakers.Text = "View Speaker Details";
+            this.btnViewSpeakers.UseVisualStyleBackColor = true;
+            this.btnViewSpeakers.Click += new System.EventHandler(this.btnViewSpeakers_Click);
+            // 
             // ViewSeminar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(910, 633);
+            this.Controls.Add(this.btnViewSpeakers);
             this.Controls.Add(this.lblCapacity);
             this.Controls.Add(this.btnTest);
             this.Controls.Add(this.btnRegister);
@@ -244,5 +256,6 @@
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.Button btnTest;
         private System.Windows.Forms.Label lblCapacity;
+        private System.Windows.Forms.Button btnViewSpeakers;
     }
 }

@@ -247,5 +247,12 @@ namespace Seminar_Management_System.Forms
             else
                 this.Close();
         }
+
+        private void btnViewSpeakers_Click(object sender, EventArgs e)
+        {
+            var intermediary = seminarReference;
+            SpeakerDetails sd = new SpeakerDetails(ref intermediary);
+            sd.Show();
+        }
     }
 }
