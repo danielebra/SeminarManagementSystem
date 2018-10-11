@@ -94,6 +94,20 @@ namespace Seminar_Management_System.Forms
                 btnDelete.Visible = false;
                 saveSeminarState();
             }
+
+            preventAttendeeListModification();
+
+        }
+        private void preventAttendeeListModification()
+        {
+            // Dont allow editing when the seminar is from the past
+            if (seminarReference.StartDate <= DateTime.Now)
+            {
+                attendeeTable1.Editable(false);
+                btnRegister.Enabled = false;
+            }
+            else
+                btnRegister.Enabled = true;
         }
         private void btnCancel_Click(object sender, EventArgs e)
         {
