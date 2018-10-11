@@ -34,6 +34,7 @@
             // 
             // cbRooms
             // 
+            this.cbRooms.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbRooms.FormattingEnabled = true;
             this.cbRooms.Location = new System.Drawing.Point(66, 3);
             this.cbRooms.Name = "cbRooms";

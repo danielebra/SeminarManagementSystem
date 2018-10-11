@@ -34,6 +34,7 @@
             // 
             // cbOrganisers
             // 
+            this.cbOrganisers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbOrganisers.FormattingEnabled = true;
             this.cbOrganisers.Location = new System.Drawing.Point(66, 6);
             this.cbOrganisers.Name = "cbOrganisers";
