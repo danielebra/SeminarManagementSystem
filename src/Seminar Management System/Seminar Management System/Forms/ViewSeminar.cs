@@ -42,6 +42,13 @@ namespace Seminar_Management_System.Forms
             attendeeTable1.Editable(false);
             // Add this instance to the list of open ViewSeminar interfaces
             DataInstance.seminarInterfaceWindows.Add(this);
+            ddRoom.SelectionChanged += DdRoom_SelectionChanged;
+            DdRoom_SelectionChanged(null, null);
+        }
+
+        private void DdRoom_SelectionChanged(object sender, EventArgs e)
+        {
+            lblCapacity.Text = "Capacity: " + ddRoom.SelectedRoom.Capacity;
         }
 
         private void populateDataFields()

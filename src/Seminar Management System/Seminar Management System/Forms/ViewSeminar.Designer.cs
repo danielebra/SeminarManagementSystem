@@ -37,6 +37,7 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnRegister = new System.Windows.Forms.Button();
             this.btnTest = new System.Windows.Forms.Button();
+            this.lblCapacity = new System.Windows.Forms.Label();
             this.attendeeTable1 = new Seminar_Management_System.Custom_Controls.AttendeeTable();
             this.datePickerSingle = new Seminar_Management_System.DatePickerSingle();
             this.ddRoom = new Seminar_Management_System.Custom_Controls.RoomDropDown();
@@ -144,6 +145,16 @@
             this.btnTest.UseVisualStyleBackColor = true;
             this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
             // 
+            // lblCapacity
+            // 
+            this.lblCapacity.AutoSize = true;
+            this.lblCapacity.Enabled = false;
+            this.lblCapacity.Location = new System.Drawing.Point(301, 446);
+            this.lblCapacity.Name = "lblCapacity";
+            this.lblCapacity.Size = new System.Drawing.Size(54, 13);
+            this.lblCapacity.TabIndex = 24;
+            this.lblCapacity.Text = "Capacity: ";
+            // 
             // attendeeTable1
             // 
             this.attendeeTable1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -192,6 +203,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(910, 633);
+            this.Controls.Add(this.lblCapacity);
             this.Controls.Add(this.btnTest);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.attendeeTable1);
@@ -231,5 +243,6 @@
         private Custom_Controls.AttendeeTable attendeeTable1;
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.Button btnTest;
+        private System.Windows.Forms.Label lblCapacity;
     }
 }

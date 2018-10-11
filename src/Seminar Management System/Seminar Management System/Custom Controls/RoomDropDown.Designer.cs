@@ -39,6 +39,7 @@
             this.cbRooms.Name = "cbRooms";
             this.cbRooms.Size = new System.Drawing.Size(121, 21);
             this.cbRooms.TabIndex = 12;
+            this.cbRooms.SelectedIndexChanged += new System.EventHandler(this.cbRooms_SelectedIndexChanged);
             // 
             // lblRoom
             // 

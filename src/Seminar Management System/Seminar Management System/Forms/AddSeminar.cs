@@ -65,6 +65,13 @@ namespace Seminar_Management_System
             // Connect the AttendeeTable to the Seminar object
             attendeeTable1.Setup(ref intermediary);
             attendeeTable1.Editable(false);
+            ddRoom.SelectionChanged += DdRoom_SelectionChanged;
+            DdRoom_SelectionChanged(null, null);
+        }
+
+        private void DdRoom_SelectionChanged(object sender, EventArgs e)
+        {
+            lblCapacity.Text = "Capacity:" + ddRoom.SelectedRoom.Capacity;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
