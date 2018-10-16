@@ -114,6 +114,10 @@ namespace Seminar_Management_System
             }
         }
 
+        /// <summary>
+        /// Adds seminar to DB
+        /// </summary>
+        /// <param name="seminar"></param>
         public static void addSeminar(Seminar seminar)
         {
             using (SqlConnection conn = new SqlConnection())
@@ -122,15 +126,12 @@ namespace Seminar_Management_System
                 conn.ConnectionString = _connectionString;
                 conn.Open();
 
-                //SqlCommand cmdAddSeminar = 
-                //    new SqlCommand(
-                //        "INSERT INTO Seminar(Title, Description, StartDate, EndDate, HostPersonID, OrganiserPersonID, VenueID)" +
-                //        " VALUES('" + seminar.Title + "' , '" + seminar.Description + "', '" + seminar.StartDate + "', '" + seminar.EndDate + "', null, " + seminar.Organiser.ID + ", " + seminar.Room.ID + "); ");
-
+                //Create sql command to insert new seminar into db
                 SqlCommand cmdAddSeminar = new SqlCommand("INSERT INTO Seminar(Title, Description, StartDate, EndDate, HostPersonID, OrganiserPersonID, VenueID) VALUES(@title, @description, @startDate, @endDate, null, @organiserPersonId, @venueId);");
                 
                 using (cmdAddSeminar)
                 {
+                    //Adds parameter values for above statement
                     cmdAddSeminar.Parameters.AddWithValue("@title", seminar.Title);
                     cmdAddSeminar.Parameters.AddWithValue("@description", seminar.Description);
                     cmdAddSeminar.Parameters.AddWithValue("@startDate", seminar.StartDate);
@@ -138,15 +139,40 @@ namespace Seminar_Management_System
                     cmdAddSeminar.Parameters.AddWithValue("@organiserPersonId", seminar.Organiser.ID);
                     cmdAddSeminar.Parameters.AddWithValue("@venueId", seminar.Room.ID);
                     cmdAddSeminar.Connection = conn;
+                    //Execute query
                     cmdAddSeminar.ExecuteNonQuery();
                 }
             }
                 seminars.Add(seminar);
         }
 
-        public static void addAttendee()
+        /// <summary>
+        /// Adds attendee to DB
+        /// </summary>
+        public static void addAttendee(SeminarAttendee attendee)
         {
+            using (SqlConnection conn = new SqlConnection())
+            {
+                //instantiate and open new connection using DB Connection string
+                conn.ConnectionString = _connectionString;
+                conn.Open();
 
+                //Create sql command to insert new seminar into db
+                SqlCommand cmdAddAttendee = new SqlCommand("INSERT INTO Person(Name, Email, PhoneNumber, IsAdmin, IsHost, IsAttendee, IsSpeaker, IsOrganiser) VALUES(@name, @email, @phoneNumber, 0, 0, 1, 0, 0);");
+
+                using (cmdAddAttendee)
+                {
+                    //Adds parameter values for above statement
+                    cmdAddAttendee.Parameters.AddWithValue("@name", attendee.Name);
+                    cmdAddAttendee.Parameters.AddWithValue("@email", attendee.Email);
+                    cmdAddAttendee.Parameters.AddWithValue("@phoneNumber", attendee.PhoneNumber);
+                    cmdAddAttendee.Connection = conn;
+                    //Execute query
+                    cmdAddAttendee.ExecuteNonQuery();
+                }
+            }
+            attendee.Role = Authentication.GetRoleFromName(Role.Names.Attendee);
+            users.Add(attendee);
         }
 
         public static void addOrganiser()

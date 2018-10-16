@@ -92,7 +92,7 @@ namespace Seminar_Management_System.Forms
                                                     tbPhoneNumber.Text,
                                                     cbStatus.Text);
 
-
+            DataInstance.addAttendee(newAttendee);
             seminarReference.Attendees.Add(newAttendee);
             MessageBox.Show(newAttendee.Name + " has been registered to " + seminarReference.Title, "Successfully Registered", MessageBoxButtons.OK, MessageBoxIcon.Information);
             if (this.AttendeeRegistered != null)
