@@ -86,6 +86,26 @@ namespace Seminar_Management_System.Forms
         
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            if (attendeeExists(tbEmail.Text))
+            {
+                MessageBox.Show("This person is already registered.",
+                    "Attendee Exists", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                createAttendee();
+                // Close this interface
+                this.Close();
+            }
+
+        }
+        private bool attendeeExists(string email)
+        {
+            var matchingAttendees = seminarReference.Attendees.Where(a => a.Email == email);
+            return !(matchingAttendees.Count() == 0);
+        }
+        private void createAttendee()
+        {
             var newAttendee = new SeminarAttendee(seminarReference.Attendees.Count,
                                                     tbName.Text,
                                                     tbEmail.Text,
@@ -97,9 +117,6 @@ namespace Seminar_Management_System.Forms
             MessageBox.Show(newAttendee.Name + " has been registered to " + seminarReference.Title, "Successfully Registered", MessageBoxButtons.OK, MessageBoxIcon.Information);
             if (this.AttendeeRegistered != null)
                 this.AttendeeRegistered(this, new EventArgs());
-            // Close this interface
-            this.Close();
-
         }
 
         private void button1_Click(object sender, EventArgs e)

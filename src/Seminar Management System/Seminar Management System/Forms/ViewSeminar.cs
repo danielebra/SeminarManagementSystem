@@ -42,6 +42,13 @@ namespace Seminar_Management_System.Forms
             attendeeTable1.Editable(false);
             // Add this instance to the list of open ViewSeminar interfaces
             DataInstance.seminarInterfaceWindows.Add(this);
+            ddRoom.SelectionChanged += DdRoom_SelectionChanged;
+            DdRoom_SelectionChanged(null, null);
+        }
+
+        private void DdRoom_SelectionChanged(object sender, EventArgs e)
+        {
+            lblCapacity.Text = "Capacity: " + ddRoom.SelectedRoom.Capacity;
         }
 
         private void populateDataFields()
@@ -87,6 +94,20 @@ namespace Seminar_Management_System.Forms
                 btnDelete.Visible = false;
                 saveSeminarState();
             }
+
+            preventAttendeeListModification();
+
+        }
+        private void preventAttendeeListModification()
+        {
+            // Dont allow editing when the seminar is from the past
+            if (seminarReference.StartDate <= DateTime.Now)
+            {
+                attendeeTable1.Editable(false);
+                btnRegister.Enabled = false;
+            }
+            else
+                btnRegister.Enabled = true;
         }
         private void btnCancel_Click(object sender, EventArgs e)
         {
@@ -227,6 +248,13 @@ namespace Seminar_Management_System.Forms
             }
             else
                 this.Close();
+        }
+
+        private void btnViewSpeakers_Click(object sender, EventArgs e)
+        {
+            var intermediary = seminarReference;
+            SpeakerDetails sd = new SpeakerDetails(ref intermediary);
+            sd.Show();
         }
     }
 }

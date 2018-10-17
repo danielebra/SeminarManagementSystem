@@ -42,6 +42,7 @@
             this.ddRoom = new Seminar_Management_System.Custom_Controls.RoomDropDown();
             this.btnCancel = new System.Windows.Forms.Button();
             this.pbAddAttendee = new System.Windows.Forms.PictureBox();
+            this.lblCapacity = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbAddAttendee)).BeginInit();
             this.SuspendLayout();
             // 
@@ -168,11 +169,21 @@
             this.pbAddAttendee.TabStop = false;
             this.pbAddAttendee.Click += new System.EventHandler(this.btnAddAttendee_Click);
             // 
+            // lblCapacity
+            // 
+            this.lblCapacity.AutoSize = true;
+            this.lblCapacity.Location = new System.Drawing.Point(582, 53);
+            this.lblCapacity.Name = "lblCapacity";
+            this.lblCapacity.Size = new System.Drawing.Size(54, 13);
+            this.lblCapacity.TabIndex = 20;
+            this.lblCapacity.Text = "Capacity: ";
+            // 
             // AddSeminar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(741, 501);
+            this.Controls.Add(this.lblCapacity);
             this.Controls.Add(this.pbAddAttendee);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAddAttendee);
@@ -213,5 +224,6 @@
         private System.Windows.Forms.Button btnAddAttendee;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.PictureBox pbAddAttendee;
+        private System.Windows.Forms.Label lblCapacity;
     }
 }

@@ -22,6 +22,26 @@ namespace Seminar_Management_System
         private Seminar seminar { get; set; }
         private void btnAdd_Click(object sender, EventArgs e)
         {
+
+            if (seminarExists(tbTitle.Text))
+            {
+                MessageBox.Show("This seminar already exists in the system.\nPlease try a different name.", 
+                    "Seminar Exists", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                addSeminar();
+                // Close this screen
+                this.Close();
+            }
+        }
+        private bool seminarExists(string seminarName)
+        {
+            var matchingSeminars = DataInstance.seminars.Where(s => s.Title == seminarName);
+            return !(matchingSeminars.Count() == 0);
+        }
+        private void addSeminar()
+        {
             // Grab all the current information populate it into the Seminar object
             seminar.Organiser = ddOrganisers.SelectedOrganiser;
             seminar.Speakers = selectSpeakers1.SelectedSpeakers;
@@ -66,6 +86,13 @@ namespace Seminar_Management_System
             // Connect the AttendeeTable to the Seminar object
             attendeeTable1.Setup(ref intermediary);
             attendeeTable1.Editable(false);
+            ddRoom.SelectionChanged += DdRoom_SelectionChanged;
+            DdRoom_SelectionChanged(null, null);
+        }
+
+        private void DdRoom_SelectionChanged(object sender, EventArgs e)
+        {
+            lblCapacity.Text = "Capacity:" + ddRoom.SelectedRoom.Capacity;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

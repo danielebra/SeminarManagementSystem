@@ -58,6 +58,8 @@ namespace Seminar_Management_System.Forms
             {
                 tbName.Text = userReference.Name;
                 roleDropDown1.LoadFromUser(userReference);
+                tbEmail.Text = userReference.Email;
+                tbPhone.Text = userReference.PhoneNumber;
                 if (userReference.Role.Name == Role.Names.Speaker)
                 {
                     rtbBiography.Text = ((Speaker)userReference).Biography;
@@ -83,7 +85,7 @@ namespace Seminar_Management_System.Forms
                 btnEdit.Text = EDIT;
                 btnCancel.Visible = false;
                 btnDelete.Visible = false;
-                rtbBiography.Enabled = roleDropDown1.SelectedRole.Name != Role.Names.Speaker;
+                rtbBiography.ReadOnly = roleDropDown1.SelectedRole.Name != Role.Names.Speaker;
                 lblBiography.Enabled = roleDropDown1.SelectedRole.Name != Role.Names.Speaker;
                 saveUserState();
             }
@@ -94,6 +96,8 @@ namespace Seminar_Management_System.Forms
             // Gather the information from the interface and save it in the User object
             userReference.Name = tbName.Text;
             userReference.Role = roleDropDown1.SelectedRole;
+            userReference.PhoneNumber = tbPhone.Text;
+            userReference.Email = tbEmail.Text;
             if (roleDropDown1.SelectedRole.Name == Role.Names.Speaker)
             {
                 // Create a new user object that is a user, based on previous values
@@ -139,7 +143,7 @@ namespace Seminar_Management_System.Forms
             }
             roleDropDown1.Enabled = canEdit;
             lblBiography.Enabled = canEdit;
-            rtbBiography.Enabled = canEdit;
+            rtbBiography.ReadOnly = canEdit;
         }
 
         private void enableEditing()
