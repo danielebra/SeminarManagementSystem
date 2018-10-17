@@ -143,7 +143,7 @@ namespace Seminar_Management_System.Forms
             }
             roleDropDown1.Enabled = canEdit;
             lblBiography.Enabled = canEdit;
-            rtbBiography.ReadOnly = canEdit;
+            rtbBiography.ReadOnly = !canEdit;
         }
 
         private void enableEditing()
