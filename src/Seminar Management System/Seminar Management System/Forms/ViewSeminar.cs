@@ -233,7 +233,7 @@ namespace Seminar_Management_System.Forms
         {
             Bitmap nameTag = new Bitmap(723, 962);
             // the url need to be changed before using
-            string pdf = seminarReference.Title + ".pdf";
+            string pdf = seminarReference.Title + "-template.pdf";
             // store the attendee whose status is going
             List<SeminarAttendee> goingAttendees = new List<SeminarAttendee>();
             // store the list of pdf, ready for merging
@@ -249,10 +249,10 @@ namespace Seminar_Management_System.Forms
             //put attendees who with "going" into a list, ready for printing nametags
             foreach(var attendee in seminarReference.Attendees)
             {
-              //  if(attendee.Status == "Going")
-               // {
+                if(attendee.Status == "Going")
+                {
                     goingAttendees.Add(attendee);
-                //}
+                }
             }
             // draw the background of first page
             using (Graphics g = Graphics.FromImage(nameTag))
@@ -323,7 +323,17 @@ namespace Seminar_Management_System.Forms
             {
                 PdfDocument result = PdfDocument.Merge(PDFs);
                 // save merged pdf in this location, need to be changed before use
-                result.SaveAs(seminarReference.Title + "--Print.pdf");
+                SaveFileDialog printFile = new SaveFileDialog();
+                printFile.Filter = "Pdf Files (*.pdf) | *.pdf | All Files(*.*) | *.*";
+                printFile.Title = "Save as";
+                DialogResult dr = printFile.ShowDialog();
+
+                if ( dr == DialogResult.OK)
+                {
+                    result.SaveAs(printFile.FileName); 
+                }
+                MessageBox.Show("The nametag saved!", "Information", MessageBoxButtons.OK);
+               
             }
         }
 
