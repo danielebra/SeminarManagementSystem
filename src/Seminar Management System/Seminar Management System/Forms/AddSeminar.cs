@@ -86,6 +86,7 @@ namespace Seminar_Management_System
             // Connect the AttendeeTable to the Seminar object
             attendeeTable1.Setup(ref intermediary);
             attendeeTable1.Editable(false);
+            selectSpeakers1.editingEnabled = true;
             ddRoom.SelectionChanged += DdRoom_SelectionChanged;
             DdRoom_SelectionChanged(null, null);
         }

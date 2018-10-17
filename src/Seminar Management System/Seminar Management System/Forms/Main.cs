@@ -42,7 +42,11 @@ namespace Seminar_Management_System
         {
             // Give the DataInstance access to the current instance of this form
             DataInstance.mainInstance = this;
-            
+            // Subscribe to seminar changes
+            DataInstance.seminars.CollectionChanged += ObSeminars_CollectionChanged;
+            // Subscribe to user changes
+            DataInstance.users.CollectionChanged += Users_CollectionChanged;
+            // Load data into the program
             // Look for the connection string to connect to the AWS database
             if (File.Exists("secrets.txt"))
             {
@@ -50,28 +54,25 @@ namespace Seminar_Management_System
                 {
                     DataInstance._connectionString = stream.ReadLine();
                 }
+                try
+                {
+                    //DataInstance.populateWithMockData();
+                    DataInstance.populateWithData();
+                    DrawUserInterface();
+
+                }
+                catch (Exception err)
+                {
+                    MessageBox.Show(err.Message);
+                }
             }
             else
             {
-                if (MessageBox.Show("The \"secrets.txt\" file is missing. Make sure this file is placed along side the executable.\n\nContact the software developer to retrieve the missing file if you do not have it.",
+                if (MessageBox.Show("The \"secrets.txt\" file is missing. Make sure this file is placed along side the executable.\n\nContact the software developer to retrieve the missing file if you do not have it.\n\nLoading mock data instead of database data",
                     "Unable to configure database connection", MessageBoxButtons.OK, MessageBoxIcon.Error) == DialogResult.OK)
-                { }//Environment.Exit(1);
-            }
-            // Subscribe to seminar changes
-            DataInstance.seminars.CollectionChanged += ObSeminars_CollectionChanged;
-            // Subscribe to user changes
-            DataInstance.users.CollectionChanged += Users_CollectionChanged;
-            // Load data into the program
-            try
-            {
-                //DataInstance.populateWithMockData();
-                DataInstance.populateWithData();
-                DrawUserInterface();
-                
-            }
-            catch (Exception err)
-            {
-                MessageBox.Show(err.Message);
+                {
+                    DataInstance.populateWithMockData();
+                }
             }
 
             // Fire resize
@@ -80,7 +81,7 @@ namespace Seminar_Management_System
             interfaceUnlocker.Watch();
             DataInstance.LoggedInUserChanged += DataInstance_LoggedInUserChanged;
             // Default the LoggedInUser to an Attendee
-            DataInstance.LoggedInUser = new SystemAdmin();
+            DataInstance.LoggedInUser = new SeminarAttendee();
             // Subscribe to filter changes
             DataInstance.createFilterInterface.FilterUpdated += Filt_FilterUpdated;
 
