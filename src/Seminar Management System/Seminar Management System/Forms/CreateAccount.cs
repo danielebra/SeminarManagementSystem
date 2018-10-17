@@ -162,6 +162,9 @@ namespace Seminar_Management_System.Forms
                 case Role.Names.Admin:
                     DataInstance.addAdmin((SystemAdmin)newUser);
                     break;
+                case Role.Names.Host:
+                    DataInstance.addHost((SeminarHost)newUser);
+                    break;
             }
 
             MessageBox.Show("An account for " + newUser.Name + " has been created. ",

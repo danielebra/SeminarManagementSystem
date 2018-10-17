@@ -62,6 +62,7 @@ namespace Seminar_Management_System
                 SqlCommand cmdGetAttendees = new SqlCommand("SELECT * FROM Person p WHERE p.IsAttendee = 1", conn);
                 SqlCommand cmdGetSeminars = new SqlCommand("SELECT * FROM Seminar", conn);
                 SqlCommand cmdGetAdmins = new SqlCommand("SELECT * FROM Person p WHERE p.IsAdmin =1", conn);
+                SqlCommand cmdGetHosts = new SqlCommand("SELECT * FROM Person p WHERE p.IsHost =1", conn);
 
 
                 //Populate Organiser List
@@ -121,16 +122,20 @@ namespace Seminar_Management_System
                         users.Add(new SystemAdmin((int)reader["ID"], reader["Name"].ToString(), reader["Email"].ToString(), reader["PhoneNumber"].ToString()));
                     }
                 }
+
+                //Populate Seminar Host List
+                using (SqlDataReader reader = cmdGetHosts.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        users.Add(new SeminarHost((int)reader["ID"], reader["Name"].ToString(), reader["Email"].ToString(), reader["PhoneNumber"].ToString()));
+                    }
+                }
             }
         }
 
 
         #region Add to Database
-
-
-
-
-
         public static void addSeminar(Seminar seminar)
         {
             using (SqlConnection conn = new SqlConnection())
@@ -141,7 +146,7 @@ namespace Seminar_Management_System
 
                 //Create sql command to insert new seminar into db
                 SqlCommand cmdAddSeminar = new SqlCommand("INSERT INTO Seminar(Title, Description, StartDate, EndDate, HostPersonID, OrganiserPersonID, VenueID) VALUES(@title, @description, @startDate, @endDate, null, @organiserPersonId, @venueId);");
-                
+
                 using (cmdAddSeminar)
                 {
                     //Adds parameter values for above statement
@@ -156,7 +161,7 @@ namespace Seminar_Management_System
                     cmdAddSeminar.ExecuteNonQuery();
                 }
             }
-                seminars.Add(seminar);
+            seminars.Add(seminar);
         }
 
         /// <summary>
@@ -211,7 +216,7 @@ namespace Seminar_Management_System
                 }
             }
             seminarOrganiser.Role = Authentication.GetRoleFromName(Role.Names.Organiser);
-            
+
         }
 
         public static void addSpeaker(Speaker seminarSpeaker)
@@ -267,8 +272,28 @@ namespace Seminar_Management_System
 
         public static void addHost(SeminarHost seminarHost)
         {
+            using (SqlConnection conn = new SqlConnection())
+            {
+                //instantiate and open new connection using DB Connection string
+                conn.ConnectionString = _connectionString;
+                conn.Open();
 
+                //Create sql command to insert new seminar into db
+                SqlCommand cmdAddOrganiser = new SqlCommand("INSERT INTO Person(Name, Email, PhoneNumber, IsAdmin, IsHost, IsAttendee, IsSpeaker, IsOrganiser) VALUES(@name, @email, @phoneNumber, 0, 1, 0, 0, 0);");
+
+                using (cmdAddOrganiser)
+                {
+                    //Adds parameter values for above statement
+                    cmdAddOrganiser.Parameters.AddWithValue("@name", seminarHost.Name);
+                    cmdAddOrganiser.Parameters.AddWithValue("@email", seminarHost.Email);
+                    cmdAddOrganiser.Parameters.AddWithValue("@phoneNumber", seminarHost.PhoneNumber);
+                    cmdAddOrganiser.Connection = conn;
+                    //Execute query
+                    cmdAddOrganiser.ExecuteNonQuery();
+                }
+            }
         }
+
         #endregion
 
         #region Edit in Database
@@ -288,7 +313,7 @@ namespace Seminar_Management_System
 
             DataInstance.rooms.Add(new Room(0, "Building 11", "Ultimo", 100));
             DataInstance.rooms.Add(new Room(1, "Building 10", "Ultimo", 200));
-            
+
             DataInstance.users.Add(new Speaker(0, "Dr James", "james@speakers.com", String.Empty, "This is a biography..."));
             DataInstance.users.Add(new Speaker(1, "Dr Paul", "paul@speakers.com", String.Empty, "This is a biography..."));
 
