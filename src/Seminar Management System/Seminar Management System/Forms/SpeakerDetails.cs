@@ -29,14 +29,22 @@ namespace Seminar_Management_System.Forms
         }
         private void createTabs()
         {
+
             foreach (Speaker speaker in seminarReference.Speakers)
             {
-                TabPage tp = new TabPage();
-                tp.Text = speaker.Name;
-                SpeakerDetail sd = new SpeakerDetail();
-                sd.Populate(speaker);
-                tp.Controls.Add(sd);
-                tcSpeakers.TabPages.Add(tp);
+                try
+                {
+                    TabPage tp = new TabPage();
+                    tp.Text = speaker.Name;
+                    SpeakerDetail sd = new SpeakerDetail();
+                    sd.Populate(speaker);
+                    tp.Controls.Add(sd);
+                    tcSpeakers.TabPages.Add(tp);
+                }
+                catch (Exception ex)
+                {
+
+                }
             }
         }
         private void SpeakerDetails_Load(object sender, EventArgs e)
