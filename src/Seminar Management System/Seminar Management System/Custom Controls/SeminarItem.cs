@@ -29,8 +29,8 @@ namespace Seminar_Management_System.Custom_Controls
             lblTitle.Text = seminar.Title;
             lblDescription.Text = seminar.Description;
             lblDuration.Text = seminar.DurationString;
-            lblGoing.Text = "Going: " + seminar.Attendees.Where(s => s.Status == "Going").Count();
-            lblAttendeeInterested.Text = "Interested: " + seminar.Attendees.Where(s => s.Status == "Interested").Count();
+            lblGoing.Text = "Going: " + seminar.NumberOfAttendeesGoing;
+            lblAttendeeInterested.Text = "Interested: " + seminar.NumberOfAttendeesInterested;
             lblDate.Text = "Date: " + seminar.StartDate.ToShortDateString();
 
         }

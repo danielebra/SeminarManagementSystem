@@ -36,7 +36,7 @@ namespace Seminar_Management_System.Custom_Controls
         {
             // Connect the appropriate objects
             this.seminar = seminar;
-            dgvAttendees.DataSource = this.seminar.Attendees;
+            dgvAttendees.DataSource = DataInstance.getSeminarAttendees(seminar);
             dgvAttendees.RowsAdded += DgvAttendees_RowsAdded;
             dgvAttendees.RowsRemoved += DgvAttendees_RowsRemoved;
             updateStatusLabels();

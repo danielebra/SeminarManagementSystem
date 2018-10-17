@@ -60,9 +60,10 @@ namespace Seminar_Management_System
                 SqlCommand cmdGetRooms = new SqlCommand("SELECT * FROM Venue", conn);
                 SqlCommand cmdGetSpeakers = new SqlCommand("SELECT * FROM Person p WHERE p.IsSpeaker = 1", conn);
                 SqlCommand cmdGetAttendees = new SqlCommand("SELECT * FROM Person p WHERE p.IsAttendee = 1", conn);
-                SqlCommand cmdGetSeminars = new SqlCommand("SELECT * FROM Seminar", conn);
+                SqlCommand cmdGetSeminars = new SqlCommand("select Seminar.ID, Seminar.Title, Seminar.Description, Seminar.StartDate, Seminar.EndDate, Seminar.HostPersonID, Seminar.OrganiserPersonID, Seminar.VenueID, sum(CASE WHEN SeminarAttendees.Status = 'Going' THEN 1 ELSE 0 END) as 'AttendeesGoing', sum(CASE WHEN SeminarAttendees.Status = 'Interested' THEN 1 ELSE 0 END) as 'AttendeesInterested' from Seminar left join SeminarAttendees on Seminar.ID = SeminarAttendees.SeminarID group by Seminar.ID, Seminar.Title, Seminar.Description, Seminar.StartDate, Seminar.EndDate, Seminar.HostPersonID, Seminar.OrganiserPersonID, Seminar.VenueID; ", conn);
                 SqlCommand cmdGetAdmins = new SqlCommand("SELECT * FROM Person p WHERE p.IsAdmin =1", conn);
                 SqlCommand cmdGetHosts = new SqlCommand("SELECT * FROM Person p WHERE p.IsHost =1", conn);
+                
 
 
                 //Populate Organiser List
@@ -105,12 +106,15 @@ namespace Seminar_Management_System
                 //Populate Seminars List
                 using (SqlDataReader reader = cmdGetSeminars.ExecuteReader())
                 {
+                    
                     while (reader.Read())
                     {
                         var organiser = Utils.GetAllOrganisers().Where(o => o.ID == (int)reader["OrganiserPersonID"]).ToList();
+                        
+
                         var room = rooms.Where(r => r.ID == (int)reader["VenueID"]).ToList();
 
-                        seminars.Add(new Seminar((int)reader["ID"], organiser[0], room[0], Utils.GetAllSpeakers(), attendeeList, reader["Title"].ToString(), reader["Description"].ToString(), (DateTime)reader["StartDate"], (DateTime)reader["EndDate"]));
+                        seminars.Add(new Seminar((int)reader["ID"], organiser[0], room[0], Utils.GetAllSpeakers(), attendeeList, reader["Title"].ToString(), reader["Description"].ToString(), (DateTime)reader["StartDate"], (DateTime)reader["EndDate"], (int)reader["AttendeesGoing"], (int)reader["AttendeesInterested"]));
                     }
                 }
 
@@ -131,6 +135,24 @@ namespace Seminar_Management_System
                         users.Add(new SeminarHost((int)reader["ID"], reader["Name"].ToString(), reader["Email"].ToString(), reader["PhoneNumber"].ToString()));
                     }
                 }
+            }
+        }
+
+        public static List<SeminarAttendee> getSeminarAttendees(Seminar seminar)
+        {
+            List<SeminarAttendee> seminarAttendees = new List<SeminarAttendee>();
+            using (SqlConnection conn = new SqlConnection())
+            {
+                //instantiate and open new connection using DB Connection string
+                conn.ConnectionString = _connectionString;
+                conn.Open();
+
+                SqlCommand cmdGetSeminarAttendees = new SqlCommand("select Person.ID, Person.Name, Person.Email, Person.PhoneNumber, SeminarAttendees.Status from Person left join SeminarAttendees on Person.ID = SeminarAttendees.AttendeePersonID where SeminarAttendees.SeminarID = " + seminar.ID, conn);
+
+                using (SqlDataReader reader = cmdGetSeminarAttendees.ExecuteReader())
+                    while (reader.Read())
+                        seminarAttendees.Add(new SeminarAttendee((int)reader["ID"], reader["Name"].ToString(), reader["Email"].ToString(), reader["PhoneNumber"].ToString(), reader["Status"].ToString()));
+                return seminarAttendees;
             }
         }
 
@@ -166,6 +188,11 @@ namespace Seminar_Management_System
                 }
             }
             seminars.Add(seminar);
+        }
+
+        public static void addSeminarAttendees(Seminar seminar)
+        {
+
         }
 
         /// <summary>
@@ -647,9 +674,9 @@ namespace Seminar_Management_System
             var tomorrow = today.AddDays(1);
             var nextWeek = today.AddDays(7);
             DataInstance.seminars.Add(new Seminar(0, Utils.GetAllOrganisers()[0], DataInstance.rooms[0], Utils.GetAllSpeakers(),
-                attendeeList, "Learning Python", "The Zen of Python", nextWeek, nextWeek.AddHours(3)));
+                attendeeList, "Learning Python", "The Zen of Python", nextWeek, nextWeek.AddHours(3),attendeeList.Count(), attendeeList.Count()));
             DataInstance.seminars.Add(new Seminar(1, Utils.GetAllOrganisers()[0], DataInstance.rooms[0], Utils.GetAllSpeakers(),
-                attendeeList, "Learning C#", "Java developers wear glasses because they can't see sharp", tomorrow, tomorrow.AddHours(1)));
+                attendeeList, "Learning C#", "Java developers wear glasses because they can't see sharp", tomorrow, tomorrow.AddHours(1), attendeeList.Count(), attendeeList.Count()));
             DataInstance.users.Add(new SystemAdmin(0, "Derrick", "derrick@dev.org", "111"));
             DataInstance.users.Add(new Speaker(2, "Mr Paul", "paul@speakers.com", String.Empty, "Biography"));
         }

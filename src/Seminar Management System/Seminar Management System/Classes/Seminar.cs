@@ -25,6 +25,10 @@ namespace Seminar_Management_System.Classes
         public DateTime EndDate { get; set; }
         public string DurationString { get; set; }
 
+        //Amount of attendees attending this seminar
+        public int NumberOfAttendeesGoing;
+        public int NumberOfAttendeesInterested;
+
         public Seminar()
         {
             Speakers = new List<Speaker>();
@@ -32,7 +36,7 @@ namespace Seminar_Management_System.Classes
         }
 
         public Seminar(int id, SeminarOrganiser organiser, Room room, List<Speaker> speakers, BindingList<SeminarAttendee> attendees,
-            string title, string description, DateTime startDate, DateTime endDate)
+            string title, string description, DateTime startDate, DateTime endDate, int numberOfAttendeesGoing, int numberOfAttendeesInterested)
         {
             this.Organiser = organiser;
             this.Room = room;
@@ -43,6 +47,8 @@ namespace Seminar_Management_System.Classes
             this.StartDate = startDate;
             this.EndDate = endDate;
             this.ID = id;
+            this.NumberOfAttendeesGoing = numberOfAttendeesGoing;
+            this.NumberOfAttendeesInterested = numberOfAttendeesInterested;
         }
 
     }
