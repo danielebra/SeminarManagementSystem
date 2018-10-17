@@ -136,6 +136,10 @@ namespace Seminar_Management_System
 
 
         #region Add to Database
+        /// <summary>
+        /// Adds a seminar
+        /// </summary>
+        /// <param name="seminar"></param>
         public static void addSeminar(Seminar seminar)
         {
             using (SqlConnection conn = new SqlConnection())
@@ -193,6 +197,10 @@ namespace Seminar_Management_System
             users.Add(attendee);
         }
 
+        /// <summary>
+        /// Adds a seminar organiser
+        /// </summary>
+        /// <param name="seminarOrganiser"></param>
         public static void addOrganiser(SeminarOrganiser seminarOrganiser)
         {
             using (SqlConnection conn = new SqlConnection())
@@ -219,6 +227,10 @@ namespace Seminar_Management_System
 
         }
 
+        /// <summary>
+        /// Adds a seminar speaker
+        /// </summary>
+        /// <param name="seminarSpeaker"></param>
         public static void addSpeaker(Speaker seminarSpeaker)
         {
             using (SqlConnection conn = new SqlConnection())
@@ -245,6 +257,10 @@ namespace Seminar_Management_System
             seminarSpeaker.Role = Authentication.GetRoleFromName(Role.Names.Speaker);
         }
 
+        /// <summary>
+        /// Adds a system admin
+        /// </summary>
+        /// <param name="systemAdmin"></param>
         public static void addAdmin(SystemAdmin systemAdmin)
         {
             using (SqlConnection conn = new SqlConnection())
@@ -270,6 +286,10 @@ namespace Seminar_Management_System
             systemAdmin.Role = Authentication.GetRoleFromName(Role.Names.Admin);
         }
 
+        /// <summary>
+        /// Adds a seminar host
+        /// </summary>
+        /// <param name="seminarHost"></param>
         public static void addHost(SeminarHost seminarHost)
         {
             using (SqlConnection conn = new SqlConnection())
@@ -297,11 +317,107 @@ namespace Seminar_Management_System
         #endregion
 
         #region Edit in Database
+        public static void editSeminar(Seminar seminar)
+        {
+            using (SqlConnection conn = new SqlConnection())
+            {
+                //instantiate and open new connection using DB Connection string
+                conn.ConnectionString = _connectionString;
+                conn.Open();
+
+                //Create sql command to insert new seminar into db
+                SqlCommand cmdEditSeminar = new SqlCommand("UPDATE Seminar SET Title = @title, Description = @description, StartDate = @startDate, EndDate=@endDate, HostPersonID=null, OrganiserPersonID=@organiserPersonId, VenueID=@venueId WHERE ID = @seminarId");
+
+                using (cmdEditSeminar)
+                {
+                    //Adds parameter values for above statement
+                    cmdEditSeminar.Parameters.AddWithValue("@seminarId", seminar.ID);
+                    cmdEditSeminar.Parameters.AddWithValue("@title", seminar.Title);
+                    cmdEditSeminar.Parameters.AddWithValue("@description", seminar.Description);
+                    cmdEditSeminar.Parameters.AddWithValue("@startDate", seminar.StartDate);
+                    cmdEditSeminar.Parameters.AddWithValue("@endDate", seminar.EndDate);
+                    cmdEditSeminar.Parameters.AddWithValue("@organiserPersonId", seminar.Organiser.ID);
+                    cmdEditSeminar.Parameters.AddWithValue("@venueId", seminar.Room.ID);
+                    cmdEditSeminar.Connection = conn;
+                    //Execute query
+                    cmdEditSeminar.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public static void editAttendee(User attendee)
+        {
+            using (SqlConnection conn = new SqlConnection())
+            {
+                //instantiate and open new connection using DB Connection string
+                conn.ConnectionString = _connectionString;
+                conn.Open();
+
+                //Create sql command to insert new seminar into db
+                SqlCommand cmdEditAttendee = new SqlCommand("UPDATE Person SET Name= @name, Email=@email, PhoneNumber=@phoneNumber, IsAdmin=0, IsHost=0, IsAttendee=1, IsSpeaker=0, IsOrganiser=0 WHERE ID = @Id");
+
+                using (cmdEditAttendee)
+                {
+                    //Adds parameter values for above statement
+                    cmdEditAttendee.Parameters.AddWithValue("@Id", attendee.ID);
+                    cmdEditAttendee.Parameters.AddWithValue("@name", attendee.Name);
+                    cmdEditAttendee.Parameters.AddWithValue("@email", attendee.Email);
+                    cmdEditAttendee.Parameters.AddWithValue("@phoneNumber", attendee.PhoneNumber);
+                    cmdEditAttendee.Connection = conn;
+                    //Execute query
+                    cmdEditAttendee.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public static void editOrganiser(User seminarOrganiser)
+        {
+            using (SqlConnection conn = new SqlConnection())
+            {
+                //instantiate and open new connection using DB Connection string
+                conn.ConnectionString = _connectionString;
+                conn.Open();
+
+                //Create sql command to insert new seminar into db
+                SqlCommand cmdEditOrganiser = new SqlCommand("UPDATE Person SET Name= @name, Email=@email, PhoneNumber=@phoneNumber, IsAdmin=0, IsHost=0, IsAttendee=0, IsSpeaker=0, IsOrganiser=1 WHERE ID = @Id");
+
+                using (cmdEditOrganiser)
+                {
+                    //Adds parameter values for above statement
+                    cmdEditOrganiser.Parameters.AddWithValue("@Id", seminarOrganiser.ID);
+                    cmdEditOrganiser.Parameters.AddWithValue("@name", seminarOrganiser.Name);
+                    cmdEditOrganiser.Parameters.AddWithValue("@email", seminarOrganiser.Email);
+                    cmdEditOrganiser.Parameters.AddWithValue("@phoneNumber", seminarOrganiser.PhoneNumber);
+                    cmdEditOrganiser.Connection = conn;
+                    //Execute query
+                    cmdEditOrganiser.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public static void editSpeaker(Speaker speaker)
+        {
+
+        }
+
+        public static void editAdmin(User admin)
+        {
+
+        }
+
+        public static void editHost(User host)
+        {
+
+        }
 
         #endregion
 
         #region Delete in Database
 
+        /// <summary>
+        /// Deletes a seminar
+        /// </summary>
+        /// <param name="seminar"></param>
         public static void deleteSeminar(Seminar seminar)
         {
             using (SqlConnection conn = new SqlConnection())
@@ -323,6 +439,10 @@ namespace Seminar_Management_System
             }
         }
 
+        /// <summary>
+        /// Deletes an attendee
+        /// </summary>
+        /// <param name="attendee"></param>
         public static void deleteAttendee(SeminarAttendee attendee)
         {
             using (SqlConnection conn = new SqlConnection())
@@ -344,6 +464,10 @@ namespace Seminar_Management_System
             }
         }
 
+        /// <summary>
+        /// Deletes a seminar organiser
+        /// </summary>
+        /// <param name="organiser"></param>
         public static void deleteOrganiser(SeminarOrganiser organiser)
         {
             using (SqlConnection conn = new SqlConnection())
@@ -365,6 +489,10 @@ namespace Seminar_Management_System
             }
         }
 
+        /// <summary>
+        /// Deletes a seminar speaker
+        /// </summary>
+        /// <param name="speaker"></param>
         public static void deleteSpeaker(Speaker speaker)
         {
             using (SqlConnection conn = new SqlConnection())
@@ -386,6 +514,10 @@ namespace Seminar_Management_System
             }
         }
 
+        /// <summary>
+        /// Deletes a system admin
+        /// </summary>
+        /// <param name="systemAdmin"></param>
         public static void deleteAdmin(SystemAdmin systemAdmin)
         {
             using (SqlConnection conn = new SqlConnection())
@@ -407,6 +539,10 @@ namespace Seminar_Management_System
             }
         }
 
+        /// <summary>
+        /// Deletes a seminar host
+        /// </summary>
+        /// <param name="host"></param>
         public static void deleteHost(SeminarHost host)
         {
             using (SqlConnection conn = new SqlConnection())

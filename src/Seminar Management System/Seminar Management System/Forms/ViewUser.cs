@@ -99,12 +99,26 @@ namespace Seminar_Management_System.Forms
                 // Create a new user object that is a user, based on previous values
                 Speaker userAsSpeaker = new Speaker(userReference.ID, userReference.Name, userReference.Email, userReference.PhoneNumber, rtbBiography.Text);
                 DataInstance.users[DataInstance.users.IndexOf(userReference)] = userAsSpeaker;
+                DataInstance.editSpeaker(userAsSpeaker);
             }
             else
             {
                 // Used to fire observer event, as it is not triggered by ref updates
                 // This will update the user list interface
-                DataInstance.users[DataInstance.users.IndexOf(userReference)] = userReference;
+                DataInstance.users[DataInstance.users.IndexOf(this.userReference)] = this.userReference;
+                //Update changes to user to DB
+                switch (userReference.Role.Name)
+                {
+                    case Role.Names.Organiser:
+                        DataInstance.editOrganiser(userReference);
+                        break;
+                    case Role.Names.Admin:
+                        DataInstance.editAdmin((SystemAdmin)userReference);
+                        break;
+                    case Role.Names.Host:
+                        DataInstance.editHost((SeminarHost)userReference);
+                        break;
+                }
             }
         }
 

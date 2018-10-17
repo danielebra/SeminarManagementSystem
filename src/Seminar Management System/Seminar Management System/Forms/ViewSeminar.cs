@@ -107,6 +107,7 @@ namespace Seminar_Management_System.Forms
             // Used to fire observer event, as it is not triggered by ref updates
                 // This will update the seminar list interface
             DataInstance.seminars[DataInstance.seminars.IndexOf(seminarReference)] = seminarReference;
+            DataInstance.editSeminar(seminarReference);
         }
 
         private void _enableEditing(bool canEdit)
