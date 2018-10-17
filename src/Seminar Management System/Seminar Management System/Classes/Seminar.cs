@@ -26,8 +26,8 @@ namespace Seminar_Management_System.Classes
         public string DurationString { get; set; }
 
         //Amount of attendees attending this seminar
-        public int NumberOfAttendeesGoing;
-        public int NumberOfAttendeesInterested;
+        public int NumberOfAttendeesGoing { get { return this.Attendees.Where(s => s.Status == "Going").Count(); } }
+        public int NumberOfAttendeesInterested { get { return this.Attendees.Where(s => s.Status == "Interested").Count(); } }
 
         public Seminar()
         {
@@ -36,7 +36,7 @@ namespace Seminar_Management_System.Classes
         }
 
         public Seminar(int id, SeminarOrganiser organiser, Room room, List<Speaker> speakers, BindingList<SeminarAttendee> attendees,
-            string title, string description, DateTime startDate, DateTime endDate, int numberOfAttendeesGoing, int numberOfAttendeesInterested)
+            string title, string description, DateTime startDate, DateTime endDate)
         {
             this.Organiser = organiser;
             this.Room = room;
@@ -47,8 +47,6 @@ namespace Seminar_Management_System.Classes
             this.StartDate = startDate;
             this.EndDate = endDate;
             this.ID = id;
-            this.NumberOfAttendeesGoing = numberOfAttendeesGoing;
-            this.NumberOfAttendeesInterested = numberOfAttendeesInterested;
         }
 
     }

@@ -114,7 +114,11 @@ namespace Seminar_Management_System
 
                         var room = rooms.Where(r => r.ID == (int)reader["VenueID"]).ToList();
 
-                        seminars.Add(new Seminar((int)reader["ID"], organiser[0], room[0], Utils.GetAllSpeakers(), attendeeList, reader["Title"].ToString(), reader["Description"].ToString(), (DateTime)reader["StartDate"], (DateTime)reader["EndDate"], (int)reader["AttendeesGoing"], (int)reader["AttendeesInterested"]));
+                        var newSeminar = new Seminar((int)reader["ID"], organiser[0], room[0], Utils.GetAllSpeakers(), attendeeList,
+                            reader["Title"].ToString(), reader["Description"].ToString(), (DateTime)reader["StartDate"],
+                            (DateTime)reader["EndDate"]);
+                        newSeminar.Attendees = DataInstance.getSeminarAttendees(newSeminar);
+                        seminars.Add(newSeminar);
                     }
                 }
 
@@ -693,9 +697,9 @@ namespace Seminar_Management_System
             var tomorrow = today.AddDays(1);
             var nextWeek = today.AddDays(7);
             DataInstance.seminars.Add(new Seminar(0, Utils.GetAllOrganisers()[0], DataInstance.rooms[0], Utils.GetAllSpeakers(),
-                attendeeList, "Learning Python", "The Zen of Python", nextWeek, nextWeek.AddHours(3),attendeeList.Count(), attendeeList.Count()));
+                attendeeList, "Learning Python", "The Zen of Python", nextWeek, nextWeek.AddHours(3)));
             DataInstance.seminars.Add(new Seminar(1, Utils.GetAllOrganisers()[0], DataInstance.rooms[0], Utils.GetAllSpeakers(),
-                attendeeList, "Learning C#", "Java developers wear glasses because they can't see sharp", tomorrow, tomorrow.AddHours(1), attendeeList.Count(), attendeeList.Count()));
+                attendeeList, "Learning C#", "Java developers wear glasses because they can't see sharp", tomorrow, tomorrow.AddHours(1)));
             DataInstance.users.Add(new SystemAdmin(0, "Derrick", "derrick@dev.org", "111"));
             DataInstance.users.Add(new Speaker(2, "Mr Paul", "paul@speakers.com", String.Empty, "Biography"));
         }
