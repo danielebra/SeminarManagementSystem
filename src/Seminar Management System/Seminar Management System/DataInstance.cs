@@ -110,7 +110,7 @@ namespace Seminar_Management_System
                         var organiser = Utils.GetAllOrganisers().Where(o => o.ID == (int)reader["OrganiserPersonID"]).ToList();
                         var room = rooms.Where(r => r.ID == (int)reader["VenueID"]).ToList();
 
-                        seminars.Add(new Seminar(organiser[0], room[0], Utils.GetAllSpeakers(), attendeeList, reader["Title"].ToString(), reader["Description"].ToString(), DateTime.Now, DateTime.Today));
+                        seminars.Add(new Seminar((int)reader["ID"], organiser[0], room[0], Utils.GetAllSpeakers(), attendeeList, reader["Title"].ToString(), reader["Description"].ToString(), DateTime.Now, DateTime.Today));
                     }
                 }
 
@@ -302,6 +302,27 @@ namespace Seminar_Management_System
 
         #region Delete in Database
 
+        public static void deleteSeminar(Seminar seminar)
+        {
+            using (SqlConnection conn = new SqlConnection())
+            {
+                //instantiate and open new connection using DB Connection string
+                conn.ConnectionString = _connectionString;
+                conn.Open();
+
+                //Create sql command to insert new seminar into db
+                SqlCommand cmdDeleteSeminar = new SqlCommand("DELETE FROM Seminar WHERE ID = @seminarId);");
+
+                using (cmdDeleteSeminar)
+                {
+                    cmdDeleteSeminar.Parameters.AddWithValue("@seminarId", seminar.ID);
+                    cmdDeleteSeminar.Connection = conn;
+                    //Execute query
+                    cmdDeleteSeminar.ExecuteNonQuery();
+                }
+            }
+        }
+
         #endregion
 
         // Load mock data into memory
@@ -324,9 +345,9 @@ namespace Seminar_Management_System
             var today = DateTime.Now;
             var tomorrow = today.AddDays(1);
             var nextWeek = today.AddDays(7);
-            DataInstance.seminars.Add(new Seminar(Utils.GetAllOrganisers()[0], DataInstance.rooms[0], Utils.GetAllSpeakers(),
+            DataInstance.seminars.Add(new Seminar(0, Utils.GetAllOrganisers()[0], DataInstance.rooms[0], Utils.GetAllSpeakers(),
                 attendeeList, "Learning Python", "The Zen of Python", nextWeek, nextWeek.AddHours(3)));
-            DataInstance.seminars.Add(new Seminar(Utils.GetAllOrganisers()[0], DataInstance.rooms[0], Utils.GetAllSpeakers(),
+            DataInstance.seminars.Add(new Seminar(1, Utils.GetAllOrganisers()[0], DataInstance.rooms[0], Utils.GetAllSpeakers(),
                 attendeeList, "Learning C#", "Java developers wear glasses because they can't see sharp", tomorrow, tomorrow.AddHours(1)));
             DataInstance.users.Add(new SystemAdmin(0, "Derrick", "derrick@dev.org", "111"));
             DataInstance.users.Add(new Speaker(2, "Mr Paul", "paul@speakers.com", String.Empty, "Biography"));
