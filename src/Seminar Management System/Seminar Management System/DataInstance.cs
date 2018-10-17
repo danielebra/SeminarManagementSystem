@@ -185,7 +185,7 @@ namespace Seminar_Management_System
             users.Add(attendee);
         }
 
-        public static void addOrganiser(SeminarOrganiser seminarOrganiser)
+        public static void addOrganiser(User seminarOrganiser)
         {
             using (SqlConnection conn = new SqlConnection())
             {
@@ -194,7 +194,7 @@ namespace Seminar_Management_System
                 conn.Open();
 
                 //Create sql command to insert new seminar into db
-                SqlCommand cmdAddOrganiser = new SqlCommand("INSERT INTO Person(Name, Email, PhoneNumber, IsAdmin, IsHost, IsAttendee, IsSpeaker, IsOrganiser) VALUES(@name, @email, @phoneNumber, 0, 0, 1, 0, 0);");
+                SqlCommand cmdAddOrganiser = new SqlCommand("INSERT INTO Person(Name, Email, PhoneNumber, IsAdmin, IsHost, IsAttendee, IsSpeaker, IsOrganiser) VALUES(@name, @email, @phoneNumber, 0, 0, 0, 0, 1);");
 
                 using (cmdAddOrganiser)
                 {
@@ -208,12 +208,33 @@ namespace Seminar_Management_System
                 }
             }
             seminarOrganiser.Role = Authentication.GetRoleFromName(Role.Names.Organiser);
-            users.Add(seminarOrganiser);
+            
         }
 
-        public static void addSpeaker()
+        public static void addSpeaker(Speaker seminarSpeaker)
         {
+            using (SqlConnection conn = new SqlConnection())
+            {
+                //instantiate and open new connection using DB Connection string
+                conn.ConnectionString = _connectionString;
+                conn.Open();
 
+                //Create sql command to insert new seminar into db
+                SqlCommand cmdAddOrganiser = new SqlCommand("INSERT INTO Person(Name, Email, PhoneNumber, Biography, IsAdmin, IsHost, IsAttendee, IsSpeaker, IsOrganiser) VALUES(@name, @email, @phoneNumber, @biography, 0, 0, 0, 1, 0);");
+
+                using (cmdAddOrganiser)
+                {
+                    //Adds parameter values for above statement
+                    cmdAddOrganiser.Parameters.AddWithValue("@name", seminarSpeaker.Name);
+                    cmdAddOrganiser.Parameters.AddWithValue("@email", seminarSpeaker.Email);
+                    cmdAddOrganiser.Parameters.AddWithValue("@phoneNumber", seminarSpeaker.PhoneNumber);
+                    cmdAddOrganiser.Parameters.AddWithValue("@biography", seminarSpeaker.Biography);
+                    cmdAddOrganiser.Connection = conn;
+                    //Execute query
+                    cmdAddOrganiser.ExecuteNonQuery();
+                }
+            }
+            seminarSpeaker.Role = Authentication.GetRoleFromName(Role.Names.Speaker);
         }
 
         public static void addAdmin()
