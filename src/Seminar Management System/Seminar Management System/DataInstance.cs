@@ -397,17 +397,78 @@ namespace Seminar_Management_System
 
         public static void editSpeaker(Speaker speaker)
         {
+            using (SqlConnection conn = new SqlConnection())
+            {
+                //instantiate and open new connection using DB Connection string
+                conn.ConnectionString = _connectionString;
+                conn.Open();
 
+                //Create sql command to insert new seminar into db
+                SqlCommand cmdEditSpeaker = new SqlCommand("UPDATE Person SET Name= @name, Email=@email, PhoneNumber=@phoneNumber, Biography=@biography, IsAdmin=0, IsHost=0, IsAttendee=0, IsSpeaker=1, IsOrganiser=0 WHERE ID = @Id");
+
+                using (cmdEditSpeaker)
+                {
+                    //Adds parameter values for above statement
+                    cmdEditSpeaker.Parameters.AddWithValue("@Id", speaker.ID);
+                    cmdEditSpeaker.Parameters.AddWithValue("@name", speaker.Name);
+                    cmdEditSpeaker.Parameters.AddWithValue("@email", speaker.Email);
+                    cmdEditSpeaker.Parameters.AddWithValue("@phoneNumber", speaker.PhoneNumber);
+                    cmdEditSpeaker.Parameters.AddWithValue("@biography", speaker.Biography);
+                    cmdEditSpeaker.Connection = conn;
+                    //Execute query
+                    cmdEditSpeaker.ExecuteNonQuery();
+                }
+            }
         }
 
         public static void editAdmin(User admin)
         {
+            using (SqlConnection conn = new SqlConnection())
+            {
+                //instantiate and open new connection using DB Connection string
+                conn.ConnectionString = _connectionString;
+                conn.Open();
 
+                //Create sql command to insert new seminar into db
+                SqlCommand cmdEditAdmin = new SqlCommand("UPDATE Person SET Name= @name, Email=@email, PhoneNumber=@phoneNumber, IsAdmin=1, IsHost=0, IsAttendee=0, IsSpeaker=0, IsOrganiser=0 WHERE ID = @Id");
+
+                using (cmdEditAdmin)
+                {
+                    //Adds parameter values for above statement
+                    cmdEditAdmin.Parameters.AddWithValue("@Id", admin.ID);
+                    cmdEditAdmin.Parameters.AddWithValue("@name", admin.Name);
+                    cmdEditAdmin.Parameters.AddWithValue("@email", admin.Email);
+                    cmdEditAdmin.Parameters.AddWithValue("@phoneNumber", admin.PhoneNumber);
+                    cmdEditAdmin.Connection = conn;
+                    //Execute query
+                    cmdEditAdmin.ExecuteNonQuery();
+                }
+            }
         }
 
         public static void editHost(User host)
         {
+            using (SqlConnection conn = new SqlConnection())
+            {
+                //instantiate and open new connection using DB Connection string
+                conn.ConnectionString = _connectionString;
+                conn.Open();
 
+                //Create sql command to insert new seminar into db
+                SqlCommand cmdEditHost = new SqlCommand("UPDATE Person SET Name= @name, Email=@email, PhoneNumber=@phoneNumber, IsAdmin=0, IsHost=1, IsAttendee=0, IsSpeaker=0, IsOrganiser=0 WHERE ID = @Id");
+
+                using (cmdEditHost)
+                {
+                    //Adds parameter values for above statement
+                    cmdEditHost.Parameters.AddWithValue("@Id", host.ID);
+                    cmdEditHost.Parameters.AddWithValue("@name", host.Name);
+                    cmdEditHost.Parameters.AddWithValue("@email", host.Email);
+                    cmdEditHost.Parameters.AddWithValue("@phoneNumber", host.PhoneNumber);
+                    cmdEditHost.Connection = conn;
+                    //Execute query
+                    cmdEditHost.ExecuteNonQuery();
+                }
+            }
         }
 
         #endregion

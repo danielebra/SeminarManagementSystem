@@ -117,10 +117,10 @@ namespace Seminar_Management_System.Forms
                         DataInstance.editOrganiser(userReference);
                         break;
                     case Role.Names.Admin:
-                        DataInstance.editAdmin((SystemAdmin)userReference);
+                        DataInstance.editAdmin(userReference);
                         break;
                     case Role.Names.Host:
-                        DataInstance.editHost((SeminarHost)userReference);
+                        DataInstance.editHost(userReference);
                         break;
                 }
             }
