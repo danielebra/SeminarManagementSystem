@@ -233,7 +233,7 @@ namespace Seminar_Management_System.Forms
         {
             Bitmap nameTag = new Bitmap(723, 962);
             // the url need to be changed before using
-            string pdf = @"C:\Users\samh1\Desktop\SDP\sdp\" + seminarReference.Title + ".pdf";
+            string pdf = seminarReference.Title + ".pdf";
             // store the attendee whose status is going
             List<SeminarAttendee> goingAttendees = new List<SeminarAttendee>();
             // store the list of pdf, ready for merging
@@ -244,15 +244,15 @@ namespace Seminar_Management_System.Forms
             // set up for handling align
             int counter = 0;
             // background file ( need to be download before using)
-            Image background = Image.FromFile(@"C:\Users\samh1\Desktop\SDP\sdp\Background.png");
+            Image background = Image.FromFile("Background.png");
 
             //put attendees who with "going" into a list, ready for printing nametags
             foreach(var attendee in seminarReference.Attendees)
             {
-                if(attendee.Status == "Going")
-                {
+              //  if(attendee.Status == "Going")
+               // {
                     goingAttendees.Add(attendee);
-                }
+                //}
             }
             // draw the background of first page
             using (Graphics g = Graphics.FromImage(nameTag))
@@ -323,7 +323,7 @@ namespace Seminar_Management_System.Forms
             {
                 PdfDocument result = PdfDocument.Merge(PDFs);
                 // save merged pdf in this location, need to be changed before use
-                result.SaveAs(@"C:\Users\samh1\Desktop\SDP\sdp\" + seminarReference.Title + "--Print.pdf");
+                result.SaveAs(seminarReference.Title + "--Print.pdf");
             }
         }
 
