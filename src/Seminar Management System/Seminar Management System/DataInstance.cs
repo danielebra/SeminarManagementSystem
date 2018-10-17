@@ -138,9 +138,9 @@ namespace Seminar_Management_System
             }
         }
 
-        public static List<SeminarAttendee> getSeminarAttendees(Seminar seminar)
+        public static BindingList<SeminarAttendee> getSeminarAttendees(Seminar seminar)
         {
-            List<SeminarAttendee> seminarAttendees = new List<SeminarAttendee>();
+            BindingList<SeminarAttendee> seminarAttendees = new BindingList<SeminarAttendee>();
             using (SqlConnection conn = new SqlConnection())
             {
                 //instantiate and open new connection using DB Connection string

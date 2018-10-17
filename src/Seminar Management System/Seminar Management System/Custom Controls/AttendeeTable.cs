@@ -41,6 +41,7 @@ namespace Seminar_Management_System.Custom_Controls
             dgvAttendees.RowsRemoved += DgvAttendees_RowsRemoved;
             updateStatusLabels();
             hideRoleColumn();
+            refresh();
         }
         private void hideRoleColumn()
         {
