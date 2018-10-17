@@ -146,7 +146,25 @@ namespace Seminar_Management_System.Forms
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                DataInstance.users.Remove(userReference);
+                DataInstance.users.Remove(this.userReference); 
+                switch (userReference.Role.Name)
+                {
+                    case Role.Names.Attendee:
+                        DataInstance.deleteAttendee((SeminarAttendee)userReference);
+                        break;
+                    case Role.Names.Organiser:
+                        DataInstance.deleteOrganiser((SeminarOrganiser)userReference);
+                        break;
+                    case Role.Names.Speaker:
+                        DataInstance.deleteSpeaker((Speaker)userReference);
+                        break;
+                    case Role.Names.Admin:
+                        DataInstance.deleteAdmin((SystemAdmin)userReference);
+                        break;
+                    case Role.Names.Host:
+                        DataInstance.deleteHost((SeminarHost)userReference);
+                        break;
+                }
                 this.Close();
             }
         }

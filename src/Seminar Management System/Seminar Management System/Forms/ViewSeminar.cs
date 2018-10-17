@@ -191,6 +191,7 @@ namespace Seminar_Management_System.Forms
                 MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 DataInstance.seminars.Remove(seminarReference);
+                DataInstance.deleteSeminar(seminarReference);
                 this.Close();
             }
         }

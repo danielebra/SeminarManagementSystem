@@ -311,7 +311,7 @@ namespace Seminar_Management_System
                 conn.Open();
 
                 //Create sql command to insert new seminar into db
-                SqlCommand cmdDeleteSeminar = new SqlCommand("DELETE FROM Seminar WHERE ID = @seminarId);");
+                SqlCommand cmdDeleteSeminar = new SqlCommand("DELETE FROM Seminar WHERE ID = @seminarId;");
 
                 using (cmdDeleteSeminar)
                 {
@@ -323,6 +323,110 @@ namespace Seminar_Management_System
             }
         }
 
+        public static void deleteAttendee(SeminarAttendee attendee)
+        {
+            using (SqlConnection conn = new SqlConnection())
+            {
+                //instantiate and open new connection using DB Connection string
+                conn.ConnectionString = _connectionString;
+                conn.Open();
+
+                //Create sql command to insert new seminar into db
+                SqlCommand cmdDeleteAttendee = new SqlCommand("DELETE FROM Person WHERE ID = @attendeeId;");
+
+                using (cmdDeleteAttendee)
+                {
+                    cmdDeleteAttendee.Parameters.AddWithValue("@attendeeId", attendee.ID);
+                    cmdDeleteAttendee.Connection = conn;
+                    //Execute query
+                    cmdDeleteAttendee.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public static void deleteOrganiser(SeminarOrganiser organiser)
+        {
+            using (SqlConnection conn = new SqlConnection())
+            {
+                //instantiate and open new connection using DB Connection string
+                conn.ConnectionString = _connectionString;
+                conn.Open();
+
+                //Create sql command to insert new seminar into db
+                SqlCommand cmdDeleteOrganiser = new SqlCommand("DELETE FROM Person WHERE ID = @organiserId;");
+
+                using (cmdDeleteOrganiser)
+                {
+                    cmdDeleteOrganiser.Parameters.AddWithValue("@organiserId", organiser.ID);
+                    cmdDeleteOrganiser.Connection = conn;
+                    //Execute query
+                    cmdDeleteOrganiser.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public static void deleteSpeaker(Speaker speaker)
+        {
+            using (SqlConnection conn = new SqlConnection())
+            {
+                //instantiate and open new connection using DB Connection string
+                conn.ConnectionString = _connectionString;
+                conn.Open();
+
+                //Create sql command to insert new seminar into db
+                SqlCommand cmdDeleteSpeaker = new SqlCommand("DELETE FROM Person WHERE ID = @speakerId;");
+
+                using (cmdDeleteSpeaker)
+                {
+                    cmdDeleteSpeaker.Parameters.AddWithValue("@speakerId", speaker.ID);
+                    cmdDeleteSpeaker.Connection = conn;
+                    //Execute query
+                    cmdDeleteSpeaker.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public static void deleteAdmin(SystemAdmin systemAdmin)
+        {
+            using (SqlConnection conn = new SqlConnection())
+            {
+                //instantiate and open new connection using DB Connection string
+                conn.ConnectionString = _connectionString;
+                conn.Open();
+
+                //Create sql command to insert new seminar into db
+                SqlCommand cmdDeleteAdmin = new SqlCommand("DELETE FROM Person WHERE ID = @adminId;");
+
+                using (cmdDeleteAdmin)
+                {
+                    cmdDeleteAdmin.Parameters.AddWithValue("@adminId", systemAdmin.ID);
+                    cmdDeleteAdmin.Connection = conn;
+                    //Execute query
+                    cmdDeleteAdmin.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public static void deleteHost(SeminarHost host)
+        {
+            using (SqlConnection conn = new SqlConnection())
+            {
+                //instantiate and open new connection using DB Connection string
+                conn.ConnectionString = _connectionString;
+                conn.Open();
+
+                //Create sql command to insert new seminar into db
+                SqlCommand cmdDeleteHost = new SqlCommand("DELETE FROM Person WHERE ID = @hostId;");
+
+                using (cmdDeleteHost)
+                {
+                    cmdDeleteHost.Parameters.AddWithValue("@hostId", host.ID);
+                    cmdDeleteHost.Connection = conn;
+                    //Execute query
+                    cmdDeleteHost.ExecuteNonQuery();
+                }
+            }
+        }
         #endregion
 
         // Load mock data into memory
