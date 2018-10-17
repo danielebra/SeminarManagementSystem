@@ -152,7 +152,7 @@ namespace Seminar_Management_System.Forms
             ddOrganisers.Enabled = canEdit;
             ddRoom.Enabled = canEdit;
             datePickerSingle.Enabled = canEdit;
-            selectSpeakers1.Enabled = canEdit;
+            selectSpeakers1.editingEnabled = canEdit;
             attendeeTable1.Editable(canEdit);
         }
 

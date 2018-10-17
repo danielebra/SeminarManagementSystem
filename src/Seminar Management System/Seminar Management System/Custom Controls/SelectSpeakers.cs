@@ -20,6 +20,8 @@ namespace Seminar_Management_System.Custom_Controls
         {
             InitializeComponent();
         }
+
+        public bool editingEnabled { get; set; }
         // Expose the currently selected speakers
         public List<Speaker> SelectedSpeakers
         {
@@ -37,6 +39,8 @@ namespace Seminar_Management_System.Custom_Controls
         // Load a list of selected speakers and have it reflect in the interface
         public void setSpeakers(List<Speaker> speakers)
         {
+            bool currentEditState = this.editingEnabled;
+            this.editingEnabled = true;
             int index = 0;
             foreach (Speaker speaker in buildSpeakerListFromCheckedListBox(clbSpeakers.Items))
             {
@@ -49,6 +53,7 @@ namespace Seminar_Management_System.Custom_Controls
                 }
                 index++;
             }
+            this.editingEnabled = currentEditState;
         }
 
         public void setText(string text)
@@ -68,10 +73,19 @@ namespace Seminar_Management_System.Custom_Controls
         }
         private void SelectSpeakers_Load(object sender, EventArgs e)
         {
+            //this.editingEnabled = true;
             // Load all the Speakers and set them to unchecked
             foreach (Speaker speaker in Utils.GetAllSpeakers())
             {
                 clbSpeakers.Items.Add(speaker.Name, false);
+            }
+        }
+
+        private void clbSpeakers_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            if (!this.editingEnabled)
+            {
+                e.NewValue = e.CurrentValue;
             }
         }
     }

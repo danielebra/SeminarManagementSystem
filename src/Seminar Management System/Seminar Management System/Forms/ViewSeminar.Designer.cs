@@ -193,7 +193,7 @@
             // 
             // selectSpeakers1
             // 
-            this.selectSpeakers1.Enabled = false;
+            this.selectSpeakers1.editingEnabled = false;
             this.selectSpeakers1.Location = new System.Drawing.Point(287, 224);
             this.selectSpeakers1.Name = "selectSpeakers1";
             this.selectSpeakers1.Size = new System.Drawing.Size(214, 147);
