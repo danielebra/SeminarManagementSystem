@@ -190,9 +190,28 @@ namespace Seminar_Management_System
             seminars.Add(seminar);
         }
 
-        public static void addSeminarAttendees(Seminar seminar)
+        public static void addSeminarAttendees(Seminar seminar, SeminarAttendee attendee)
         {
+            using (SqlConnection conn = new SqlConnection())
+            {
+                //instantiate and open new connection using DB Connection string
+                conn.ConnectionString = _connectionString;
+                conn.Open();
 
+                //Create sql command to insert new seminar into db
+                SqlCommand cmdAddSeminarAttendee = new SqlCommand("insert into SeminarAttendees(SeminarID, AttendeePersonID, Status) values(@seminarId, @attendeeId, @attendeeStatus)");
+
+                using (cmdAddSeminarAttendee)
+                {
+                    //Adds parameter values for above statement
+                    cmdAddSeminarAttendee.Parameters.AddWithValue("@seminarId", seminar.ID);
+                    cmdAddSeminarAttendee.Parameters.AddWithValue("@attendeeId", attendee.ID);
+                    cmdAddSeminarAttendee.Parameters.AddWithValue("@attendeeStatus", attendee.Status);
+                    cmdAddSeminarAttendee.Connection = conn;
+                    //Execute query
+                    cmdAddSeminarAttendee.ExecuteNonQuery();
+                }
+            }
         }
 
         /// <summary>
