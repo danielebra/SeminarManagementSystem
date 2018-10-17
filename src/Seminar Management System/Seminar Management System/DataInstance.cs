@@ -124,10 +124,13 @@ namespace Seminar_Management_System
             }
         }
 
-        /// <summary>
-        /// Adds seminar to DB
-        /// </summary>
-        /// <param name="seminar"></param>
+
+        #region Add to Database
+
+
+
+
+
         public static void addSeminar(Seminar seminar)
         {
             using (SqlConnection conn = new SqlConnection())
@@ -185,7 +188,7 @@ namespace Seminar_Management_System
             users.Add(attendee);
         }
 
-        public static void addOrganiser(User seminarOrganiser)
+        public static void addOrganiser(SeminarOrganiser seminarOrganiser)
         {
             using (SqlConnection conn = new SqlConnection())
             {
@@ -237,10 +240,45 @@ namespace Seminar_Management_System
             seminarSpeaker.Role = Authentication.GetRoleFromName(Role.Names.Speaker);
         }
 
-        public static void addAdmin()
+        public static void addAdmin(SystemAdmin systemAdmin)
+        {
+            using (SqlConnection conn = new SqlConnection())
+            {
+                //instantiate and open new connection using DB Connection string
+                conn.ConnectionString = _connectionString;
+                conn.Open();
+
+                //Create sql command to insert new seminar into db
+                SqlCommand cmdAddOrganiser = new SqlCommand("INSERT INTO Person(Name, Email, PhoneNumber, IsAdmin, IsHost, IsAttendee, IsSpeaker, IsOrganiser) VALUES(@name, @email, @phoneNumber, 1, 0, 0, 0, 0);");
+
+                using (cmdAddOrganiser)
+                {
+                    //Adds parameter values for above statement
+                    cmdAddOrganiser.Parameters.AddWithValue("@name", systemAdmin.Name);
+                    cmdAddOrganiser.Parameters.AddWithValue("@email", systemAdmin.Email);
+                    cmdAddOrganiser.Parameters.AddWithValue("@phoneNumber", systemAdmin.PhoneNumber);
+                    cmdAddOrganiser.Connection = conn;
+                    //Execute query
+                    cmdAddOrganiser.ExecuteNonQuery();
+                }
+            }
+            systemAdmin.Role = Authentication.GetRoleFromName(Role.Names.Admin);
+        }
+
+        public static void addHost(SeminarHost seminarHost)
         {
 
         }
+        #endregion
+
+        #region Edit in Database
+
+        #endregion
+
+        #region Delete in Database
+
+        #endregion
+
         // Load mock data into memory
         public static void populateWithMockData()
         {
