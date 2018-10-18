@@ -108,7 +108,7 @@ namespace Seminar_Management_System
                         var organiser = Utils.GetAllOrganisers().Where(o => o.ID == (int)reader["OrganiserPersonID"]).ToList();
                         var room = rooms.Where(r => r.ID == (int)reader["VenueID"]).ToList();
 
-                        seminars.Add(new Seminar(organiser[0], room[0], Utils.GetAllSpeakers(), attendeeList, reader["Label"].ToString(), reader["Description"].ToString(), DateTime.Now, DateTime.Today));
+                        seminars.Add(new Seminar(organiser[0], room[0], Utils.GetAllSpeakers(), attendeeList, reader["Title"].ToString(), reader["Description"].ToString(), DateTime.Now, DateTime.Today));
                     }
                 }
             }

@@ -107,6 +107,7 @@ namespace Seminar_Management_System.Forms
             if (p.Name == "Biography")
             {
                 tb.Multiline = true;
+                tb.ScrollBars = ScrollBars.Both;
                 tb.Height = 200;
             }
             if (p.Name == "ID" || p.Name == "Role")

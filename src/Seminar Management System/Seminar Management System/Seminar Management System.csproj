@@ -75,6 +75,12 @@
     <Compile Include="Custom Controls\SeminarItem.Designer.cs">
       <DependentUpon>SeminarItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="Custom Controls\SpeakerDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Custom Controls\SpeakerDetail.Designer.cs">
+      <DependentUpon>SpeakerDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Custom Controls\UserItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -156,6 +162,12 @@
     <Compile Include="Forms\RegisterAttendee.Designer.cs">
       <DependentUpon>RegisterAttendee.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\SpeakerDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SpeakerDetails.Designer.cs">
+      <DependentUpon>SpeakerDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ViewSeminar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -184,6 +196,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Custom Controls\SeminarItem.resx">
       <DependentUpon>SeminarItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Custom Controls\SpeakerDetail.resx">
+      <DependentUpon>SpeakerDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Custom Controls\UserItem.resx">
       <DependentUpon>UserItem.cs</DependentUpon>
@@ -220,6 +235,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\RegisterAttendee.resx">
       <DependentUpon>RegisterAttendee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SpeakerDetails.resx">
+      <DependentUpon>SpeakerDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ViewSeminar.resx">
       <DependentUpon>ViewSeminar.cs</DependentUpon>

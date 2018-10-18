@@ -20,6 +20,7 @@ namespace Seminar_Management_System.Custom_Controls
         }
 
         // Expose the currently selected Room
+        public event EventHandler SelectionChanged;
         public Room SelectedRoom { get { return (Room)cbRooms.SelectedItem; } }
 
         public void setRoom(Room room)
@@ -33,6 +34,12 @@ namespace Seminar_Management_System.Custom_Controls
             cbRooms.DataSource = DataInstance.rooms;
             cbRooms.ValueMember = "ID";
             cbRooms.DisplayMember = "Name";
+        }
+
+        private void cbRooms_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (SelectionChanged != null)
+                SelectionChanged(this, null);
         }
     }
 }

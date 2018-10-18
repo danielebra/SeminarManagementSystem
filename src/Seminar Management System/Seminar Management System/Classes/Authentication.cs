@@ -48,7 +48,7 @@ namespace Seminar_Management_System.Classes
         // Search for a Role by its Name
         public static Role GetRoleFromName(string name)
         {
-            return Roles.Where(r => r.Name == name).First();
+            return Roles.Where(r => r.Name == name).FirstOrDefault();
         }
 
         // Search for a Role by its Privilege level

@@ -37,12 +37,14 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnRegister = new System.Windows.Forms.Button();
             this.btnTest = new System.Windows.Forms.Button();
+            this.lblCapacity = new System.Windows.Forms.Label();
             this.attendeeTable1 = new Seminar_Management_System.Custom_Controls.AttendeeTable();
             this.datePickerSingle = new Seminar_Management_System.DatePickerSingle();
             this.ddRoom = new Seminar_Management_System.Custom_Controls.RoomDropDown();
             this.ddOrganisers = new Seminar_Management_System.Custom_Controls.OrganiserDropDown();
             this.selectSpeakers1 = new Seminar_Management_System.Custom_Controls.SelectSpeakers();
             this.btnPrint = new System.Windows.Forms.Button();
+            this.btnViewSpeakers = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnEdit
@@ -103,8 +105,8 @@
             // 
             // btnOk
             // 
-            this.btnOk.Location = new System.Drawing.Point(575, 736);
-            this.btnOk.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnOk.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnOk.Location = new System.Drawing.Point(431, 598);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(100, 28);
             this.btnOk.TabIndex = 20;
@@ -130,8 +132,8 @@
             // 
             // btnRegister
             // 
-            this.btnRegister.Location = new System.Drawing.Point(809, 641);
-            this.btnRegister.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRegister.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnRegister.Location = new System.Drawing.Point(608, 571);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(100, 28);
             this.btnRegister.TabIndex = 22;
@@ -141,8 +143,8 @@
             // 
             // btnTest
             // 
-            this.btnTest.Location = new System.Drawing.Point(919, 640);
-            this.btnTest.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnTest.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnTest.Location = new System.Drawing.Point(689, 571);
             this.btnTest.Name = "btnTest";
             this.btnTest.Size = new System.Drawing.Size(100, 28);
             this.btnTest.TabIndex = 23;
@@ -150,14 +152,26 @@
             this.btnTest.UseVisualStyleBackColor = true;
             this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
             // 
+            // lblCapacity
+            // 
+            this.lblCapacity.AutoSize = true;
+            this.lblCapacity.Enabled = false;
+            this.lblCapacity.Location = new System.Drawing.Point(301, 466);
+            this.lblCapacity.Name = "lblCapacity";
+            this.lblCapacity.Size = new System.Drawing.Size(54, 13);
+            this.lblCapacity.TabIndex = 24;
+            this.lblCapacity.Text = "Capacity: ";
+            // 
             // attendeeTable1
             // 
-            this.attendeeTable1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.attendeeTable1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.attendeeTable1.AutoSize = true;
             this.attendeeTable1.Location = new System.Drawing.Point(676, 298);
             this.attendeeTable1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.attendeeTable1.Name = "attendeeTable1";
-            this.attendeeTable1.Size = new System.Drawing.Size(521, 335);
+            this.attendeeTable1.Size = new System.Drawing.Size(391, 323);
             this.attendeeTable1.TabIndex = 21;
             // 
             // datePickerSingle
@@ -172,8 +186,7 @@
             // ddRoom
             // 
             this.ddRoom.Enabled = false;
-            this.ddRoom.Location = new System.Drawing.Point(383, 508);
-            this.ddRoom.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.ddRoom.Location = new System.Drawing.Point(287, 433);
             this.ddRoom.Name = "ddRoom";
             this.ddRoom.Size = new System.Drawing.Size(253, 37);
             this.ddRoom.TabIndex = 18;
@@ -181,17 +194,15 @@
             // ddOrganisers
             // 
             this.ddOrganisers.Enabled = false;
-            this.ddOrganisers.Location = new System.Drawing.Point(383, 464);
-            this.ddOrganisers.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.ddOrganisers.Location = new System.Drawing.Point(287, 397);
             this.ddOrganisers.Name = "ddOrganisers";
             this.ddOrganisers.Size = new System.Drawing.Size(253, 37);
             this.ddOrganisers.TabIndex = 17;
             // 
             // selectSpeakers1
             // 
-            this.selectSpeakers1.Enabled = false;
-            this.selectSpeakers1.Location = new System.Drawing.Point(383, 276);
-            this.selectSpeakers1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.selectSpeakers1.editingEnabled = false;
+            this.selectSpeakers1.Location = new System.Drawing.Point(287, 224);
             this.selectSpeakers1.Name = "selectSpeakers1";
             this.selectSpeakers1.Size = new System.Drawing.Size(285, 181);
             this.selectSpeakers1.TabIndex = 16;
@@ -205,13 +216,25 @@
             this.btnPrint.Text = "Print";
             this.btnPrint.UseVisualStyleBackColor = true;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            //
+            // btnViewSpeakers
+            // 
+            this.btnViewSpeakers.Location = new System.Drawing.Point(304, 366);
+            this.btnViewSpeakers.Name = "btnViewSpeakers";
+            this.btnViewSpeakers.Size = new System.Drawing.Size(173, 23);
+            this.btnViewSpeakers.TabIndex = 25;
+            this.btnViewSpeakers.Text = "View Speaker Details";
+            this.btnViewSpeakers.UseVisualStyleBackColor = true;
+            this.btnViewSpeakers.Click += new System.EventHandler(this.btnViewSpeakers_Click);
             // 
             // ViewSeminar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1213, 779);
             this.Controls.Add(this.btnPrint);
+            this.ClientSize = new System.Drawing.Size(910, 633);
+            this.Controls.Add(this.btnViewSpeakers);
+            this.Controls.Add(this.lblCapacity);
             this.Controls.Add(this.btnTest);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.attendeeTable1);
@@ -253,5 +276,7 @@
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.Button btnTest;
         private System.Windows.Forms.Button btnPrint;
+        private System.Windows.Forms.Label lblCapacity;
+        private System.Windows.Forms.Button btnViewSpeakers;
     }
 }

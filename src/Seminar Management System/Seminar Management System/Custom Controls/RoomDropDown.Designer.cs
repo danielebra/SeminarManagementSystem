@@ -34,11 +34,13 @@
             // 
             // cbRooms
             // 
+            this.cbRooms.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbRooms.FormattingEnabled = true;
             this.cbRooms.Location = new System.Drawing.Point(66, 3);
             this.cbRooms.Name = "cbRooms";
             this.cbRooms.Size = new System.Drawing.Size(121, 21);
             this.cbRooms.TabIndex = 12;
+            this.cbRooms.SelectedIndexChanged += new System.EventHandler(this.cbRooms_SelectedIndexChanged);
             // 
             // lblRoom
             // 
