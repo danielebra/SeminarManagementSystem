@@ -139,7 +139,9 @@ namespace Seminar_Management_System
                             reader["Title"].ToString(), reader["Description"].ToString(), (DateTime)reader["StartDate"],
                             (DateTime)reader["EndDate"]);
                         newSeminar.Attendees = DataInstance.getSeminarAttendees(newSeminar);
+                        newSeminar.Speakers = getSeminarSpeakers(newSeminar);
                         seminars.Add(newSeminar);
+                        
                     }
                 }
 
@@ -178,6 +180,24 @@ namespace Seminar_Management_System
                     while (reader.Read())
                         seminarAttendees.Add(new SeminarAttendee((int)reader["ID"], reader["Name"].ToString(), reader["Email"].ToString(), reader["PhoneNumber"].ToString(), reader["Status"].ToString()));
                 return seminarAttendees;
+            }
+        }
+
+        public static List<Speaker> getSeminarSpeakers(Seminar seminar)
+        {
+            List<Speaker> seminarSpeakers = new List<Speaker>();
+            using (SqlConnection conn = new SqlConnection())
+            {
+                //instantiate and open new connection using DB Connection string
+                conn.ConnectionString = _connectionString;
+                conn.Open();
+
+                SqlCommand cmdGetSeminarAttendees = new SqlCommand("select * from SeminarSpeakers where SeminarID = " + seminar.ID, conn);
+
+                using (SqlDataReader reader = cmdGetSeminarAttendees.ExecuteReader())
+                    while (reader.Read())
+                        seminarSpeakers.Add(Utils.GetSpeakerById((int)reader["SpeakerPersonID"]));
+                return seminarSpeakers;
             }
         }
 
