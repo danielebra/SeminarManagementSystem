@@ -86,6 +86,24 @@ namespace Seminar_Management_System.Custom_Controls
             {
                 e.Cancel = true;
             }
+            else
+            {
+                SeminarAttendee attendeeToDelete = null;
+                int attendeeId = (int)dgvAttendees.Rows[dgvAttendees.CurrentCell.RowIndex].Cells[1].Value;
+                foreach(User user in seminar.Attendees)
+                {
+                    if (user.ID == attendeeId)
+                    {
+                        attendeeToDelete = (SeminarAttendee)user;
+                        break;
+                    }
+                        
+                }
+                if (attendeeToDelete != null)
+                    DataInstance.deleteSeminarAttendee(seminar, attendeeToDelete);
+                else
+                    MessageBox.Show("Error: Could not find selected attendee to delete");
+            }
         }
     }
 }

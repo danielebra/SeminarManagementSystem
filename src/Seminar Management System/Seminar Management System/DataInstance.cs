@@ -695,6 +695,28 @@ namespace Seminar_Management_System
                 }
             }
         }
+
+        public static void deleteSeminarAttendee(Seminar seminar, SeminarAttendee attendee)
+        {
+            using (SqlConnection conn = new SqlConnection())
+            {
+                //instantiate and open new connection using DB Connection string
+                conn.ConnectionString = _connectionString;
+                conn.Open();
+
+                //Create sql command to insert new seminar into db
+                SqlCommand cmdDeleteAttendee = new SqlCommand("DELETE FROM SeminarAttendees WHERE SeminarID = @seminarID AND AttendeePersonID = @attendeeId;");
+
+                using (cmdDeleteAttendee)
+                {
+                    cmdDeleteAttendee.Parameters.AddWithValue("@seminarId", seminar.ID);
+                    cmdDeleteAttendee.Parameters.AddWithValue("@attendeeId", attendee.ID);
+                    cmdDeleteAttendee.Connection = conn;
+                    //Execute query
+                    cmdDeleteAttendee.ExecuteNonQuery();
+                }
+            }
+        }
         #endregion
 
         // Load mock data into memory
