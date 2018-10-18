@@ -11,8 +11,6 @@ using Seminar_Management_System.Classes;
 using Seminar_Management_System.Classes.Users;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-using IronPdf;
-using iText;
 
 namespace Seminar_Management_System.Forms
 {
