@@ -129,7 +129,17 @@ namespace Seminar_Management_System.Forms
             foreach(Speaker speaker in Utils.GetAllSpeakers())
             {
                 foreach (Speaker selectedSpeakers in selectSpeakers1.SelectedSpeakers.Where(s => s.ID == speaker.ID))
-                    DataInstance.addSeminarSpeaker(seminarReference, speaker);
+                {
+                    try
+                    {
+                        DataInstance.addSeminarSpeaker(seminarReference, speaker);
+                    }
+                    catch
+                    {
+
+                    }
+                }
+                    
                 foreach (Speaker selectedSpeakers in selectSpeakers1.SelectedSpeakers.Where(s => s.ID != speaker.ID))
                     DataInstance.deleteSeminarSpeaker(seminarReference, speaker);
             }
