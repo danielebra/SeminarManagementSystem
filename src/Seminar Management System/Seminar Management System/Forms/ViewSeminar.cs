@@ -243,11 +243,10 @@ namespace Seminar_Management_System.Forms
             float height = 65.0F;
             // set up for handling align
             int counter = 0;
-            // background file ( need to be download before using)
-            Image background = Image.FromFile("Background.png");
+            Image background = new Bitmap(Seminar_Management_System.Properties.Resources.nametag_template);
 
             //put attendees who with "going" into a list, ready for printing nametags
-            foreach(var attendee in seminarReference.Attendees)
+            foreach (var attendee in seminarReference.Attendees)
             {
                 if(attendee.Status == "Going")
                 {

@@ -300,6 +300,8 @@
   <ItemGroup>
     <Content Include="calendar-event.ico" />
     <Content Include="presentation.ico" />
+    <None Include="Resources\nametag_template.png" />
+    <None Include="Resources\nametag_template.bmp" />
     <None Include="Resources\divider1.png" />
     <None Include="Resources\divider.png" />
     <None Include="Resources\png-divider-lines--1400.png" />
