@@ -125,6 +125,20 @@ namespace Seminar_Management_System.Forms
             seminarReference.Title = tbTitle.Text;
             seminarReference.Description = rtbDescription.Text;
 
+            //Add seminar to database here
+            foreach(Speaker speaker in Utils.GetAllSpeakers())
+            {
+                foreach (Speaker selectedSpeakers in selectSpeakers1.SelectedSpeakers.Where(s => s.ID == speaker.ID))
+                    DataInstance.addSeminarSpeaker(seminarReference, speaker);
+                foreach (Speaker selectedSpeakers in selectSpeakers1.SelectedSpeakers.Where(s => s.ID != speaker.ID))
+                    DataInstance.deleteSeminarSpeaker(seminarReference, speaker);
+            }
+                
+
+            foreach (Speaker speaker in selectSpeakers1.SelectedSpeakers)
+                DataInstance.addSeminarSpeaker(seminarReference, speaker);
+            
+
             // Used to fire observer event, as it is not triggered by ref updates
                 // This will update the seminar list interface
             DataInstance.seminars[DataInstance.seminars.IndexOf(seminarReference)] = seminarReference;

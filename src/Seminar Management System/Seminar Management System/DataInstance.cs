@@ -27,6 +27,7 @@ namespace Seminar_Management_System
         public static ObservableCollection<User> users = new ObservableCollection<User>();
         // All the seminars
         public static ObservableCollection<Seminar> seminars = new ObservableCollection<Seminar>();
+        public static BindingList<SeminarAttendee> attendeeList = new BindingList<SeminarAttendee>();
         // Connection string for connecting to AWS database
         public static string _connectionString;
         // Event that fires when the logged in user changes
@@ -115,7 +116,7 @@ namespace Seminar_Management_System
                 }
 
                 //Populate Attendees List
-                BindingList<SeminarAttendee> attendeeList = new BindingList<SeminarAttendee>();
+                
                 using (SqlDataReader reader = cmdGetAttendees.ExecuteReader())
                 {
                     while (reader.Read())
@@ -346,6 +347,29 @@ namespace Seminar_Management_System
                 }
             }
             seminarSpeaker.Role = Authentication.GetRoleFromName(Role.Names.Speaker);
+        }
+
+        public static void addSeminarSpeaker(Seminar seminar, Speaker speaker)
+        {
+            using (SqlConnection conn = new SqlConnection())
+            {
+                //instantiate and open new connection using DB Connection string
+                conn.ConnectionString = _connectionString;
+                conn.Open();
+
+                //Create sql command to insert new seminar into db
+                SqlCommand cmdAddSeminarAttendee = new SqlCommand("insert into SeminarSpeakers(SeminarID, SpeakerPersonID) values(@seminarId, @speakerId)");
+
+                using (cmdAddSeminarAttendee)
+                {
+                    //Adds parameter values for above statement
+                    cmdAddSeminarAttendee.Parameters.AddWithValue("@seminarId", seminar.ID);
+                    cmdAddSeminarAttendee.Parameters.AddWithValue("@speakerId", speaker.ID);
+                    cmdAddSeminarAttendee.Connection = conn;
+                    //Execute query
+                    cmdAddSeminarAttendee.ExecuteNonQuery();
+                }
+            }
         }
 
         /// <summary>
@@ -731,6 +755,28 @@ namespace Seminar_Management_System
                 {
                     cmdDeleteAttendee.Parameters.AddWithValue("@seminarId", seminar.ID);
                     cmdDeleteAttendee.Parameters.AddWithValue("@attendeeId", attendee.ID);
+                    cmdDeleteAttendee.Connection = conn;
+                    //Execute query
+                    cmdDeleteAttendee.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public static void deleteSeminarSpeaker(Seminar seminar, Speaker speaker)
+        {
+            using (SqlConnection conn = new SqlConnection())
+            {
+                //instantiate and open new connection using DB Connection string
+                conn.ConnectionString = _connectionString;
+                conn.Open();
+
+                //Create sql command to insert new seminar into db
+                SqlCommand cmdDeleteAttendee = new SqlCommand("DELETE FROM SeminarSpeakers WHERE SeminarID = @seminarID AND SpeakerPersonID = @speakerId;");
+
+                using (cmdDeleteAttendee)
+                {
+                    cmdDeleteAttendee.Parameters.AddWithValue("@seminarId", seminar.ID);
+                    cmdDeleteAttendee.Parameters.AddWithValue("@speakerId", speaker.ID);
                     cmdDeleteAttendee.Connection = conn;
                     //Execute query
                     cmdDeleteAttendee.ExecuteNonQuery();

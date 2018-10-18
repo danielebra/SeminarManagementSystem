@@ -106,7 +106,10 @@ namespace Seminar_Management_System.Forms
         }
         private void createAttendee()
         {
-            var newAttendee = new SeminarAttendee(seminarReference.Attendees.Last().ID+1,
+            int newAttendeesId = DataInstance.attendeeList.Last().ID + 1;
+
+            
+            var newAttendee = new SeminarAttendee(newAttendeesId,
                                                     tbName.Text,
                                                     tbEmail.Text,
                                                     tbPhoneNumber.Text,
