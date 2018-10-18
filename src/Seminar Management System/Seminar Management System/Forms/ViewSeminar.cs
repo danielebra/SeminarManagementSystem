@@ -29,7 +29,7 @@ namespace Seminar_Management_System.Forms
             attendeeTable1.Setup(ref seminar);
         }
 
-        private Seminar seminarReference { get; set; }
+        public Seminar seminarReference { get; set; }
         private const string EDIT = "Edit";
         private const string SAVE = "Save";
         
