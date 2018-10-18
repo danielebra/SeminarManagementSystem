@@ -40,6 +40,7 @@ namespace Seminar_Management_System.Forms
             populateDataFields();
             // Disable editing
             attendeeTable1.Editable(false);
+            preventAttendeeListModification();
             // Add this instance to the list of open ViewSeminar interfaces
             DataInstance.seminarInterfaceWindows.Add(this);
             ddRoom.SelectionChanged += DdRoom_SelectionChanged;
