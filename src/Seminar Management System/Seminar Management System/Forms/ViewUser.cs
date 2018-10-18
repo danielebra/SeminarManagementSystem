@@ -103,12 +103,26 @@ namespace Seminar_Management_System.Forms
                 // Create a new user object that is a user, based on previous values
                 Speaker userAsSpeaker = new Speaker(userReference.ID, userReference.Name, userReference.Email, userReference.PhoneNumber, rtbBiography.Text);
                 DataInstance.users[DataInstance.users.IndexOf(userReference)] = userAsSpeaker;
+                DataInstance.editSpeaker(userAsSpeaker);
             }
             else
             {
                 // Used to fire observer event, as it is not triggered by ref updates
                 // This will update the user list interface
-                DataInstance.users[DataInstance.users.IndexOf(userReference)] = userReference;
+                DataInstance.users[DataInstance.users.IndexOf(this.userReference)] = this.userReference;
+                //Update changes to user to DB
+                switch (userReference.Role.Name)
+                {
+                    case Role.Names.Organiser:
+                        DataInstance.editOrganiser(userReference);
+                        break;
+                    case Role.Names.Admin:
+                        DataInstance.editAdmin(userReference);
+                        break;
+                    case Role.Names.Host:
+                        DataInstance.editHost(userReference);
+                        break;
+                }
             }
         }
 
@@ -129,7 +143,7 @@ namespace Seminar_Management_System.Forms
             }
             roleDropDown1.Enabled = canEdit;
             lblBiography.Enabled = canEdit;
-            rtbBiography.ReadOnly = canEdit;
+            rtbBiography.ReadOnly = !canEdit;
         }
 
         private void enableEditing()
@@ -150,7 +164,25 @@ namespace Seminar_Management_System.Forms
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                DataInstance.users.Remove(userReference);
+                DataInstance.users.Remove(this.userReference); 
+                switch (userReference.Role.Name)
+                {
+                    case Role.Names.Attendee:
+                        DataInstance.deleteAttendee((SeminarAttendee)userReference);
+                        break;
+                    case Role.Names.Organiser:
+                        DataInstance.deleteOrganiser((SeminarOrganiser)userReference);
+                        break;
+                    case Role.Names.Speaker:
+                        DataInstance.deleteSpeaker((Speaker)userReference);
+                        break;
+                    case Role.Names.Admin:
+                        DataInstance.deleteAdmin((SystemAdmin)userReference);
+                        break;
+                    case Role.Names.Host:
+                        DataInstance.deleteHost((SeminarHost)userReference);
+                        break;
+                }
                 this.Close();
             }
         }

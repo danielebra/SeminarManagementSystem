@@ -65,5 +65,10 @@ namespace Seminar_Management_System.Classes
             return DataInstance.users.Where(u => u.GetType() == typeof(SeminarOrganiser)).Cast<SeminarOrganiser>().ToList();
         }
 
+        public static Speaker GetSpeakerById(int id)
+        {
+            return (Speaker)DataInstance.users.Where(u => u.ID == id).FirstOrDefault();
+        }
+
     }
 }

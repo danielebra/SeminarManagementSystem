@@ -64,9 +64,10 @@ namespace Seminar_Management_System
             // Load data into the program
             try
             {
-                DataInstance.populateWithMockData();
+                //DataInstance.populateWithMockData();
+                DataInstance.populateWithData();
                 DrawUserInterface();
-                //DataInstance.populateWithData();
+                
             }
             catch (Exception err)
             {

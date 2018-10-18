@@ -29,7 +29,7 @@ namespace Seminar_Management_System.Forms
             attendeeTable1.Setup(ref seminar);
         }
 
-        private Seminar seminarReference { get; set; }
+        public Seminar seminarReference { get; set; }
         private const string EDIT = "Edit";
         private const string SAVE = "Save";
         
@@ -126,9 +126,34 @@ namespace Seminar_Management_System.Forms
             seminarReference.Title = tbTitle.Text;
             seminarReference.Description = rtbDescription.Text;
 
+            //Add seminar to database here
+            foreach(Speaker speaker in Utils.GetAllSpeakers())
+            {
+                foreach (Speaker selectedSpeakers in selectSpeakers1.SelectedSpeakers.Where(s => s.ID == speaker.ID))
+                {
+                    try
+                    {
+                        DataInstance.addSeminarSpeaker(seminarReference, speaker);
+                    }
+                    catch
+                    {
+
+                    }
+                }
+                    
+                foreach (Speaker selectedSpeakers in selectSpeakers1.SelectedSpeakers.Where(s => s.ID != speaker.ID))
+                    DataInstance.deleteSeminarSpeaker(seminarReference, speaker);
+            }
+                
+
+            foreach (Speaker speaker in selectSpeakers1.SelectedSpeakers)
+                DataInstance.addSeminarSpeaker(seminarReference, speaker);
+            
+
             // Used to fire observer event, as it is not triggered by ref updates
                 // This will update the seminar list interface
             DataInstance.seminars[DataInstance.seminars.IndexOf(seminarReference)] = seminarReference;
+            DataInstance.editSeminar(seminarReference);
         }
 
         private void _enableEditing(bool canEdit)
@@ -213,6 +238,7 @@ namespace Seminar_Management_System.Forms
                 MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 DataInstance.seminars.Remove(seminarReference);
+                DataInstance.deleteSeminar(seminarReference);
                 this.Close();
             }
         }

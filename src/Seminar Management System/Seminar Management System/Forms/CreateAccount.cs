@@ -150,6 +150,24 @@ namespace Seminar_Management_System.Forms
             }
             // Add the new User to the list of Users
             DataInstance.users.Add(newUser);
+            
+            //Add the new user to the database
+            switch(newUser.Role.Name)
+            {
+                case Role.Names.Organiser:
+                    DataInstance.addOrganiser((SeminarOrganiser)newUser);
+                    break;
+                case Role.Names.Speaker:
+                    DataInstance.addSpeaker((Speaker)newUser);
+                    break;
+                case Role.Names.Admin:
+                    DataInstance.addAdmin((SystemAdmin)newUser);
+                    break;
+                case Role.Names.Host:
+                    DataInstance.addHost((SeminarHost)newUser);
+                    break;
+            }
+
             MessageBox.Show("An account for " + newUser.Name + " has been created. ",
                 "New Account Successfully Created", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

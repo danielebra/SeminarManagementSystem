@@ -26,20 +26,31 @@ namespace Seminar_Management_System.Custom_Controls
         {
             // Connect to a seminar reference
             SeminarReference = seminar;
-            lblTitle.Text = seminar.Title;
-            lblDescription.Text = seminar.Description;
-            lblDuration.Text = seminar.DurationString;
-            lblGoing.Text = "Going: " + seminar.Attendees.Where(s => s.Status == "Going").Count();
-            lblAttendeeInterested.Text = "Interested: " + seminar.Attendees.Where(s => s.Status == "Interested").Count();
-            lblDate.Text = "Date: " + seminar.StartDate.ToShortDateString();
+            this.UpdateMetrics();
 
+        }
+
+        public void UpdateMetrics()
+        {
+            lblTitle.Text = this.SeminarReference.Title;
+            lblDescription.Text = this.SeminarReference.Description;
+            lblDuration.Text = this.SeminarReference.DurationString;
+            lblGoing.Text = "Going: " + this.SeminarReference.NumberOfAttendeesGoing;
+            lblAttendeeInterested.Text = "Interested: " + this.SeminarReference.NumberOfAttendeesInterested;
+            lblDate.Text = "Date: " + this.SeminarReference.StartDate.ToShortDateString();
         }
 
         private void btnView_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             // Pass the Seminar reference to a new window to display accurate information
             ViewSeminar viewSeminar = new ViewSeminar(ref SeminarReference);
+            viewSeminar.seminarReference.Attendees.ListChanged += Attendees_ListChanged;
             viewSeminar.Show();
+        }
+
+        private void Attendees_ListChanged(object sender, ListChangedEventArgs e)
+        {
+            this.UpdateMetrics();
         }
 
         public void Resize()

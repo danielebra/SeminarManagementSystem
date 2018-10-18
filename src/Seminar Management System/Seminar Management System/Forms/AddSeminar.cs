@@ -52,7 +52,10 @@ namespace Seminar_Management_System
             seminar.Description = rtbDescription.Text;
             seminar.DurationString = datePickerSingle.DurationString;
             // Add the seminar into list of Seminars
-            DataInstance.seminars.Add(seminar);
+            //DataInstance.seminars.Add(seminar);
+            DataInstance.addSeminar(seminar);
+            // Close this screen
+            this.Close();
         }
 
         private void btnTest_Click(object sender, EventArgs e)
