@@ -16,39 +16,69 @@ namespace Seminar_Management_System.Classes
         private const float Height = 65.0f;
         private const float Width = 200.0f;
         public Bitmap nameTag { get; set; }
-        public string title { get; set; }
-
+        string title = "fuck.pdf";
         public Seminar seminarReference { get; set; }
         public NameTag(Seminar seminarReference)
         {
             this.nameTag = new Bitmap(723, 962);
-            this.title = seminarReference.Title + "-template.pdf";
             this.seminarReference = seminarReference;
 
+        }
+        private Image getTemplate()
+        {
+            return new Bitmap(Seminar_Management_System.Properties.Resources.nametag_template);
+        }
+        private void PrintNameTags()
+        {
+            // Currently not being used
+            List<SeminarAttendee> goingAttendees = this.seminarReference.Attendees.Where(a => a.Status == "Going").ToList();
+            Image template = getTemplate();
+            int distance = 135;
+            int counter = 0;
+            using (Graphics g = Graphics.FromImage(template))
+            {
+                foreach (SeminarAttendee attendee in goingAttendees)
+                {
+                    // Draw name tag to page
+                    using (Font arial = new Font("Arial", 20))
+                    {
+                        if (counter % 2 == 0)
+                        {
+                            g.DrawString(attendee.Name + "   " + attendee.PhoneNumber, arial, Brushes.Black,
+                            new RectangleF(100, 55 + distance, Width, Height));
+                        }
+                        else
+                        {
+                            g.DrawString(attendee.Name + "   " + attendee.PhoneNumber, arial, Brushes.Black,
+                            new RectangleF(400, 55 + distance, Width, Height));
+                            distance += 135;
+                        }
+                    }
+                    if (counter % NameTagsPerPage == 0)
+                    {
+                        g.Clear(Color.White);
+                        //g = Graphics.FromImage(getTemplate());
+                    }
+                    counter++;
+                }
+            }
         }
         public void Print()
         {
             // the url need to be changed before using
             // store the attendee whose status is going
-            List<SeminarAttendee> goingAttendees = new List<SeminarAttendee>();
+            List<SeminarAttendee> goingAttendees = this.seminarReference.Attendees.Where(a => a.Status == "Going").ToList();
             // store the list of pdf, ready for merging
             List<PdfDocument> PDFs = new List<PdfDocument>();
 
             // set up for handling align
             int counter = 0;
-            Image background = new Bitmap(Seminar_Management_System.Properties.Resources.nametag_template);
-
-            //put attendees who with "going" into a list, ready for printing nametags
-            foreach (var attendee in this.seminarReference.Attendees)
-            {
-                if (attendee.Status == "Going")
-                {
-                    goingAttendees.Add(attendee);
-                }
-            }
+            Image background = getTemplate();
+            
             if (goingAttendees.Count == 0)
             {
-                MessageBox.Show("There are no attendees marked as 'Going' for this Seminar.\nNo nametags will be created.", "No Attendees Going", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("There are no attendees marked as 'Going' for this Seminar.\nNo nametags will be created.", 
+                    "No Attendees Going", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             // draw the background of first page
@@ -56,7 +86,7 @@ namespace Seminar_Management_System.Classes
             {
                 g.DrawImage(background, 0, 0, 723, 962);
             }
-
+            int attendeesIteratedThrough = 0;
             foreach (var attendee in goingAttendees)
             {
                 //drawing the first page of name tags 
@@ -79,16 +109,12 @@ namespace Seminar_Management_System.Classes
                                 counter += 135;
                             }
                         }
-                        //   nameTag.Save(url);
-                        ImageToPdfConvetrer.ImageToPdf(nameTag).SaveAs(this.title);
                     }
-                    if (goingAttendees.IndexOf(attendee) == goingAttendees.Count - 1)
-                    { PDFs.Add(PdfDocument.FromFile(this.title)); }
                 }
                 else
                 {
                     // adding the pdf into pdf list, ready for merging
-                    PDFs.Add(PdfDocument.FromFile(this.title));
+                    //PDFs.Add(PdfDocument.FromFile(this.title));
                     counter = 0;
 
                     using (Graphics graphics = Graphics.FromImage(nameTag))
@@ -110,27 +136,35 @@ namespace Seminar_Management_System.Classes
                             }
                         }
                     }
-                    ImageToPdfConvetrer.ImageToPdf(nameTag).SaveAs(this.title);
-                    // print the next page if there is only one attendee 
-                    if ((goingAttendees.Count - 1) % NameTagsPerPage == 0) { PDFs.Add(PdfDocument.FromFile(this.title)); }
                 }
-            }
-            // merge multiple pdf files
-            if (PDFs.Count != 0)
-            {
-                PdfDocument result = PdfDocument.Merge(PDFs);
-                // save merged pdf in this location, need to be changed before use
-                SaveFileDialog printFile = new SaveFileDialog();
-                printFile.Filter = "Pdf Files (*.pdf) | *.pdf | All Files(*.*) | *.*";
-                printFile.Title = "Save as";
-                DialogResult dr = printFile.ShowDialog();
 
-                if (dr == DialogResult.OK)
+                attendeesIteratedThrough++;
+                if (attendeesIteratedThrough == goingAttendees.Count)
+                {
+                    var reached = true;
+                }
+                if (attendeesIteratedThrough % NameTagsPerPage == 0 || attendeesIteratedThrough == goingAttendees.Count)
+                    PDFs.Add(ImageToPdfConvetrer.ImageToPdf(nameTag).CopyPage(0));
+            }
+
+            PdfDocument result = PdfDocument.Merge(PDFs);
+            SaveFileDialog printFile = new SaveFileDialog();
+            printFile.FileName = seminarReference.Title;
+            printFile.Filter = "Pdf Files (*.pdf) | *.pdf | All Files(*.*) | *.*";
+            printFile.Title = "Save as";
+            DialogResult dr = printFile.ShowDialog();
+
+            if (dr == DialogResult.OK)
+            {
+                try
                 {
                     result.SaveAs(printFile.FileName);
+                    MessageBox.Show("Your nametag template is ready and has been saved to \n\n" + printFile.FileName, "Nametags created successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                MessageBox.Show("Your nametag template is ready.", "Nametags created successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Failed to Save", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
