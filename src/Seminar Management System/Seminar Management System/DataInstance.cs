@@ -46,6 +46,27 @@ namespace Seminar_Management_System
         // Instance of the Main interface
         public static Main mainInstance;
 
+        public static SeminarAttendee getAttendeeByEmail(string email)
+        {
+            List<SeminarAttendee> results = new List<SeminarAttendee>();
+            using (SqlConnection conn = new SqlConnection())
+            {
+                //instantiate and open new connection using DB Connection string
+                conn.ConnectionString = _connectionString;
+                conn.Open();
+                SqlCommand cmdGetAttendee = new SqlCommand("SELECT * FROM Person p WHERE p.Email = '" + email + "'", conn);
+
+                using (SqlDataReader reader = cmdGetAttendee.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        results.Add(new SeminarAttendee((int)reader["ID"], reader["Name"].ToString(), reader["Email"].ToString(), reader["PhoneNumber"].ToString()));
+                    }
+                }
+            }
+            return results.First();
+        }
+
         // Load data from AWS database
         public static void populateWithData()
         {
@@ -203,7 +224,7 @@ namespace Seminar_Management_System
                 conn.Open();
 
                 //Create sql command to insert new seminar into db
-                SqlCommand cmdAddSeminarAttendee = new SqlCommand("insert into SeminarAttendees(SeminarID, AttendeePersonID, Status) values(@seminarId, @attendeeId, @attendeeStatus)");
+                SqlCommand cmdAddSeminarAttendee = new SqlCommand("insert into SeminarAttendees(SeminarID, AttendeePersonID, Status) values(@seminarId, @attendeeId, @attendeeStatus); ");
 
                 using (cmdAddSeminarAttendee)
                 {

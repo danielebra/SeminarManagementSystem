@@ -106,14 +106,14 @@ namespace Seminar_Management_System.Forms
         }
         private void createAttendee()
         {
-            var newAttendee = new SeminarAttendee(seminarReference.Attendees.Count,
+            var newAttendee = new SeminarAttendee(seminarReference.Attendees.Last().ID+1,
                                                     tbName.Text,
                                                     tbEmail.Text,
                                                     tbPhoneNumber.Text,
                                                     cbStatus.Text);
 
             DataInstance.addAttendee(newAttendee);
-            DataInstance.addSeminarAttendees(seminarReference, newAttendee);
+            DataInstance.addSeminarAttendees(seminarReference, DataInstance.getAttendeeByEmail(newAttendee.Email));
             seminarReference.Attendees.Add(newAttendee);
             
             MessageBox.Show(newAttendee.Name + " has been registered to " + seminarReference.Title, "Successfully Registered", MessageBoxButtons.OK, MessageBoxIcon.Information);
