@@ -351,24 +351,32 @@ namespace Seminar_Management_System
 
         public static void addSeminarSpeaker(Seminar seminar, Speaker speaker)
         {
-            using (SqlConnection conn = new SqlConnection())
+            try
             {
-                //instantiate and open new connection using DB Connection string
-                conn.ConnectionString = _connectionString;
-                conn.Open();
-
-                //Create sql command to insert new seminar into db
-                SqlCommand cmdAddSeminarAttendee = new SqlCommand("insert into SeminarSpeakers(SeminarID, SpeakerPersonID) values(@seminarId, @speakerId)");
-
-                using (cmdAddSeminarAttendee)
+                using (SqlConnection conn = new SqlConnection())
                 {
-                    //Adds parameter values for above statement
-                    cmdAddSeminarAttendee.Parameters.AddWithValue("@seminarId", seminar.ID);
-                    cmdAddSeminarAttendee.Parameters.AddWithValue("@speakerId", speaker.ID);
-                    cmdAddSeminarAttendee.Connection = conn;
-                    //Execute query
-                    cmdAddSeminarAttendee.ExecuteNonQuery();
+                    //instantiate and open new connection using DB Connection string
+                    conn.ConnectionString = _connectionString;
+                    conn.Open();
+
+                    //Create sql command to insert new seminar into db
+                    SqlCommand cmdAddSeminarAttendee = new SqlCommand("insert into SeminarSpeakers(SeminarID, SpeakerPersonID) values(@seminarId, @speakerId)");
+
+                    using (cmdAddSeminarAttendee)
+                    {
+                        //Adds parameter values for above statement
+                        cmdAddSeminarAttendee.Parameters.AddWithValue("@seminarId", seminar.ID);
+                        cmdAddSeminarAttendee.Parameters.AddWithValue("@speakerId", speaker.ID);
+                        cmdAddSeminarAttendee.Connection = conn;
+                        //Execute query
+                        cmdAddSeminarAttendee.ExecuteNonQuery();
+                    }
                 }
+            
+            }
+            catch
+            {
+
             }
         }
 
