@@ -36,7 +36,6 @@
             this.btnOk = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnRegister = new System.Windows.Forms.Button();
-            this.btnTest = new System.Windows.Forms.Button();
             this.lblCapacity = new System.Windows.Forms.Label();
             this.attendeeTable1 = new Seminar_Management_System.Custom_Controls.AttendeeTable();
             this.datePickerSingle = new Seminar_Management_System.DatePickerSingle();
@@ -141,17 +140,6 @@
             this.btnRegister.UseVisualStyleBackColor = true;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
-            // btnTest
-            // 
-            this.btnTest.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnTest.Location = new System.Drawing.Point(685, 598);
-            this.btnTest.Name = "btnTest";
-            this.btnTest.Size = new System.Drawing.Size(75, 23);
-            this.btnTest.TabIndex = 23;
-            this.btnTest.Text = "Test";
-            this.btnTest.UseVisualStyleBackColor = true;
-            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
-            // 
             // lblCapacity
             // 
             this.lblCapacity.AutoSize = true;
@@ -208,7 +196,8 @@
             // 
             // btnPrint
             // 
-            this.btnPrint.Location = new System.Drawing.Point(685, 569);
+            this.btnPrint.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnPrint.Location = new System.Drawing.Point(689, 571);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(75, 23);
             this.btnPrint.TabIndex = 24;
@@ -234,7 +223,6 @@
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.btnViewSpeakers);
             this.Controls.Add(this.lblCapacity);
-            this.Controls.Add(this.btnTest);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.attendeeTable1);
             this.Controls.Add(this.btnOk);
@@ -273,7 +261,6 @@
         private System.Windows.Forms.Button btnDelete;
         private Custom_Controls.AttendeeTable attendeeTable1;
         private System.Windows.Forms.Button btnRegister;
-        private System.Windows.Forms.Button btnTest;
         private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.Label lblCapacity;
         private System.Windows.Forms.Button btnViewSpeakers;
