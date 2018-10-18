@@ -132,11 +132,19 @@ namespace Seminar_Management_System
                     while (reader.Read())
                     {
                         var organiser = Utils.GetAllOrganisers().Where(o => o.ID == (int)reader["OrganiserPersonID"]).ToList();
-                        
-
                         var room = rooms.Where(r => r.ID == (int)reader["VenueID"]).ToList();
 
-                        var newSeminar = new Seminar((int)reader["ID"], organiser[0], room[0], Utils.GetAllSpeakers(), attendeeList,
+                        SeminarOrganiser seminarOrganiser;
+                        try
+                        {
+                            seminarOrganiser = organiser.First();
+                        }
+                        catch
+                        {
+                            seminarOrganiser = null;
+                        }
+
+                        var newSeminar = new Seminar((int)reader["ID"], seminarOrganiser, room.First(), Utils.GetAllSpeakers(), attendeeList,
                             reader["Title"].ToString(), reader["Description"].ToString(), (DateTime)reader["StartDate"],
                             (DateTime)reader["EndDate"]);
                         newSeminar.Attendees = DataInstance.getSeminarAttendees(newSeminar);
