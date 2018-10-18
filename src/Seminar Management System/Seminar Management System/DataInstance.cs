@@ -215,7 +215,7 @@ namespace Seminar_Management_System
             seminars.Add(seminar);
         }
 
-        public static void addSeminarAttendees(Seminar seminar, SeminarAttendee attendee)
+        public static void addSeminarAttendees(Seminar seminar, SeminarAttendee attendee, string status)
         {
             using (SqlConnection conn = new SqlConnection())
             {
@@ -231,7 +231,7 @@ namespace Seminar_Management_System
                     //Adds parameter values for above statement
                     cmdAddSeminarAttendee.Parameters.AddWithValue("@seminarId", seminar.ID);
                     cmdAddSeminarAttendee.Parameters.AddWithValue("@attendeeId", attendee.ID);
-                    cmdAddSeminarAttendee.Parameters.AddWithValue("@attendeeStatus", attendee.Status);
+                    cmdAddSeminarAttendee.Parameters.AddWithValue("@attendeeStatus", status);
                     cmdAddSeminarAttendee.Connection = conn;
                     //Execute query
                     cmdAddSeminarAttendee.ExecuteNonQuery();

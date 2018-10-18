@@ -114,8 +114,7 @@ namespace Seminar_Management_System.Forms
 
             DataInstance.addAttendee(newAttendee);
             seminarReference.Attendees.Add(newAttendee);
-            DataInstance.addSeminarAttendees(seminarReference, DataInstance.getAttendeeByEmail(newAttendee.Email));
-            
+            DataInstance.addSeminarAttendees(seminarReference, DataInstance.getAttendeeByEmail(newAttendee.Email), newAttendee.Status);
             MessageBox.Show(newAttendee.Name + " has been registered to " + seminarReference.Title, "Successfully Registered", MessageBoxButtons.OK, MessageBoxIcon.Information);
             if (this.AttendeeRegistered != null)
                 this.AttendeeRegistered(this, new EventArgs());
