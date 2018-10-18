@@ -35,8 +35,12 @@
     <ApplicationIcon>presentation.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="IronPdf, Version=4.4.9.15720, Culture=neutral, PublicKeyToken=94e1c31412563c75, processorArchitecture=MSIL">
+      <HintPath>..\packages\IronPdf.4.4.9\lib\net40\IronPdf.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Authentication.cs" />
+    <Compile Include="Classes\NameTag.cs" />
     <Compile Include="Classes\Role.cs" />
     <Compile Include="Classes\Utils.cs" />
     <Compile Include="Custom Controls\AttendeeTable.cs">
@@ -249,6 +254,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -276,6 +282,8 @@
   <ItemGroup>
     <Content Include="calendar-event.ico" />
     <Content Include="presentation.ico" />
+    <None Include="Resources\nametag_template.png" />
+    <None Include="Resources\nametag_template.bmp" />
     <None Include="Resources\divider1.png" />
     <None Include="Resources\divider.png" />
     <None Include="Resources\png-divider-lines--1400.png" />

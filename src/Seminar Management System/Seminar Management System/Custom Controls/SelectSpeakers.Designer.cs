@@ -41,6 +41,7 @@
             this.clbSpeakers.Name = "clbSpeakers";
             this.clbSpeakers.Size = new System.Drawing.Size(186, 94);
             this.clbSpeakers.TabIndex = 0;
+            this.clbSpeakers.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.clbSpeakers_ItemCheck);
             // 
             // groupBox1
             // 

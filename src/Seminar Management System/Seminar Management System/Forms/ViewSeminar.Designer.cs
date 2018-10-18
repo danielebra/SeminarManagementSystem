@@ -36,13 +36,13 @@
             this.btnOk = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnRegister = new System.Windows.Forms.Button();
-            this.btnTest = new System.Windows.Forms.Button();
             this.lblCapacity = new System.Windows.Forms.Label();
             this.attendeeTable1 = new Seminar_Management_System.Custom_Controls.AttendeeTable();
             this.datePickerSingle = new Seminar_Management_System.DatePickerSingle();
             this.ddRoom = new Seminar_Management_System.Custom_Controls.RoomDropDown();
             this.ddOrganisers = new Seminar_Management_System.Custom_Controls.OrganiserDropDown();
             this.selectSpeakers1 = new Seminar_Management_System.Custom_Controls.SelectSpeakers();
+            this.btnPrint = new System.Windows.Forms.Button();
             this.btnViewSpeakers = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -52,6 +52,7 @@
             this.btnEdit.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEdit.Location = new System.Drawing.Point(823, 9);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(4);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(75, 23);
             this.btnEdit.TabIndex = 1;
@@ -66,6 +67,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbTitle.Location = new System.Drawing.Point(12, 5);
+            this.tbTitle.Margin = new System.Windows.Forms.Padding(4);
             this.tbTitle.Name = "tbTitle";
             this.tbTitle.ReadOnly = true;
             this.tbTitle.Size = new System.Drawing.Size(775, 40);
@@ -78,6 +80,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.rtbDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbDescription.Location = new System.Drawing.Point(12, 51);
+            this.rtbDescription.Margin = new System.Windows.Forms.Padding(4);
             this.rtbDescription.Name = "rtbDescription";
             this.rtbDescription.ReadOnly = true;
             this.rtbDescription.Size = new System.Drawing.Size(775, 167);
@@ -90,6 +93,7 @@
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.ForeColor = System.Drawing.Color.Red;
             this.btnCancel.Location = new System.Drawing.Point(823, 38);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 1;
@@ -116,6 +120,7 @@
             this.btnDelete.ForeColor = System.Drawing.Color.Red;
             this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDelete.Location = new System.Drawing.Point(823, 67);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 1;
@@ -135,17 +140,6 @@
             this.btnRegister.UseVisualStyleBackColor = true;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
-            // btnTest
-            // 
-            this.btnTest.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnTest.Location = new System.Drawing.Point(689, 571);
-            this.btnTest.Name = "btnTest";
-            this.btnTest.Size = new System.Drawing.Size(75, 23);
-            this.btnTest.TabIndex = 23;
-            this.btnTest.Text = "Test";
-            this.btnTest.UseVisualStyleBackColor = true;
-            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
-            // 
             // lblCapacity
             // 
             this.lblCapacity.AutoSize = true;
@@ -163,6 +157,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.attendeeTable1.AutoSize = true;
             this.attendeeTable1.Location = new System.Drawing.Point(507, 242);
+            this.attendeeTable1.Margin = new System.Windows.Forms.Padding(5);
             this.attendeeTable1.Name = "attendeeTable1";
             this.attendeeTable1.Size = new System.Drawing.Size(391, 323);
             this.attendeeTable1.TabIndex = 21;
@@ -171,6 +166,7 @@
             // 
             this.datePickerSingle.Enabled = false;
             this.datePickerSingle.Location = new System.Drawing.Point(12, 224);
+            this.datePickerSingle.Margin = new System.Windows.Forms.Padding(5);
             this.datePickerSingle.Name = "datePickerSingle";
             this.datePickerSingle.Size = new System.Drawing.Size(269, 277);
             this.datePickerSingle.TabIndex = 19;
@@ -193,11 +189,21 @@
             // 
             // selectSpeakers1
             // 
-            this.selectSpeakers1.Enabled = false;
             this.selectSpeakers1.Location = new System.Drawing.Point(287, 224);
             this.selectSpeakers1.Name = "selectSpeakers1";
             this.selectSpeakers1.Size = new System.Drawing.Size(214, 147);
             this.selectSpeakers1.TabIndex = 16;
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnPrint.Location = new System.Drawing.Point(689, 571);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(75, 23);
+            this.btnPrint.TabIndex = 24;
+            this.btnPrint.Text = "Print";
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // btnViewSpeakers
             // 
@@ -214,9 +220,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(910, 633);
+            this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.btnViewSpeakers);
             this.Controls.Add(this.lblCapacity);
-            this.Controls.Add(this.btnTest);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.attendeeTable1);
             this.Controls.Add(this.btnOk);
@@ -230,6 +236,7 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnEdit);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ViewSeminar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Viewing Seminar Information for Seminar Name";
@@ -254,7 +261,7 @@
         private System.Windows.Forms.Button btnDelete;
         private Custom_Controls.AttendeeTable attendeeTable1;
         private System.Windows.Forms.Button btnRegister;
-        private System.Windows.Forms.Button btnTest;
+        private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.Label lblCapacity;
         private System.Windows.Forms.Button btnViewSpeakers;
     }
