@@ -226,7 +226,12 @@ namespace Seminar_Management_System.Forms
 
         private void btnTest_Click(object sender, EventArgs e)
         {
-            this.seminarReference.Attendees.Add(new Classes.Users.SeminarAttendee(3, "oooo", "otho", "oeo"));
+            for (int i = 0; i != 50; i++)
+            {
+                string[] names = { "Tim" };//, "John", "Daniel", "James" };
+                foreach (var n in names)
+                    this.seminarReference.Attendees.Add(new Classes.Users.SeminarAttendee(3, n, i.ToString(), i.ToString(), "Going"));
+            }
         }
 
         private void ViewSeminar_FormClosing(object sender, FormClosingEventArgs e)
@@ -248,6 +253,12 @@ namespace Seminar_Management_System.Forms
                 this.Close();
         }
 
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            NameTag nt = new NameTag(this.seminarReference);
+            nt.Print();
+        }
+        
         private void btnViewSpeakers_Click(object sender, EventArgs e)
         {
             var intermediary = seminarReference;

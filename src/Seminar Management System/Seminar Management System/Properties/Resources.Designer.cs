@@ -133,6 +133,16 @@ namespace Seminar_Management_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap nametag_template {
+            get {
+                object obj = ResourceManager.GetObject("nametag_template", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap png_divider_lines__1400 {
             get {
                 object obj = ResourceManager.GetObject("png-divider-lines--1400", resourceCulture);
