@@ -52,10 +52,10 @@
             this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEdit.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnEdit.Location = new System.Drawing.Point(1097, 11);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEdit.Location = new System.Drawing.Point(823, 9);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(4);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(100, 28);
+            this.btnEdit.Size = new System.Drawing.Size(75, 23);
             this.btnEdit.TabIndex = 1;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = false;
@@ -67,11 +67,11 @@
             this.tbTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTitle.Location = new System.Drawing.Point(16, 6);
-            this.tbTitle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbTitle.Location = new System.Drawing.Point(12, 5);
+            this.tbTitle.Margin = new System.Windows.Forms.Padding(4);
             this.tbTitle.Name = "tbTitle";
             this.tbTitle.ReadOnly = true;
-            this.tbTitle.Size = new System.Drawing.Size(1032, 49);
+            this.tbTitle.Size = new System.Drawing.Size(775, 40);
             this.tbTitle.TabIndex = 2;
             this.tbTitle.Text = "Title";
             // 
@@ -80,11 +80,11 @@
             this.rtbDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.rtbDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbDescription.Location = new System.Drawing.Point(16, 63);
-            this.rtbDescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rtbDescription.Location = new System.Drawing.Point(12, 51);
+            this.rtbDescription.Margin = new System.Windows.Forms.Padding(4);
             this.rtbDescription.Name = "rtbDescription";
             this.rtbDescription.ReadOnly = true;
-            this.rtbDescription.Size = new System.Drawing.Size(1032, 205);
+            this.rtbDescription.Size = new System.Drawing.Size(775, 167);
             this.rtbDescription.TabIndex = 3;
             this.rtbDescription.Text = "Description";
             // 
@@ -93,10 +93,10 @@
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.ForeColor = System.Drawing.Color.Red;
-            this.btnCancel.Location = new System.Drawing.Point(1097, 47);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancel.Location = new System.Drawing.Point(823, 38);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(100, 28);
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 1;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -108,7 +108,7 @@
             this.btnOk.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnOk.Location = new System.Drawing.Point(431, 598);
             this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(100, 28);
+            this.btnOk.Size = new System.Drawing.Size(75, 23);
             this.btnOk.TabIndex = 20;
             this.btnOk.Text = "Close";
             this.btnOk.UseVisualStyleBackColor = true;
@@ -120,10 +120,10 @@
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.ForeColor = System.Drawing.Color.Red;
             this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDelete.Location = new System.Drawing.Point(1097, 82);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDelete.Location = new System.Drawing.Point(823, 67);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(100, 28);
+            this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 1;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -135,7 +135,7 @@
             this.btnRegister.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnRegister.Location = new System.Drawing.Point(608, 571);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(100, 28);
+            this.btnRegister.Size = new System.Drawing.Size(75, 23);
             this.btnRegister.TabIndex = 22;
             this.btnRegister.Text = "Register";
             this.btnRegister.UseVisualStyleBackColor = true;
@@ -144,9 +144,9 @@
             // btnTest
             // 
             this.btnTest.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnTest.Location = new System.Drawing.Point(689, 571);
+            this.btnTest.Location = new System.Drawing.Point(685, 598);
             this.btnTest.Name = "btnTest";
-            this.btnTest.Size = new System.Drawing.Size(100, 28);
+            this.btnTest.Size = new System.Drawing.Size(75, 23);
             this.btnTest.TabIndex = 23;
             this.btnTest.Text = "Test";
             this.btnTest.UseVisualStyleBackColor = true;
@@ -168,8 +168,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.attendeeTable1.AutoSize = true;
-            this.attendeeTable1.Location = new System.Drawing.Point(676, 298);
-            this.attendeeTable1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.attendeeTable1.Location = new System.Drawing.Point(507, 242);
+            this.attendeeTable1.Margin = new System.Windows.Forms.Padding(5);
             this.attendeeTable1.Name = "attendeeTable1";
             this.attendeeTable1.Size = new System.Drawing.Size(391, 323);
             this.attendeeTable1.TabIndex = 21;
@@ -177,10 +177,10 @@
             // datePickerSingle
             // 
             this.datePickerSingle.Enabled = false;
-            this.datePickerSingle.Location = new System.Drawing.Point(16, 276);
-            this.datePickerSingle.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.datePickerSingle.Location = new System.Drawing.Point(12, 224);
+            this.datePickerSingle.Margin = new System.Windows.Forms.Padding(5);
             this.datePickerSingle.Name = "datePickerSingle";
-            this.datePickerSingle.Size = new System.Drawing.Size(359, 341);
+            this.datePickerSingle.Size = new System.Drawing.Size(269, 277);
             this.datePickerSingle.TabIndex = 19;
             // 
             // ddRoom
@@ -188,7 +188,7 @@
             this.ddRoom.Enabled = false;
             this.ddRoom.Location = new System.Drawing.Point(287, 433);
             this.ddRoom.Name = "ddRoom";
-            this.ddRoom.Size = new System.Drawing.Size(253, 37);
+            this.ddRoom.Size = new System.Drawing.Size(190, 30);
             this.ddRoom.TabIndex = 18;
             // 
             // ddOrganisers
@@ -196,27 +196,26 @@
             this.ddOrganisers.Enabled = false;
             this.ddOrganisers.Location = new System.Drawing.Point(287, 397);
             this.ddOrganisers.Name = "ddOrganisers";
-            this.ddOrganisers.Size = new System.Drawing.Size(253, 37);
+            this.ddOrganisers.Size = new System.Drawing.Size(190, 30);
             this.ddOrganisers.TabIndex = 17;
             // 
             // selectSpeakers1
             // 
-            this.selectSpeakers1.editingEnabled = false;
             this.selectSpeakers1.Location = new System.Drawing.Point(287, 224);
             this.selectSpeakers1.Name = "selectSpeakers1";
-            this.selectSpeakers1.Size = new System.Drawing.Size(285, 181);
+            this.selectSpeakers1.Size = new System.Drawing.Size(214, 147);
             this.selectSpeakers1.TabIndex = 16;
             // 
             // btnPrint
             // 
-            this.btnPrint.Location = new System.Drawing.Point(1042, 640);
+            this.btnPrint.Location = new System.Drawing.Point(685, 569);
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(85, 29);
+            this.btnPrint.Size = new System.Drawing.Size(75, 23);
             this.btnPrint.TabIndex = 24;
             this.btnPrint.Text = "Print";
             this.btnPrint.UseVisualStyleBackColor = true;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
-            //
+            // 
             // btnViewSpeakers
             // 
             this.btnViewSpeakers.Location = new System.Drawing.Point(304, 366);
@@ -229,10 +228,10 @@
             // 
             // ViewSeminar
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btnPrint);
             this.ClientSize = new System.Drawing.Size(910, 633);
+            this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.btnViewSpeakers);
             this.Controls.Add(this.lblCapacity);
             this.Controls.Add(this.btnTest);
@@ -249,7 +248,7 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnEdit);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ViewSeminar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Viewing Seminar Information for Seminar Name";
