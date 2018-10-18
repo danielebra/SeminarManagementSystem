@@ -89,6 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Authentication.cs" />
+    <Compile Include="Classes\NameTag.cs" />
     <Compile Include="Classes\Privilege.cs" />
     <Compile Include="Classes\Role.cs" />
     <Compile Include="Classes\Utils.cs" />
